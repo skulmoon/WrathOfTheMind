@@ -11,7 +11,7 @@ public partial class Player : CharacterBody2D
 
     [Export] public int GridSize { get; set; } = 32;
     [Export] public float Speed { get; set; } = 100;
-    [Export] public float Acceleration { get; set; } = 2;
+    [Export] public float Acceleration { get; set; } = 2; //123
 
     public override void _Ready()
     {
