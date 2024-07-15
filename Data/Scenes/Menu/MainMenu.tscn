@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds7edorou0j7f"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Menu/ButtonLoad.cs" id="1_ysdp8"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainButtons" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 470.0
+offset_bottom = 240.0
+
+[node name="ButtonNew" type="Button" parent="MainButtons"]
+custom_minimum_size = Vector2(20, 100)
+layout_mode = 2
+offset_right = 450.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 32
+text = "Новая игра"
+
+[node name="ButtonLoad" type="Button" parent="MainButtons"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+offset_top = 120.0
+offset_right = 450.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 32
+text = "Загрузить игру"
+script = ExtResource("1_ysdp8")
+
+[node name="ServiceButtons" type="Control" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -470.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 240.0
+grow_horizontal = 0
+auto_translate = false
+
+[node name="ButtonOptions" type="Button" parent="ServiceButtons"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+offset_right = 450.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 32
+text = "Настройки"
+
+[node name="ButtonCaptions" type="Button" parent="ServiceButtons"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+offset_top = 120.0
+offset_right = 450.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 32
+text = "Титры"
+
+[connection signal="pressed" from="MainButtons/ButtonLoad" to="MainButtons/ButtonLoad" method="OnPressed"]
