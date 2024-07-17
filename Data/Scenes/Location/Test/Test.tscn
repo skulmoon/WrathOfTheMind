@@ -1,23 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctqxigx0pnffx"]
+[gd_scene load_steps=7 format=3 uid="uid://ctqxigx0pnffx"]
 
 [ext_resource type="PackedScene" uid="uid://dhgr62sao2gjo" path="res://Data/Scenes/Entities/Player.tscn" id="1_55ir5"]
 [ext_resource type="Texture2D" uid="uid://bclj1hk5dv28p" path="res://Data/Textures/TestWall.png" id="1_bo4ao"]
+[ext_resource type="PackedScene" uid="uid://cefl4x2mtqkxo" path="res://Data/Scenes/Entities/npc.tscn" id="3_jin1l"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l1md0"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b0dpe"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nlmi4"]
 texture = ExtResource("1_bo4ao")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:0/0/physics_layer_0/polygon_0/one_way_margin = 3.0
 
 [sub_resource type="TileSet" id="TileSet_xi5rf"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 4
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_l1md0")
-sources/0 = SubResource("TileSetAtlasSource_b0dpe")
+sources/0 = SubResource("TileSetAtlasSource_nlmi4")
 
 [node name="Test" type="Node2D"]
 
@@ -25,7 +28,10 @@ sources/0 = SubResource("TileSetAtlasSource_b0dpe")
 tile_set = SubResource("TileSet_xi5rf")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0)
+layer_0/tile_data = PackedInt32Array(131073, 0, 0, 131074, 0, 0, 131075, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_55ir5")]
 position = Vector2(16, 16)
+
+[node name="NPC" parent="." instance=ExtResource("3_jin1l")]
+position = Vector2(80, 48)

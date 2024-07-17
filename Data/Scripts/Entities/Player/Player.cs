@@ -3,6 +3,7 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
+    private PlayerInteractionArea _interactionArea;
     private Vector2 _targetPosition;
     private Vector2 _startPosition;
     private Vector2 _keyVector;
@@ -16,6 +17,8 @@ public partial class Player : CharacterBody2D
     public override void _Ready()
     {
         _targetPosition = Position;
+        GD.Print("Ready.");
+        _interactionArea = GetNode<PlayerInteractionArea>("PlayerInteractionArea");
     }
 
     public override void _PhysicsProcess(double delta)
@@ -94,5 +97,6 @@ public partial class Player : CharacterBody2D
         _isMoving = true;
         _targetPosition += direction * GridSize;
         _startPosition = Position;
-    }
+        _interactionArea.PayerDirection = direction;
+    }   
 }

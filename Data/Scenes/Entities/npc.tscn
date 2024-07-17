@@ -1,9 +1,32 @@
-[gd_scene format=3 uid="uid://cefl4x2mtqkxo"]
+[gd_scene load_steps=5 format=3 uid="uid://cefl4x2mtqkxo"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Entities/NPC/NPCInteractionArea.cs" id="1_m0ics"]
+[ext_resource type="Texture2D" uid="uid://po03cr5rvpyk" path="res://icon.svg" id="2_xxrsk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnw3c"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbmfe"]
+size = Vector2(32, 32)
 
 [node name="NPC" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jnw3c")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="NPCInteractionArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_m0ics")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCInteractionArea"]
+shape = SubResource("RectangleShape2D_mbmfe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.249634, 0.249788)
+texture = ExtResource("2_xxrsk")
+
+[connection signal="area_entered" from="NPCInteractionArea" to="NPCInteractionArea" method="OnAreaEntered"]
+[connection signal="area_exited" from="NPCInteractionArea" to="NPCInteractionArea" method="OnAreaExited"]
