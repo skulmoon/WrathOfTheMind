@@ -23,13 +23,9 @@ public partial class PlayerInteractionArea : Area2D
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("interact"))
+        if (Input.IsActionJustPressed("interact") && (_interactionArea != null))
         {
-            try
-            {
                 _interactionArea.InteractionWithNPC();
-            }
-            catch { }
         }
     }
 

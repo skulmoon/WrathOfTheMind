@@ -37,3 +37,4 @@ scale = Vector2(0.0625, 0.0625)
 texture = ExtResource("2_gtofp")
 
 [connection signal="area_entered" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaEntered"]
+[connection signal="area_exited" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaExited"]
