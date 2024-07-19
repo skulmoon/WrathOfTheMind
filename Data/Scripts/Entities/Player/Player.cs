@@ -17,7 +17,6 @@ public partial class Player : CharacterBody2D
     public override void _Ready()
     {
         _targetPosition = Position;
-        GD.Print("Ready.");
         _interactionArea = GetNode<PlayerInteractionArea>("PlayerInteractionArea");
     }
 

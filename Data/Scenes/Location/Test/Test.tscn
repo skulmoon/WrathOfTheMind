@@ -35,3 +35,4 @@ position = Vector2(16, 16)
 
 [node name="NPC" parent="." instance=ExtResource("3_jin1l")]
 position = Vector2(80, 48)
+NPCInteractionPath = "res://Data/Scripts/Entities/NPC/Vitalik/VitalikInteractionArea.cs"

@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cefl4x2mtqkxo"]
+[gd_scene load_steps=6 format=3 uid="uid://cefl4x2mtqkxo"]
 
+[ext_resource type="Script" path="res://Data/Scripts/Entities/NPC/npc.cs" id="1_kxjru"]
 [ext_resource type="Script" path="res://Data/Scripts/Entities/NPC/NPCInteractionArea.cs" id="1_m0ics"]
 [ext_resource type="Texture2D" uid="uid://po03cr5rvpyk" path="res://icon.svg" id="2_xxrsk"]
 
@@ -12,6 +13,7 @@ size = Vector2(32, 32)
 [node name="NPC" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 4
+script = ExtResource("1_kxjru")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jnw3c")
@@ -27,6 +29,3 @@ shape = SubResource("RectangleShape2D_mbmfe")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.249634, 0.249788)
 texture = ExtResource("2_xxrsk")
-
-[connection signal="area_entered" from="NPCInteractionArea" to="NPCInteractionArea" method="OnAreaEntered"]
-[connection signal="area_exited" from="NPCInteractionArea" to="NPCInteractionArea" method="OnAreaExited"]
