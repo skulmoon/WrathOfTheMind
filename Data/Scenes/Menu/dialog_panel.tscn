@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://n27vr12tgglv"]
+
+[ext_resource type="Texture2D" uid="uid://bbaqsxt1042nt" path="res://Data/Textures/DialogPanel.png" id="1_2v5d3"]
+[ext_resource type="FontFile" uid="uid://duujkooiloeae" path="res://Data/Textures/Recreate.ttf" id="2_h37qj"]
+
+[node name="DialogPanel" type="NinePatchRect"]
+offset_left = 18.0
+offset_top = 338.0
+offset_right = 1129.0
+offset_bottom = 629.0
+texture = ExtResource("1_2v5d3")
+patch_margin_left = 126
+patch_margin_top = 116
+patch_margin_right = 128
+patch_margin_bottom = 126
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 1080.0
+offset_bottom = 260.0
+theme_override_fonts/normal_font = ExtResource("2_h37qj")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true

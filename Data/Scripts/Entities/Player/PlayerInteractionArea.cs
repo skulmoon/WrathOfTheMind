@@ -31,11 +31,7 @@ public partial class PlayerInteractionArea : Area2D
 
     public void OnAreaEntered(Area2D interactionArea)
     {
-        try
-        {
-            _interactionArea = (NPCInteractionArea)interactionArea;
-        }
-        catch { }
+        _interactionArea = interactionArea as NPCInteractionArea;
     }
 
     public void OnAreaExited(Area2D interactionArea)
