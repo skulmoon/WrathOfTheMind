@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckws2xxgrk8vm"]
+
+[ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/dialog_panel.tscn" id="1_1cday"]
+
+[node name="Interface" type="CanvasLayer"]
+
+[node name="DialogPanel" parent="." instance=ExtResource("1_1cday")]
+visible = false

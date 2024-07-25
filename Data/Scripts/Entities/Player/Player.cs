@@ -10,7 +10,6 @@ public partial class Player : CharacterBody2D
     private string _pressedKey = "nothing";
     private bool _isMoving = false;
 
-    [Export] public int GridSize { get; set; } = 32;
     [Export] public float Speed { get; set; } = 100;
     [Export] public float Acceleration { get; set; } = 2;
 
@@ -94,7 +93,7 @@ public partial class Player : CharacterBody2D
     private void SetTargetPosition(Vector2 direction)
     {
         _isMoving = true;
-        _targetPosition += direction * GridSize;
+        _targetPosition += direction * Global.Settings.GridSize;
         _startPosition = Position;
         _interactionArea.PayerDirection = direction;
     }   
