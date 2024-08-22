@@ -17,6 +17,7 @@ public partial class Player : CharacterBody2D
     {
         _targetPosition = Position;
         _interactionArea = GetNode<PlayerInteractionArea>("PlayerInteractionArea");
+        Global.Settings.Player = this;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -25,7 +26,7 @@ public partial class Player : CharacterBody2D
         {
             MoveTowardsTarget(delta);
         }
-        else
+        else if (!Global.Settings.CutScene)
         {
             HandleInput();
         }

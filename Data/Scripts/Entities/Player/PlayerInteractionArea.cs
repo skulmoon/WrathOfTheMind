@@ -4,7 +4,7 @@ using System;
 public partial class PlayerInteractionArea : Area2D
 {
     private Vector2 _playerDirection = new(0, 1);
-    private NPCInteractionArea _interactionArea;
+    private IInteractionArea _interactionArea;
 
     public Vector2 PayerDirection
     {
@@ -21,15 +21,15 @@ public partial class PlayerInteractionArea : Area2D
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("interact") && (_interactionArea != null))
+        if (Input.IsActionJustPressed("interact") && (_interactionArea != null) && !Global.Settings.CutScene)
         {
-                _interactionArea.InteractionWithNPC();
+            _interactionArea.Interaction();
         }
     }
 
     public void OnAreaEntered(Area2D interactionArea)
     {
-        _interactionArea = interactionArea as NPCInteractionArea;
+        _interactionArea = interactionArea as IInteractionArea;
     }
 
     public void OnAreaExited(Area2D interactionArea)

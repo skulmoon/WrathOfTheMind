@@ -1,6 +1,17 @@
 [
 	{"NPCID" : 1, "DialogueNumber" : 1, "Speech" : [
-		"Hello, I am Vitalik.",
-		"It's really hard day..."
-	]}
+		{"Name" : "Vitalik", "Text" : "Hello, I am Vitalik.", "Image" : "res://icon.svg"},
+		{"Name" : "Vitalik", "Text" : "It's really hard day...", "Image" : "res://icon.svg"},
+	], "Options" : [
+		{"NextDialogue" : 2, "OptionText" : "Aspect"},
+		{"NextDialogue" : 3, "OptionText" : "Refuse"}
+	]},
+	
+	{"NPCID" : 1, "DialogueNumber" : 2, "Speech" : [
+		{"Name" : "Vitalik", "Text" : "You are really worker, kido!", "Image" : "res://icon.svg"},
+	]},
+	
+	{"NPCID" : 1, "DialogueNumber" : 3, "Speech" : [
+		{"Name" : "Vitalik", "Text" : "Okay.", "Image" : "res://icon.svg"},
+	]},
 ]

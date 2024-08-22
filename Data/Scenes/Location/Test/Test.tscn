@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctqxigx0pnffx"]
+[gd_scene load_steps=10 format=3 uid="uid://ctqxigx0pnffx"]
 
 [ext_resource type="PackedScene" uid="uid://dhgr62sao2gjo" path="res://Data/Scenes/Entities/Player.tscn" id="1_55ir5"]
 [ext_resource type="Texture2D" uid="uid://bclj1hk5dv28p" path="res://Data/Textures/TestWall.png" id="1_bo4ao"]
 [ext_resource type="PackedScene" uid="uid://ckws2xxgrk8vm" path="res://Data/Scenes/Menu/Interface.tscn" id="1_t1nlg"]
+[ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/dialog_panel.tscn" id="2_qtey2"]
 [ext_resource type="PackedScene" uid="uid://cefl4x2mtqkxo" path="res://Data/Scenes/Entities/npc.tscn" id="3_jin1l"]
 [ext_resource type="PackedScene" uid="uid://dp8x22mkdiil8" path="res://Data/Scenes/Menu/Camera.tscn" id="3_nx0gt"]
 
@@ -27,6 +28,9 @@ sources/0 = SubResource("TileSetAtlasSource_nlmi4")
 [node name="Test" type="Node2D"]
 
 [node name="Interface" parent="." instance=ExtResource("1_t1nlg")]
+
+[node name="DialogPanel" parent="Interface" instance=ExtResource("2_qtey2")]
+visible = false
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xi5rf")
