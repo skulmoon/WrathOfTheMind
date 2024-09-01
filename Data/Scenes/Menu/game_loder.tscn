@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxj1rcbm4s2bx"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Menu/GameLoader/GameLoader.cs" id="1_abvw8"]
+
+[node name="GameLoader" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_abvw8")
+
+[node name="Options" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.02
+anchor_top = 0.85
+anchor_right = 0.98
+anchor_bottom = 0.965
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Exit" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+text = "Выйти"
+
+[node name="Load" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_right = 0.65
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Загрузить"
+
+[node name="Delete" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Удалить"
+
+[node name="Saves" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.035
+anchor_right = 0.98
+anchor_bottom = 0.8
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Saves"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

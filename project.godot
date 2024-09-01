@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Data/Scripts/GlobalSettings/Global.cs"
+Global="*res://Data/Scripts/Global/Global.cs"
 
 [dotnet]
 

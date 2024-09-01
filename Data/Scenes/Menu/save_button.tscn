@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://lw4m12u6wxrh"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Menu/GameLoader/SaveButtons.cs" id="1_kgdmi"]
+
+[node name="SaveButton" type="Button"]
+custom_minimum_size = Vector2(0, 64)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -986.0
+offset_bottom = -584.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kgdmi")

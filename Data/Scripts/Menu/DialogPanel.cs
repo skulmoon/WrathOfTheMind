@@ -7,35 +7,35 @@ using System.Threading;
 public partial class DialogPanel : NinePatchRect
 {
 	private DialogText _dialogText;
-    private List<IDAndText> _speech;
-    private List<Options> _options;
+    private NPCDialogue _dialogue;
     private bool _startDialog = false;
     private int[] _numberOptions = new int[5];
     private int _currentDialog = 0;
-    private int _npcID;
 
     public override void _Ready()
     {
         _dialogText = GetNode<RichTextLabel>("DialogText") as DialogText;
-        Global.DialogueManager.DialoguePanel = this;
+        Global.SceneObjects.DialoguePanel = this;
     }
 
-    public void OutputSpeech(List<IDAndText> speech, List<Options> options, int npcID)
+    public void OutputSpeech(NPCDialogue dialogue)
     {
-        if (_speech == null)
+        if (_dialogue == null)
         {
             _dialogText.ClearText();
-            _speech = speech;
-            _options = options;
-            _npcID = npcID;
+            _dialogue = dialogue;
+            //_dialogue.DialogueNumber = dialogue.DialogueNumber;
+            //_dialogue.Options = dialogue.Options;
+            //_dialogue.Speech = dialogue.Speech;
+            //_dialogue.NPCID = dialogue.NPCID;
             _dialogText.CurrentPosition = 0;
             _currentDialog = 0;
             Visible = true;
             Global.Settings.CutScene = true;
-            _dialogText.Text = $"{_speech[_currentDialog].Name}:\n  {_speech[_currentDialog].Text}";
+            _dialogText.Text = $"{_dialogue.Speech[_currentDialog].Name}:\n  {_dialogue.Speech[_currentDialog].Text}";
         }
         else
-            _speech = null;
+            _dialogue = null;
     }
 
     public override void _Input(InputEvent @event)
@@ -54,27 +54,29 @@ public partial class DialogPanel : NinePatchRect
             {
                 _dialogText.Control.Visible = false;
                 _currentDialog = 0;
-                _speech = null;
-                Global.DialogueManager.GetDialogue(_npcID, _numberOptions[_dialogText.CurrentPosition]);
+                int NPCID = _dialogue.NPCID;
+                int DialogueNumber = _dialogue.DialogueNumber;
+                _dialogue = null;
+                Global.DialogueManager.GetDialogue(NPCID, _numberOptions[_dialogText.CurrentPosition], DialogueNumber);
             }
         }
         else if (Visible && @event.IsActionPressed("interact")) 
         {
-            if (_currentDialog < _speech.Count-1)
+            if (_currentDialog < _dialogue.Speech.Count-1)
             {
                 _currentDialog++;
-                _dialogText.Text = $"{_speech[_currentDialog].Name}:\n  {_speech[_currentDialog].Text}";
+                _dialogText.Text = $"{_dialogue.Speech[_currentDialog].Name}:\n  {_dialogue.Speech[_currentDialog].Text}";
             }
-            else if (_options != null)
+            else if (_dialogue.Options != null)
             {
                 _dialogText.Text = "";
                 _dialogText.Control.Visible = true;
-                _dialogText.CountOfOptions = _options.Count;
+                _dialogText.CountOfOptions = _dialogue.Options.Count;
 
                 for (int i = 0; i < _dialogText.CountOfOptions; i++)
                 {
-                    _dialogText.OptionsText[i].Text = _options[i].OptionText;
-                    _numberOptions[i] = _options[i].NextDialogue;
+                    _dialogText.OptionsText[i].Text = _dialogue.Options[i].OptionText;
+                    _numberOptions[i] = _dialogue.Options[i].NextDialogue;
                 }
             }
             else

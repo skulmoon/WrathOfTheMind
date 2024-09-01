@@ -4,20 +4,23 @@ using System;
 public partial class Player : CharacterBody2D
 {
     private PlayerInteractionArea _interactionArea;
-    private Vector2 _targetPosition;
     private Vector2 _startPosition;
     private Vector2 _keyVector;
     private string _pressedKey = "nothing";
     private bool _isMoving = false;
 
+    [Export] public Vector2 TargetPosition { get; set; }
     [Export] public float Speed { get; set; } = 100;
     [Export] public float Acceleration { get; set; } = 2;
 
     public override void _Ready()
     {
-        _targetPosition = Position;
+        TargetPosition = Position;
         _interactionArea = GetNode<PlayerInteractionArea>("PlayerInteractionArea");
-        Global.Settings.Player = this;
+        Global.SceneObjects.Player = this;
+        TargetPosition = Global.Settings.CurrentTargetPosition;
+        Position = Global.Settings.CurrentPosition;
+
     }
 
     public override void _PhysicsProcess(double delta)
@@ -65,19 +68,19 @@ public partial class Player : CharacterBody2D
         if (Input.IsActionPressed("acceleration"))
             delta *= Acceleration;
 
-        Vector2 direction = (_targetPosition - Position).Normalized();
+        Vector2 direction = (TargetPosition - Position).Normalized();
         var collided = MoveAndCollide(direction * Speed * (float)delta);
 
         if (collided != null)
         {
             _isMoving = false;
-            _targetPosition = _startPosition;
+            TargetPosition = _startPosition;
             Position = _startPosition;
         }
 
-        if (Position.DistanceTo(_targetPosition) < Speed * (float)delta)
+        if (Position.DistanceTo(TargetPosition) < Speed * (float)delta)
         {
-            Position = _targetPosition;
+            Position = TargetPosition;
             _isMoving = false;
         }
     }
@@ -94,7 +97,7 @@ public partial class Player : CharacterBody2D
     private void SetTargetPosition(Vector2 direction)
     {
         _isMoving = true;
-        _targetPosition += direction * Global.Settings.GridSize;
+        TargetPosition += direction * Global.Settings.GridSize;
         _startPosition = Position;
         _interactionArea.PayerDirection = direction;
     }   

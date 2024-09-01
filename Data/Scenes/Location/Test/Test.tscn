@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctqxigx0pnffx"]
+[gd_scene load_steps=11 format=3 uid="uid://ctqxigx0pnffx"]
 
 [ext_resource type="PackedScene" uid="uid://dhgr62sao2gjo" path="res://Data/Scenes/Entities/Player.tscn" id="1_55ir5"]
 [ext_resource type="Texture2D" uid="uid://bclj1hk5dv28p" path="res://Data/Textures/TestWall.png" id="1_bo4ao"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/dialog_panel.tscn" id="2_qtey2"]
 [ext_resource type="PackedScene" uid="uid://cefl4x2mtqkxo" path="res://Data/Scenes/Entities/npc.tscn" id="3_jin1l"]
 [ext_resource type="PackedScene" uid="uid://dp8x22mkdiil8" path="res://Data/Scenes/Menu/Camera.tscn" id="3_nx0gt"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/ButtonExit.cs" id="6_ji0fd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l1md0"]
 
@@ -38,12 +39,23 @@ rendering_quadrant_size = 32
 format = 2
 layer_0/tile_data = PackedInt32Array(131073, 0, 0, 131074, 0, 0, 131075, 0, 0)
 
+[node name="NPC" parent="." instance=ExtResource("3_jin1l")]
+position = Vector2(80, 48)
+scale = Vector2(1.00671, 1)
+NPCInteractionPath = "res://Data/Scripts/Entities/NPC/Vitalik/VitalikInteractionArea.cs"
+
 [node name="Player" parent="." instance=ExtResource("1_55ir5")]
 position = Vector2(16, 16)
 
 [node name="Camera" parent="Player" instance=ExtResource("3_nx0gt")]
 position = Vector2(0, 0)
 
-[node name="NPC" parent="." instance=ExtResource("3_jin1l")]
-position = Vector2(80, 48)
-NPCInteractionPath = "res://Data/Scripts/Entities/NPC/Vitalik/VitalikInteractionArea.cs"
+[node name="ButtonExit" type="Button" parent="Player"]
+offset_left = 531.0
+offset_top = -310.0
+offset_right = 566.0
+offset_bottom = -279.0
+text = "*"
+script = ExtResource("6_ji0fd")
+
+[connection signal="pressed" from="Player/ButtonExit" to="Player/ButtonExit" method="OnPressed"]

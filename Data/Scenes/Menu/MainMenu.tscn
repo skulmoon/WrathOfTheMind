@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ds7edorou0j7f"]
+[gd_scene load_steps=3 format=3 uid="uid://ds7edorou0j7f"]
 
-[ext_resource type="Script" path="res://Data/Scripts/Menu/ButtonLoad.cs" id="1_ysdp8"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/MainMenu/ButtonNew.cs" id="1_620di"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/MainMenu/ButtonLoad.cs" id="1_ysdp8"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -25,6 +26,7 @@ offset_right = 450.0
 offset_bottom = 100.0
 theme_override_font_sizes/font_size = 32
 text = "Новая игра"
+script = ExtResource("1_620di")
 
 [node name="ButtonLoad" type="Button" parent="MainButtons"]
 custom_minimum_size = Vector2(0, 100)
@@ -66,4 +68,5 @@ offset_bottom = 220.0
 theme_override_font_sizes/font_size = 32
 text = "Титры"
 
+[connection signal="pressed" from="MainButtons/ButtonNew" to="MainButtons/ButtonNew" method="OnPressed"]
 [connection signal="pressed" from="MainButtons/ButtonLoad" to="MainButtons/ButtonLoad" method="OnPressed"]

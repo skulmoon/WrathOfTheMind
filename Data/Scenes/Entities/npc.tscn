@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cefl4x2mtqkxo"]
 
 [ext_resource type="Script" path="res://Data/Scripts/Entities/NPC/npc.cs" id="1_kxjru"]
-[ext_resource type="Script" path="res://Data/Scenes/Entities/InteractionDefault.cs" id="2_4ug31"]
+[ext_resource type="Script" path="res://Data/Scripts/Entities/NPC/InteractionDefault.cs" id="2_fx5x8"]
 [ext_resource type="Texture2D" uid="uid://po03cr5rvpyk" path="res://icon.svg" id="2_xxrsk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnw3c"]
@@ -21,7 +21,7 @@ shape = SubResource("RectangleShape2D_jnw3c")
 [node name="NPCInteractionArea" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 8
-script = ExtResource("2_4ug31")
+script = ExtResource("2_fx5x8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCInteractionArea"]
 shape = SubResource("RectangleShape2D_mbmfe")
