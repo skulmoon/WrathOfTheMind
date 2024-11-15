@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://csk5sf4l0bh1d"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Inventory/Cell.cs" id="1_ldybi"]
+
+[node name="Cell" type="Button"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+button_mask = 3
+script = ExtResource("1_ldybi")

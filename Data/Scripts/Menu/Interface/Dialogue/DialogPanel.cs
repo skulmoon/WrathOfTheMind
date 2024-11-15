@@ -1,4 +1,4 @@
-using Godot;
+﻿using Godot;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -6,7 +6,7 @@ using System.Threading;
 
 public partial class DialogPanel : NinePatchRect
 {
-	private DialogText _dialogText;
+    private DialogText _dialogText;
     private NPCDialogue _dialogue;
     private bool _startDialog = false;
     private int[] _numberOptions = new int[5];
@@ -20,22 +20,19 @@ public partial class DialogPanel : NinePatchRect
 
     public void OutputSpeech(NPCDialogue dialogue)
     {
-        if (_dialogue == null)
+        if (_dialogue != null)
         {
-            _dialogText.ClearText();
-            _dialogue = dialogue;
-            //_dialogue.DialogueNumber = dialogue.DialogueNumber;
-            //_dialogue.Options = dialogue.Options;
-            //_dialogue.Speech = dialogue.Speech;
-            //_dialogue.NPCID = dialogue.NPCID;
-            _dialogText.CurrentPosition = 0;
-            _currentDialog = 0;
-            Visible = true;
-            Global.Settings.CutScene = true;
-            _dialogText.Text = $"{_dialogue.Speech[_currentDialog].Name}:\n  {_dialogue.Speech[_currentDialog].Text}";
-        }
-        else
             _dialogue = null;
+            return;
+        }
+        _dialogText.ClearText();
+        _dialogue = dialogue;
+        _dialogText.CurrentPosition = 0;
+        _currentDialog = 0;
+        Visible = true;
+        Global.Settings.CutScene = true;
+        _dialogText.PrintText(_dialogue.Speech[_currentDialog].Text, _dialogue.Speech[_currentDialog].Name);
+        _currentDialog++;
     }
 
     public override void _Input(InputEvent @event)
@@ -57,15 +54,22 @@ public partial class DialogPanel : NinePatchRect
                 int NPCID = _dialogue.NPCID;
                 int DialogueNumber = _dialogue.DialogueNumber;
                 _dialogue = null;
-                Global.DialogueManager.GetDialogue(NPCID, _numberOptions[_dialogText.CurrentPosition], DialogueNumber);
+                Global.Dialogue.GetDialogue(NPCID, _numberOptions[_dialogText.CurrentPosition], DialogueNumber);
+                _dialogText.PrintText(_dialogue.Speech[_currentDialog].Text, _dialogue.Speech[_currentDialog].Name);
+                _currentDialog++;
             }
         }
-        else if (Visible && @event.IsActionPressed("interact")) 
+        else if (Visible && @event.IsActionPressed("interact"))
         {
-            if (_currentDialog < _dialogue.Speech.Count-1)
+            GD.Print(1);
+            if (_dialogText.IsPrinting)
             {
+                _dialogText.StopPrinting();
+            }
+            else if (_currentDialog < _dialogue.Speech.Count)
+            {
+                _dialogText.PrintText(_dialogue.Speech[_currentDialog].Text, _dialogue.Speech[_currentDialog].Name);
                 _currentDialog++;
-                _dialogText.Text = $"{_dialogue.Speech[_currentDialog].Name}:\n  {_dialogue.Speech[_currentDialog].Text}";
             }
             else if (_dialogue.Options != null)
             {

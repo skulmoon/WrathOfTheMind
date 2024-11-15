@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt0sehtf5tyrr"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Inventory/States/StaticCellState.cs" id="1_nddgr"]
+
+[node name="StaticCellState" type="Node"]
+script = ExtResource("1_nddgr")

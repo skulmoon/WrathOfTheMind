@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://c5jewusd4c5tm"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Inventory/Item.cs" id="1_1cyer"]
+
+[resource]
+script = ExtResource("1_1cyer")
+ID = 0
+MaxCount = 50
+Name = "Test"
+Description = "Test"

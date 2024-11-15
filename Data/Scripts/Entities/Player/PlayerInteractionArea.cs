@@ -15,11 +15,11 @@ public partial class PlayerInteractionArea : Area2D
         set
         {
             _playerDirection = value;
-            Position = value * (Global.Settings.GridSize / 2);
+            Position = value * (Global.Settings.GridSize / 2); 
         }
     }
 
-    public override void _Process(double delta)
+    public override void _Input(InputEvent @event)
     {
         if (Input.IsActionJustPressed("interact") && (_interactionArea != null) && !Global.Settings.CutScene)
         {

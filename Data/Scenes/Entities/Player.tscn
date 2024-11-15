@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dhgr62sao2gjo"]
 
-[ext_resource type="Script" path="res://Data/Scripts/Entities/Player/Player.cs" id="1_2nvvl"]
+[ext_resource type="Script" path="res://Data/Scripts/Entities/Player/Player.cs" id="1_ounf2"]
 [ext_resource type="Texture2D" uid="uid://po03cr5rvpyk" path="res://icon.svg" id="2_gtofp"]
 [ext_resource type="Script" path="res://Data/Scripts/Entities/Player/PlayerInteractionArea.cs" id="3_bpate"]
 
@@ -13,7 +13,7 @@ size = Vector2(7.5, 7.5)
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 4
-script = ExtResource("1_2nvvl")
+script = ExtResource("1_ounf2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qfa5h")

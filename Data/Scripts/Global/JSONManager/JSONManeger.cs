@@ -3,15 +3,21 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
-public class JSONManager
+public class JSON
 {
     private string _pathDialogues = "res://Data/Dialogs/";
     private string _pathChoices = "user://Saves/";
 
+    public JSON()
+    {
+        Global.Settings.Saves = GetSaves();
+        Global.Settings.Saves.Sort();
+    }
+
     public List<NPCDialogue> GetDialogues()
     {
-        string path = Global.Settings.CurrentLocation;
-        FileAccess file = FileAccess.Open($"{ _pathDialogues}{Global.Settings.CurrentLocation}.json", FileAccess.ModeFlags.Read);
+        string path = Global.Settings.GameSettings.CurrentLocation;
+        FileAccess file = FileAccess.Open($"{ _pathDialogues}{Global.Settings.GameSettings.CurrentLocation}.json", FileAccess.ModeFlags.Read);
         string json = file.GetAsText();
         file.Close();
         return JsonConvert.DeserializeObject<List<NPCDialogue>>(json);
@@ -19,7 +25,7 @@ public class JSONManager
 
     public List<PlayerChoice> GetPlayerChoices()
     {
-        FileAccess file = FileAccess.Open($"{_pathChoices}{Global.Settings.CurrentSave}/Choices/{Global.Settings.CurrentLocation}.json", FileAccess.ModeFlags.Read);
+        FileAccess file = FileAccess.Open($"{_pathChoices}{Global.Settings.CurrentSave}/Choices/{Global.Settings.GameSettings.CurrentLocation}.json", FileAccess.ModeFlags.Read);
         string json = file.GetAsText();
         file.Close();
         return JsonConvert.DeserializeObject<List<PlayerChoice>>(json);
@@ -27,7 +33,7 @@ public class JSONManager
 
     public void SetPlayerChoices(List<PlayerChoice> playerChoices)
     {
-        FileAccess file = FileAccess.Open($"{_pathChoices}{Global.Settings.CurrentSave}/Choices/{Global.Settings.CurrentLocation}.json", FileAccess.ModeFlags.Write);
+        FileAccess file = FileAccess.Open($"{_pathChoices}{Global.Settings.CurrentSave}/Choices/{Global.Settings.GameSettings.CurrentLocation}.json", FileAccess.ModeFlags.Write);
         string json = JsonConvert.SerializeObject(playerChoices, Formatting.Indented);
         file.StoreString(json);
         file.Close();
@@ -35,34 +41,34 @@ public class JSONManager
 
     public void SaveGame()
     {
-        FileAccess file = FileAccess.Open($"{_pathChoices}{Global.Settings.CurrentSave}/GameSettings.json", FileAccess.ModeFlags.Write);
-        string json = JsonConvert.SerializeObject(new GameSettings()
-        {
-            SaveNumber = Global.Settings.SaveNumber,
-            CurrentLocation = Global.Settings.CurrentLocation,
-            CurrentPosition = Global.SceneObjects.Player?.Position ?? new Vector2(16,16),
-            CurrentTargetPosition = Global.SceneObjects.Player?.TargetPosition ?? new Vector2(16, 16)
-        }, Formatting.Indented);
-        file.StoreString(json);
-        file.Close();
+        FileAccess gameFile = FileAccess.Open($"{_pathChoices}{Global.Settings.CurrentSave}/GameSettings.json", FileAccess.ModeFlags.Write);
+        FileAccess playerFile = FileAccess.Open($"{_pathChoices}{Global.Settings.CurrentSave}/PlayerSettings.json", FileAccess.ModeFlags.Write);
+        string gameJson = JsonConvert.SerializeObject(Global.Settings.GameSettings, Formatting.Indented);
+        string playerJson = JsonConvert.SerializeObject(Global.Settings.PlayerSettings, Formatting.Indented);
+        gameFile.StoreString(gameJson);
+        playerFile.StoreString(playerJson);
+        gameFile.Close();
+        playerFile.Close();
     }
 
     public void LoadGame(string save)
     {
         Global.Settings.CurrentSave = save;
-        FileAccess file = FileAccess.Open($"{_pathChoices}{save}/GameSettings.json", FileAccess.ModeFlags.Read);
-        string json = file.GetAsText();
-        file.Close();
-        GameSettings gameSettings = JsonConvert.DeserializeObject<GameSettings>(json);
-        Global.Settings.CurrentLocation = gameSettings.CurrentLocation;
-        Global.Settings.CurrentTargetPosition = gameSettings.CurrentTargetPosition;
-        Global.Settings.CurrentPosition = gameSettings.CurrentPosition;
+        FileAccess gameFile = FileAccess.Open($"{_pathChoices}{save}/GameSettings.json", FileAccess.ModeFlags.Read);
+        FileAccess playerFile = FileAccess.Open($"{_pathChoices}{save}/PlayerSettings.json", FileAccess.ModeFlags.Read);
+        string gameJson = gameFile.GetAsText();
+        string playerJson = playerFile.GetAsText();
+        gameFile.Close();
+        playerFile.Close();
+        Global.Settings.GameSettings = JsonConvert.DeserializeObject<GameSettings>(gameJson);
+        Global.Settings.PlayerSettings = JsonConvert.DeserializeObject<PlayerSettings>(playerJson);
     }
 
-    public void NewGame()
+    public void NewGame(string saveName, int saveNumber)
     {
-        Global.Settings.CurrentLocation = "Test/Test";
+        Global.Directory.CreateSave(saveName, saveNumber);
         SaveGame();
+        Global.Dialogue.LoadDialogues();
     }
 
     public int GetSaveNumber(string save)
@@ -72,5 +78,19 @@ public class JSONManager
         file.Close();
         var gameSettings = JsonConvert.DeserializeObject<GameSettings>(json);
         return gameSettings.SaveNumber;
+    }
+
+    public List<Save> GetSaves()
+    {
+        List<string> saves = Global.Directory.GetSaveNames();
+        List<Save> result = new List<Save>();
+        for (int i = 0; i < saves.Count; i++)
+        {
+            Save save = new Save();
+            save.Name = saves[i];
+            save.Number = GetSaveNumber(saves[i]);
+            result.Add(save);
+        }
+        return result;
     }
 }

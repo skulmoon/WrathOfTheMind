@@ -9,17 +9,17 @@ public partial class Player : CharacterBody2D
     private string _pressedKey = "nothing";
     private bool _isMoving = false;
 
+    public PlayerInventory Inventory { get; set; } = new PlayerInventory();
     [Export] public Vector2 TargetPosition { get; set; }
     [Export] public float Speed { get; set; } = 100;
     [Export] public float Acceleration { get; set; } = 2;
 
     public override void _Ready()
     {
-        TargetPosition = Position;
         _interactionArea = GetNode<PlayerInteractionArea>("PlayerInteractionArea");
         Global.SceneObjects.Player = this;
-        TargetPosition = Global.Settings.CurrentTargetPosition;
-        Position = Global.Settings.CurrentPosition;
+        TargetPosition = Global.Settings.PlayerSettings.CurrentTargetPosition;
+        Position = Global.Settings.PlayerSettings.CurrentPosition;
 
     }
 
@@ -97,7 +97,7 @@ public partial class Player : CharacterBody2D
     private void SetTargetPosition(Vector2 direction)
     {
         _isMoving = true;
-        TargetPosition += direction * Global.Settings.GridSize;
+        TargetPosition += direction * Global.Settings.GridSize; 
         _startPosition = Position;
         _interactionArea.PayerDirection = direction;
     }   

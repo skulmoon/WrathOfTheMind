@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctqxigx0pnffx"]
+[gd_scene load_steps=12 format=3 uid="uid://ctqxigx0pnffx"]
 
 [ext_resource type="PackedScene" uid="uid://dhgr62sao2gjo" path="res://Data/Scenes/Entities/Player.tscn" id="1_55ir5"]
 [ext_resource type="Texture2D" uid="uid://bclj1hk5dv28p" path="res://Data/Textures/TestWall.png" id="1_bo4ao"]
 [ext_resource type="PackedScene" uid="uid://ckws2xxgrk8vm" path="res://Data/Scenes/Menu/Interface.tscn" id="1_t1nlg"]
-[ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/dialog_panel.tscn" id="2_qtey2"]
+[ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/DialogPanel.tscn" id="2_qtey2"]
+[ext_resource type="PackedScene" uid="uid://qejl5dn1sgf8" path="res://Data/Scenes/Menu/Interface/Inventory/InventoryMenu.tscn" id="3_8y8wq"]
 [ext_resource type="PackedScene" uid="uid://cefl4x2mtqkxo" path="res://Data/Scenes/Entities/npc.tscn" id="3_jin1l"]
 [ext_resource type="PackedScene" uid="uid://dp8x22mkdiil8" path="res://Data/Scenes/Menu/Camera.tscn" id="3_nx0gt"]
-[ext_resource type="Script" path="res://Data/Scripts/Menu/ButtonExit.cs" id="6_ji0fd"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Options/ButtonExit.cs" id="6_ji0fd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l1md0"]
 
@@ -28,10 +29,11 @@ sources/0 = SubResource("TileSetAtlasSource_nlmi4")
 
 [node name="Test" type="Node2D"]
 
-[node name="Interface" parent="." instance=ExtResource("1_t1nlg")]
-
-[node name="DialogPanel" parent="Interface" instance=ExtResource("2_qtey2")]
-visible = false
+[node name="NPC" parent="." instance=ExtResource("3_jin1l")]
+process_priority = 3
+position = Vector2(80, 48)
+scale = Vector2(1.00671, 1)
+NPCInteractionPath = "res://Data/Scripts/Entities/NPC/Vitalik/VitalikInteractionArea.cs"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xi5rf")
@@ -39,23 +41,30 @@ rendering_quadrant_size = 32
 format = 2
 layer_0/tile_data = PackedInt32Array(131073, 0, 0, 131074, 0, 0, 131075, 0, 0)
 
-[node name="NPC" parent="." instance=ExtResource("3_jin1l")]
-position = Vector2(80, 48)
-scale = Vector2(1.00671, 1)
-NPCInteractionPath = "res://Data/Scripts/Entities/NPC/Vitalik/VitalikInteractionArea.cs"
-
 [node name="Player" parent="." instance=ExtResource("1_55ir5")]
 position = Vector2(16, 16)
 
 [node name="Camera" parent="Player" instance=ExtResource("3_nx0gt")]
 position = Vector2(0, 0)
 
-[node name="ButtonExit" type="Button" parent="Player"]
-offset_left = 531.0
-offset_top = -310.0
-offset_right = 566.0
-offset_bottom = -279.0
+[node name="Interface" parent="." instance=ExtResource("1_t1nlg")]
+layer = 2
+
+[node name="DialogPanel" parent="Interface" instance=ExtResource("2_qtey2")]
+process_mode = 1
+process_priority = -6
+visible = false
+offset_top = -262.0
+
+[node name="InventoryMenu" parent="Interface" instance=ExtResource("3_8y8wq")]
+
+[node name="ExitButton" type="Button" parent="Interface"]
+top_level = true
+offset_left = 1071.0
+offset_top = 16.0
+offset_right = 1133.0
+offset_bottom = 60.0
 text = "*"
 script = ExtResource("6_ji0fd")
 
-[connection signal="pressed" from="Player/ButtonExit" to="Player/ButtonExit" method="OnPressed"]
+[connection signal="pressed" from="Interface/ExitButton" to="Interface/ExitButton" method="OnPressed"]

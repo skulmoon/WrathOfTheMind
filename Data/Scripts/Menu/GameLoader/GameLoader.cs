@@ -13,19 +13,16 @@ public partial class GameLoader : Control
 
 	public override void _Ready()
 	{
-        List<Save> saves;
-        saves = Global.DirectoryManager.GetSaveNames();
-        saves.Sort();
         _container = GetNode<VBoxContainer>("/root/GameLoader/Saves/VBoxContainer");
-        for (int i = 0; i < saves.Count; i++)
+        for (int i = 0; i < Global.Settings.Saves.Count; i++)
         {
             var button = new SaveButtons();
-            button.Text = saves[i].Name;
-            button.Name = saves[i].Name;
+            button.Text = Global.Settings.Saves[i].Name;
+            button.Name = Global.Settings.Saves[i].Name;
             button.CurrentSaveName += ChangeCurrentButton;
             _container.AddChild(button);
         }
-        _buttonCount = saves.Count;
+        _buttonCount = Global.Settings.Saves.Count;
         _exitButton = GetNode<Button>("Options/Exit");
         _exitButton.Pressed += OnPressedExit;
         _loadButton = GetNode<Button>("Options/Load");
@@ -47,9 +44,9 @@ public partial class GameLoader : Control
     {
         if (_currentSave != null)
         {
-            Global.JSONManager.LoadGame(_currentSave);
-            Global.DialogueManager.LoadDialogues();
-            GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.CurrentLocation}.tscn");
+            Global.JSON.LoadGame(_currentSave);
+            Global.Dialogue.LoadDialogues();
+            GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.GameSettings.CurrentLocation}.tscn");
         }
     }
     public void OnPressedDelete()
@@ -57,7 +54,7 @@ public partial class GameLoader : Control
         if (_currentSave != null)
         {
             _container.RemoveChild(GetNode($"/root/GameLoader/Saves/VBoxContainer/{_currentSave}"));
-            Global.DirectoryManager.DeleteSave(_currentSave);
+            Global.Directory.DeleteSave(_currentSave);
         }
     }
 }

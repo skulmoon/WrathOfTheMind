@@ -1,18 +1,26 @@
 using Godot;
 using System;
+using System.Collections.Specialized;
 using System.Runtime.CompilerServices;
+using System.Xml.Linq;
 
 public partial class DialogText : RichTextLabel
 {
     const int MAX_OPTIONS = 5;
 	private Panel[] _panels = new Panel[MAX_OPTIONS];
+    private string _text;
+    private string _name;
+    private int _counter = 0;
+    private double _delta = 0.0;
 
     public Control Control { get; set; }
     public Label[] OptionsText { get; set; } = new Label[MAX_OPTIONS];
-    public int CountOfOptions { get; set; } = 2;
+    public int CountOfOptions { get; set; } 
     public int CurrentPosition { get; set; } = 0;
+    public bool IsPrinting { get; private set; } = false;
+    [Export] public double PrintingSpeed { get; set; } = 0.02;
 
-	public override void _Ready()
+    public override void _Ready()
 	{
         Control = GetNode<Control>("Options");
         try
@@ -24,7 +32,29 @@ public partial class DialogText : RichTextLabel
             }
         }
         catch { }
-	}
+        GD.Print(_text);
+        GD.Print(_name);
+    }
+
+    public override void _Process(double delta)
+    {
+        if (IsPrinting)
+        {
+            _delta += delta;
+            while (_delta > PrintingSpeed)
+            {
+                GD.Print(1);
+                Text += _text[_counter];
+                _counter++;
+                if (_counter == _text.Length)
+                {
+                    IsPrinting = false;
+                    _counter = 0;
+                }
+                _delta -= PrintingSpeed;
+            }
+        }
+    }
 
 	public void UpOption()
 	{
@@ -58,6 +88,21 @@ public partial class DialogText : RichTextLabel
         }
         _panels[0].Visible = true;
         CurrentPosition = 0;
+    }
+
+    public void PrintText(string text, string name)
+    {
+        Text = $"{name}:\n";
+        _name = name;
+        _text = text;
+        IsPrinting = true;
+    }
+
+    public void StopPrinting()
+    {
+        Text = _name+":\n"+_text;
+        _counter = 0;
+        IsPrinting = false;
     }
 }
  

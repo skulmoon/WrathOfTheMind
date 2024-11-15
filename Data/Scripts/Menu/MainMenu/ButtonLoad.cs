@@ -5,6 +5,6 @@ public partial class ButtonLoad : Button
 {
     public void OnPressed()
     {
-        GetTree().ChangeSceneToFile("res://Data/Scenes/Menu/game_loder.tscn");
+        GetTree().ChangeSceneToFile("res://Data/Scenes/Menu/GameLoader.tscn");
     }
 }

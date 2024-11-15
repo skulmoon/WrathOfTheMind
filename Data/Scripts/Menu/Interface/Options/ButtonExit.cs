@@ -5,8 +5,8 @@ public partial class ButtonExit : Button
 {
     public void OnPressed()
     {
-        Global.DialogueManager.SaveDialogues();
-        Global.JSONManager.SaveGame();
+        Global.Dialogue.SaveDialogues();
+        Global.JSON.SaveGame();
         GetTree().Quit();
     }
 }

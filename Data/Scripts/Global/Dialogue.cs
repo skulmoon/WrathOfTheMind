@@ -10,14 +10,14 @@ public partial class DialogueManager : Node
 
     public void LoadDialogues()
 	{
-        _dialogues = Global.JSONManager.GetDialogues() ?? new List<NPCDialogue>();
-        _playerChoices = Global.JSONManager.GetPlayerChoices() ?? new List<PlayerChoice>();
+        _dialogues = Global.JSON.GetDialogues() ?? new List<NPCDialogue>();
+        _playerChoices = Global.JSON.GetPlayerChoices() ?? new List<PlayerChoice>();
     }
 
     public void SaveDialogues()
     {
         GD.Print(_playerChoices.Count);
-        Global.JSONManager.SetPlayerChoices(_playerChoices);
+        Global.JSON.SetPlayerChoices(_playerChoices);
     }
 
     public void GetDialogue(int NPCID, int DialogueNumber)
