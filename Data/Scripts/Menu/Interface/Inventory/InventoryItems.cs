@@ -12,6 +12,11 @@ public partial class InventoryItems : Control
 
     public override void _Ready()
     {
+		ShowInventory();
+    }
+
+    public void ShowInventory()
+    {
 		_playerInventory = Global.SceneObjects.Player.Inventory;
         AddCells();
         AddCells();
@@ -23,7 +28,6 @@ public partial class InventoryItems : Control
 		{
 			float cellSize = Size.X/CELLS_IN_LINE;
 			var cell = new Cell(new Vector2(i * cellSize, lineCount * cellSize), new Vector2(cellSize, cellSize), this, i + lineCount * CELLS_IN_LINE);
-			cell.Item = _playerInventory.Items[i + lineCount * CELLS_IN_LINE];
 			var label = new Label();
 			label.Text = (i + lineCount * CELLS_IN_LINE).ToString();
 			cell.AddChild(label);

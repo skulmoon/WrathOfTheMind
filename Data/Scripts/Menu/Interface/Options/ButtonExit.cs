@@ -7,6 +7,6 @@ public partial class ButtonExit : Button
     {
         Global.Dialogue.SaveDialogues();
         Global.JSON.SaveGame();
-        GetTree().Quit();
+        GetTree().ChangeSceneToFile("res://Data/Scenes/Menu/MainMenu.tscn");
     }
 }

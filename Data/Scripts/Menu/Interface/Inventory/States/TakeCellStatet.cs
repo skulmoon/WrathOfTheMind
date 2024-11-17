@@ -47,8 +47,6 @@ public partial class TakeCellState : Node, ICellState
                 Global.SceneObjects.Player.Inventory.MovingItem(ItemType.Item, cell.ItemNumber, Cell.EnteredMouseCell.ItemNumber);
                 cell.Item = Global.SceneObjects.Player.Inventory.Items[cell.ItemNumber];
                 Cell.EnteredMouseCell.Item = Global.SceneObjects.Player.Inventory.Items[Cell.EnteredMouseCell.ItemNumber];
-                GD.Print(Global.SceneObjects.Player.Inventory.Items[cell.ItemNumber] == null);
-                GD.Print(Global.SceneObjects.Player.Inventory.Items[Cell.EnteredMouseCell.ItemNumber] == null);
                 Cell.EnteredMouseCell.StartPosition = Cell.EnteredMouseCell.Position;
                 Vector2 buffer = Cell.EnteredMouseCell.Position;
                 Cell.EnteredMouseCell.Position = cell.Position;

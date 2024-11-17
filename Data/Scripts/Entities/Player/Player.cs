@@ -9,7 +9,7 @@ public partial class Player : CharacterBody2D
     private string _pressedKey = "nothing";
     private bool _isMoving = false;
 
-    public PlayerInventory Inventory { get; set; } = new PlayerInventory();
+    public PlayerInventory Inventory { get; set; }
     [Export] public Vector2 TargetPosition { get; set; }
     [Export] public float Speed { get; set; } = 100;
     [Export] public float Acceleration { get; set; } = 2;
@@ -18,9 +18,8 @@ public partial class Player : CharacterBody2D
     {
         _interactionArea = GetNode<PlayerInteractionArea>("PlayerInteractionArea");
         Global.SceneObjects.Player = this;
-        TargetPosition = Global.Settings.PlayerSettings.CurrentTargetPosition;
-        Position = Global.Settings.PlayerSettings.CurrentPosition;
-
+        Inventory = new PlayerInventory();
+        Global.SceneObjects.TakePlayerSettings(this);
     }
 
     public override void _PhysicsProcess(double delta)

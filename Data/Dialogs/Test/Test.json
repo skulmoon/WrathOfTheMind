@@ -3,12 +3,12 @@
 		{"Name" : "Vitalik", "Text" : "Hello, I am Vitalik.", "Image" : "res://icon.svg"},
 		{"Name" : "Vitalik", "Text" : "It's really hard day...", "Image" : "res://icon.svg"},
 	], "Options" : [
-		{"NextDialogue" : 2, "OptionText" : "Aspect"},
-		{"NextDialogue" : 3, "OptionText" : "Refuse"}
+		{"NextDialogue" : 2, "OptionText" : "Agree"},
+		{"NextDialogue" : 3, "OptionText" : "Disagree"}
 	]},
 	
 	{"NPCID" : 1, "DialogueNumber" : 2, "Speech" : [
-		{"Name" : "Vitalik", "Text" : "You are really worker, kido!", "Image" : "res://icon.svg"},
+		{"Name" : "Vitalik", "Text" : "You are a really worker, kiddo!", "Image" : "res://icon.svg"},
 	]},
 	
 	{"NPCID" : 1, "DialogueNumber" : 3, "Speech" : [

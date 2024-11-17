@@ -7,28 +7,21 @@ public partial class GameCreator : Control
     private int _currentButton;
     private TextEdit _textEdit;
     private VBoxContainer _container;
-    private Button _button;
+    private Button _buttonNew;
+    private Button _buttonExit;
 
     public override void _Ready()
     {
-        _container = GetNode<VBoxContainer>("/root/GameCreator/Saves/VBoxContainer");
-        for (int i = 0; i < Global.Settings.Saves.Count; i++)
-        {
-            var button = new Button();
-            button.Text = Global.Settings.Saves[i].Name;
-            button.Name = Global.Settings.Saves[i].Name;
-            _container.AddChild(button);
-        }
-        _button = GetNode<Button>("/root/GameCreator/Button");
-        _button.Pressed += NewButtonPressed;
+        _buttonExit = GetNode<Button>("ButtonExit");
+        _buttonExit.Pressed += ExitButtonPressed;
+        _buttonNew = GetNode<Button>("ButtonNew");
+        _buttonNew.Pressed += NewButtonPressed;
         _textEdit = GetNode<TextEdit>("TextEdit");
-
     }
 
     public void NewButtonPressed()
     {
-        var button = GetNode<Button>($"/root/GameCreator/Saves/VBoxContainer/{_textEdit.Text}");
-        if (button != null)
+        if (Global.Settings.Saves.Find(x => x.Name == _textEdit.Text) != null)
         {
             //I will add logic later
         }
@@ -38,4 +31,7 @@ public partial class GameCreator : Control
             GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.GameSettings.CurrentLocation}.tscn");
         }
     }
+
+    public void ExitButtonPressed() =>
+        GetTree().ChangeSceneToFile("res://Data/Scenes/Menu/MainMenu.tscn");
 }

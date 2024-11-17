@@ -63,44 +63,49 @@ public partial class Cell : Button
         Size = size;
         _itemInventoryPresenter = itemInventoryPresenter;
         ItemNumber = itemNumber;
+        Item = Global.SceneObjects.Player.Inventory.Items[itemNumber];
     }
 
     public override void _Ready()
     {
         Node state = new StaticCellState(this);
         State = (ICellState)state;
-        Pressed += OnButtonPressed;
         MouseEntered += OnEntered;
         MouseExited += OnExited;
     }
 
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionJustPressed("take_or_release_item") && TakeCell == this)
+        if (Input.IsActionJustPressed("take_or_release_item"))
         {
             if (TakeCell == this)
                 State.Release(this);
             else if (_state is StaticCellState && EnteredMouseCell == this && TakeCell == null)
                 State.Take(this);
         }
-        else if (Input.IsMouseButtonPressed(MouseButton.Right) && TakeCell == this)
+        else if (Input.IsActionJustPressed("manipulation_with_item"))
         {
-            Global.SceneObjects.Player.Inventory.Items[25] = (Item)Item.Duplicate(true);
-            Global.SceneObjects.Player.Inventory.Items[25].Count /= 2;
-            Item.Count -= Global.SceneObjects.Player.Inventory.Items[25].Count;
-            TakeCell = new Cell(StartPosition, Size, _itemInventoryPresenter, 25);
+            if (TakeCell == this)
+                State.Release(this);
+            else if (_state is StaticCellState && EnteredMouseCell == this && TakeCell == null)
+            {
+                Global.SceneObjects.Player.Inventory.Items[24] = (Item)Item.Duplicate(true);
+                Global.SceneObjects.Player.Inventory.Items[24].Count /= 2;
+                Item.Count -= Global.SceneObjects.Player.Inventory.Items[24].Count;
+                Cell cell = (Cell)Duplicate();
+                cell.Item = Global.SceneObjects.Player.Inventory.Items[24];
+                TakeCell = cell;
+                AddChild(cell);
+                cell.State.Take(cell);
+            }
         }
-    }
-
-    public void OnButtonPressed()
-    {
-
     }
 
     public void OnEntered()
     {
         EnteredMouseCell = this;
     }
+
     public void OnExited()
     {
         EnteredMouseCell = null;

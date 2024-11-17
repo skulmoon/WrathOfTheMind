@@ -46,6 +46,8 @@ position = Vector2(16, 16)
 
 [node name="Camera" parent="Player" instance=ExtResource("3_nx0gt")]
 position = Vector2(0, 0)
+ignore_rotation = false
+position_smoothing_speed = 15.0
 
 [node name="Interface" parent="." instance=ExtResource("1_t1nlg")]
 layer = 2
@@ -66,5 +68,8 @@ offset_right = 1133.0
 offset_bottom = 60.0
 text = "*"
 script = ExtResource("6_ji0fd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
 
 [connection signal="pressed" from="Interface/ExitButton" to="Interface/ExitButton" method="OnPressed"]

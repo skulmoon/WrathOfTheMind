@@ -27,21 +27,28 @@ public class Directory
         System.IO.Directory.CreateDirectory(Path.Combine(path, "Choices"));
         File.WriteAllText(Path.Combine(path, "GameSettings.json"), "");
         File.WriteAllText(Path.Combine(path, "PlayerSettings.json"), "");
-        Global.Settings.GameSettings = new GameSettings()
+        GameSettings gameSettings = new GameSettings()
         {
             SaveNumber = saveNumber,
             CurrentLocation = "Test/Test"
         };
-        Global.Settings.PlayerSettings = new PlayerSettings()
+        Global.Settings.GameSettings = gameSettings;
+        PlayerSettings playerSettings = new PlayerSettings()
         {
-            Items = new List<Item>(),
-            Weapons = new List<Item>(),
+            Items = new List<Item>(new Item[25]),
+            Shards = new List<Item>(new Item[9]),
+            Weapons = new List<Item>(new Item[9]),
             Scruples = 0,
             CurrentTargetPosition = new Vector2(16, 16),
             CurrentPosition = new Vector2(16, 16),
         };
+        for (int i = 0; i < 24; i++)
+            playerSettings.Items[i] = Global.ItemFabric.CreateItem(0, 12);
+        Global.Settings.PlayerSettings = playerSettings;
         Global.Settings.CurrentSave = saveName;
         Global.Settings.GameSettings.SaveNumber = saveNumber;
+        Global.Settings.Saves.Add(new Save() { Name = saveName, Number = saveNumber });
+        Global.Settings.Saves.Sort();
         CreateLocationChoices("Test/Test");
     }
 
