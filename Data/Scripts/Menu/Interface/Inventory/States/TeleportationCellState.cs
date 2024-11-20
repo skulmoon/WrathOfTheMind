@@ -45,8 +45,8 @@ internal partial class TeleportationCellState : Node, ICellState
             IsChangePosition = true;
             _cell.Position = _targetPosition;
             _cell.StartPosition = _targetPosition;
+            _cell.Item = Global.SceneObjects.Player.Inventory.Items[_cell.ItemNumber];
         }
-
     }
 }
 

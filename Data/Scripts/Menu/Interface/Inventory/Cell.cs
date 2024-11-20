@@ -1,16 +1,15 @@
 using Godot;
 using System;
-using static Godot.WebSocketPeer;
 
 public partial class Cell : Button
 {
-    private InventoryItems _itemInventoryPresenter;
     private ICellState _state;
     private Item _item;
 
     static public Cell TakeCell { get; set; }
     static public Cell EnteredMouseCell { get; set; }
 
+    public InventoryItems ItemInventory { get; private set; }
     public int ItemNumber { get; private set; }
     public Vector2 StartPosition { get; set; }
     public Item Item
@@ -49,10 +48,11 @@ public partial class Cell : Button
         get => _state;
         set 
         {
-            if (_state != null) 
+            if (_state != null)
                 RemoveChild((Node)_state);
             _state = value;
-            AddChild((Node)_state);
+            if (value != null)
+                AddChild((Node)_state);
         }
     }
 
@@ -61,7 +61,7 @@ public partial class Cell : Button
         StartPosition = startPosition;
         Position = startPosition;
         Size = size;
-        _itemInventoryPresenter = itemInventoryPresenter;
+        ItemInventory = itemInventoryPresenter;
         ItemNumber = itemNumber;
         Item = Global.SceneObjects.Player.Inventory.Items[itemNumber];
     }
@@ -86,23 +86,15 @@ public partial class Cell : Button
         else if (Input.IsActionJustPressed("manipulation_with_item"))
         {
             if (TakeCell == this)
-                State.Release(this);
+                State.ReleaseOne(this);
             else if (_state is StaticCellState && EnteredMouseCell == this && TakeCell == null)
-            {
-                Global.SceneObjects.Player.Inventory.Items[24] = (Item)Item.Duplicate(true);
-                Global.SceneObjects.Player.Inventory.Items[24].Count /= 2;
-                Item.Count -= Global.SceneObjects.Player.Inventory.Items[24].Count;
-                Cell cell = (Cell)Duplicate();
-                cell.Item = Global.SceneObjects.Player.Inventory.Items[24];
-                TakeCell = cell;
-                AddChild(cell);
-                cell.State.Take(cell);
-            }
+                State.TakeHalf(this);
         }
     }
 
     public void OnEntered()
     {
+        GD.Print(1);
         EnteredMouseCell = this;
     }
 
@@ -110,10 +102,15 @@ public partial class Cell : Button
     {
         EnteredMouseCell = null;
     }
+
+    public void UpdateItem() =>
+        Item = Global.SceneObjects.Player.Inventory.Items[ItemNumber];
 }
 
 public interface ICellState
 {
     public void Take(Cell cell) { }
+    public void TakeHalf(Cell cell) { }
     public void Release(Cell cell) { }
+    public void ReleaseOne(Cell cell) { }
 }

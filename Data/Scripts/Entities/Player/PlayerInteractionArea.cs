@@ -8,14 +8,14 @@ public partial class PlayerInteractionArea : Area2D
 
     public Vector2 PayerDirection
     {
-        get
-        {
-            return _playerDirection;
-        }
+        get => _playerDirection;
         set
         {
-            _playerDirection = value;
-            Position = value * (Global.Settings.GridSize / 2); 
+            if (_playerDirection != value && value != Vector2.Zero)
+            {
+                _playerDirection = value;
+                Position = value * (Global.Settings.GridSize / 2); 
+            }
         }
     }
 

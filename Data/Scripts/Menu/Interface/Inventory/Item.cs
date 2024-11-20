@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 [GlobalClass]
-public partial class Item : Resource
+public partial class Item : Resource, ICloneable
 {
     [Export] public int ID { get; set; } = -1;
     [Export] public int MaxCount { get; set; } = 50;
@@ -37,5 +37,12 @@ public partial class Item : Resource
             Count += count;
             return 0;
         }
+    }
+
+    public object Clone()
+    {
+        Item item = new Item(ID, MaxCount, Name, Description);
+        item.Count = Count;
+        return item;
     }
 }

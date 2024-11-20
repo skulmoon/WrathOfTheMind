@@ -5,14 +5,16 @@
 [ext_resource type="Script" path="res://Data/Scripts/Entities/Player/PlayerInteractionArea.cs" id="3_bpate"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qfa5h"]
-radius = 15.0
+radius = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ir66"]
-size = Vector2(7.5, 7.5)
+size = Vector2(12, 12)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 4
+floor_stop_on_slope = false
+floor_block_on_wall = false
 script = ExtResource("1_ounf2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -33,7 +35,8 @@ script = ExtResource("3_bpate")
 shape = SubResource("RectangleShape2D_4ir66")
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerInteractionArea/CollisionArea"]
-scale = Vector2(0.0625, 0.0625)
+position = Vector2(-2.38419e-07, -7.45058e-07)
+scale = Vector2(0.09375, 0.09375)
 texture = ExtResource("2_gtofp")
 
 [connection signal="area_entered" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaEntered"]
