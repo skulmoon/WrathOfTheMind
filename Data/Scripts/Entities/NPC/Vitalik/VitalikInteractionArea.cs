@@ -7,10 +7,10 @@ public partial class VitalikInteractionArea : Area2D, IInteractionArea
     public void Interaction() 
     {
         GD.Print("Interaction with Vitalik.");
-        int choice = Global.Dialogue.GetChoice(1, 1);
+        int choice = Global.CutSceneData.GetChoice(1, 1);
         if (choice == -1)
-            Global.Dialogue.GetDialogue(1, 1);
+            Global.CutSceneManager.OutputCutScene(1, 1);
         else
-            Global.Dialogue.GetDialogue(1, choice);
+            Global.CutSceneManager.OutputCutScene(1, choice);
     }
 }

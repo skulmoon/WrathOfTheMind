@@ -6,7 +6,9 @@ using System.Collections.Generic;
 public class JSON
 {
     private string _pathDialogues = "res://Data/Dialogs/";
+    private string _pathPams = "res://Data/PAMS/";
     private string _pathChoices = "user://Saves/";
+    private Directory Directory = new Directory();
 
     public JSON()
     {
@@ -14,11 +16,18 @@ public class JSON
         Global.Settings.Saves.Sort();
     }
 
+    public List<NPCPAMS> GetNpcpams()
+    {
+        FileAccess file = FileAccess.Open($"{_pathPams}{Global.Settings.GameSettings.CurrentLocation}.json", FileAccess.ModeFlags.Read);
+        string json = file.GetAsText() ?? "";
+        file.Close();
+        return JsonConvert.DeserializeObject<List<NPCPAMS>>(json);
+    }
+
     public List<NPCDialogue> GetDialogues()
     {
-        string path = Global.Settings.GameSettings.CurrentLocation;
-        FileAccess file = FileAccess.Open($"{ _pathDialogues}{Global.Settings.GameSettings.CurrentLocation}.json", FileAccess.ModeFlags.Read);
-        string json = file.GetAsText();
+        FileAccess file = FileAccess.Open($"{_pathDialogues}{Global.Settings.GameSettings.CurrentLocation}.json", FileAccess.ModeFlags.Read);
+        string json = file.GetAsText() ?? "";
         file.Close();
         return JsonConvert.DeserializeObject<List<NPCDialogue>>(json);
     }
@@ -67,13 +76,14 @@ public class JSON
         playerFile.Close();
         Global.Settings.GameSettings = JsonConvert.DeserializeObject<GameSettings>(gameJson);
         Global.Settings.PlayerSettings = JsonConvert.DeserializeObject<PlayerSettings>(playerJson);
+        Global.CutSceneData.LoadCutSceneData();
     }
 
     public void NewGame(string saveName, int saveNumber)
     {
-        Global.Directory.CreateSave(saveName, saveNumber);
+        Directory.CreateSave(saveName, saveNumber);
         SaveGame();
-        Global.Dialogue.LoadDialogues();
+        Global.CutSceneData.LoadCutSceneData();
     }
 
     public int GetSaveNumber(string save)
@@ -87,7 +97,7 @@ public class JSON
 
     public List<Save> GetSaves()
     {
-        List<string> saves = Global.Directory.GetSaveNames();
+        List<string> saves = Directory.GetSaveNames();
         List<Save> result = new List<Save>();
         for (int i = 0; i < saves.Count; i++)
         {
@@ -98,4 +108,7 @@ public class JSON
         }
         return result;
     }
+
+    public void DeleteGame(string saveName) =>
+        Directory.DeleteSave(saveName);
 }

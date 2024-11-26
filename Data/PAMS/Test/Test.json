@@ -1,0 +1,22 @@
+[
+	{"NPCID" : 1, "DialogueNumber" : 1, "PAMSs" : [
+		{"Music" : null, "Sound" : "bass.wav", "PAData" : [
+			{"NPCID" : 1, "StartPosition" : {"X" : 80, "Y" : 48}, "EndPosition" : {"X" : 96, "Y" : 48}, "Animation" : "default" }
+		]},
+		{"Music" : null, "Sound" : null, "PAData" : [
+			{"NPCID" : 1, "StartPosition" : {"X" : 96, "Y" : 48}, "EndPosition" : {"X" : 80, "Y" : 48}, "Animation" : "Excitement" }
+		]},
+	]},
+	
+	{"NPCID" : 1, "DialogueNumber" : 2, "PAMSs" : [
+		{"Music" : null, "Sound" : null, "PAData" : [
+			{"NPCID" : 1, "StartPosition" : null, "EndPosition" : null, "Animation" : "default" }
+		]},
+	]},
+	
+	{"NPCID" : 1, "DialogueNumber" : 3, "PAMSs" : [
+		{"Music" : null, "Sound" : null, "PAData" : [
+			{"NPCID" : 1, "StartPosition" : null, "EndPosition" : null, "Animation" : "default" }
+		]},
+	]},
+]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://n27vr12tgglv"]
+[gd_scene load_steps=5 format=3 uid="uid://n27vr12tgglv"]
 
 [ext_resource type="Texture2D" uid="uid://bbaqsxt1042nt" path="res://Data/Textures/DialogPanel.png" id="1_2v5d3"]
 [ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Dialogue/DialogPanel.cs" id="2_58nxw"]
+[ext_resource type="AudioStream" uid="uid://c7n5r7ls0scbm" path="res://Data/Sounds/Effects/bass.wav" id="4_068pr"]
 [ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Dialogue/DialogText.cs" id="4_k7bds"]
 
 [node name="DialogPanel" type="NinePatchRect"]
@@ -84,8 +85,6 @@ layout_mode = 0
 offset_top = 2.0
 offset_right = 1052.0
 offset_bottom = 34.0
-text = "1
-"
 vertical_alignment = 1
 
 [node name="OptionText2" type="Label" parent="DialogText/Options"]
@@ -93,8 +92,6 @@ layout_mode = 0
 offset_top = 38.0
 offset_right = 1052.0
 offset_bottom = 70.0
-text = "1
-"
 vertical_alignment = 1
 
 [node name="OptionText3" type="Label" parent="DialogText/Options"]
@@ -102,8 +99,6 @@ layout_mode = 0
 offset_top = 74.0
 offset_right = 1052.0
 offset_bottom = 106.0
-text = "1
-"
 vertical_alignment = 1
 
 [node name="OptionText4" type="Label" parent="DialogText/Options"]
@@ -111,8 +106,6 @@ layout_mode = 0
 offset_top = 110.0
 offset_right = 1052.0
 offset_bottom = 142.0
-text = "1
-"
 vertical_alignment = 1
 
 [node name="OptionText5" type="Label" parent="DialogText/Options"]
@@ -120,6 +113,8 @@ layout_mode = 0
 offset_top = 146.0
 offset_right = 1052.0
 offset_bottom = 178.0
-text = "1
-"
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_068pr")
+volume_db = -17.41

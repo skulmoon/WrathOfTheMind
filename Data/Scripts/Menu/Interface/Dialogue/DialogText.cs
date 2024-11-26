@@ -32,8 +32,6 @@ public partial class DialogText : RichTextLabel
             }
         }
         catch { }
-        GD.Print(_text);
-        GD.Print(_name);
     }
 
     public override void _Process(double delta)
@@ -43,7 +41,6 @@ public partial class DialogText : RichTextLabel
             _delta += delta;
             while (_delta > PrintingSpeed)
             {
-                GD.Print(1);
                 Text += _text[_counter];
                 _counter++;
                 if (_counter == _text.Length)
@@ -75,7 +72,6 @@ public partial class DialogText : RichTextLabel
             CurrentPosition = 0;
         else
             CurrentPosition++;
-
         _panels[CurrentPosition].Visible = true;
     }
 

@@ -31,6 +31,6 @@ public partial class Player : CharacterBody2D
         Vector2 direction = new Vector2(Input.GetAxis("left", "right"), Input.GetAxis("up", "down")).Normalized();
         Velocity = direction * Speed * (float)delta;
         MoveAndSlide();
-        _interactionArea.Position = direction * (Global.Settings.GridSize / 2);
+        _interactionArea.PayerDirection = direction;
     }  
 }

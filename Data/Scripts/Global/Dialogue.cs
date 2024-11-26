@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-public partial class DialogueManager : Node
+public partial class Dialogue : Node
 {
 	private List<NPCDialogue> _dialogues;
     private List<PlayerChoice> _playerChoices;
@@ -14,25 +14,18 @@ public partial class DialogueManager : Node
         _playerChoices = Global.JSON.GetPlayerChoices() ?? new List<PlayerChoice>();
     }
 
-    public void SaveDialogues()
-    {
-        GD.Print(_playerChoices.Count);
+    public void SaveDialogues() =>
         Global.JSON.SetPlayerChoices(_playerChoices);
-    }
 
-    public void GetDialogue(int NPCID, int DialogueNumber)
+    public NPCDialogue GetDialogue(int NPCID, int DialogueNumber)
 	{
         foreach (NPCDialogue dialogue in _dialogues)
-		{
 			if (dialogue.NPCID == NPCID && dialogue.DialogueNumber == DialogueNumber)
-			{
-                Global.SceneObjects.DialoguePanel.OutputSpeech(dialogue);
-                break;
-			}
-		}
+                return dialogue;
+        return null;
     }
 
-    public void GetDialogue(int NPCID, int DialogueNumber, int lastDialogueNumber)
+    public NPCDialogue GetDialogue(int NPCID, int DialogueNumber, int lastDialogueNumber)
     {
         bool IsFound = false;
         PlayerChoice choice = new PlayerChoice()
@@ -43,31 +36,22 @@ public partial class DialogueManager : Node
         };
 
         for (int i = 0; i < _playerChoices.Count; i++)
-        {
             if (_playerChoices[i].NPCID == NPCID && _playerChoices[i].DialogueNumber == lastDialogueNumber)
             {
                 _playerChoices[i].Choice = choice.Choice;
-                GD.Print("90");
                 IsFound = true;
                 break;
             }
-        }
         if (!IsFound)
-        {
             _playerChoices.Add(choice);
-        }
-        GetDialogue(NPCID, DialogueNumber);
+        return GetDialogue(NPCID, DialogueNumber);
     }
 
-    public int GetChoice (int NPCID, int DialogueNumber)
+    public int GetChoice(int NPCID, int DialogueNumber)
     {
         foreach (PlayerChoice choice in _playerChoices)
-        {
             if (choice.NPCID == NPCID && choice.DialogueNumber == DialogueNumber)
-            {
                 return choice.Choice;
-            }
-        }
         return -1;
     }
 }

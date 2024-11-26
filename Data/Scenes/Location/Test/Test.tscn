@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ckws2xxgrk8vm" path="res://Data/Scenes/Menu/Interface.tscn" id="1_t1nlg"]
 [ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/DialogPanel.tscn" id="2_qtey2"]
 [ext_resource type="PackedScene" uid="uid://qejl5dn1sgf8" path="res://Data/Scenes/Menu/Interface/Inventory/InventoryMenu.tscn" id="3_8y8wq"]
-[ext_resource type="PackedScene" uid="uid://cefl4x2mtqkxo" path="res://Data/Scenes/Entities/npc.tscn" id="3_jin1l"]
+[ext_resource type="PackedScene" uid="uid://cefl4x2mtqkxo" path="res://Data/Scenes/Entities/NPC.tscn" id="3_jin1l"]
 [ext_resource type="PackedScene" uid="uid://dp8x22mkdiil8" path="res://Data/Scenes/Menu/Camera.tscn" id="3_nx0gt"]
 [ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Options/ButtonExit.cs" id="6_ji0fd"]
 
@@ -34,6 +34,7 @@ process_priority = 3
 position = Vector2(80, 48)
 scale = Vector2(1.00671, 1)
 NPCInteractionPath = "res://Data/Scripts/Entities/NPC/Vitalik/VitalikInteractionArea.cs"
+ID = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xi5rf")

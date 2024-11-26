@@ -39,5 +39,9 @@ position = Vector2(-2.38419e-07, -7.45058e-07)
 scale = Vector2(0.09375, 0.09375)
 texture = ExtResource("2_gtofp")
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="area_entered" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaEntered"]
 [connection signal="area_exited" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaExited"]

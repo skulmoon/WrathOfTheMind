@@ -45,7 +45,6 @@ public partial class GameLoader : Control
         if (_currentSave != null)
         {
             Global.JSON.LoadGame(_currentSave);
-            Global.Dialogue.LoadDialogues();
             GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.GameSettings.CurrentLocation}.tscn");
         }
     }
@@ -54,7 +53,6 @@ public partial class GameLoader : Control
         if (_currentSave != null)
         {
             _container.RemoveChild(GetNode($"/root/GameLoader/Saves/VBoxContainer/{_currentSave}"));
-            Global.Directory.DeleteSave(_currentSave);
         }
     }
 }

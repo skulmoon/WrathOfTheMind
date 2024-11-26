@@ -12,12 +12,12 @@ public partial class InventoryItems : Control
 
     public override void _Ready()
     {
-		ShowInventory();
+        _playerInventory = Global.SceneObjects.Player.Inventory;
+        ShowInventory();
     }
 
     public void ShowInventory()
     {
-		_playerInventory = Global.SceneObjects.Player.Inventory;
         AddCells();
         AddCells();
     }
