@@ -94,7 +94,6 @@ public partial class Cell : Button
 
     public void OnEntered()
     {
-        GD.Print(1);
         EnteredMouseCell = this;
     }
 

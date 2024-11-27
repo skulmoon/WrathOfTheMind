@@ -62,7 +62,6 @@ public partial class CutSceneManager : Node
 
     public void NextPAMS(int currentCutScene)
     {
-        GD.Print(_npcPams == null);
         if (_npcPams?.PAMSs[currentCutScene] != null)
         {
             if (_npcPams.PAMSs[currentCutScene].Music != null)
