@@ -6,7 +6,7 @@ public partial class NPC : CharacterBody2D
     private Vector2 _endPosition;
 	private Area2D _interactionArea;
 
-    [Export] public string NPCInteractionPath { get; set; } = "res://Data/Scripts/Entities/NPC/NPCInteractionArea.cs";
+    [Export] public string NPCInteractionPath { get; set; } = "res://Data/Scripts/Entities/NPC/InteractionDefault.cs";
     [Export] public int ID { get; set; }
     [Export] public float Speed { get; set; } = 100;
     public bool IsMove { get; set; }
