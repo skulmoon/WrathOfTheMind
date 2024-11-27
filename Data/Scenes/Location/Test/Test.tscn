@@ -37,7 +37,7 @@ layer_0/tile_data = PackedInt32Array(131073, 0, 0, 131074, 0, 0, 131075, 0, 0)
 
 [node name="NPC" parent="." instance=ExtResource("3_jin1l")]
 position = Vector2(80, 48)
-NPCInteractionPath = "res://Data/Scriptsres://Data/Scripts/Entities/NPC/Vitalik/VitalikInteractionArea.cs"
+NPCInteractionPath = "res://Data/Scripts/Entities/NPC/Vitalik/VitalikInteractionArea.cs"
 
 [node name="Player" parent="." instance=ExtResource("1_55ir5")]
 position = Vector2(16, 16)
