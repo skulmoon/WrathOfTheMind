@@ -53,6 +53,7 @@ public partial class GameLoader : Control
         if (_currentSave != null)
         {
             _container.RemoveChild(GetNode($"/root/GameLoader/Saves/VBoxContainer/{_currentSave}"));
+            Global.JSON.DeleteGame(_currentSave);
         }
     }
 }

@@ -20,7 +20,7 @@ public partial class EnemyArea : Area2D
                 (float)GD.RandRange(-collisionSize.Y / 2, collisionSize.Y / 2)
             );
             GD.Print(enemy.Position);
-            var collide = enemy.TestMove(enemy.GetTransform(), new Vector2(0, 0.001f), null, 0, true);
+            var collide = enemy.TestMove(enemy.GetTransform(), new Vector2(0, 2f), null, 0, true);
             GD.Print(collide);
             if (collide)
                 break;
