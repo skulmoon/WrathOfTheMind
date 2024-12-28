@@ -13,8 +13,8 @@ public class SceneObjects
     private TakeNodeHandler _takePlayer;
     private TakeNodeHandler _takeDialoguePanel;
 
-    public Player Player { get => _player; set => _player = (Player)SetObject(value, _takePlayer); }
-    public DialogPanel DialoguePanel { get => _panel; set => _panel = (DialogPanel)SetObject(value, _takeDialoguePanel); }
+    public Player Player { get => _player; set => _player = (Player)SetObject(value, ref _takePlayer); }
+    public DialogPanel DialoguePanel { get => _panel; set => _panel = (DialogPanel)SetObject(value, ref _takeDialoguePanel); }
     public List<NPC> Npcs { get; set; } = new List<NPC>();
 
     public event TakeNodeHandler TakePlayer { add => Subscribe(ref _takePlayer, value, _player); remove => _takePlayer -= value; }
@@ -29,7 +29,7 @@ public class SceneObjects
         player.Inventory.Shards = Global.Settings.PlayerSettings.Shards;
     }
 
-    private Node SetObject(Node value, TakeNodeHandler handler)
+    private Node SetObject(Node value, ref TakeNodeHandler handler)
     {
         if (handler != null)
             handler.Invoke(value);

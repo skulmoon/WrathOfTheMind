@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnkwqmmbjjouf"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Entities/Player/Shard2D.cs" id="1_88ksg"]
+[ext_resource type="Texture2D" uid="uid://po03cr5rvpyk" path="res://icon.svg" id="2_y7k2x"]
+[ext_resource type="Texture2D" uid="uid://c32wjbl1tsdaw" path="res://Data/Textures/Light.png" id="3_fgug4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_23doh"]
+
+[node name="Shard2D" type="Area2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_88ksg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_23doh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.57628e-07, 3.57628e-07)
+scale = Vector2(0.121094, 0.121094)
+texture = ExtResource("2_y7k2x")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("3_fgug4")

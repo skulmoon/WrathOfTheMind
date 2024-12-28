@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://eiputhi38pwy"]
+
+[ext_resource type="Texture2D" uid="uid://po03cr5rvpyk" path="res://icon.svg" id="1_4p3dm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cw4w"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dt1u3"]
+size = Vector2(34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fdyl7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4p3dm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7cw4w")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_dt1u3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_fdyl7")
+
+[connection signal="area_entered" from="Area2D" to="." method="ShardOnEntered"]
