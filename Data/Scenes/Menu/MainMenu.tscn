@@ -39,6 +39,7 @@ text = "Загрузить игру"
 script = ExtResource("1_ysdp8")
 
 [node name="ServiceButtons" type="Control" parent="."]
+auto_translate_mode = 2
 layout_direction = 2
 layout_mode = 1
 anchors_preset = 1
@@ -49,7 +50,6 @@ offset_top = 20.0
 offset_right = -20.0
 offset_bottom = 240.0
 grow_horizontal = 0
-auto_translate = false
 
 [node name="ButtonOptions" type="Button" parent="ServiceButtons"]
 custom_minimum_size = Vector2(0, 100)

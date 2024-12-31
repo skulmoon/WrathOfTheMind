@@ -5,6 +5,7 @@ public abstract partial class Enemy : CharacterBody2D
     private int _health = 1200;
     public AnimatedSprite2D Animation { get; set; }
     public Label Label { get; set; }
+    public CollisionShape2D Collision { get; set; }
     public float Speed { get; private set; } = 200;
     public int Damage { get; private set; } = 12;
     public int Health
@@ -34,13 +35,14 @@ public abstract partial class Enemy : CharacterBody2D
     {
         CollisionLayer = 4;
         CollisionMask = 4;
-        AddChild(new CollisionShape2D()
+        Collision = new CollisionShape2D()
         {
             Shape = new RectangleShape2D()
             {
-                Size = new Vector2(32,32),
+                Size = new Vector2(31, 31),
             }
-        });
+        };
+        AddChild(Collision);
         Area2D hitbox = new Area2D()
         {
             CollisionLayer = 16,
@@ -61,7 +63,7 @@ public abstract partial class Enemy : CharacterBody2D
         AddChild(Label);
     }
 
-    public abstract void Move(Vector2 playPosition);
+    public abstract void Move(Vector2 playerPosition);
 
     public abstract void Attack();
 

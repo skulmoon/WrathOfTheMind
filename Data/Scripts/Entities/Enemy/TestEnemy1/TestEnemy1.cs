@@ -7,6 +7,11 @@ public partial class TestEnemy1 : EnemyReload
 
     public TestEnemy1(float reloadTime, float speed, int damage, int health) : base(reloadTime, speed, damage, health) { }
 
+    public override void _Process(double delta)
+    {
+        Move(new(0, 0));
+    }
+
     public override void TakeDamage(int damage)
     {
         GD.Print($"Enemy take {damage} damage.");
@@ -19,5 +24,6 @@ public partial class TestEnemy1 : EnemyReload
         Reload();
     }
 
-    public override void Move(Vector2 playerPosition) { }
+    public override void Move(Vector2 playerPosition)=>
+        MoveAndCollide(playerPosition);
 }

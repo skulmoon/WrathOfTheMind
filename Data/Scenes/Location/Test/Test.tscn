@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ctqxigx0pnffx"]
+[gd_scene load_steps=21 format=4 uid="uid://ctqxigx0pnffx"]
 
 [ext_resource type="PackedScene" uid="uid://dhgr62sao2gjo" path="res://Data/Scenes/Entities/Player/Player.tscn" id="1_55ir5"]
 [ext_resource type="Texture2D" uid="uid://bclj1hk5dv28p" path="res://Data/Textures/TestWall.png" id="1_bo4ao"]
@@ -20,8 +20,6 @@
 texture = ExtResource("1_bo4ao")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:0/0/physics_layer_0/polygon_0/one_way_margin = 3.0
 
@@ -50,15 +48,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsrix"]
-size = Vector2(15.3754, 16.292)
+size = Vector2(77.1514, 75.7898)
 
 [node name="Test" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAABAAYAAAAAAAAAAAABAAUAAAAAAAAAAAABAAQAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_xi5rf")
 rendering_quadrant_size = 32
-format = 2
-layer_0/tile_data = PackedInt32Array(196614, 0, 0, 262150, 0, 0, 327686, 0, 0, 393222, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 196613, 0, 0, 196612, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 393217, 0, 0)
 
 [node name="NPC" parent="." instance=ExtResource("3_jin1l")]
 position = Vector2(80, 48)
@@ -99,10 +96,6 @@ process_priority = -6
 visible = false
 offset_top = -262.0
 
-[node name="EnemyFabric" type="Node" parent="." node_paths=PackedStringArray("EnemyZones")]
-script = ExtResource("12_xkr63")
-EnemyZones = [NodePath("../EnemyArea")]
-
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(-16, -48)
 scale = Vector2(1, 1.00018)
@@ -128,16 +121,20 @@ sprite_frames = SubResource("SpriteFrames_fdyl7")
 wait_time = 3.0
 
 [node name="EnemyArea" type="Area2D" parent="."]
-position = Vector2(50, 160)
+position = Vector2(112, 177)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("13_mfmr0")
-Difficulty = 1
+Difficulty = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyArea"]
 scale = Vector2(1.00772, 0.946132)
 shape = SubResource("RectangleShape2D_hsrix")
 disabled = true
+
+[node name="EnemyFabric" type="Node" parent="." node_paths=PackedStringArray("EnemyZones")]
+script = ExtResource("12_xkr63")
+EnemyZones = [NodePath("../EnemyArea")]
 
 [connection signal="pressed" from="PauseMenu/ExitButton" to="PauseMenu/ExitButton" method="OnPressed"]
 [connection signal="area_entered" from="Enemy/Area2D" to="Enemy" method="ShardOnEntered"]
