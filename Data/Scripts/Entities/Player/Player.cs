@@ -4,8 +4,10 @@ using System;
 public partial class Player : CharacterBody2D
 {
     private PlayerInteractionArea _interactionArea;
+    private PlayerInventory _inventory;
 
-    public PlayerInventory Inventory { get; set; }
+    public ShardManager Shard { get; private set; }
+    public PlayerInventory Inventory { get => _inventory; private set => _inventory = value; }
     [Export] public Vector2 TargetPosition { get; set; }
     [Export] public float Speed { get; set; } = 6000;
     [Export] public float Acceleration { get; set; } = 2;
@@ -13,9 +15,10 @@ public partial class Player : CharacterBody2D
     public override void _Ready()
     {
         _interactionArea = GetNode<PlayerInteractionArea>("PlayerInteractionArea");
-        Global.SceneObjects.Player = this;
-        Inventory = new PlayerInventory();
+        Shard = GetNode<ShardManager>("ShardManager");
         Global.SceneObjects.TakePlayerSettings(this);
+        Inventory = new PlayerInventory();
+        Global.SceneObjects.Player = this;
     }
 
     public override void _PhysicsProcess(double delta)

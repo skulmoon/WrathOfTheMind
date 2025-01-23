@@ -1,44 +1,39 @@
 using Godot;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 
 public partial class Cell : Button
 {
     private ICellState _state;
     private Item _item;
+    private Sprite2D _sprite;
+    private Label _label;
 
     static public Cell TakeCell { get; set; }
     static public Cell EnteredMouseCell { get; set; }
+    static public List<Cell> ActiveShardCells { get; set; } = new List<Cell>() { null, null, null, null };
+    static public Timer TakeTimer { get; set; }
 
     public InventoryItems ItemInventory { get; private set; }
     public int ItemNumber { get; private set; }
+    public ItemType ItemType { get; private set; }
     public Vector2 StartPosition { get; set; }
     public Item Item
     {
         get => _item;
         set
         {
-            if (_item != null)
-            {
-                RemoveChild(GetNode("1"));
-                RemoveChild(GetNode("2"));
-            }
             if (value != null)
             {
-                Sprite2D sprite2D = new Sprite2D();
-                sprite2D.Texture = ResourceLoader.Load<Texture2D>("res://Data/Textures/Items/Items/" + value.Name + ".png");
-                Control control = new Control();
-                control.AnchorTop = 0.5f;
-                control.AnchorLeft = 0.5f;
-                control.AddChild(sprite2D);
-                Label label = new Label();
-                label.Text = value.Count.ToString();
-                label.SetAnchorsPreset(LayoutPreset.BottomRight);
-                label.GrowHorizontal = GrowDirection.Begin;
-                label.GrowVertical = GrowDirection.Begin;
-                control.Name = "1";
-                label.Name = "2";
-                AddChild(label);
-                AddChild(control);
+                _sprite.Visible = true;
+                _sprite.Texture = ResourceLoader.Load<Texture2D>($"res://Data/Textures/Items/{ItemType}s/{value.Name}.png");
+                _label.Text = value.Count != 1 ? value.Count.ToString() : string.Empty;
+            }
+            else
+            {
+                _sprite.Visible = false;
+                _label.Text = string.Empty;
             }
             _item = value;
         }
@@ -62,13 +57,39 @@ public partial class Cell : Button
         Position = startPosition;
         Size = size;
         ItemInventory = itemInventoryPresenter;
+        ItemType = itemInventoryPresenter.Type;
+        _sprite = new Sprite2D();
+        Control control = new Control
+        {
+            AnchorTop = 0.5f,
+            AnchorLeft = 0.5f
+        };
+        control.AddChild(_sprite);
+        _label = new Label();
+        _label.SetAnchorsPreset(LayoutPreset.BottomRight);
+        _label.GrowHorizontal = GrowDirection.Begin;
+        _label.GrowVertical = GrowDirection.Begin;
+        AddChild(_label);
+        AddChild(control);
         ItemNumber = itemNumber;
-        Item = Global.SceneObjects.Player.Inventory.Items[itemNumber];
+        UpdateItem();
+        if (ItemType == ItemType.Shard && itemNumber < 20 && itemNumber > 15)
+        {
+            if (itemNumber == 16)
+                ActiveShardCells[0] = this;
+            else
+                for (int i = 0; i < 3;  i++)
+                    if (ActiveShardCells[i + 1] == null)
+                    {
+                        ActiveShardCells[i + 1] = this;
+                        break;
+                    }
+        }
     }
 
     public override void _Ready()
     {
-        Node state = new StaticCellState(this);
+        Node state = new StaticCellState(this); 
         State = (ICellState)state;
         MouseEntered += OnEntered;
         MouseExited += OnExited;
@@ -94,7 +115,8 @@ public partial class Cell : Button
 
     public void OnEntered()
     {
-        EnteredMouseCell = this;
+        if (!Disabled)
+            EnteredMouseCell = this;
     }
 
     public void OnExited()
@@ -103,13 +125,5 @@ public partial class Cell : Button
     }
 
     public void UpdateItem() =>
-        Item = Global.SceneObjects.Player.Inventory.Items[ItemNumber];
-}
-
-public interface ICellState
-{
-    public void Take(Cell cell) { }
-    public void TakeHalf(Cell cell) { }
-    public void Release(Cell cell) { }
-    public void ReleaseOne(Cell cell) { }
+        Item = ItemType.GetList()[ItemNumber];
 }

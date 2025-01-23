@@ -1,8 +1,6 @@
 using Godot;
 using System;
 
-public delegate void Something();
-
 public partial class SaveButtons : Button
 {
     [Signal] public delegate void CurrentSaveNameEventHandler(string name);

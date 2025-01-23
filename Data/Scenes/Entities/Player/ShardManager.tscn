@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=3 format=3 uid="uid://dfmocki0juixj"]
+=======
+[gd_scene load_steps=3 format=3 uid="uid://yqy77glpnedn"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://Data/Scripts/Entities/Player/Shards2D/ShardManager.cs" id="1_y32dh"]
 [ext_resource type="Texture2D" uid="uid://po03cr5rvpyk" path="res://icon.svg" id="2_monum"]

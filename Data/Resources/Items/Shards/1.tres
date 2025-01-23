@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Shard" load_steps=2 format=3 uid="uid://0tsnkwnga6sy"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Global/Inventory/Shard.cs" id="1_rmvjg"]
+
+[resource]
+script = ExtResource("1_rmvjg")
+ShardType = "Test1Shard2D"
+Health = 60
+Damage = 2
+Speed = 300
+TimeReload = 1.0
+CritChance = 0.5
+MaxRange = 400.0
+ID = 1
+MaxCount = 1
+Name = "TestShard1"
+Description = "This is first test shard."

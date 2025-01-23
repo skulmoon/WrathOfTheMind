@@ -6,6 +6,7 @@ public partial class TakeHalfCellState : Node, ICellState
 {
     private Cell _parentCell;
     private Cell _childCell;
+    private Vector2 CursorPosition { get => _childCell.GetViewport().GetMousePosition() - (_childCell.Size / 2); }
 
     public TakeHalfCellState(Cell childCell, Cell parentCell)
     {
@@ -18,48 +19,43 @@ public partial class TakeHalfCellState : Node, ICellState
     }
 
     public override void _Process(double delta) =>
-        _childCell.GlobalPosition = GetViewport().GetMousePosition() - (_childCell.Size / 2);
+        _childCell.GlobalPosition = _childCell.GlobalPosition.Lerp(CursorPosition, 10 * (float)delta);
 
     public void Release(Cell cell)
     {
+        Vector2 buffer = cell.GlobalPosition;
         cell.TopLevel = false;
-        cell.GlobalPosition = GetViewport().GetMousePosition() - (cell.Size / 2);
+        cell.GlobalPosition = buffer;
         cell.Disabled = true;
-        GD.Print(12);
-        if (Cell.EnteredMouseCell != null)
+        if (Cell.EnteredMouseCell == null || cell.ItemType != Cell.EnteredMouseCell.ItemType)
+        {
+            _parentCell.Item.Count += cell.Item.Count;
+            _parentCell.State = new TeleportationCellState(_parentCell);
+            cell.State = new DisappearanceCellState(cell);
+        }
+        else
         {
             if ((Cell.EnteredMouseCell?.Item?.ID) == (cell?.Item?.ID) && Cell.EnteredMouseCell?.Item != null)
             {
-                var item = Cell.EnteredMouseCell.Item;
-                var item2 = cell.Item;
-                item2.Count = item.Staked(item2.Count);
-                Cell.EnteredMouseCell.Item = item;
-                if (item2.Count != 0)
+                cell.Item.Count = Cell.EnteredMouseCell.Item.Staked(cell.Item.Count);
+                Cell.EnteredMouseCell.UpdateItem();
+                if (cell.Item.Count != 0)
                 {
-                    _parentCell.Item.Count += item2.Count;
-                    _parentCell.Item = Global.SceneObjects.Player.Inventory.Items[_parentCell.ItemNumber];
+                    _parentCell.Item.Count += cell.Item.Count;
+                    _parentCell.UpdateItem();
                 }
                 cell.State = new DisappearanceCellState(cell);
             }
             else if (Cell.EnteredMouseCell?.Item == null)
             {
                 Global.SceneObjects.Player.Inventory.MovingItem(ItemType.Item, cell.ItemNumber, Cell.EnteredMouseCell.ItemNumber);
-                cell.Item = Global.SceneObjects.Player.Inventory.Items[cell.ItemNumber];
-                Cell.EnteredMouseCell.Item = Global.SceneObjects.Player.Inventory.Items[Cell.EnteredMouseCell.ItemNumber];
-                Cell.EnteredMouseCell.StartPosition = Cell.EnteredMouseCell.Position;
-                Vector2 buffer = Cell.EnteredMouseCell.Position;
-                Cell.EnteredMouseCell.Position = cell.Position;
-                cell.Position = buffer;
+                cell.UpdateItem();
+                Cell.EnteredMouseCell.UpdateItem();
+                (cell.Position, Cell.EnteredMouseCell.Position) = (Cell.EnteredMouseCell.Position, cell.Position);
                 Cell.EnteredMouseCell.Disabled = true;
                 cell.State = new DisappearanceCellState(cell);
                 Cell.EnteredMouseCell.State = new MovingCellState(Cell.EnteredMouseCell);
             }
-        }
-        else
-        {
-            _parentCell.Item.Count += cell.Item.Count;
-            _parentCell.State = new TeleportationCellState(_parentCell);
-            cell.State = new DisappearanceCellState(cell);
         }
     }
 
@@ -68,7 +64,6 @@ public partial class TakeHalfCellState : Node, ICellState
         StateCellMethods.ReleaseOne(cell);
         if (cell.Item == null)
         {
-
             cell.State = new DisappearanceCellState(cell);
         }
     }

@@ -5,28 +5,29 @@ public abstract partial class EnemyReload : Enemy
 {
     private Timer _reloadTimer;
 
-    public EnemyReload() : base()
-    {
-        _reloadTimer = new Timer()
-        {
-            WaitTime = 3,
-            Autostart = true
-        };
-        AddChild(_reloadTimer);
-        _reloadTimer.Timeout += Attack;
-    }
-
-    public EnemyReload(float reloadTime, float speed, int damage, int health) : base(speed, damage, health)
+    public EnemyReload(float reloadTime, float speed, int damage, int health, string animation) : base(speed, damage, health, animation)
 	{
         _reloadTimer = new Timer()
         {
             WaitTime = reloadTime,
-            Autostart = true
+            Autostart = true,
+            OneShot = true,
         };
         AddChild(_reloadTimer);
-        _reloadTimer.Timeout += Attack;
+    }
+
+    public override void Attack(EnemyAttack attack)
+    {
+        if (IsLoad())
+        {
+            GetTree().CurrentScene.AddChild(attack);
+            Reload();
+        }
     }
 
     public void Reload() =>
         _reloadTimer.Start();
+
+    public bool IsLoad() =>
+        _reloadTimer.TimeLeft == 0;
 }

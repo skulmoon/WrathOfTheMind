@@ -11,7 +11,7 @@ public partial class Global : Node
     public static ItemFabric ItemFabric { get; private set; }
     public static Music Music { get; private set; }
 
-    public override void _Ready()
+    static Global()
     {
         Settings = new Settings();
         SceneObjects = new SceneObjects();
@@ -20,6 +20,5 @@ public partial class Global : Node
         CutSceneManager = new CutSceneManager();
         ItemFabric = new ItemFabric();
         Music = new Music();
-
     }
 }

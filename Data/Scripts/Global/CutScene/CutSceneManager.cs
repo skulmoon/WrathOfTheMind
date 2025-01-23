@@ -11,7 +11,7 @@ public partial class CutSceneManager : Node
     private int _currentCutScene = 0;
 
     public CutSceneManager() =>
-        Global.SceneObjects.TakeDialoguePanel += TakePanel;
+        Global.SceneObjects.OnDialoguePanelChanged += TakePanel;
 
     private void TakePanel(Node node)
     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Godot;
@@ -44,6 +45,50 @@ partial class StateCellMethods : Node
             cell.GlobalPosition = cell.GetViewport().GetMousePosition() - (cell.Size / 2);
             cell.State = new TeleportationCellState(cell);
         }
+    }
+
+    static public void ReleasedActiveShard(Cell cell)
+    {
+        bool isMainTake = false;
+        Cell ActiveCell = null;
+        Cell changeCell = null;
+        Cell.ActiveShardCells.ForEach(x =>
+        {
+            if (x == cell || x == Cell.EnteredMouseCell)
+            {
+                if (x == Cell.ActiveShardCells[0])
+                    isMainTake = true;
+                if (ActiveCell == null)
+                {
+                    if (x == cell)
+                    {
+                        changeCell = Cell.EnteredMouseCell;
+                        ActiveCell = cell;
+                    }
+                    else
+                    {
+                        changeCell = cell;
+                        ActiveCell = Cell.EnteredMouseCell;
+                    }
+                }
+            }
+        });
+        bool isVoid = false;
+        isVoid = !Cell.ActiveShardCells.Exists(x => x != Cell.ActiveShardCells[0] && ((x != ActiveCell && x.Item != null) || (x == ActiveCell && changeCell.Item != null)));
+        GD.Print("MainTake:", isMainTake);
+        GD.Print("Void:", isVoid);
+        GD.Print(ActiveCell == null, " ", changeCell.Item == null);
+        GD.Print("------------");
+        if (isVoid)
+            Cell.ActiveShardCells[0].Disabled = false;
+        else
+            Cell.ActiveShardCells[0].Disabled = true;
+        if ((isMainTake && changeCell.Item != null) || (!isMainTake && Cell.ActiveShardCells[0].Item != null))
+            for (int i = 1; i < Cell.ActiveShardCells.Count; i++)
+                Cell.ActiveShardCells[i].Disabled = false;
+        else
+            for (int i = 1; i < Cell.ActiveShardCells.Count; i++)
+                Cell.ActiveShardCells[i].Disabled = true;
     }
 }
 

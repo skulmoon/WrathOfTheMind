@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using static Godot.Control;
 
@@ -21,11 +22,12 @@ public partial class StaticCellState : Node, ICellState
     {
         if ((cell.Item?.Count ?? 0) > 1)
         {
-            Global.SceneObjects.Player.Inventory.Items[24] = (Item)cell.Item.Clone();
-            Global.SceneObjects.Player.Inventory.Items[24].Count /= 2;
-            cell.Item.Count -= Global.SceneObjects.Player.Inventory.Items[24].Count;
-            cell.Item = Global.SceneObjects.Player.Inventory.Items[cell.ItemNumber];
-            Cell cellHalf = new Cell(cell.StartPosition, cell.Size, cell.ItemInventory, 24);
+            List<Item> inventory = cell.ItemType.GetList();
+            inventory[^1] = (Item)cell.Item.Clone();
+            inventory[^1].Count /= 2;
+            cell.Item.Count -= inventory[^1].Count;
+            cell.Item = inventory[cell.ItemNumber];
+            Cell cellHalf = new Cell(cell.StartPosition, cell.Size, cell.ItemInventory, inventory.Count - 1);
             cellHalf.State = new TakeHalfCellState(cellHalf, cell);
         }
         else

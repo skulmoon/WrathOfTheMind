@@ -13,13 +13,15 @@ public partial class ResourcesItemCreator : Node
     [Export] public int MaxCount { get; set; }
     [Export] public string ItemName { get; set; }
     [Export] public string Description { get; set; }
-    [Export] public virtual bool Create { get => default;
+    [Export] public virtual bool Create 
+    { 
+        get => default;
         set
         {
             if (!CheckID(ItemType.Item))
                 return;
             Item item;
-            if (!(ItemName == null || Description == null))
+            if (ItemName != null && Description != null)
             {
                 item = new Item(ID, MaxCount, ItemName, Description);
                 ResourceSaver.Save(item, "res://Data/Resources/Items/Items/" + item.ID + ".tres");

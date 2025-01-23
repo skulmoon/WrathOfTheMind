@@ -33,9 +33,9 @@ public class Directory
         Global.Settings.GameSettings = gameSettings;
         PlayerSettings playerSettings = new PlayerSettings()
         {
-            Items = new List<Item>(new Item[25]),
-            Shards = new List<Item>(new Item[9]),
-            Weapons = new List<Item>(new Item[9]),
+            Items = new List<Item>(new Item[33]),
+            Shards = new List<Item>(new Item[21]),
+            Armors = new List<Item>(new Item[21]),
             Scruples = 0,
             CurrentTargetPosition = new Vector2(16, 16),
             CurrentPosition = new Vector2(16, 16),

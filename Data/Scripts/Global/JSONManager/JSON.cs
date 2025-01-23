@@ -55,7 +55,7 @@ public class JSON
         Global.Settings.PlayerSettings.CurrentPosition = Global.SceneObjects.Player?.Position ?? new Vector2(16,16);
         Global.Settings.PlayerSettings.CurrentTargetPosition = Global.SceneObjects.Player?.TargetPosition ?? new Vector2(16, 16);
         Global.Settings.PlayerSettings.Items = Global.SceneObjects.Player?.Inventory?.Items ?? Global.Settings.PlayerSettings.Items;
-        Global.Settings.PlayerSettings.Weapons = Global.SceneObjects.Player?.Inventory?.Weapons ?? Global.Settings.PlayerSettings.Weapons;
+        Global.Settings.PlayerSettings.Armors = Global.SceneObjects.Player?.Inventory?.Armors ?? Global.Settings.PlayerSettings.Armors;
         Global.Settings.PlayerSettings.Shards = Global.SceneObjects.Player?.Inventory?.Shards ?? Global.Settings.PlayerSettings.Shards;
         string gameJson = JsonConvert.SerializeObject(Global.Settings.GameSettings, Formatting.Indented);
         string playerJson = JsonConvert.SerializeObject(Global.Settings.PlayerSettings, Formatting.Indented);

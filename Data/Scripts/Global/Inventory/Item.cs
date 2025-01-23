@@ -39,7 +39,7 @@ public partial class Item : Resource, ICloneable
         }
     }
 
-    public object Clone()
+    public virtual object Clone()
     {
         Item item = new Item(ID, MaxCount, Name, Description);
         item.Count = Count;

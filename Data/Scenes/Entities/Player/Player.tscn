@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://po03cr5rvpyk" path="res://icon.svg" id="2_gtofp"]
 [ext_resource type="Script" path="res://Data/Scripts/Entities/Player/PlayerInteractionArea.cs" id="3_bpate"]
 [ext_resource type="Script" path="res://Data/Scripts/Entities/Player/HitBox.cs" id="4_6vsg5"]
-[ext_resource type="PackedScene" uid="uid://dnkwqmmbjjouf" path="res://Data/Scenes/Entities/Player/Shard2D.tscn" id="4_8uicw"]
+[ext_resource type="Script" path="res://Data/Scripts/Entities/Player/Shards2D/ShardManager.cs" id="5_jm15j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qfa5h"]
 radius = 16.0
@@ -52,13 +52,12 @@ script = ExtResource("4_6vsg5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_crk6a")
 
-[node name="Shard2D" parent="." instance=ExtResource("4_8uicw")]
-top_level = true
-collision_mask = 24
-
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="ShardManager" type="Node2D" parent="."]
+script = ExtResource("5_jm15j")
 
 [connection signal="area_entered" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaEntered"]
 [connection signal="area_exited" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaExited"]

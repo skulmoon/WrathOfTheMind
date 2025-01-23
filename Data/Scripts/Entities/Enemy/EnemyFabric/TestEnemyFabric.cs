@@ -10,6 +10,6 @@ public partial class TestEnemyFabric : EnemyFabric
 	{
 		foreach (var item in EnemyZones)
 			for (int j = 0; j < item.Difficulty; j++)
-                item.PlaceEnemy(new TestEnemy1());
+                item.PlaceEnemy(new TestEnemy1(1, 100, 30, 50));
 	}
 }

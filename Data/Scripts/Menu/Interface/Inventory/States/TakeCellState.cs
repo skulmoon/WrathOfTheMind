@@ -3,66 +3,63 @@ using static Godot.Control;
 
 public partial class TakeCellState : Node, ICellState
 {
-    private Vector2 _startPosition;
     private Cell _cell;
+    private Vector2 CursorPosition { get => _cell.GetViewport().GetMousePosition() - (_cell.Size / 2); }
 
     public TakeCellState(Cell cell)
     {
+        Cell.TakeCell = cell;
+        cell.TopLevel = true;
+        cell.MouseFilter = MouseFilterEnum.Ignore;        
         _cell = cell;
-        Cell.TakeCell = _cell;
-        _startPosition = _cell.Position;
-        _cell.TopLevel = true;
-        _cell.MouseFilter = MouseFilterEnum.Ignore;
+        _cell.GlobalPosition = CursorPosition;
     }
 
-    public override void _Process(double delta)
-    {
-        _cell.GlobalPosition = GetViewport().GetMousePosition() - (_cell.Size / 2);
-    }
+    public override void _Process(double delta) =>
+        _cell.GlobalPosition = _cell.GlobalPosition.Lerp(CursorPosition, 10 * (float)delta);
 
     public void Release(Cell cell)
     {
+        Vector2 buffer = cell.GlobalPosition;
         cell.TopLevel = false;
-        cell.GlobalPosition = GetViewport().GetMousePosition() - (_cell.Size / 2);
+        cell.GlobalPosition = buffer;
         cell.Disabled = true;
-        GD.Print(14);
-        if (Cell.EnteredMouseCell != null)
+        if (Cell.EnteredMouseCell == null || cell.ItemType != Cell.EnteredMouseCell.ItemType)
+            cell.State = new TeleportationCellState(cell);
+        else
         {
-            if ((Cell.EnteredMouseCell?.Item?.ID) == (cell?.Item?.ID) && Cell.EnteredMouseCell?.Item != null && cell?.Item != null)
+            if (cell.ItemType == ItemType.Shard && (cell.ItemNumber < 20 && cell.ItemNumber > 15) || (Cell.EnteredMouseCell.ItemNumber < 20 && Cell.EnteredMouseCell.ItemNumber > 15))
+                StateCellMethods.ReleasedActiveShard(cell);
+            if ((Cell.EnteredMouseCell?.Item?.ID) == (cell?.Item?.ID) && Cell.EnteredMouseCell?.Item != null && cell?.Item != null && cell.ItemType == ItemType.Item)
             {
-                var item = Cell.EnteredMouseCell.Item;
-                var item2 = cell.Item;
-                item2.Count = item.Staked(item2.Count);
-                Cell.EnteredMouseCell.Item = item;
-                if (item2.Count == 0)
+                cell.Item.Count = Cell.EnteredMouseCell.Item.Staked(cell.Item.Count);
+                if (cell.Item.Count == 0)
                 {
-                    Global.SceneObjects.Player.Inventory.Items[cell.ItemNumber] = null;
-                    cell.Item = null;
+                    cell.ItemType.GetList()[cell.ItemNumber] = null;
+                    cell.UpdateItem();
                 }
-                else
-                    cell.Item = item2;
+                cell.UpdateItem();
+                Cell.EnteredMouseCell.UpdateItem();
                 cell.State = new TeleportationCellState(cell);
             }
             else
             {
-                Global.SceneObjects.Player.Inventory.MovingItem(ItemType.Item, cell.ItemNumber, Cell.EnteredMouseCell.ItemNumber);
-                cell.Item = Global.SceneObjects.Player.Inventory.Items[cell.ItemNumber];
+                Global.SceneObjects.Player.Inventory.MovingItem(cell.ItemType, cell.ItemNumber, Cell.EnteredMouseCell.ItemNumber);
+                cell.UpdateItem();
                 Cell.EnteredMouseCell.UpdateItem();
-                Cell.EnteredMouseCell.StartPosition = Cell.EnteredMouseCell.Position;
-                Vector2 buffer = Cell.EnteredMouseCell.Position;
-                Cell.EnteredMouseCell.Position = cell.Position;
-                cell.Position = buffer;
+                (cell.Position, Cell.EnteredMouseCell.Position) = (Cell.EnteredMouseCell.Position, cell.Position);
                 Cell.EnteredMouseCell.Disabled = true;
                 cell.State = new TeleportationCellState(cell);
                 Cell.EnteredMouseCell.State = new MovingCellState(Cell.EnteredMouseCell);
             }
         }
-        else
-        {
-            cell.State = new TeleportationCellState(cell);
-        }
     }
 
-    public void ReleaseOne(Cell cell) =>
-        StateCellMethods.ReleaseOne(cell);
+    public void ReleaseOne(Cell cell)
+    {
+        if (cell.Item.Count > 1)
+            StateCellMethods.ReleaseOne(cell);
+        else
+            Release(cell);
+    }
 }

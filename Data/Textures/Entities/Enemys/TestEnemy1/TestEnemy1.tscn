@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkpvt5s7f02d3"]
+
+[ext_resource type="Texture2D" uid="uid://dvsbb27akkfnv" path="res://Data/Textures/TestEnemy1.png" id="1_1s2mb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llpgf"]
+atlas = ExtResource("1_1s2mb")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhx0g"]
+atlas = ExtResource("1_1s2mb")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bmasf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llpgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhx0g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TestEnemy1" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_bmasf")

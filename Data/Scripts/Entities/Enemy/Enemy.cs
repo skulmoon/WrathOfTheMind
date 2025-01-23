@@ -4,7 +4,6 @@ public abstract partial class Enemy : CharacterBody2D
 {
     private int _health = 1200;
     public AnimatedSprite2D Animation { get; set; }
-    public Label Label { get; set; }
     public CollisionShape2D Collision { get; set; }
     public float Speed { get; private set; } = 200;
     public int Damage { get; private set; } = 12;
@@ -20,26 +19,18 @@ public abstract partial class Enemy : CharacterBody2D
         }
     }
 
-    public Enemy() =>
-        AddNodes();
-
-    public Enemy(float speed, int damage, int health)
+    public Enemy(float speed, int damage, int health, string animation)
     {
         _health = health;
         Speed = speed;
         Damage = damage;
-        AddNodes();
-    }
-
-    private void AddNodes()
-    {
         CollisionLayer = 4;
         CollisionMask = 4;
         Collision = new CollisionShape2D()
         {
-            Shape = new RectangleShape2D()
+            Shape = new CircleShape2D()
             {
-                Size = new Vector2(31, 31),
+                Radius = 15.5f
             }
         };
         AddChild(Collision);
@@ -52,20 +43,21 @@ public abstract partial class Enemy : CharacterBody2D
         hitbox.AreaEntered += ShardOnEntered;
         hitbox.AddChild(new CollisionShape2D()
         {
-            Shape = new RectangleShape2D()
+            Shape = new CircleShape2D()
             {
-                Size = new Vector2(34, 34)
+                Radius = 17
             }
         });
-        Animation = (AnimatedSprite2D)GD.Load<PackedScene>("res://Data/Textures/Enemys/TestEnemy1/TestEnemy1.tscn").Instantiate();
+        Animation = (AnimatedSprite2D)(Node2D)GD.Load<PackedScene>($"res://Data/Textures/Entities/Enemys/{animation}").Instantiate();
+        Animation.Play();
         AddChild(Animation);
-        Label = new Label();
-        AddChild(Label);
+        FloorBlockOnWall = false;
+        FloorStopOnSlope = false;
     }
 
-    public abstract void Move(Vector2 playerPosition);
+    public abstract void Move(Vector2 playerPosition, double delta);
 
-    public abstract void Attack();
+    public abstract void Attack(EnemyAttack attack);
 
     public virtual void TakeDamage(int damage) =>
         Health -= damage;

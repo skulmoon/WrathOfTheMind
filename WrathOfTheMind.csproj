@@ -6,9 +6,10 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <Compile Remove="Data\Scripts\Entities\Player\Shards2D\Shards2D\**" />
+    <EmbeddedResource Remove="Data\Scripts\Entities\Player\Shards2D\Shards2D\**" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\Scripts\Entities\Player\Shards2D\Shards2D\" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 </Project>
