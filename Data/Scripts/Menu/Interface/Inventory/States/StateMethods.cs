@@ -90,5 +90,19 @@ partial class StateCellMethods : Node
             for (int i = 1; i < Cell.ActiveShardCells.Count; i++)
                 Cell.ActiveShardCells[i].Disabled = true;
     }
+
+    static public void CheckActiveShards()
+    {
+        if (!Cell.ActiveShardCells.Exists(x => x != Cell.ActiveShardCells[0] && x.Item != null))
+            Cell.ActiveShardCells[0].Disabled = false;
+        else
+            Cell.ActiveShardCells[0].Disabled = true;
+        if (Cell.ActiveShardCells[0].Item != null)
+            for (int i = 1; i < Cell.ActiveShardCells.Count; i++)
+                Cell.ActiveShardCells[i].Disabled = false;
+        else
+            for (int i = 1; i < Cell.ActiveShardCells.Count; i++)
+                Cell.ActiveShardCells[i].Disabled = true;
+    }
 }
 

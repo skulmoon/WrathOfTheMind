@@ -49,6 +49,7 @@ public partial class InventoryItems : Control
                 cell.AddChild(label);
                 AddChild(cell);
             }
+            StateCellMethods.CheckActiveShards();
         }
         else if (Type == ItemType.Armor)
         {

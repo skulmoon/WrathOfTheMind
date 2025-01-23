@@ -28,11 +28,6 @@ script = ExtResource("2_ki7kg")
 SellInLine = 4
 Type = 2
 
-[node name="Button" type="Button" parent="Shards"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
 [node name="Armors" type="Control" parent="."]
 layout_mode = 1
 anchor_left = 0.76
