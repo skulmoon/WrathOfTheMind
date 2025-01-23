@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnm7wyi8o8q8a"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Tools/ResourcesShardCreator.cs" id="1_hv6mi"]
+
+[node name="ResourceShardCreator" type="Node"]
+script = ExtResource("1_hv6mi")
+ShardType = "Test1Shard2D"
+Health = 60
+Damage = 2
+Speed = 300
+ReloadSpeed = 1.0
+CritChance = 0.5
+MaxRange = 90.0
+ID = 1
+MaxCount = 1
+ItemName = "TestShard1"
+Description = "This is first test shard."
