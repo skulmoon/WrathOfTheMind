@@ -2,12 +2,12 @@ using Godot;
 
 public abstract partial class Enemy : CharacterBody2D
 {
-    private int _health = 1200;
+    private float _health = 1200;
     public AnimatedSprite2D Animation { get; set; }
     public CollisionShape2D Collision { get; set; }
     public float Speed { get; private set; } = 200;
     public int Damage { get; private set; } = 12;
-    public int Health
+    public float Health
     {
         get => _health;
         private set
@@ -59,7 +59,7 @@ public abstract partial class Enemy : CharacterBody2D
 
     public abstract void Attack(EnemyAttack attack);
 
-    public virtual void TakeDamage(int damage) =>
+    public virtual void TakeDamage(float damage) =>
         Health -= damage;
 
     public void ShardOnEntered(Area2D area)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=2 format=3 uid="uid://bm74g2gdhgxv1"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Global/Inventory/Armor.cs" id="1_evoel"]
+
+[resource]
+script = ExtResource("1_evoel")
+ArmorType = "Test1Armor2D"
+Protection = 12.0
+AdditionalHealth = 12.0
+ID = 0
+MaxCount = 1
+Name = "TestArmor"
+Description = "This is test armor."

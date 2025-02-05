@@ -4,8 +4,8 @@ using System;
 public abstract partial class Shard2D : Area2D
 {
     private Sprite2D _sprite;
-    private int _health = 30;
-    private int _maxHealth = 30;
+    private float _health = 30;
+    private float _maxHealth = 30;
 
     public event Action<Shard2D> ZeroHealth = (x) => { };
     public PointLight2D Light { get; private set; }
@@ -14,7 +14,7 @@ public abstract partial class Shard2D : Area2D
     public float TimeReload { get; set; } = 1;
     public float CritChance { get; set; } = 0.2f;
     public float MaxRange { get; private set; } = 100;
-    public int Health
+    public float Health
     {
         get => _health;
         private set
@@ -45,9 +45,7 @@ public abstract partial class Shard2D : Area2D
         MaxRange = maxRange;
     }
 
-    public abstract int Attack();
-
-    public abstract string GetFormula();
+    public abstract float Attack();
     
     public void RecoveryHealth() =>
         _health = _maxHealth;

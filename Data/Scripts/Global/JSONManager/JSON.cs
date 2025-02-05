@@ -57,6 +57,7 @@ public class JSON
         Global.Settings.PlayerSettings.Items = Global.SceneObjects.Player?.Inventory?.Items ?? Global.Settings.PlayerSettings.Items;
         Global.Settings.PlayerSettings.Armors = Global.SceneObjects.Player?.Inventory?.Armors ?? Global.Settings.PlayerSettings.Armors;
         Global.Settings.PlayerSettings.Shards = Global.SceneObjects.Player?.Inventory?.Shards ?? Global.Settings.PlayerSettings.Shards;
+        Global.SceneObjects.ResetPLayer();
         string gameJson = JsonConvert.SerializeObject(Global.Settings.GameSettings, Formatting.Indented);
         string playerJson = JsonConvert.SerializeObject(Global.Settings.PlayerSettings, Formatting.Indented);
         gameFile.StoreString(gameJson);

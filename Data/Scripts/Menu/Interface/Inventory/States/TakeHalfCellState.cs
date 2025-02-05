@@ -15,6 +15,7 @@ public partial class TakeHalfCellState : Node, ICellState
         childCell.ItemInventory.AddChild(childCell);
         Cell.TakeCell = childCell;
         childCell.TopLevel = true;
+        _childCell.GlobalPosition = CursorPosition;
         childCell.MouseFilter = MouseFilterEnum.Ignore;
     }
 

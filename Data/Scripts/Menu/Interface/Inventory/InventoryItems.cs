@@ -3,7 +3,6 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using static Godot.OpenXRHand;
 
 public partial class InventoryItems : Control
 {
@@ -11,6 +10,7 @@ public partial class InventoryItems : Control
 
 	private PlayerInventory _playerInventory;
 	private int lineCount = 0;
+    public List<Cell> Cells { get; private set; } = new List<Cell>();
     [Export] public int SellInLine { get; set; } = 6;
     [Export] public ItemType Type { get; set; } = ItemType.Item;
 
@@ -24,6 +24,9 @@ public partial class InventoryItems : Control
         _playerInventory = ((Player)player).Inventory;
         ShowInventory();
     }
+
+    public override void _ExitTree() =>
+        Global.SceneObjects.OnPlayerChanged -= TakePlayer;
 
     public void ShowInventory()
     {
@@ -53,6 +56,13 @@ public partial class InventoryItems : Control
         }
         else if (Type == ItemType.Armor)
         {
+            Cell mainCell = new Cell(new Vector2((Size.X - cellSize) / 2, (-Size.Y - cellSize) / 2), new Vector2(cellSize, cellSize), this, FIRST_ACTIVE_ITEM);
+            Label label = new Label
+            {
+                Text = 0.ToString()
+            };
+            mainCell.AddChild(label);
+            AddChild(mainCell);
         }
     }
 
@@ -68,6 +78,7 @@ public partial class InventoryItems : Control
             };
             cell.AddChild(label);
             AddChild(cell);
+            Cells.Add(cell);
         }
         lineCount++;
         return cellSize;

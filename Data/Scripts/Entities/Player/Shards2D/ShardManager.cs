@@ -13,9 +13,8 @@ public partial class ShardManager : Node2D
     private Player _player;
     private int _destroyShards;
 
-    public override void _Ready()
+    public ShardManager(Player player)
     {
-        Global.SceneObjects.OnPlayerChanged += ChangePlayer;
         _reloadTimer = new Timer()
         {
             WaitTime = _mainShard?.TimeReload ?? 1,
@@ -23,12 +22,15 @@ public partial class ShardManager : Node2D
             OneShot = true,
         };
         AddChild(_reloadTimer);
-        _reloadTimer.Timeout += CompleteReload;
+        _shards.Clear();
+        _activeShards.Clear();
+        _mainShard = null;
+        _player = player;
     }
 
-    public void ChangePlayer(Node player)
+    public override void _Ready()
     {
-        _player = (Player)player;
+        _reloadTimer.Timeout += CompleteReload;
         _player.Inventory.ShardChanged += ChangeShard;
         ChangeShard();
     }
@@ -46,6 +48,8 @@ public partial class ShardManager : Node2D
             }
             else
                 _mainShard.Light.Energy = (float)_reloadTimer.WaitTime - (float)_reloadTimer.TimeLeft / (float)_reloadTimer.WaitTime;
+            if (Input.IsActionJustPressed("left")) 
+                GD.Print(1);
         }
     }
 
@@ -84,12 +88,10 @@ public partial class ShardManager : Node2D
                 _shards.RemoveAt(0);
                 _mainShard.Position = Vector2.Zero;
             }
-            GD.Print($"Main shard is destroy. ({((Test1Shard2D)shard).Number})");
         }
         else
         {
             _shards.Remove(shard);
-            GD.Print($"Secondary shard is destroy. ({((Test1Shard2D)shard).Number})");
         }
         RemoveChild(shard);
         _destroyShards++;
@@ -114,7 +116,6 @@ public partial class ShardManager : Node2D
                 Type shardType = Type.GetType($"{item.ShardType}, {Assembly.GetExecutingAssembly().FullName}");
                 Shard2D shard = (Shard2D)Activator.CreateInstance(shardType, DestroyShard, item.Health, item.Damage, item.Speed, item.TimeReload, item.CritChance, item.MaxRange);
                 _activeShards.Add(shard);
-                ((Test1Shard2D)shard).Number = i;
             } 
         }
         if (_activeShards.Count != 0)

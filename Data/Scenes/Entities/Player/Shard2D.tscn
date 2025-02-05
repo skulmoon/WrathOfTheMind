@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnkwqmmbjjouf"]
+[gd_scene load_steps=4 format=3 uid="uid://dnkwqmmbjjouf"]
 
-[ext_resource type="Script" path="res://Data/Scripts/Entities/Player/Shards2D/Shard2D.cs" id="1_88ksg"]
 [ext_resource type="PackedScene" uid="uid://de6b4b3d6tbg8" path="res://Data/Scenes/Entities/Player/Shard2D/CollisionShape2D.tscn" id="2_epsym"]
 [ext_resource type="PackedScene" uid="uid://c8nmy67r6ft0f" path="res://Data/Scenes/Entities/Player/Shard2D/Sprite2D.tscn" id="3_kqhnm"]
 [ext_resource type="PackedScene" uid="uid://bkbpn02254a22" path="res://Data/Scenes/Entities/Player/Shard2D/PointLight2D.tscn" id="4_hqj2f"]
@@ -8,10 +7,10 @@
 [node name="Shard2D" type="Area2D"]
 collision_layer = 16
 collision_mask = 16
-script = ExtResource("1_88ksg")
 
 [node name="CollisionShape2D" parent="." instance=ExtResource("2_epsym")]
 
 [node name="Sprite2D" parent="." instance=ExtResource("3_kqhnm")]
 
 [node name="PointLight2D" parent="." instance=ExtResource("4_hqj2f")]
+color = Color(0, 0, 1, 1)

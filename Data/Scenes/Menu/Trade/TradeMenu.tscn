@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://5p113gt2878n"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Trade/TradeMenu.cs" id="1_hvd2m"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Trade/ButtonExitTrade.cs" id="2_wg53m"]
+
+[node name="TradeMenu" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.45
+grow_horizontal = 2
+script = ExtResource("1_hvd2m")
+
+[node name="VBoxContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.187
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9
+anchor_top = 0.03
+anchor_right = 0.98
+anchor_bottom = 0.08
+grow_horizontal = 0
+text = "Exit"
+script = ExtResource("2_wg53m")
+
+[connection signal="pressed" from="Button" to="Button" method="OnPressed"]

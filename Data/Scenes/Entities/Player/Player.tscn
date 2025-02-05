@@ -1,19 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhgr62sao2gjo"]
+[gd_scene load_steps=8 format=3 uid="uid://dhgr62sao2gjo"]
 
 [ext_resource type="Script" path="res://Data/Scripts/Entities/Player/Player.cs" id="1_ounf2"]
-[ext_resource type="Texture2D" uid="uid://po03cr5rvpyk" path="res://icon.svg" id="2_gtofp"]
+[ext_resource type="Texture2D" uid="uid://d2sxqkigw7f2w" path="res://Data/Textures/Entities/skulmoon.png" id="2_df0jf"]
 [ext_resource type="Script" path="res://Data/Scripts/Entities/Player/PlayerInteractionArea.cs" id="3_bpate"]
-[ext_resource type="Script" path="res://Data/Scripts/Entities/Player/HitBox.cs" id="4_6vsg5"]
-[ext_resource type="Script" path="res://Data/Scripts/Entities/Player/Shards2D/ShardManager.cs" id="5_jm15j"]
+[ext_resource type="Script" path="res://Data/Scripts/Entities/Player/Armor2D/HitBox.cs" id="4_6vsg5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qfa5h"]
-radius = 16.0
+radius = 15.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ir66"]
 size = Vector2(12, 12)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_crk6a"]
-radius = 15.0
+radius = 14.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
@@ -27,8 +26,10 @@ shape = SubResource("CircleShape2D_qfa5h")
 one_way_collision_margin = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_gtofp")
+position = Vector2(-1.19209e-07, -1.19209e-07)
+scale = Vector2(0.492188, 0.492188)
+texture = ExtResource("2_df0jf")
+offset = Vector2(0, -28)
 
 [node name="PlayerInteractionArea" type="Area2D" parent="."]
 position = Vector2(0, 16)
@@ -38,11 +39,6 @@ script = ExtResource("3_bpate")
 
 [node name="CollisionArea" type="CollisionShape2D" parent="PlayerInteractionArea"]
 shape = SubResource("RectangleShape2D_4ir66")
-
-[node name="Sprite2D" type="Sprite2D" parent="PlayerInteractionArea/CollisionArea"]
-position = Vector2(-2.38419e-07, -7.45058e-07)
-scale = Vector2(0.09375, 0.09375)
-texture = ExtResource("2_gtofp")
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 16
@@ -55,9 +51,6 @@ shape = SubResource("CircleShape2D_crk6a")
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-
-[node name="ShardManager" type="Node2D" parent="."]
-script = ExtResource("5_jm15j")
 
 [connection signal="area_entered" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaEntered"]
 [connection signal="area_exited" from="PlayerInteractionArea" to="PlayerInteractionArea" method="OnAreaExited"]

@@ -15,9 +15,10 @@ public partial class Player : CharacterBody2D
     public override void _Ready()
     {
         _interactionArea = GetNode<PlayerInteractionArea>("PlayerInteractionArea");
-        Shard = GetNode<ShardManager>("ShardManager");
-        Global.SceneObjects.TakePlayerSettings(this);
         Inventory = new PlayerInventory();
+        Shard = new ShardManager(this);
+        AddChild(Shard);
+        Global.SceneObjects.TakePlayerSettings(this);
         Global.SceneObjects.Player = this;
     }
 

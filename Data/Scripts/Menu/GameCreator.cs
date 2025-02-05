@@ -7,14 +7,14 @@ public partial class GameCreator : Control
     private int _currentButton;
     private TextEdit _textEdit;
     private VBoxContainer _container;
-    private Button _buttonNew;
-    private Button _buttonExit;
+    private TextureButton _buttonNew;
+    private TextureButton _buttonExit;
 
     public override void _Ready()
     {
-        _buttonExit = GetNode<Button>("ButtonExit");
+        _buttonExit = GetNode<TextureButton>("ButtonExit");
         _buttonExit.Pressed += ExitButtonPressed;
-        _buttonNew = GetNode<Button>("ButtonNew");
+        _buttonNew = GetNode<TextureButton>("ButtonNew");
         _buttonNew.Pressed += NewButtonPressed;
         _textEdit = GetNode<TextEdit>("TextEdit");
     }
@@ -24,6 +24,7 @@ public partial class GameCreator : Control
         if (Global.Settings.Saves.Find(x => x.Name == _textEdit.Text) != null)
         {
             //I will add logic later
+            //more later...
         }
         else
         {

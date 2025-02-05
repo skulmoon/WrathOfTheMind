@@ -6,7 +6,7 @@ public partial class CutSceneManager : Node
 {
     private NPCPAMS _npcPams;
     private NPCDialogue _dialogue;
-    private AudioStreamPlayer _player = new AudioStreamPlayer();
+    private AudioStreamPlayer _player;
     private DialogPanel _panel;
     private int _currentCutScene = 0;
 
@@ -16,6 +16,7 @@ public partial class CutSceneManager : Node
     private void TakePanel(Node node)
     {
         _panel = (DialogPanel)node;
+        _player = new AudioStreamPlayer();
         _panel.AddChild(_player);
     }
 

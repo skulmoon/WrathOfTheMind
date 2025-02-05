@@ -74,17 +74,7 @@ public partial class Cell : Button
         ItemNumber = itemNumber;
         UpdateItem();
         if (ItemType == ItemType.Shard && itemNumber < 20 && itemNumber > 15)
-        {
-            if (itemNumber == 16)
-                ActiveShardCells[0] = this;
-            else
-                for (int i = 0; i < 3;  i++)
-                    if (ActiveShardCells[i + 1] == null)
-                    {
-                        ActiveShardCells[i + 1] = this;
-                        break;
-                    }
-        }
+            ActiveShardCells[itemNumber - 16] = this;
     }
 
     public override void _Ready()

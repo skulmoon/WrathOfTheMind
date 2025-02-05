@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_1cyer")
 ID = 0
-MaxCount = 50
+MaxCount = 64
 Name = "Test"
 Description = "Test"

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://chcsqp8qk66rx"]
+
+[ext_resource type="Texture2D" uid="uid://butpnb47be1wd" path="res://Data/Textures/Items/Armors/TestArmor.png" id="1_p2uwr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tpc1g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p2uwr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Test1Armor2D" type="AnimatedSprite2D"]
+position = Vector2(0, -8)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_tpc1g")

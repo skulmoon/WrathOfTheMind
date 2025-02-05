@@ -14,7 +14,7 @@ public partial class DialogPanel : NinePatchRect
     private int[] _numberOptions = new int[5];
 
     public bool IsSelected { get => _dialogText.Control.Visible; }
-    public bool IsPrinting { get => _dialogText.IsPrinting; }
+    public bool IsPrinting { get => _dialogText?.IsPrinting ?? false; }
 
     public override void _Ready()
     {
@@ -31,7 +31,7 @@ public partial class DialogPanel : NinePatchRect
 
     public override void _Input(InputEvent @event)
     {
-        if (_dialogText.Control.Visible)
+        if (_dialogText?.Control?.Visible ?? false)
         {
             if (@event.IsActionPressed("up"))
                 _dialogText.UpOption();
@@ -43,9 +43,9 @@ public partial class DialogPanel : NinePatchRect
                 Global.CutSceneManager.OutputCutScene(_numberOptions[_dialogText.CurrentPosition]);
             }
         }
-        else if (Visible && @event.IsActionPressed("interact") && _dialogText.IsPrinting)
+        else if (Visible && @event.IsActionPressed("interact") && IsPrinting)
             _dialogText.StopPrinting();
-        else if (Global.Settings.CutScene && @event.IsActionPressed("interact") && !IsPrinting)
+        else if (Global.Settings.CutScene && @event.IsActionPressed("interact") && !Global.SceneObjects.InventoryMenu.Visible && !IsPrinting)
             Global.CutSceneManager._Input(@event);
     }
 

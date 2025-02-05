@@ -14,7 +14,7 @@ public partial class TestEnemy1 : EnemyReload
     public override void _Process(double delta) =>
         Move(_player?.GlobalPosition ?? new(0, 0), delta);
 
-    public override void TakeDamage(int damage)
+    public override void TakeDamage(float damage)
     {
         GD.Print($"Enemy take {damage} damage.");
         base.TakeDamage(damage);

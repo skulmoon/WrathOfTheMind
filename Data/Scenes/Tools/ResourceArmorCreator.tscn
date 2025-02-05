@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://2i7aqg8tc8ih"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Tools/ResourceArmorCreator.cs" id="1_oux8i"]
+
+[node name="ResourseArmorCreator" type="Node"]
+script = ExtResource("1_oux8i")
+ArmorType = "Test1Armor2D"

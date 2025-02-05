@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds7edorou0j7f"]
+[gd_scene load_steps=6 format=3 uid="uid://ds7edorou0j7f"]
 
 [ext_resource type="Script" path="res://Data/Scripts/Menu/MainMenu/ButtonNew.cs" id="1_620di"]
+[ext_resource type="Texture2D" uid="uid://dskvjfqv62a6l" path="res://Data/Textures/Menu/Buttons/BaseButton/NormalButton.png" id="1_ov374"]
 [ext_resource type="Script" path="res://Data/Scripts/Menu/MainMenu/ButtonLoad.cs" id="1_ysdp8"]
+[ext_resource type="Texture2D" uid="uid://b5b4gpm6laj48" path="res://Data/Textures/Menu/Buttons/BaseButton/PressedButton.png" id="2_yfd55"]
+[ext_resource type="Texture2D" uid="uid://bm7h26k8b2qw8" path="res://Data/Textures/Menu/Buttons/BaseButton/HoverButton.png" id="3_vfoqc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -19,23 +22,27 @@ offset_top = 20.0
 offset_right = 470.0
 offset_bottom = 240.0
 
-[node name="ButtonNew" type="Button" parent="MainButtons"]
+[node name="ButtonNew" type="TextureButton" parent="MainButtons"]
 custom_minimum_size = Vector2(20, 100)
 layout_mode = 2
 offset_right = 450.0
 offset_bottom = 100.0
-theme_override_font_sizes/font_size = 32
-text = "Новая игра"
+texture_normal = ExtResource("1_ov374")
+texture_pressed = ExtResource("2_yfd55")
+texture_hover = ExtResource("3_vfoqc")
+stretch_mode = 5
 script = ExtResource("1_620di")
 
-[node name="ButtonLoad" type="Button" parent="MainButtons"]
+[node name="ButtonLoad" type="TextureButton" parent="MainButtons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 offset_top = 120.0
 offset_right = 450.0
 offset_bottom = 220.0
-theme_override_font_sizes/font_size = 32
-text = "Загрузить игру"
+texture_normal = ExtResource("1_ov374")
+texture_pressed = ExtResource("2_yfd55")
+texture_hover = ExtResource("3_vfoqc")
+stretch_mode = 5
 script = ExtResource("1_ysdp8")
 
 [node name="ServiceButtons" type="Control" parent="."]
@@ -51,22 +58,26 @@ offset_right = -20.0
 offset_bottom = 240.0
 grow_horizontal = 0
 
-[node name="ButtonOptions" type="Button" parent="ServiceButtons"]
+[node name="ButtonOptions" type="TextureButton" parent="ServiceButtons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 offset_right = 450.0
 offset_bottom = 100.0
-theme_override_font_sizes/font_size = 32
-text = "Настройки"
+texture_normal = ExtResource("1_ov374")
+texture_pressed = ExtResource("2_yfd55")
+texture_hover = ExtResource("3_vfoqc")
+stretch_mode = 5
 
-[node name="ButtonCaptions" type="Button" parent="ServiceButtons"]
+[node name="ButtonExit" type="TextureButton" parent="ServiceButtons"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 offset_top = 120.0
 offset_right = 450.0
 offset_bottom = 220.0
-theme_override_font_sizes/font_size = 32
-text = "Титры"
+texture_normal = ExtResource("1_ov374")
+texture_pressed = ExtResource("2_yfd55")
+texture_hover = ExtResource("3_vfoqc")
+stretch_mode = 5
 
 [connection signal="pressed" from="MainButtons/ButtonNew" to="MainButtons/ButtonNew" method="OnPressed"]
 [connection signal="pressed" from="MainButtons/ButtonLoad" to="MainButtons/ButtonLoad" method="OnPressed"]

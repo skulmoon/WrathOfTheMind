@@ -41,6 +41,9 @@ public partial class NPC : CharacterBody2D
         }
     }
 
+    public override void _ExitTree() =>
+        Global.SceneObjects.Npcs.Remove(this);
+
     public override void _Process(double delta)
     {
         if (IsMove)

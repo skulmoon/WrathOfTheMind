@@ -1,7 +1,7 @@
 ﻿using Godot;
 using System;
 
-public partial class ButtonLoad : Button
+public partial class ButtonLoad : TextureButton
 {
     public void OnPressed()
     {

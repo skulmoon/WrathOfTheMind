@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ctqxigx0pnffx"]
+[gd_scene load_steps=24 format=3 uid="uid://ctqxigx0pnffx"]
 
 [ext_resource type="PackedScene" uid="uid://dhgr62sao2gjo" path="res://Data/Scenes/Entities/Player/Player.tscn" id="1_55ir5"]
 [ext_resource type="Texture2D" uid="uid://bclj1hk5dv28p" path="res://Data/Textures/TestWall.png" id="1_bo4ao"]
@@ -9,8 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://dp8x22mkdiil8" path="res://Data/Scenes/Menu/Camera.tscn" id="3_nx0gt"]
 [ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/Options/ButtonExit.cs" id="6_ji0fd"]
 [ext_resource type="Script" path="res://Data/Scripts/Menu/Interface/PauseMenu.cs" id="7_cb7td"]
+[ext_resource type="PackedScene" uid="uid://5p113gt2878n" path="res://Data/Scenes/Menu/Trade/TradeMenu.tscn" id="10_eub2n"]
 [ext_resource type="Script" path="res://Data/Scripts/Entities/Enemy/EnemyFabric/TestEnemyFabric.cs" id="12_xkr63"]
 [ext_resource type="Script" path="res://Data/Scripts/Entities/Enemy/EnemyFabric/EnemyArea.cs" id="13_mfmr0"]
+[ext_resource type="Script" path="res://Data/Scripts/Entities/TradeArea/TradeArea.cs" id="13_srr12"]
+[ext_resource type="Resource" uid="uid://c5jewusd4c5tm" path="res://Data/Resources/Items/Items/0.tres" id="14_g3lpm"]
+[ext_resource type="Script" path="res://Data/Scripts/Entities/TradeArea/TradeObject.cs" id="15_8is14"]
+[ext_resource type="Resource" uid="uid://0tsnkwnga6sy" path="res://Data/Resources/Items/Shards/0.tres" id="16_jg1if"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l1md0"]
 
@@ -19,7 +24,6 @@ texture = ExtResource("1_bo4ao")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-0:0/0/physics_layer_0/polygon_0/one_way_margin = 3.0
 
 [sub_resource type="TileSet" id="TileSet_xi5rf"]
 tile_size = Vector2i(32, 32)
@@ -30,6 +34,21 @@ sources/0 = SubResource("TileSetAtlasSource_nlmi4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsrix"]
 size = Vector2(283.683, 192.207)
+
+[sub_resource type="Resource" id="Resource_mp4ap"]
+script = ExtResource("15_8is14")
+Item = ExtResource("14_g3lpm")
+Price = 10
+Type = 0
+
+[sub_resource type="Resource" id="Resource_7asjb"]
+script = ExtResource("15_8is14")
+Item = ExtResource("16_jg1if")
+Price = 20
+Type = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e224j"]
+size = Vector2(163, 153)
 
 [node name="Test" type="Node2D"]
 
@@ -51,20 +70,18 @@ position_smoothing_speed = 15.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_t1nlg")]
 layer = 2
-visible = false
 script = ExtResource("7_cb7td")
 
-[node name="InventoryMenu" parent="PauseMenu" instance=ExtResource("3_8y8wq")]
-
-[node name="ExitButton" type="Button" parent="PauseMenu"]
+[node name="ExitButton" type="TextureButton" parent="PauseMenu"]
 top_level = true
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -62.0
-offset_bottom = 44.0
+offset_left = -58.0
+offset_bottom = 43.0
 grow_horizontal = 0
-text = "*"
+texture_normal = ExtResource("1_bo4ao")
+stretch_mode = 5
 script = ExtResource("6_ji0fd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -77,13 +94,20 @@ process_mode = 1
 process_priority = -6
 visible = false
 offset_top = -262.0
+region_rect = Rect2(2.1489, 0, 317.851, 320)
+
+[node name="InventoryMenu" parent="Interface" instance=ExtResource("3_8y8wq")]
+visible = false
+
+[node name="TradeMenu" parent="Interface" instance=ExtResource("10_eub2n")]
+visible = false
 
 [node name="EnemyArea" type="Area2D" parent="."]
 position = Vector2(-243, 125)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("13_mfmr0")
-Difficulty = 1
+Difficulty = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyArea"]
 scale = Vector2(1.00772, 0.946132)
@@ -93,5 +117,16 @@ disabled = true
 [node name="EnemyFabric" type="Node" parent="." node_paths=PackedStringArray("EnemyZones")]
 script = ExtResource("12_xkr63")
 EnemyZones = [NodePath("../EnemyArea")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+monitoring = false
+script = ExtResource("13_srr12")
+Objects = [SubResource("Resource_mp4ap"), SubResource("Resource_7asjb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(112, -84)
+shape = SubResource("RectangleShape2D_e224j")
 
 [connection signal="pressed" from="PauseMenu/ExitButton" to="PauseMenu/ExitButton" method="OnPressed"]

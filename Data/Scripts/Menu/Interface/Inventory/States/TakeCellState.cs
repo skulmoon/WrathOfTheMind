@@ -28,7 +28,7 @@ public partial class TakeCellState : Node, ICellState
             cell.State = new TeleportationCellState(cell);
         else
         {
-            if (cell.ItemType == ItemType.Shard && (cell.ItemNumber < 20 && cell.ItemNumber > 15) || (Cell.EnteredMouseCell.ItemNumber < 20 && Cell.EnteredMouseCell.ItemNumber > 15))
+            if (cell.ItemType == ItemType.Shard && ((cell.ItemNumber < 20 && cell.ItemNumber > 15) || (Cell.EnteredMouseCell.ItemNumber < 20 && Cell.EnteredMouseCell.ItemNumber > 15)))
                 StateCellMethods.ReleasedActiveShard(cell);
             if ((Cell.EnteredMouseCell?.Item?.ID) == (cell?.Item?.ID) && Cell.EnteredMouseCell?.Item != null && cell?.Item != null && cell.ItemType == ItemType.Item)
             {
