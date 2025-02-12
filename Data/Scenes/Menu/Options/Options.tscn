@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://ckt24ahqbmt3v"]
+[gd_scene load_steps=2 format=3 uid="uid://ckt24ahqbmt3v"]
+
+[ext_resource type="PackedScene" uid="uid://bgx0isvqskmfw" path="res://Data/Scenes/Menu/Buttons/Slider.tscn" id="1_g36u4"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -8,14 +10,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Graphics" type="NinePatchRect" parent="."]
+[node name="HSlider" parent="." instance=ExtResource("1_g36u4")]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 59.0
-offset_right = 144.0
-offset_bottom = 99.0
-
-[node name="Сontrol" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 298.0
+offset_top = 282.0
+offset_right = 827.0
+offset_bottom = 342.0
