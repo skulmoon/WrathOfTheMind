@@ -73,4 +73,7 @@ public class Directory
         var result = System.IO.Directory.GetDirectories(_directory).Select(x => Path.GetFileName(x)).ToList();
         return result;
     }
+
+    public void SaveConfig(string config) =>
+        File.WriteAllText(Path.Combine(ProjectSettings.GlobalizePath("user://"), "Config.json"), config);
 }

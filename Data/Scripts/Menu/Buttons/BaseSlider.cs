@@ -26,9 +26,8 @@ public partial class BaseSlider : HSlider
 		_nodeGrabber.Texture = Grabber;
     }
 
-	public void OnValueChanged(float value)
+	public virtual void OnValueChanged(float value)
 	{
-		GD.Print(value);
 		float newPosition = (float)((value - MinValue) / (MaxValue - MinValue));
 		_nodeGrabber.AnchorRight = newPosition;
 		_nodeGrabber.AnchorLeft = newPosition;

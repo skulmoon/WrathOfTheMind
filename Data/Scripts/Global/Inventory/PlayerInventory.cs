@@ -26,7 +26,6 @@ public partial class PlayerInventory : Node
 
     public bool TakeItem(Item item)
 	{
-        GD.Print(1);
         List<Item> list = null;
         InventoryItems inventoryItems;
         int count = 0;

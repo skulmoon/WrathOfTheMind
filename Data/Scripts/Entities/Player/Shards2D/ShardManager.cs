@@ -41,7 +41,7 @@ public partial class ShardManager : Node2D
         {
             if (_reloadTimer.TimeLeft == 0)
             {            
-                Vector2 cursorPosition = GetViewport().GetMousePosition() - GetViewport().GetWindow().Size / 2 + _player?.Position ?? Vector2.One;
+                Vector2 cursorPosition = GetGlobalMousePosition();
                 if (_mainShard != null)
                     decorate.DecorateMainShard(this, _mainShard, cursorPosition, (float)delta);
                 decorate.DecorateSubordinateShards(_shards);

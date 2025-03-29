@@ -23,9 +23,17 @@ Global="*res://Data/Scripts/Global/Global.cs"
 
 project/assembly_name="WrathOfTheMind"
 
+[gui]
+
+theme/custom_font="res://Data/Textures/ComicoroRu_0.ttf"
+
 [input]
 
-nothing={
+ui_accept={
+"deadzone": 0.5,
+"events": []
+}
+ui_select={
 "deadzone": 0.5,
 "events": []
 }

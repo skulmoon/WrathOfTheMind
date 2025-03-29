@@ -1,6 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckt24ahqbmt3v"]
+[gd_scene load_steps=23 format=3 uid="uid://ckt24ahqbmt3v"]
 
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Options/OptionsMenu.cs" id="1_6833t"]
 [ext_resource type="PackedScene" uid="uid://bgx0isvqskmfw" path="res://Data/Scenes/Menu/Buttons/Slider.tscn" id="1_g36u4"]
+[ext_resource type="PackedScene" uid="uid://ohh4tqy3krh1" path="res://Data/Scenes/Menu/Buttons/CheckBox.tscn" id="2_rkadk"]
+[ext_resource type="Texture2D" uid="uid://cfcvl1783y1hq" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton.png" id="3_1k6xc"]
+[ext_resource type="Texture2D" uid="uid://cpfyh311u8hox" path="res://Data/Textures/Menu/Buttons/ShortButton/PressedShortButton.png" id="4_rfek4"]
+[ext_resource type="Texture2D" uid="uid://bsfvajdgp0e3l" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton.png" id="5_ubw1h"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Options/SwitchButton.cs" id="6_1sp8l"]
+[ext_resource type="Texture2D" uid="uid://ccre8h5weexcn" path="res://Data/Textures/Menu/Buttons/ShortButton/FocusedShortButton.png" id="6_lrfcq"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/MainMenu/ButtonLoad.cs" id="7_ybruo"]
+[ext_resource type="Texture2D" uid="uid://dskvjfqv62a6l" path="res://Data/Textures/Menu/Buttons/BaseButton/NormalButton.png" id="8_7a0iv"]
+[ext_resource type="Texture2D" uid="uid://b5b4gpm6laj48" path="res://Data/Textures/Menu/Buttons/BaseButton/PressedButton.png" id="9_q6lj7"]
+[ext_resource type="Texture2D" uid="uid://cy156e7jn617i" path="res://Data/Textures/Menu/Buttons/BaseButton/HoverButton.png" id="10_35q7o"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Options/SoundSlider.cs" id="12_qcbe2"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Options/SaveConfigButton.cs" id="13_nrxrd"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Options/ChangeControlElement.cs" id="15_koaus"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Buttons/CustomButton.cs" id="16_qi3vj"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Options/ActiveDialogWindow/ActiveDialogWindow.cs" id="17_5e3s7"]
+[ext_resource type="Texture2D" uid="uid://b3tbyichm1f1m" path="res://Data/Textures/Menu/Спрайт-0001.png" id="18_g82tj"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_qtcbr"]
+action = &"open_pause_menu"
+
+[sub_resource type="Shortcut" id="Shortcut_wcnfr"]
+events = [SubResource("InputEventAction_qtcbr")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0esgd"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_qxh30"]
+font_size = 48
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -9,10 +38,962 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6833t")
 
 [node name="HSlider" parent="." instance=ExtResource("1_g36u4")]
 layout_mode = 0
-offset_left = 298.0
-offset_top = 282.0
-offset_right = 827.0
-offset_bottom = 342.0
+offset_left = 61.0
+offset_top = -106.0
+offset_right = 590.0
+offset_bottom = -46.0
+
+[node name="CheckBox" parent="." instance=ExtResource("2_rkadk")]
+layout_mode = 1
+offset_left = 654.528
+offset_top = -187.304
+offset_right = 654.976
+offset_bottom = -186.784
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BaseButton" type="TextureButton" parent="Control" node_paths=PackedStringArray("Controls", "MainControl")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 0.1
+offset_left = 0.448
+offset_top = 0.216
+offset_right = 0.263977
+offset_bottom = -0.240021
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("6_1sp8l")
+Controls = [NodePath("../BaseOptions"), NodePath("../GraphicsOptions"), NodePath("../SoundOptions"), NodePath("../ControlOptions")]
+MainControl = NodePath("../BaseOptions")
+IsMain = true
+Text = "Общие"
+
+[node name="GraphicsButton" type="TextureButton" parent="Control" node_paths=PackedStringArray("Controls", "MainControl")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.15
+anchor_right = 0.2
+anchor_bottom = 0.25
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("6_1sp8l")
+Controls = [NodePath("../BaseOptions"), NodePath("../GraphicsOptions"), NodePath("../SoundOptions"), NodePath("../ControlOptions")]
+MainControl = NodePath("../GraphicsOptions")
+Text = "Графика"
+
+[node name="SoundButton" type="TextureButton" parent="Control" node_paths=PackedStringArray("Controls", "MainControl")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_right = 0.2
+anchor_bottom = 0.4
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("6_1sp8l")
+Controls = [NodePath("../BaseOptions"), NodePath("../GraphicsOptions"), NodePath("../SoundOptions"), NodePath("../ControlOptions")]
+MainControl = NodePath("../SoundOptions")
+Text = "Звук"
+
+[node name="ControlButton" type="TextureButton" parent="Control" node_paths=PackedStringArray("Controls", "MainControl")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.45
+anchor_right = 0.2
+anchor_bottom = 0.55
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("6_1sp8l")
+Controls = [NodePath("../BaseOptions"), NodePath("../GraphicsOptions"), NodePath("../SoundOptions"), NodePath("../ControlOptions")]
+MainControl = NodePath("../ControlOptions")
+Text = "Управление"
+
+[node name="ExitButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.9
+anchor_right = 0.3
+anchor_bottom = 1.0
+shortcut = SubResource("Shortcut_wcnfr")
+texture_normal = ExtResource("8_7a0iv")
+texture_pressed = ExtResource("9_q6lj7")
+texture_hover = ExtResource("10_35q7o")
+stretch_mode = 5
+script = ExtResource("7_ybruo")
+Path = "res://Data/Scenes/Menu/MainMenu.tscn"
+Text = "Выйти"
+
+[node name="SaveButton" type="TextureButton" parent="Control" node_paths=PackedStringArray("Options")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.9
+anchor_right = 0.65
+anchor_bottom = 1.0
+texture_normal = ExtResource("8_7a0iv")
+texture_pressed = ExtResource("9_q6lj7")
+texture_hover = ExtResource("10_35q7o")
+stretch_mode = 5
+script = ExtResource("13_nrxrd")
+Options = NodePath("../..")
+Text = "Сохранить"
+
+[node name="ResetButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_normal = ExtResource("8_7a0iv")
+texture_pressed = ExtResource("9_q6lj7")
+texture_hover = ExtResource("10_35q7o")
+stretch_mode = 5
+
+[node name="BaseOptions" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchor_left = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.82
+
+[node name="GraphicsOptions" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchor_left = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.82
+
+[node name="SoundOptions" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchor_left = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.82
+
+[node name="Label" type="Label" parent="Control/SoundOptions"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 0.15
+text = "Общая:"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BaseSound" parent="Control/SoundOptions" instance=ExtResource("1_g36u4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_right = 0.98
+anchor_bottom = 0.15
+offset_left = 0.0179901
+offset_top = 0.0479965
+offset_right = 0.261963
+offset_bottom = -0.144005
+min_value = -35.0
+max_value = 15.0
+value = 15.0
+script = ExtResource("12_qcbe2")
+BusName = "Master"
+
+[node name="Label2" type="Label" parent="Control/SoundOptions"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.15
+anchor_right = 0.25
+anchor_bottom = 0.3
+text = "Окружение:"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnvironmentSound" parent="Control/SoundOptions" instance=ExtResource("1_g36u4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.15
+anchor_right = 0.98
+anchor_bottom = 0.3
+offset_left = 0.0179901
+offset_top = 0.0479965
+offset_right = 0.261963
+offset_bottom = -0.144005
+min_value = -35.0
+max_value = 15.0
+value = 15.0
+script = ExtResource("12_qcbe2")
+BusName = "Sound"
+
+[node name="Label3" type="Label" parent="Control/SoundOptions"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_right = 0.25
+anchor_bottom = 0.45
+text = "Музыка:"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicSound" parent="Control/SoundOptions" instance=ExtResource("1_g36u4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.3
+anchor_right = 0.98
+anchor_bottom = 0.45
+offset_left = 0.0179901
+offset_top = 0.0479965
+offset_right = 0.261963
+offset_bottom = -0.144005
+min_value = -35.0
+max_value = 15.0
+value = 15.0
+script = ExtResource("12_qcbe2")
+BusName = "Music"
+
+[node name="ControlOptions" type="ScrollContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.82
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ControlOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 8.04
+theme_override_constants/separation = 12
+
+[node name="Control" type="Control" parent="Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+script = ExtResource("15_koaus")
+FirstButton = NodePath("TextureButton")
+SecondButton = NodePath("TextureButton2")
+Action = "up"
+
+[node name="Label" type="Label" parent="Control/ControlOptions/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+text = "Движение вверх"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.63
+anchor_bottom = 1.0
+offset_left = 0.0619965
+offset_right = -0.156006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_right = 0.97
+anchor_bottom = 1.0
+offset_left = -0.132019
+offset_right = -0.350006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="Control2" type="Control" parent="Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+script = ExtResource("15_koaus")
+FirstButton = NodePath("TextureButton")
+SecondButton = NodePath("TextureButton2")
+Action = "down"
+
+[node name="Label" type="Label" parent="Control/ControlOptions/VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+text = "Движение вниз"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.63
+anchor_bottom = 1.0
+offset_left = 0.0619965
+offset_right = -0.156006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_right = 0.97
+anchor_bottom = 1.0
+offset_left = -0.132019
+offset_right = -0.350006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="Control3" type="Control" parent="Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+script = ExtResource("15_koaus")
+FirstButton = NodePath("TextureButton")
+SecondButton = NodePath("TextureButton2")
+Action = "left"
+
+[node name="Label" type="Label" parent="Control/ControlOptions/VBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+text = "Движение влево"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.63
+anchor_bottom = 1.0
+offset_left = 0.0619965
+offset_right = -0.156006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_right = 0.97
+anchor_bottom = 1.0
+offset_left = -0.132019
+offset_right = -0.350006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="Control4" type="Control" parent="Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+script = ExtResource("15_koaus")
+FirstButton = NodePath("TextureButton")
+SecondButton = NodePath("TextureButton2")
+Action = "right"
+
+[node name="Label" type="Label" parent="Control/ControlOptions/VBoxContainer/Control4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+text = "Движение вправо"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.63
+anchor_bottom = 1.0
+offset_left = 0.0619965
+offset_right = -0.156006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_right = 0.97
+anchor_bottom = 1.0
+offset_left = -0.132019
+offset_right = -0.350006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="Control5" type="Control" parent="Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+script = ExtResource("15_koaus")
+FirstButton = NodePath("TextureButton")
+SecondButton = NodePath("TextureButton2")
+Action = "acceleration"
+
+[node name="Label" type="Label" parent="Control/ControlOptions/VBoxContainer/Control5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+text = "Бег"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.63
+anchor_bottom = 1.0
+offset_left = 0.0619965
+offset_right = -0.156006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_right = 0.97
+anchor_bottom = 1.0
+offset_left = -0.132019
+offset_right = -0.350006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="Control6" type="Control" parent="Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+script = ExtResource("15_koaus")
+FirstButton = NodePath("TextureButton")
+SecondButton = NodePath("TextureButton2")
+Action = "interact"
+
+[node name="Label" type="Label" parent="Control/ControlOptions/VBoxContainer/Control6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+text = "Взаимодействие"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.63
+anchor_bottom = 1.0
+offset_left = 0.0619965
+offset_right = -0.156006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_right = 0.97
+anchor_bottom = 1.0
+offset_left = -0.132019
+offset_right = -0.350006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="Control7" type="Control" parent="Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+script = ExtResource("15_koaus")
+FirstButton = NodePath("TextureButton")
+SecondButton = NodePath("TextureButton2")
+Action = "confirm"
+
+[node name="Label" type="Label" parent="Control/ControlOptions/VBoxContainer/Control7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+text = "Подтверждение"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.63
+anchor_bottom = 1.0
+offset_left = 0.0619965
+offset_right = -0.156006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_right = 0.97
+anchor_bottom = 1.0
+offset_left = -0.132019
+offset_right = -0.350006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="Control8" type="Control" parent="Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+script = ExtResource("15_koaus")
+FirstButton = NodePath("TextureButton")
+SecondButton = NodePath("TextureButton2")
+Action = "open_pause_menu"
+
+[node name="Label" type="Label" parent="Control/ControlOptions/VBoxContainer/Control8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+text = "Пауза/Назад"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.63
+anchor_bottom = 1.0
+offset_left = 0.0619965
+offset_right = -0.156006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_right = 0.97
+anchor_bottom = 1.0
+offset_left = -0.132019
+offset_right = -0.350006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="Control9" type="Control" parent="Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+script = ExtResource("15_koaus")
+FirstButton = NodePath("TextureButton")
+SecondButton = NodePath("TextureButton2")
+Action = "shard_ability1"
+
+[node name="Label" type="Label" parent="Control/ControlOptions/VBoxContainer/Control9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+text = "Способность шарда 1"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.63
+anchor_bottom = 1.0
+offset_left = 0.0619965
+offset_right = -0.156006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_right = 0.97
+anchor_bottom = 1.0
+offset_left = -0.132019
+offset_right = -0.350006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="Control10" type="Control" parent="Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+script = ExtResource("15_koaus")
+FirstButton = NodePath("TextureButton")
+SecondButton = NodePath("TextureButton2")
+Action = "shard_ability2"
+
+[node name="Label" type="Label" parent="Control/ControlOptions/VBoxContainer/Control10"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+text = "Способность шарда 2"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control10"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.63
+anchor_bottom = 1.0
+offset_left = 0.0619965
+offset_right = -0.156006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control10"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_right = 0.97
+anchor_bottom = 1.0
+offset_left = -0.132019
+offset_right = -0.350006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="Control11" type="Control" parent="Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+script = ExtResource("15_koaus")
+FirstButton = NodePath("TextureButton")
+SecondButton = NodePath("TextureButton2")
+Action = "armor_ability1"
+
+[node name="Label" type="Label" parent="Control/ControlOptions/VBoxContainer/Control11"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+text = "Способность брони 1"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control11"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.63
+anchor_bottom = 1.0
+offset_left = 0.0619965
+offset_right = -0.156006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control11"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_right = 0.97
+anchor_bottom = 1.0
+offset_left = -0.132019
+offset_right = -0.350006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="Control12" type="Control" parent="Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+script = ExtResource("15_koaus")
+FirstButton = NodePath("TextureButton")
+SecondButton = NodePath("TextureButton2")
+Action = "armor_ability2"
+
+[node name="Label" type="Label" parent="Control/ControlOptions/VBoxContainer/Control12"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+text = "Способность брони 2"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control12"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.63
+anchor_bottom = 1.0
+offset_left = 0.0619965
+offset_right = -0.156006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control12"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_right = 0.97
+anchor_bottom = 1.0
+offset_left = -0.132019
+offset_right = -0.350006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="Control13" type="Control" parent="Control/ControlOptions/VBoxContainer" node_paths=PackedStringArray("FirstButton", "SecondButton")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+script = ExtResource("15_koaus")
+FirstButton = NodePath("TextureButton")
+SecondButton = NodePath("TextureButton2")
+Action = "open_inventory"
+
+[node name="Label" type="Label" parent="Control/ControlOptions/VBoxContainer/Control13"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_vertical = 2
+text = "Открыть инвентарь"
+label_settings = SubResource("LabelSettings_0esgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control13"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 0.63
+anchor_bottom = 1.0
+offset_left = 0.0619965
+offset_right = -0.156006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/ControlOptions/VBoxContainer/Control13"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_right = 0.97
+anchor_bottom = 1.0
+offset_left = -0.132019
+offset_right = -0.350006
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+texture_focused = ExtResource("6_lrfcq")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+
+[node name="ActiveDialogWindow" type="Control" parent="." node_paths=PackedStringArray("Exit", "Clear")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_5e3s7")
+Exit = NodePath("DialogWindow/TextureButton")
+Clear = NodePath("DialogWindow/TextureButton2")
+
+[node name="DialogWindow" type="TextureRect" parent="ActiveDialogWindow"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+texture = ExtResource("18_g82tj")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ActiveDialogWindow/DialogWindow"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.5
+text = "Нажмите клавишу, на которую хотите назначить действие."
+label_settings = SubResource("LabelSettings_qxh30")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+language = "ru"
+
+[node name="TextureButton" type="TextureButton" parent="ActiveDialogWindow/DialogWindow"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.7
+anchor_right = 0.43
+anchor_bottom = 0.85
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+Text = "Отмена"
+
+[node name="TextureButton2" type="TextureButton" parent="ActiveDialogWindow/DialogWindow"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.57
+anchor_top = 0.7
+anchor_right = 0.9
+anchor_bottom = 0.85
+texture_normal = ExtResource("3_1k6xc")
+texture_pressed = ExtResource("4_rfek4")
+texture_hover = ExtResource("5_ubw1h")
+stretch_mode = 5
+script = ExtResource("16_qi3vj")
+Text = "Очистить"

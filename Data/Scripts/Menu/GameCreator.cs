@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public partial class GameCreator : Control
 {
     private int _currentButton;
-    private TextEdit _textEdit;
+    private LineEdit _textEdit;
     private VBoxContainer _container;
     private TextureButton _buttonNew;
     private TextureButton _buttonExit;
@@ -16,7 +16,7 @@ public partial class GameCreator : Control
         _buttonExit.Pressed += ExitButtonPressed;
         _buttonNew = GetNode<TextureButton>("ButtonNew");
         _buttonNew.Pressed += NewButtonPressed;
-        _textEdit = GetNode<TextEdit>("TextEdit");
+        _textEdit = GetNode<LineEdit>("TextEdit");
     }
 
     public void NewButtonPressed()

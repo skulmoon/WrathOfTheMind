@@ -20,9 +20,9 @@ public class ShardDecorate
         shard.Light.Energy = MathF.Sin(_delta) * 0.1f + 0.9f;
         Vector2 direction = manager.Position.DirectionTo(cursorPosition);
         if (manager.GlobalPosition.DistanceTo(cursorPosition) > (float)delta * shard.Speed)
-            shard.Rotation = shard.GlobalPosition.AngleToPoint(cursorPosition) + (45 * MathF.PI / 180) + (MathF.Sin(_delta) / 10);
+            shard.Rotation = Vector2.FromAngle(shard.Rotation).Lerp(Vector2.FromAngle(shard.GlobalPosition.AngleToPoint(cursorPosition) + (45 * MathF.PI / 180) + (MathF.Sin(_delta) / 10)), 20 * (float)delta).Angle();
         else
-            shard.Rotation = Mathf.Lerp(shard.Rotation, (-45 * MathF.PI / 180) + (MathF.Sin(_delta) / 10), 10 * (float)delta);
+            shard.Rotation = Vector2.FromAngle(shard.Rotation).Lerp(Vector2.FromAngle((-45 * MathF.PI / 180) + (MathF.Sin(_delta) / 10)), 10 * (float)delta).Angle();
         if (cursorPosition.DistanceTo(_player?.GlobalPosition ?? Vector2.Zero) > shard.MaxRange)
             cursorPosition = (_player?.GlobalPosition ?? Vector2.Zero).DirectionTo(cursorPosition) * shard.MaxRange + _player?.GlobalPosition ?? Vector2.Zero;
         if (manager.GlobalPosition.DistanceTo(cursorPosition) > (float)delta * shard.Speed)

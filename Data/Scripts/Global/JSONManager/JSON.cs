@@ -8,7 +8,10 @@ public class JSON
     private string _pathDialogues = "res://Data/Dialogs/";
     private string _pathPams = "res://Data/PAMS/";
     private string _pathChoices = "user://Saves/";
-    private Directory Directory = new Directory();
+    private Directory _directory = new Directory();
+    private ConfigLoader _config = new ConfigLoader();
+
+    public ConfigInfo ConfigInfo { get => _config.ConfigInfo; }
 
     public JSON()
     {
@@ -82,7 +85,7 @@ public class JSON
 
     public void NewGame(string saveName, int saveNumber)
     {
-        Directory.CreateSave(saveName, saveNumber);
+        _directory.CreateSave(saveName, saveNumber);
         SaveGame();
         Global.CutSceneData.LoadCutSceneData();
     }
@@ -98,7 +101,7 @@ public class JSON
 
     public List<Save> GetSaves()
     {
-        List<string> saves = Directory.GetSaveNames();
+        List<string> saves = _directory.GetSaveNames();
         List<Save> result = new List<Save>();
         for (int i = 0; i < saves.Count; i++)
         {
@@ -111,5 +114,8 @@ public class JSON
     }
 
     public void DeleteGame(string saveName) =>
-        Directory.DeleteSave(saveName);
+        _directory.DeleteSave(saveName);
+
+    public void SaveConfig(ConfigInfo config) =>
+        _config.SaveConfig(config, _directory);
 }

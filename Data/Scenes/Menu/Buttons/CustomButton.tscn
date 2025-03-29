@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7305nelcmqnn"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Buttons/CustomButton.cs" id="1_c61b6"]
+
+[node name="CustomButton" type="TextureButton"]
+anchors_preset = -1
+anchor_right = 0.053
+anchor_bottom = 0.022
+offset_right = -61.056
+offset_bottom = -14.256
+stretch_mode = 5
+script = ExtResource("1_c61b6")
+Text = "fffff"
+
+[connection signal="button_down" from="." to="." method="OnButtonDown"]
+[connection signal="button_up" from="." to="." method="OnButtonUp"]
+[connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="." to="." method="OnMouseExited"]
