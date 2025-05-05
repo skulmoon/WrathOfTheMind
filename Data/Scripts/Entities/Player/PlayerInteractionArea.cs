@@ -21,7 +21,7 @@ public partial class PlayerInteractionArea : Area2D
 
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionJustPressed("interact") && (_interactionArea != null) && !Global.Settings.CutScene)
+        if (Input.IsActionJustPressed("interact") && (_interactionArea != null))
         {
             _interactionArea.Interaction();
         }

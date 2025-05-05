@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://80b4l158ssx5"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Entities/NPC/NPC.cs" id="1_u8b8r"]
+[ext_resource type="Texture2D" uid="uid://byugxrr41lktv" path="res://Data/Textures/Locations/Prologue/Bus.png" id="2_oun00"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjwlb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oun00")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1t4nw"]
+
+[node name="Bus" type="CharacterBody2D"]
+position = Vector2(-450, 470)
+script = ExtResource("1_u8b8r")
+ID = 2
+Speed = 300.0
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rjwlb")
+
+[node name="NPCInteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCInteractionArea"]
+shape = SubResource("RectangleShape2D_1t4nw")

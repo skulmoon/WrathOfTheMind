@@ -1,6 +1,6 @@
 using Godot;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 public class Directory
@@ -28,7 +28,7 @@ public class Directory
         GameSettings gameSettings = new GameSettings()
         {
             SaveNumber = saveNumber,
-            CurrentLocation = "Test/Test"
+            CurrentLocation = "Prologue/Prologue"
         };
         Global.Settings.GameSettings = gameSettings;
         PlayerSettings playerSettings = new PlayerSettings()
@@ -37,8 +37,7 @@ public class Directory
             Shards = new List<Item>(new Item[21]),
             Armors = new List<Item>(new Item[21]),
             Scruples = 0,
-            CurrentTargetPosition = new Vector2(16, 16),
-            CurrentPosition = new Vector2(16, 16),
+            CurrentPosition = new Vector2(160, 400),
         };
         for (int i = 0; i < 24; i++)
             playerSettings.Items[i] = Global.ItemFabric.CreateItem(0, 12);
@@ -47,7 +46,7 @@ public class Directory
         Global.Settings.GameSettings.SaveNumber = saveNumber;
         Global.Settings.Saves.Add(new Save() { Name = saveName, Number = saveNumber });
         Global.Settings.Saves.Sort();
-        CreateLocationChoices("Test/Test");
+        CreateLocationData("Prologue/Prologue");
     }
 
     public void DeleteSave(string saveName)
@@ -57,7 +56,7 @@ public class Directory
         Global.Settings.Saves.Remove(Global.Settings.Saves.Find((x) => x.Name == saveName));
     }
 
-    public void CreateLocationChoices(string location)
+    public void CreateLocationData(string location)
     {
         string path = Path.Combine(_directory, Global.Settings.CurrentSave, "Choices", location + ".json");
         if (File.Exists(path))
@@ -66,6 +65,13 @@ public class Directory
         }
         System.IO.Directory.CreateDirectory(Path.GetDirectoryName(path));
         File.WriteAllText(path, "");
+        path = Path.Combine(_directory, Global.Settings.CurrentSave, "LocationsData", location + ".json");
+        if (File.Exists(path))
+        {
+            return;
+        }
+        System.IO.Directory.CreateDirectory(Path.GetDirectoryName(path));
+        File.WriteAllText(path, "null");
     }
 
     public List<string> GetSaveNames()

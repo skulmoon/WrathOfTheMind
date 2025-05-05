@@ -1,10 +1,9 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class PAData : Node
 {
     public int? NPCID { get; set; }
-    public Vector2? StartPosition { get; set; }
-    public Vector2? EndPosition { get; set; }
-    public string Animation { get; set; }
+    public List<(Vector2 Position, string Animation, float? Time, int? Customize)> Data { get; set; }
 }

@@ -8,7 +8,6 @@ public partial class Player : CharacterBody2D
 
     public ShardManager Shard { get; private set; }
     public PlayerInventory Inventory { get => _inventory; private set => _inventory = value; }
-    [Export] public Vector2 TargetPosition { get; set; }
     [Export] public float Speed { get; set; } = 6000;
     [Export] public float Acceleration { get; set; } = 2;
 

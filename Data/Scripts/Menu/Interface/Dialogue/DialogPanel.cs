@@ -16,9 +16,11 @@ public partial class DialogPanel : NinePatchRect
     public bool IsSelected { get => _dialogText.Control.Visible; }
     public bool IsPrinting { get => _dialogText?.IsPrinting ?? false; }
 
+    public DialogPanel() =>
+        Global.SceneObjects.DialoguePanel = this;
+
     public override void _Ready()
     {
-        Global.SceneObjects.DialoguePanel = this;
         _dialogText = GetNode<DialogText>("DialogText");
         _player = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
     }
@@ -46,7 +48,7 @@ public partial class DialogPanel : NinePatchRect
         else if (Visible && @event.IsActionPressed("interact") && IsPrinting)
             _dialogText.StopPrinting();
         else if (Global.Settings.CutScene && @event.IsActionPressed("interact") && !Global.SceneObjects.InventoryMenu.Visible && !IsPrinting)
-            Global.CutSceneManager._Input(@event);
+            GD.Print(7);
     }
 
     public void NextDialogue(int currentCutScene) =>

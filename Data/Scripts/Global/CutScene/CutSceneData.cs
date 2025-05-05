@@ -36,4 +36,7 @@ public partial class CutSceneData
 
     public int GetChoice(int NPCID, int DialogueNumber) =>
         _dialogue.GetChoice(NPCID, DialogueNumber);
+
+    public void SaveChoices() =>
+        _dialogue.SaveDialogues();
 }

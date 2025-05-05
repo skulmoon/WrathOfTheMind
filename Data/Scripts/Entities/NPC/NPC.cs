@@ -1,32 +1,23 @@
 ﻿using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class NPC : CharacterBody2D
 {
-    private Vector2 _endPosition;
+    private LinkedListNode<(Vector2 Position, string Animation, float? Time, int? Customize)> _nextPAData;
 	private Area2D _interactionArea;
+    private Timer _timer = new Timer { OneShot = true };
 
     [Export] public string NPCInteractionPath { get; set; } = "res://Data/Scripts/Entities/NPC/InteractionDefault.cs";
     [Export] public int ID { get; set; }
-    [Export] public float Speed { get; set; } = 100;
+    [Export] public float Speed { get; set; } = 60;
     public bool IsMove { get; set; }
     public AnimatedSprite2D AnimatedSprite2D { get; set; }
 
-    public void ChangeAnimation(string name)
-    {
-        AnimatedSprite2D.Animation = name;
-        AnimatedSprite2D.Play();
-    }
-
-    public void Move(Vector2 startPosition, Vector2 endPosition)
-    {
-        Position = startPosition;
-        _endPosition = endPosition;
-        IsMove = true;
-    }
-
     public override void _Ready()
 	{
+        AddChild(_timer);
+        _timer.Timeout += ActivePA;
         Global.SceneObjects.Npcs.Add(this);
         AnimatedSprite2D = GetNode<AnimatedSprite2D>("Sprite2D");
         AnimatedSprite2D.Play();
@@ -48,15 +39,47 @@ public partial class NPC : CharacterBody2D
     {
         if (IsMove)
         {
-            Vector2 direction = (_endPosition - Position);
-            float distance = Speed * (float)delta;
-            if (direction.Length() > distance)
-                MoveAndCollide(direction.Normalized() * distance);
-            else
+            Vector2 direction = (_nextPAData.Value.Position - Position);
+            if (direction.Length() > Speed * (float)delta)
             {
-                Position = _endPosition;
-                IsMove = false;
+                Velocity = Velocity.Lerp(direction.Normalized() * Speed, 20 * (float)delta);
+                MoveAndSlide();
             }
+            else if (_timer.TimeLeft == 0)
+                ActivePA();
+        }
+    }
+
+    public void GetPA(PAData PAData)
+    {
+        var list = new LinkedList<(Vector2 Position, string Animation, float? Time, int? Customize)>(PAData.Data);
+        _nextPAData = list.First;
+        ActivePA();
+        IsMove = true;
+        ProcessMode = ProcessModeEnum.Always;
+    }
+
+    public void ActivePA()
+    {
+        if (_nextPAData?.Value.Customize != null)
+            ((Location)GetTree().CurrentScene).GetCutSceneCustomize((int)_nextPAData.Value.Customize)?.Invoke();
+        if (_nextPAData?.Next != null)
+        {
+            Position = _nextPAData.Value.Position;
+            _nextPAData = _nextPAData.Next;
+            if (_nextPAData.Value.Animation != null)
+            {
+                AnimatedSprite2D.Animation = _nextPAData.Value.Animation;
+                AnimatedSprite2D.Play();
+            }
+            if (_nextPAData.Value.Time != null)
+                _timer.Start(_nextPAData.Value.Time ?? 0);
+        }
+        else
+        {
+            Position = _nextPAData.Value.Position;
+            IsMove = false;
+            ProcessMode = ProcessModeEnum.Disabled;
         }
     }
 }

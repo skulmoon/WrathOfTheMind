@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnigoer4rfx35"
+path="res://.godot/imported/Yoga Style - Chris Haugen.mp3-8939a0f652980ffbe289b01a55bac85c.mp3str"
+
+[deps]
+
+source_file="res://Data/Sounds/Musics/Yoga Style - Chris Haugen.mp3"
+dest_files=["res://.godot/imported/Yoga Style - Chris Haugen.mp3-8939a0f652980ffbe289b01a55bac85c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

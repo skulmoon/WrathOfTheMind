@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt3dpuv6m3j1w"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Global/Storage.cs" id="1_1si4j"]
+
+[node name="Storage" type="Node"]
+script = ExtResource("1_1si4j")

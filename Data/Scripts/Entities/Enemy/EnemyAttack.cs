@@ -1,33 +1,47 @@
 using Godot;
 using System;
 
-public abstract partial class EnemyAttack : Area2D
+public abstract partial class EnemyAttack : CharacterBody2D
 {
-	Timer _lifeTime;
+	private Timer _lifeTime;
+	private CollisionShape2D _collision = new CollisionShape2D();
 
 	public int Damage { get; private set; } = 10;
-
-    public EnemyAttack(int damage, double lifeTime, string texture = "res://Data/Textures/EnemyAttack.png")
+	public Shape2D Shape 
 	{
+		get => _collision.Shape;
+        set => _collision.Shape = value;
+	}
+
+    public EnemyAttack(int damage, double lifeTime, string texture = "")
+	{
+
+        Area2D area = new Area2D();
+		area.AddChild(_collision);
+        area.AreaEntered += ShardOnEntered;
+		AddChild(area);
+        area.CollisionLayer = 16;
+        area.CollisionMask = 16;
 		Damage = damage;
-		CollisionLayer = 16;
-		CollisionMask = 16;
 		_lifeTime = new Timer()
 		{
 			WaitTime = lifeTime,
-			Autostart = true
+			Autostart = true,
+			OneShot = true,
 
 		};
 		AddChild(_lifeTime);
 		_lifeTime.Timeout += Destroy;
-        AddChild(new Sprite2D()
-        {
-            Texture = GD.Load<Texture2D>(texture)
-        });
-        AreaEntered += ShardOnEntered;
+		if (texture != string.Empty)
+		{
+			AddChild(new Sprite2D()
+			{
+				Texture = GD.Load<Texture2D>(texture)
+			});
+		}
     }
 
-    public void ShardOnEntered(Area2D area)
+    public virtual void ShardOnEntered(Area2D area)
 	{
 		if (area is Shard2D shard)
 		{

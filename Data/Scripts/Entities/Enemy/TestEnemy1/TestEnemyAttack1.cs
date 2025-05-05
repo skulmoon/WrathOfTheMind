@@ -7,13 +7,10 @@ public partial class TestEnemyAttack1 : EnemyAttack
 
     public TestEnemyAttack1(int damage, double lifeTime, Vector2 enemyPosition, Vector2 targetPosition) : base(damage, lifeTime)
     {
-        AddChild(new CollisionShape2D()
+        Shape = new CircleShape2D()
         {
-            Shape = new CircleShape2D()
-            {
-                Radius = 2
-            }
-        });
+            Radius = 2
+        };
         GlobalPosition = enemyPosition;
         _direction = GlobalPosition.DirectionTo(targetPosition);
     }

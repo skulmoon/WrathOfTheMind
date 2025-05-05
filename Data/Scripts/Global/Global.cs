@@ -9,7 +9,7 @@ public partial class Global : Node
     public static CutSceneData CutSceneData { get; private set; }
     public static CutSceneManager CutSceneManager { get; private set; }
     public static ItemFabric ItemFabric { get; private set; }
-    public static Music Music { get; private set; }
+    public static Sound Music { get; private set; }
 
     static Global()
     {
@@ -19,6 +19,6 @@ public partial class Global : Node
         CutSceneData = new CutSceneData();
         CutSceneManager = new CutSceneManager();
         ItemFabric = new ItemFabric();
-        Music = new Music();
+        Music = new Sound();
     }
 }

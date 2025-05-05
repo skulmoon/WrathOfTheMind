@@ -13,11 +13,13 @@ config_version=5
 config/name="WrathOfTheMind"
 run/main_scene="res://Data/Scenes/Menu/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://Data/Scripts/Global/Global.cs"
+Storage="*res://Data/Scenes/Tools/Storage.tscn"
 
 [dotnet]
 
@@ -118,3 +120,4 @@ open_inventory={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
