@@ -4,9 +4,11 @@ using System.Collections.Generic;
 
 public partial class NPC : CharacterBody2D
 {
-    private LinkedListNode<(Vector2 Position, string Animation, float? Time, int? Customize)> _nextPAData;
+    private LinkedListNode<NpcCSData> _nextPAData;
 	private Area2D _interactionArea;
     private Timer _timer = new Timer { OneShot = true };
+    private Tween _CurrentTween;
+    private Action _endPAData;
 
     [Export] public string NPCInteractionPath { get; set; } = "res://Data/Scripts/Entities/NPC/InteractionDefault.cs";
     [Export] public int ID { get; set; }
@@ -50,10 +52,11 @@ public partial class NPC : CharacterBody2D
         }
     }
 
-    public void GetPA(PAData PAData)
+    public void GetPA(PAData PAData, Action action)
     {
-        var list = new LinkedList<(Vector2 Position, string Animation, float? Time, int? Customize)>(PAData.Data);
+        var list = new LinkedList<NpcCSData>(PAData.Data);
         _nextPAData = list.First;
+        _endPAData += action;
         ActivePA();
         IsMove = true;
         ProcessMode = ProcessModeEnum.Always;
@@ -74,12 +77,28 @@ public partial class NPC : CharacterBody2D
             }
             if (_nextPAData.Value.Time != null)
                 _timer.Start(_nextPAData.Value.Time ?? 0);
+            if (_nextPAData.Value.Sound != null)
+                Global.Music.PlaySound(_nextPAData.Value.Sound);
         }
         else
         {
+            _endPAData?.Invoke();
             Position = _nextPAData.Value.Position;
             IsMove = false;
             ProcessMode = ProcessModeEnum.Disabled;
         }
+    }
+
+    public void StopPAData(FinalValues finalValues)
+    {
+        Position = finalValues.Position ?? Vector2.Zero;
+        if (finalValues.Animation != null)
+        {
+            AnimatedSprite2D.Animation = finalValues.Animation;
+            AnimatedSprite2D.Play();
+        }
+        _endPAData?.Invoke();
+        IsMove = false;
+        ProcessMode = ProcessModeEnum.Disabled;
     }
 }

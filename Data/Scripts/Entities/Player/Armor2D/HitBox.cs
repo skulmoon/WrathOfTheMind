@@ -31,7 +31,7 @@ public partial class HitBox : Area2D
 
     public HitBox()
     {
-        Global.SceneObjects.OnPlayerChanged += ChangePlayer;
+        Global.SceneObjects.PlayerChanged += ChangePlayer;
     }
 
     public void TakeDamage(float damage)
@@ -47,7 +47,7 @@ public partial class HitBox : Area2D
     }
 
     public override void _ExitTree() =>
-        Global.SceneObjects.OnPlayerChanged -= ChangePlayer;
+        Global.SceneObjects.PlayerChanged -= ChangePlayer;
 
     public void ChangeArmor()
     {

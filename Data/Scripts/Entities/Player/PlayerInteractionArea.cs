@@ -19,9 +19,9 @@ public partial class PlayerInteractionArea : Area2D
         }
     }
 
-    public override void _Input(InputEvent @event)
+    public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("interact") && (_interactionArea != null))
+        if (Input.IsActionJustPressed("interact") && (_interactionArea != null) && Global.CutSceneManager.IsChargeComplete)
         {
             _interactionArea.Interaction();
         }

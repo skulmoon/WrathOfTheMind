@@ -9,7 +9,7 @@ public class ShardDecorate
     private Player _player;
 
     public ShardDecorate() =>
-        Global.SceneObjects.OnPlayerChanged += ChangePlayer;
+        Global.SceneObjects.PlayerChanged += ChangePlayer;
 
     public void ChangePlayer(Node player) => 
         _player = (Player)player;
@@ -17,7 +17,7 @@ public class ShardDecorate
 	public void DecorateMainShard(ShardManager manager, Shard2D shard, Vector2 cursorPosition, float delta)
 	{
         _delta += (float)delta * 10;
-        shard.Light.Energy = MathF.Sin(_delta) * 0.1f + 0.9f;
+        shard.Light.Energy = MathF.Sin(_delta) * 0.5f + 0.9f;
         Vector2 direction = manager.Position.DirectionTo(cursorPosition);
         if (manager.GlobalPosition.DistanceTo(cursorPosition) > (float)delta * shard.Speed)
             shard.Rotation = Vector2.FromAngle(shard.Rotation).Lerp(Vector2.FromAngle(shard.GlobalPosition.AngleToPoint(cursorPosition) + (45 * MathF.PI / 180) + (MathF.Sin(_delta) / 10)), 20 * (float)delta).Angle();

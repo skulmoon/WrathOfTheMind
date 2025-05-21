@@ -21,7 +21,7 @@ public partial class PrologueCar : EnemyAttack
 
     public override void _Process(double delta)
     {
-        Velocity = (Direction + GlobalPosition.DirectionTo(Global.SceneObjects.Player.GlobalPosition)) * 50000 * (float)delta;
+        Velocity = (Direction + GlobalPosition.DirectionTo(Global.SceneObjects.Player.GlobalPosition)) * 70000 * (float)delta;
         MoveAndSlide();
     }
 

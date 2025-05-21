@@ -20,7 +20,7 @@ public partial class TradeButton : Button
     public TradeButton()
     {
         Pressed += OnPressed;
-        Global.SceneObjects.OnPlayerChanged += TakePlayer;
+        Global.SceneObjects.PlayerChanged += TakePlayer;
         CustomMinimumSize = new Vector2(0, 50);
     }
 

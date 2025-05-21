@@ -13,5 +13,6 @@ public partial class Location : Node2D
     public override void _Ready()
     {
         LocationData = Global.JSON.GetLocationData() ?? new List<(int ID, object Value)>();
+        Global.SceneObjects.Location = this;
     }
 }

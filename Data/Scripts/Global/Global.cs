@@ -11,8 +11,9 @@ public partial class Global : Node
     public static ItemFabric ItemFabric { get; private set; }
     public static Sound Music { get; private set; }
 
-    static Global()
+    public Global()
     {
+        ProcessPriority = 10;
         Settings = new Settings();
         SceneObjects = new SceneObjects();
         JSON = new JSON();

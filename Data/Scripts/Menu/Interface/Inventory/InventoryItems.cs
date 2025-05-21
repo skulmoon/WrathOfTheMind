@@ -16,7 +16,7 @@ public partial class InventoryItems : Control
 
     public override void _Ready()
     {
-        Global.SceneObjects.OnPlayerChanged += TakePlayer;
+        Global.SceneObjects.PlayerChanged += TakePlayer;
     }
 
     public void TakePlayer(Node player)
@@ -26,7 +26,7 @@ public partial class InventoryItems : Control
     }
 
     public override void _ExitTree() =>
-        Global.SceneObjects.OnPlayerChanged -= TakePlayer;
+        Global.SceneObjects.PlayerChanged -= TakePlayer;
 
     public void ShowInventory()
     {

@@ -30,7 +30,6 @@ public partial class ChangeControlElement : Control
             return key.Keycode.ToString();
         else if (@event is InputEventMouseButton mouseButton)
             return mouseButton.ButtonIndex.GetName();
-        GD.Print(34);
         return string.Empty;
     }
 }

@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization.Metadata;
+using System.Threading.Tasks;
 
 public class JSON
 {
@@ -20,53 +21,39 @@ public class JSON
         Global.Settings.Saves.Sort();
     }
 
-    public List<NPCPAMS> GetNpcpams()
+    private T GetJsonData<T>(string path)
     {
-        FileAccess file = FileAccess.Open($"{_pathPams}{Global.Settings.GameSettings.CurrentLocation}.json", FileAccess.ModeFlags.Read);
-        string json = file.GetAsText() ?? "";
-        file.Close();
-        return JsonConvert.DeserializeObject<List<NPCPAMS>>(json);
-    }
-
-    public List<NPCDialogue> GetDialogues()
-    {
-        FileAccess file = FileAccess.Open($"{_pathDialogues}{Global.Settings.GameSettings.CurrentLocation}.json", FileAccess.ModeFlags.Read);
+        FileAccess file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
         string json = file?.GetAsText() ?? "";
+        Task.Run(() => file?.Close());
+        return JsonConvert.DeserializeObject<T>(json);
+    }
+
+    private async void SetJsonData<T>(T data, string path)
+    {
+        Task<string> jsonTask = new Task<string>(() => JsonConvert.SerializeObject(data, Formatting.Indented));
+        FileAccess file = FileAccess.Open(path, FileAccess.ModeFlags.Write);
+        file?.StoreString(await jsonTask);
         file?.Close();
-        return JsonConvert.DeserializeObject<List<NPCDialogue>>(json);
     }
 
-    public List<PlayerChoice> GetPlayerChoices()
-    {
-        FileAccess file = FileAccess.Open($"{_pathSaves}{Global.Settings.CurrentSave}/Choices/{Global.Settings.GameSettings.CurrentLocation}.json", FileAccess.ModeFlags.Read);
-        string json = file.GetAsText();
-        file.Close();
-        return JsonConvert.DeserializeObject<List<PlayerChoice>>(json);
-    }
+    public List<NPCPAMS> GetNpcpams() =>
+        GetJsonData<List<NPCPAMS>>($"{_pathPams}{Global.Settings.GameSettings.CurrentLocation}.json");
 
-    public List<(int ID, object Value)> GetLocationData()
-    {
-        FileAccess file = FileAccess.Open($"{_pathSaves}{Global.Settings.CurrentSave}/LocationsData/{Global.Settings.GameSettings.CurrentLocation}.json", FileAccess.ModeFlags.Read);
-        string json = file.GetAsText();
-        file.Close();
-        return JsonConvert.DeserializeObject<List<(int ID, object Value)>>(json);
-    }
+    public List<NPCDialogue> GetDialogues() =>
+        GetJsonData<List<NPCDialogue>>($"{_pathDialogues}{Global.Settings.GameSettings.CurrentLocation}.json");
 
-    public void SetPlayerChoices(List<PlayerChoice> playerChoices)
-    {
-        FileAccess file = FileAccess.Open($"{_pathSaves}{Global.Settings.CurrentSave}/Choices/{Global.Settings.GameSettings.CurrentLocation}.json", FileAccess.ModeFlags.Write);
-        string json = JsonConvert.SerializeObject(playerChoices, Formatting.Indented);
-        file.StoreString(json);
-        file.Close();
-    }
+    public List<PlayerChoice> GetPlayerChoices() =>
+        GetJsonData<List<PlayerChoice>>($"{_pathSaves}{Global.Settings.CurrentSave}/Choices/{Global.Settings.GameSettings.CurrentLocation}.json");
 
-    public void SetLocationData(List<(int ID, object Value)> locationData)
-    {
-        FileAccess file = FileAccess.Open($"{_pathSaves}{Global.Settings.CurrentSave}/LocationsData/{Global.Settings.GameSettings.CurrentLocation}.json", FileAccess.ModeFlags.Write);
-        string json = JsonConvert.SerializeObject(locationData, Formatting.Indented);
-        file.StoreString(json);
-        file.Close();
-    }
+    public List<(int ID, object Value)> GetLocationData() =>
+        GetJsonData<List<(int ID, object Value)>>($"{_pathSaves}{Global.Settings.CurrentSave}/LocationsData/{Global.Settings.GameSettings.CurrentLocation}.json");
+
+    public void SetPlayerChoices(List<PlayerChoice> playerChoices) =>
+        SetJsonData(playerChoices, $"{_pathSaves}{Global.Settings.CurrentSave}/Choices/{Global.Settings.GameSettings.CurrentLocation}.json");
+
+    public void SetLocationData(List<(int ID, object Value)> locationData) =>
+        SetJsonData(locationData, $"{_pathSaves}{Global.Settings.CurrentSave}/LocationsData/{Global.Settings.GameSettings.CurrentLocation}.json");
 
     public void SaveGame()
     {

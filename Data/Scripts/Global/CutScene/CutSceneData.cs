@@ -7,6 +7,21 @@ public partial class CutSceneData
     private List<NPCPAMS> _npsPamses = new List<NPCPAMS>();
     private Dialogue _dialogue = new Dialogue();
 
+    public CutSceneData()
+    {
+        Global.SceneObjects.LocationChanged += OnLocationLoad;
+    }
+    
+    public void OnLocationLoad(Node node)
+    {
+        if (node is Location location)
+        {
+            string[] x = location.SceneFilePath.Split('/', '.')[^3..^1];
+            Global.Settings.GameSettings.CurrentLocation = $"{x[0]}\\{x[1]}";
+            Global.CutSceneData.LoadCutSceneData();
+        }
+    }
+
     public void LoadCutSceneData()
     {
         _npsPamses = Global.JSON.GetNpcpams();

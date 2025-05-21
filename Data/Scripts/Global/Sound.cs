@@ -13,7 +13,7 @@ public class Sound
     public Sound()
 	{
         _music.Bus = "Music";
-        Global.SceneObjects.OnStorageReady += (storage) =>
+        Global.SceneObjects.StorageReady += (storage) =>
         {
             for (int i = 0; i < 15; i++)
             {

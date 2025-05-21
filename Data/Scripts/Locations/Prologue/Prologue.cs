@@ -18,10 +18,11 @@ public partial class Prologue : Location
             CreateTween().TweenProperty(Global.SceneObjects.Npcs.Find((x) => x.ID == 2), "Speed", 300, 5);
         }));
         CutSceneCustomizes.Add((3, () => {
-            Input.ParseInputEvent(new InputEventAction { Action = "interact", Pressed = true }); 
+            Input.ParseInputEvent(new InputEventAction() { Action = "interact", Pressed = true });
             Global.SceneObjects.Player.GetNode<Camera2D>("Camera").Enabled = true;
-            ((CameraNPC)Global.SceneObjects.Npcs.Find((x) => x.ID == 3)).ChangeEnabled(false);
-        }));
+            ((CameraNPC)Global.SceneObjects.Npcs.Find((x) => x.ID == 3)).Camera.Enabled = false;
+        }
+        ));
         CutSceneCustomizes.Add((4, () => {
             Global.SceneObjects.Player.GetNode<Camera2D>("Camera").Enabled = false;
             CreateTween().TweenProperty(Global.SceneObjects.Npcs.Find((x) => x.ID == 2), "Speed", 20, 4.5);
@@ -33,6 +34,18 @@ public partial class Prologue : Location
             ((CameraNPC)Global.SceneObjects.Npcs.Find((x) => x.ID == 3)).ChangeZoom(1, 3);
             Global.SceneObjects.Npcs.Find((x) => x.ID == 3).Velocity = Vector2.Zero;
         }));
+        CutSceneCustomizes.Add((7, () => {
+
+            foreach (Tween tween in GetTree().GetProcessedTweens())
+                if (tween.IsValid())
+                    tween.Kill();
+            ((CameraNPC)Global.SceneObjects.Npcs.Find((x) => x.ID == 3)).Camera.Enabled = false;
+            Global.SceneObjects.Player.GetNode<Camera2D>("Camera").Enabled = true;
+            Global.SceneObjects.Player.Visible = true;
+            GetTree().CurrentScene.GetNode<TextureRect>("%Dark").Visible = false;
+            Input.ParseInputEvent(new InputEventAction { Action = "interact" });
+        }
+        ));
         if ((bool?)LocationData.Find(x => x.ID == 1).Value ?? true)
         {
             Global.SceneObjects.Player.Visible = false;

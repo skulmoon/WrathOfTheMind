@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://don7otkxf1g5x"]
+[gd_scene load_steps=15 format=4 uid="uid://don7otkxf1g5x"]
 
 [ext_resource type="Texture2D" uid="uid://bo2v6khkb1xf7" path="res://Data/Textures/Locations/Prologue/RoomTiles.png" id="1_ckcnk"]
 [ext_resource type="Script" path="res://Data/Scripts/Locations/Prologue/CharapterRoom.cs" id="1_d241j"]
 [ext_resource type="PackedScene" uid="uid://dhgr62sao2gjo" path="res://Data/Scenes/Entities/Player/Player.tscn" id="2_u237c"]
+[ext_resource type="Script" path="res://Data/Scripts/Entities/Interection/DialogueStarter.cs" id="4_alt8j"]
+[ext_resource type="Script" path="res://Data/Scripts/Locations/ConductivePath.cs" id="4_mbsgf"]
+[ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/DialogPanel.tscn" id="6_f3eyf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vflmr"]
 texture = ExtResource("1_ckcnk")
@@ -122,6 +125,15 @@ sources/0 = SubResource("TileSetAtlasSource_slnb3")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_gvp45"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2ra7"]
+size = Vector2(48, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5c6g"]
+size = Vector2(28, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwyf3"]
+size = Vector2(36, 26)
+
 [node name="CharapterRoom" type="Node2D"]
 script = ExtResource("1_d241j")
 
@@ -135,10 +147,20 @@ position = Vector2(16, 224)
 tile_map_data = PackedByteArray("AAACAP7/AAAGAAAAAAACAP//AAAGAAEAAAADAP7/AAAHAAAAAAADAP//AAAHAAEAAAABAAEAAAAJAAAAAAABAAIAAAAJAAEAAAACAAEAAAAKAAAAAAACAAIAAAAKAAEAAAACAAMAAAAKAAIAAAABAAUAAAAJAAQAAAACAAQAAAAKAAMAAAACAAUAAAAKAAQAAAAFAAAAAAALAAAAAAAFAAEAAAALAAEAAAAFAAIAAAALAAIAAAABAAQAAAAJAAMAAAABAAMAAAAJAAIAAAABAAAAAAACAAIAAAACAAAAAAACAAIAAAADAAAAAAACAAIAAAAEAAAAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_u120y")
 
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="DialogPanel" parent="Interface" instance=ExtResource("6_f3eyf")]
+process_mode = 1
+process_priority = -6
+visible = false
+offset_top = -262.0
+region_rect = Rect2(2.1489, 0, 317.851, 320)
+
 [node name="Player" parent="." instance=ExtResource("2_u237c")]
 position = Vector2(160, 400)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Dark" type="TextureRect" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -149,3 +171,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_gvp45")
+
+[node name="Bed" type="Area2D" parent="."]
+position = Vector2(59, 266)
+script = ExtResource("4_mbsgf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
+position = Vector2(14, 31.5)
+shape = SubResource("RectangleShape2D_i2ra7")
+
+[node name="Pepshugar" type="Area2D" parent="."]
+position = Vector2(136, 221)
+collision_layer = 13
+collision_mask = 13
+script = ExtResource("4_alt8j")
+Number = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pepshugar"]
+position = Vector2(0, 25.5)
+shape = SubResource("RectangleShape2D_p5c6g")
+
+[node name="Viktor" type="Area2D" parent="."]
+position = Vector2(186, 313)
+collision_layer = 13
+collision_mask = 13
+script = ExtResource("4_alt8j")
+Number = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Viktor"]
+position = Vector2(4, 3)
+shape = SubResource("RectangleShape2D_dwyf3")

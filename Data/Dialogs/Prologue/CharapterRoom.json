@@ -1,0 +1,10 @@
+[
+	{"NPCID" : 0, "DialogueNumber" : 1, "Speech" : [
+		{"Name" : "", "Text" : "This is \"pepesugar\" soda.", "Image" : ""},
+	]},
+	
+	{"NPCID" : 0, "DialogueNumber" : 2, "Speech" : [
+		{"Name" : "", "Text" : "This is my favorite short.", "Image" : ""},
+		{"Name" : "", "Text" : "Maybe.", "Image" : ""}
+	]},
+]

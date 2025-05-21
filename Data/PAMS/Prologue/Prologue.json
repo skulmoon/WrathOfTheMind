@@ -1,21 +1,24 @@
 [
 	{"NPCID" : 2, "DialogueNumber" : 1, "PAMSs" : [
-		{"Music" : null, "Sound" : null, "PAData" : [
+		{"Music" : null, "FinalCustomize" : 7,  "FinalValues" : [
+			{"ID" : 2, "Position" : {"X" : -450, "Y" : 470}, "Animation" : null},
+			{"ID" : 3, "Position" : {"X" : 190, "Y" : 410}, "Animation" : null},
+			], "PAData" : [
 			{"NPCID" : 2, "Data" : [
-				{"Item1" : {"X" : 560, "Y" : 470}, "Item2" : null, "Item3" : null, "Item4" : null},
-				{"Item1" : {"X" : 390, "Y" : 470}, "Item2" : null, "Item3" : null, "Item4" : 1},
-				{"Item1" : {"X" : 300, "Y" : 410}, "Item2" : null, "Item3" : null, "Item4" : null},
-				{"Item1" : {"X" : 190, "Y" : 410}, "Item2" : null, "Item3" : 4, "Item4" : 2},
-				{"Item1" : {"X" : 100, "Y" : 470}, "Item2" : null, "Item3" : null, "Item4" : null},
-				{"Item1" : {"X" : -450, "Y" : 470}, "Item2" : null, "Item3" : 3, "Item4" : 3},
-				{"Item1" : {"X" : -450, "Y" : 470}, "Item2" : null, "Item3" : null, "Item4" : null},
+				{"Position" : {"X" : 560, "Y" : 470}, "Animation" : null, "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 390, "Y" : 470}, "Animation" : null, "Time" : null, "Customize" : 1},
+				{"Position" : {"X" : 300, "Y" : 410}, "Animation" : null, "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 190, "Y" : 410}, "Animation" : null, "Time" : 4, "Customize" : 2},
+				{"Position" : {"X" : 100, "Y" : 470}, "Animation" : null, "Time" : null, "Customize" : null},
+				{"Position" : {"X" : -450, "Y" : 470}, "Animation" : null, "Time" : 3, "Customize" : 3},
+				{"Position" : {"X" : -450, "Y" : 470}, "Animation" : null, "Time" : null, "Customize" : null},
 			]},
 			{"NPCID" : 3, "Data" : [
-				{"Item1" : {"X" : 560, "Y" : 470}, "Item2" : null, "Item3" : null, "Item4" : 4},
-				{"Item1" : {"X" : 390, "Y" : 470}, "Item2" : null, "Item3" : null, "Item4" : 5},
-				{"Item1" : {"X" : 300, "Y" : 410}, "Item2" : null, "Item3" : null, "Item4" : null},
-				{"Item1" : {"X" : 190, "Y" : 410}, "Item2" : null, "Item3" : 5, "Item4" : 6},
-				{"Item1" : {"X" : 190, "Y" : 410}, "Item2" : null, "Item3" : 5, "Item4" : null},
+				{"Position" : {"X" : 560, "Y" : 470}, "Animation" : null, "Time" : null, "Customize" : 4},
+				{"Position" : {"X" : 390, "Y" : 470}, "Animation" : null, "Time" : null, "Customize" : 5},
+				{"Position" : {"X" : 300, "Y" : 410}, "Animation" : null, "Time" : null, "Customize" : null},
+				{"Position" : {"X" : 190, "Y" : 410}, "Animation" : null, "Time" : 5, "Customize" : 6},
+				{"Position" : {"X" : 190, "Y" : 410}, "Animation" : null, "Time" : 5, "Customize" : null},
 			]}
 		]},
 	]},

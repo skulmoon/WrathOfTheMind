@@ -6,7 +6,7 @@ public partial class TestEnemy1 : EnemyReload
     private Player _player;
 
     public TestEnemy1(float reloadTime, float speed, int damage, int health) : base(reloadTime, speed, damage, health, "TestEnemy1/TestEnemy1.tscn") =>
-        Global.SceneObjects.OnPlayerChanged += TakePlayer;
+        Global.SceneObjects.PlayerChanged += TakePlayer;
 
     public void TakePlayer(Node player) =>
         _player = (Player)player;

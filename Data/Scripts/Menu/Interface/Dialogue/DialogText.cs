@@ -88,7 +88,7 @@ public partial class DialogText : RichTextLabel
 
     public void PrintText(string text, string name)
     {
-        Text = $"{name}:\n";
+        Text = $"\t{name}\n";
         _name = name;
         _text = text;
         IsPrinting = true;
@@ -96,7 +96,7 @@ public partial class DialogText : RichTextLabel
 
     public void StopPrinting()
     {
-        Text = _name+":\n"+_text;
+        Text = $"\t{_name}\n{_text}";
         _counter = 0;
         IsPrinting = false;
     }

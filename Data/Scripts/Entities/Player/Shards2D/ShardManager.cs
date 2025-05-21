@@ -6,25 +6,38 @@ using System.Reflection;
 public partial class ShardManager : Node2D
 {
     private ShardDecorate decorate = new ShardDecorate();
-    private Shard2D _mainShard;
     private List<Shard2D> _shards = new();
+    private Shard2D _mainShard;
     private List<Shard2D> _activeShards = new();
     private Timer _reloadTimer;
     private Player _player;
     private int _destroyShards;
 
+    private Shard2D MainShard
+    {
+        get => _mainShard;
+        set
+        {
+            if (_mainShard is ShardAbility shard1)
+                shard1.IsMain = false;
+            if (value is ShardAbility shard2)
+                shard2.IsMain = true;
+            _mainShard = value;
+        }
+    }
+
     public ShardManager(Player player)
     {
         _reloadTimer = new Timer()
         {
-            WaitTime = _mainShard?.TimeReload ?? 1,
+            WaitTime = MainShard?.TimeReload ?? 1,
             Autostart = true,
             OneShot = true,
         };
         AddChild(_reloadTimer);
         _shards.Clear();
         _activeShards.Clear();
-        _mainShard = null;
+        MainShard = null;
         _player = player;
     }
 
@@ -42,14 +55,12 @@ public partial class ShardManager : Node2D
             if (_reloadTimer.TimeLeft == 0)
             {            
                 Vector2 cursorPosition = GetGlobalMousePosition();
-                if (_mainShard != null)
-                    decorate.DecorateMainShard(this, _mainShard, cursorPosition, (float)delta);
+                if (MainShard != null)
+                    decorate.DecorateMainShard(this, MainShard, cursorPosition, (float)delta);
                 decorate.DecorateSubordinateShards(_shards);
             }
             else
-                _mainShard.Light.Energy = (float)_reloadTimer.WaitTime - (float)_reloadTimer.TimeLeft / (float)_reloadTimer.WaitTime;
-            if (Input.IsActionJustPressed("left")) 
-                GD.Print(1);
+                MainShard.Light.Energy = (float)_reloadTimer.WaitTime - (float)_reloadTimer.TimeLeft / (float)_reloadTimer.WaitTime;
         }
     }
 
@@ -57,12 +68,12 @@ public partial class ShardManager : Node2D
     {
         if (_activeShards.Count != 0)
         {
-            _mainShard = _activeShards[0];
+            MainShard = _activeShards[0];
             _shards.Clear();
             for (int i = 1; i < _activeShards.Count; i++)
                 if (_activeShards[i] != null)
                     _shards.Add(_activeShards[i]);
-            decorate.StartReload(this, _mainShard);
+            decorate.StartReload(this, MainShard);
             _reloadTimer.Start();
         }
     }
@@ -74,19 +85,19 @@ public partial class ShardManager : Node2D
             AddChild(shard);
             shard.RecoveryHealth();
         }
-        decorate.CompleteReload(this, _mainShard, _shards);
+        decorate.CompleteReload(this, MainShard, _shards);
         _destroyShards = 0;
     }
 
     private void DestroyShard(Shard2D shard)
     {
-        if (_mainShard.Equals(shard))
+        if (MainShard.Equals(shard))
         {
             if (_shards.Count > 0)
             {
-                _mainShard = _shards[0];
+                MainShard = _shards[0];
                 _shards.RemoveAt(0);
-                _mainShard.Position = Vector2.Zero;
+                MainShard.Position = Vector2.Zero;
             }
         }
         else
@@ -111,7 +122,7 @@ public partial class ShardManager : Node2D
         for (int i = 16; i < 20; i++)
         {
             Shard item = (Shard)_player.Inventory.Shards[i]; 
-            if (item is not null)
+            if (item != null)
             {
                 Type shardType = Type.GetType($"{item.ShardType}, {Assembly.GetExecutingAssembly().FullName}");
                 Shard2D shard = (Shard2D)Activator.CreateInstance(shardType, DestroyShard, item.Health, item.Damage, item.Speed, item.TimeReload, item.CritChance, item.MaxRange);

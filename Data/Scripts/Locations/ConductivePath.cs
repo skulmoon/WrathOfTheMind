@@ -14,17 +14,21 @@ public partial class ConductivePath : Area2D, IInteractionArea
 
     public void Interaction()
     {
-        GD.Print(3);
         Global.Settings.GameSettings.CurrentLocation = Path;
         var tree = GetTree();
         tree.CurrentScene.GetNode<TextureRect>("%Dark").Visible = true;
         tree.CurrentScene.GetNode<TextureRect>("%Dark").Modulate = new Color(0, 0, 0, 0);
         Tween firstTween = CreateTween();
-        firstTween.TweenProperty(GetTree().CurrentScene.GetNode<TextureRect>("%Dark"), "modulate:a", 1, 1);
+        firstTween.TweenProperty(GetTree().CurrentScene.GetNode<TextureRect>("%Dark"), "modulate:a", 1, 0.5f);
         firstTween.TweenCallback(Callable.From(() => 
         {
-            tree.ChangeSceneToFile($"res://Data/Scenes/Location/{Path}.tscn");
-            GD.Print(5);
+
+            Global.SceneObjects.LocationChanged += (node) =>
+            {
+                Global.SceneObjects.Player.GlobalPosition = EndPosition;
+                tree.CurrentScene.CreateTween().TweenProperty(tree.CurrentScene.GetNode<TextureRect>("%Dark"), "modulate:a", 0, 0.5f);
+            };
+            GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Path}.tscn");
         }));
     }
 }

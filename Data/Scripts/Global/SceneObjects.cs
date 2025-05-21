@@ -8,21 +8,26 @@ public class SceneObjects
     private Player _player;
     private DialogPanel _panel;
     private Storage _storage;
+    private Location _location;
 
-    private Action<Node> _onStorageReady;
-    private Action<Node> _onPlayerChanged;
-    private Action<Node> _onDialoguePanelChanged;
+    private Action<Node> _storageReady;
+    private Action<Node> _playerChanged;
+    private Action<Node> _dialoguePanelChanged;
+    private Action<Node> _locationChanged;
 
-    public Player Player { get => _player; set => _player = (Player)SetObject(value, ref _onPlayerChanged); }
-    public DialogPanel DialoguePanel { get => _panel; set => _panel = (DialogPanel)SetObject(value, ref _onDialoguePanelChanged); }
+    public Player Player { get => _player; set => _player = (Player)SetObject(value, ref _playerChanged); }
+    public DialogPanel DialoguePanel { get => _panel; set => _panel = (DialogPanel)SetObject(value, ref _dialoguePanelChanged); }
     public TradeMenu TradeMenu { get; set; }
-    public Storage Storage { get => _storage; set => _storage = (Storage)SetObject(value, ref _onStorageReady); }
+    public Storage Storage { get => _storage; set => _storage = (Storage)SetObject(value, ref _storageReady); }
     public List<NPC> Npcs { get; set; } = new List<NPC>();
     public InventoryMenu InventoryMenu { get; set; } 
+    public Location Location { get => _location; set => _location = (Location)SetObject(value, ref _locationChanged); }
 
-    public event Action<Node> OnPlayerChanged { add => Subscribe(ref _onPlayerChanged, value, _player); remove => _onPlayerChanged -= value; }
-    public event Action<Node> OnDialoguePanelChanged { add => Subscribe(ref _onDialoguePanelChanged, value, _player); remove => _onDialoguePanelChanged -= value; }
-    public event Action<Node> OnStorageReady { add => Subscribe(ref _onStorageReady, value, _player); remove => _onStorageReady -= value; }
+
+    public event Action<Node> PlayerChanged { add => Subscribe(ref _playerChanged, value, _player); remove => _playerChanged -= value; }
+    public event Action<Node> DialoguePanelChanged { add => Subscribe(ref _dialoguePanelChanged, value, _player); remove => _dialoguePanelChanged -= value; }
+    public event Action<Node> StorageReady { add => Subscribe(ref _storageReady, value, _storage); remove => _storageReady -= value; }
+    public event Action<Node> LocationChanged { add => Subscribe(ref _locationChanged, value, Location); remove => _locationChanged -= value; }
 
     public void TakePlayerSettings(Player player)
     {
