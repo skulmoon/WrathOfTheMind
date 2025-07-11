@@ -31,7 +31,6 @@ public partial class ShardManager : Node2D
         _reloadTimer = new Timer()
         {
             WaitTime = MainShard?.TimeReload ?? 1,
-            Autostart = true,
             OneShot = true,
         };
         AddChild(_reloadTimer);
@@ -44,13 +43,13 @@ public partial class ShardManager : Node2D
     public override void _Ready()
     {
         _reloadTimer.Timeout += CompleteReload;
-        _player.Inventory.ShardChanged += ChangeShard;
+        Global.Inventory.ShardChanged += ChangeShard;
         ChangeShard();
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        if (!Global.Settings.CutScene)
+        if (!Global.Settings.CutScene && MainShard != null)
         {
             if (_reloadTimer.TimeLeft == 0)
             {            
@@ -121,7 +120,7 @@ public partial class ShardManager : Node2D
         _activeShards.Clear();
         for (int i = 16; i < 20; i++)
         {
-            Shard item = (Shard)_player.Inventory.Shards[i]; 
+            Shard item = (Shard)Global.Inventory.Shards[i]; 
             if (item != null)
             {
                 Type shardType = Type.GetType($"{item.ShardType}, {Assembly.GetExecutingAssembly().FullName}");
@@ -130,7 +129,14 @@ public partial class ShardManager : Node2D
             } 
         }
         if (_activeShards.Count != 0)
+        {
             _reloadTimer.WaitTime = _activeShards[0].TimeReload;
+        }
         StartReload();
+    }
+
+    public override void _ExitTree()
+    {
+        Global.Inventory.ShardChanged -= ChangeShard;
     }
 }

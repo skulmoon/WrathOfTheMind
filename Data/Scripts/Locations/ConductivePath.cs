@@ -12,9 +12,14 @@ public partial class ConductivePath : Area2D, IInteractionArea
     [Export] public Vector2 EndPosition { get; set; }
     [Export] public string Animation { get; set; }
 
+    public ConductivePath()
+    {
+        CollisionLayer = 8;
+    }
+
     public void Interaction()
     {
-        Global.Settings.GameSettings.CurrentLocation = Path;
+        Global.Settings.SaveData.CurrentLocation = Path;
         var tree = GetTree();
         tree.CurrentScene.GetNode<TextureRect>("%Dark").Visible = true;
         tree.CurrentScene.GetNode<TextureRect>("%Dark").Modulate = new Color(0, 0, 0, 0);
@@ -26,6 +31,7 @@ public partial class ConductivePath : Area2D, IInteractionArea
             Global.SceneObjects.LocationChanged += (node) =>
             {
                 Global.SceneObjects.Player.GlobalPosition = EndPosition;
+                tree.CurrentScene.GetNode<TextureRect>("%Dark").Visible = true;
                 tree.CurrentScene.CreateTween().TweenProperty(tree.CurrentScene.GetNode<TextureRect>("%Dark"), "modulate:a", 0, 0.5f);
             };
             GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Path}.tscn");

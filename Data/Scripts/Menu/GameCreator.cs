@@ -28,8 +28,8 @@ public partial class GameCreator : Control
         }
         else
         {
-            Global.JSON.NewGame(_textEdit.Text, Global.Settings.Saves.Count + 1);
-            GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.GameSettings.CurrentLocation}.tscn");
+            Global.SaveManager.NewGame(_textEdit.Text, Global.Settings.Saves.Count + 1);
+            GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.SaveData.CurrentLocation}.tscn");
         }
     }
 

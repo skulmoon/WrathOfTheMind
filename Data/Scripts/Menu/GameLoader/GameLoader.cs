@@ -16,7 +16,7 @@ public partial class GameLoader : Control
         _container = GetNode<VBoxContainer>("/root/GameLoader/Saves/VBoxContainer");
         for (int i = 0; i < Global.Settings.Saves.Count; i++)
         {
-            var button = new SaveButton();
+            var button = new NameSaveButton();
             button.Text = Global.Settings.Saves[i].Name;
             button.Name = Global.Settings.Saves[i].Name;
             button.CurrentSaveName += ChangeCurrentButton;
@@ -44,8 +44,8 @@ public partial class GameLoader : Control
     {
         if (_currentSave != null)
         {
-            Global.JSON.LoadGame(_currentSave);
-            GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.GameSettings.CurrentLocation}.tscn");
+            Global.SaveManager.LoadSave(_currentSave);
+            GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.SaveData.CurrentLocation}.tscn");
         }
     }
     public void OnPressedDelete()
@@ -53,7 +53,8 @@ public partial class GameLoader : Control
         if (_currentSave != null)
         {
             _container.RemoveChild(GetNode($"/root/GameLoader/Saves/VBoxContainer/{_currentSave}"));
-            Global.JSON.DeleteGame(_currentSave);
+            Global.SaveManager.DeleteSave(_currentSave);
+            _currentSave = null;
         }
     }
 }

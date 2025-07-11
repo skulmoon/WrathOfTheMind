@@ -11,7 +11,6 @@ public partial class DialogueStarter : Area2D, IInteractionArea
     {
         if (!Global.CutSceneManager.IsPanelActive)
         {
-            GD.Print(60);
             Global.CutSceneManager.OutputCutScene(NPCID, Number);
         }
     }

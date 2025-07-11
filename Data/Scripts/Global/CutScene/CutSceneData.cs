@@ -17,7 +17,7 @@ public partial class CutSceneData
         if (node is Location location)
         {
             string[] x = location.SceneFilePath.Split('/', '.')[^3..^1];
-            Global.Settings.GameSettings.CurrentLocation = $"{x[0]}\\{x[1]}";
+            Global.Settings.SaveData.CurrentLocation = $"{x[0]}\\{x[1]}";
             Global.CutSceneData.LoadCutSceneData();
         }
     }

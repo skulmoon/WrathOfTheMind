@@ -20,6 +20,8 @@ public partial class HitBox : Area2D
             }
             else
             {
+                if (Armor2D != null)
+                    Armor2D.AdditionalHealth = 0;
                 _health = value;
             }
             if (value < 0)
@@ -42,7 +44,7 @@ public partial class HitBox : Area2D
     public void ChangePlayer(Node player)
     {
         _player = (Player)player;
-        _player.Inventory.ArmorChanged += ChangeArmor;
+        Global.Inventory.ArmorChanged += ChangeArmor;
         ChangeArmor();
     }
 
@@ -53,7 +55,7 @@ public partial class HitBox : Area2D
     {
         if (this == Armor2D?.GetParent())
             RemoveChild(Armor2D);
-        Armor item = (Armor)_player.Inventory.Armors[16];
+        Armor item = (Armor)Global.Inventory.Armors[16];
         if (item is not null)
         {
             Type armorType = Type.GetType($"{item.ArmorType}, {Assembly.GetExecutingAssembly().FullName}");

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Shard" load_steps=2 format=3 uid="uid://buki5d6ad2v87"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Global/Inventory/Shard.cs" id="1_1mpl3"]
+
+[resource]
+script = ExtResource("1_1mpl3")
+ShardType = "StartShard"
+Health = 40
+Damage = 2
+Speed = 200
+TimeReload = 1.0
+CritChance = 0.1
+MaxRange = 250.0
+ID = 1
+MaxCount = 1
+Name = "Start shard"
+Description = "This is your first weapon (maybe)."

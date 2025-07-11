@@ -23,16 +23,11 @@ public class Directory
 		}
         System.IO.Directory.CreateDirectory(path);
         System.IO.Directory.CreateDirectory(Path.Combine(path, "Choices"));
-        File.WriteAllText(Path.Combine(path, "GameSettings.json"), "");
-        File.WriteAllText(Path.Combine(path, "PlayerSettings.json"), "");
-        GameSettings gameSettings = new GameSettings()
+        File.WriteAllText(Path.Combine(path, "SaveData.json"), "");
+        SaveData saveData = new SaveData()
         {
             SaveNumber = saveNumber,
-            CurrentLocation = "Prologue/Prologue"
-        };
-        Global.Settings.GameSettings = gameSettings;
-        PlayerSettings playerSettings = new PlayerSettings()
-        {
+            CurrentLocation = "Prologue/Prologue",
             Items = new List<Item>(new Item[33]),
             Shards = new List<Item>(new Item[21]),
             Armors = new List<Item>(new Item[21]),
@@ -40,10 +35,9 @@ public class Directory
             CurrentPosition = new Vector2(160, 400),
         };
         for (int i = 0; i < 24; i++)
-            playerSettings.Items[i] = Global.ItemFabric.CreateItem(0, 12);
-        Global.Settings.PlayerSettings = playerSettings;
+            saveData.Items[i] = Global.ItemFabric.CreateItem(0, 12);
+        Global.Settings.SaveData = saveData;
         Global.Settings.CurrentSave = saveName;
-        Global.Settings.GameSettings.SaveNumber = saveNumber;
         Global.Settings.Saves.Add(new Save() { Name = saveName, Number = saveNumber });
         Global.Settings.Saves.Sort();
         CreateLocationData("Prologue/Prologue");

@@ -7,7 +7,14 @@ public abstract partial class EnemyAttack : CharacterBody2D
 	private CollisionShape2D _collision = new CollisionShape2D();
 
 	public int Damage { get; private set; } = 10;
-	public Shape2D Shape 
+
+    public CollisionShape2D Collision
+    {
+        get => _collision;
+        set => _collision = value;
+    }
+
+    public Shape2D Shape 
 	{
 		get => _collision.Shape;
         set => _collision.Shape = value;

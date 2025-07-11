@@ -1,12 +1,12 @@
 using Godot;
 using System;
 
-public partial class CustomButton : TextureButton
+[Tool] public partial class CustomButton : TextureButton
 {
     private bool _isButtonDown = false;
     private bool _isMouseEntered = false;
     private Texture2D _textureFocused;
-    private Label _label = new Label();
+    private Label _label = new();
     [Export] public string Text { get => _label.Text; set => _label.Text = value; }
 
     public override void _Ready()

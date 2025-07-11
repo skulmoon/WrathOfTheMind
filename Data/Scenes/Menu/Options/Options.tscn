@@ -1,8 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://ckt24ahqbmt3v"]
+[gd_scene load_steps=22 format=3 uid="uid://ckt24ahqbmt3v"]
 
 [ext_resource type="Script" path="res://Data/Scripts/Menu/Options/OptionsMenu.cs" id="1_6833t"]
 [ext_resource type="PackedScene" uid="uid://bgx0isvqskmfw" path="res://Data/Scenes/Menu/Buttons/Slider.tscn" id="1_g36u4"]
-[ext_resource type="PackedScene" uid="uid://ohh4tqy3krh1" path="res://Data/Scenes/Menu/Buttons/CheckBox.tscn" id="2_rkadk"]
 [ext_resource type="Texture2D" uid="uid://cfcvl1783y1hq" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton.png" id="3_1k6xc"]
 [ext_resource type="Texture2D" uid="uid://cpfyh311u8hox" path="res://Data/Textures/Menu/Buttons/ShortButton/PressedShortButton.png" id="4_rfek4"]
 [ext_resource type="Texture2D" uid="uid://bsfvajdgp0e3l" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton.png" id="5_ubw1h"]
@@ -39,20 +38,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6833t")
-
-[node name="HSlider" parent="." instance=ExtResource("1_g36u4")]
-layout_mode = 0
-offset_left = 61.0
-offset_top = -106.0
-offset_right = 590.0
-offset_bottom = -46.0
-
-[node name="CheckBox" parent="." instance=ExtResource("2_rkadk")]
-layout_mode = 1
-offset_left = 654.528
-offset_top = -187.304
-offset_right = 654.976
-offset_bottom = -186.784
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -147,9 +132,9 @@ texture_hover = ExtResource("10_35q7o")
 stretch_mode = 5
 script = ExtResource("7_ybruo")
 Path = "res://Data/Scenes/Menu/MainMenu.tscn"
-Text = "Выйти"
+Text = "Назад"
 
-[node name="SaveButton" type="TextureButton" parent="Control" node_paths=PackedStringArray("Options")]
+[node name="SaveButton" type="TextureButton" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.35
@@ -161,7 +146,6 @@ texture_pressed = ExtResource("9_q6lj7")
 texture_hover = ExtResource("10_35q7o")
 stretch_mode = 5
 script = ExtResource("13_nrxrd")
-Options = NodePath("../..")
 Text = "Сохранить"
 
 [node name="ResetButton" type="TextureButton" parent="Control"]
@@ -175,6 +159,8 @@ texture_normal = ExtResource("8_7a0iv")
 texture_pressed = ExtResource("9_q6lj7")
 texture_hover = ExtResource("10_35q7o")
 stretch_mode = 5
+script = ExtResource("16_qi3vj")
+Text = "Сбросить"
 
 [node name="BaseOptions" type="Control" parent="Control"]
 visible = false

@@ -21,7 +21,7 @@ public partial class InventoryItems : Control
 
     public void TakePlayer(Node player)
     {
-        _playerInventory = ((Player)player).Inventory;
+        _playerInventory = Global.Inventory;
         ShowInventory();
     }
 

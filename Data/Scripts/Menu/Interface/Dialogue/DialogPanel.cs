@@ -81,9 +81,6 @@ public partial class DialogPanel : NinePatchRect
     public void PanelHide() =>
         Visible = false;
 
-    public void EndSpeech()
-    {
-        GD.Print(10);
+    public void EndSpeech() =>
         _dialogText.StopPrinting();
-    }
 }

@@ -24,8 +24,8 @@ partial class StateCellMethods : Node
             }
             else if (Cell.EnteredMouseCell.Item == null && cell?.Item != null)
             {
-                Global.SceneObjects.Player.Inventory.Items[Cell.EnteredMouseCell.ItemNumber] = (Item)cell.Item.Clone();
-                Global.SceneObjects.Player.Inventory.Items[Cell.EnteredMouseCell.ItemNumber].Count = 1;
+                Global.Inventory.Items[Cell.EnteredMouseCell.ItemNumber] = (Item)cell.Item.Clone();
+                Global.Inventory.Items[Cell.EnteredMouseCell.ItemNumber].Count = 1;
                 DecrementItem(cell);
                 Cell.EnteredMouseCell.UpdateItem();
                 cell.UpdateItem();
@@ -40,7 +40,7 @@ partial class StateCellMethods : Node
         else if (cell.Item.Count <= 1)
         {
             cell.Item = null;
-            Global.SceneObjects.Player.Inventory.Items[cell.ItemNumber] = null;
+            Global.Inventory.Items[cell.ItemNumber] = null;
             cell.TopLevel = false;
             cell.GlobalPosition = cell.GetViewport().GetMousePosition() - (cell.Size / 2);
             cell.State = new TeleportationCellState(cell);
@@ -75,10 +75,6 @@ partial class StateCellMethods : Node
         });
         bool isVoid = false;
         isVoid = !Cell.ActiveShardCells.Exists(x => x != Cell.ActiveShardCells[0] && ((x != ActiveCell && x.Item != null) || (x == ActiveCell && changeCell.Item != null)));
-        GD.Print("MainTake:", isMainTake);
-        GD.Print("Void:", isVoid);
-        GD.Print(ActiveCell == null, " ", changeCell.Item == null);
-        GD.Print("------------");
         if (isVoid)
             Cell.ActiveShardCells[0].Disabled = false;
         else

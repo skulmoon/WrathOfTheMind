@@ -21,6 +21,10 @@ config/icon="res://icon.svg"
 Global="*res://Data/Scripts/Global/Global.cs"
 Storage="*res://Data/Scenes/Tools/Storage.tscn"
 
+[display]
+
+window/size/mode=3
+
 [dotnet]
 
 project/assembly_name="WrathOfTheMind"

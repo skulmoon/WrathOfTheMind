@@ -5,9 +5,9 @@ using System;
 
 public class SceneObjects
 {
+    private Storage _storage;
     private Player _player;
     private DialogPanel _panel;
-    private Storage _storage;
     private Location _location;
 
     private Action<Node> _storageReady;
@@ -20,6 +20,7 @@ public class SceneObjects
     public TradeMenu TradeMenu { get; set; }
     public Storage Storage { get => _storage; set => _storage = (Storage)SetObject(value, ref _storageReady); }
     public List<NPC> Npcs { get; set; } = new List<NPC>();
+    public List<Enemy> Enemies { get; set; } = new List<Enemy>();
     public InventoryMenu InventoryMenu { get; set; } 
     public Location Location { get => _location; set => _location = (Location)SetObject(value, ref _locationChanged); }
 
@@ -31,7 +32,7 @@ public class SceneObjects
 
     public void TakePlayerSettings(Player player)
     {
-        player.Position = Global.Settings.PlayerSettings.CurrentPosition;
+        player.SetDeferred("global_position", Global.Settings.SaveData.CurrentPosition);
         //player.Inventory.Items = Global.Settings.PlayerSettings.Items;
         //player.Inventory.Armors = Global.Settings.PlayerSettings.Armors;
         //player.Inventory.Shards = Global.Settings.PlayerSettings.Shards;
@@ -49,7 +50,4 @@ public class SceneObjects
         if (node != null)
             subscriber.Invoke(node);
     }
-
-    public void ResetPLayer() =>
-        _player = null;
 }

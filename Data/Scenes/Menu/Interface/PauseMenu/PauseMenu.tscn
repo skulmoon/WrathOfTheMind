@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfpu5icvlw782"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Menu/PauseMenu/PauseMenu.cs" id="1_2m6pe"]
+[ext_resource type="Texture2D" uid="uid://b3tbyichm1f1m" path="res://Data/Textures/Menu/Спрайт-0001.png" id="2_wr7du"]
+[ext_resource type="Texture2D" uid="uid://cfcvl1783y1hq" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton.png" id="3_ttdyr"]
+[ext_resource type="Texture2D" uid="uid://cpfyh311u8hox" path="res://Data/Textures/Menu/Buttons/ShortButton/PressedShortButton.png" id="4_rdjca"]
+[ext_resource type="Texture2D" uid="uid://bsfvajdgp0e3l" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton.png" id="5_3lk1g"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/PauseMenu/ButtonContinue.cs" id="6_3hs0p"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/PauseMenu/ButSave.cs" id="7_ftm8r"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/PauseMenu/CloseButton.cs" id="8_xmok3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r41kh"]
+font_size = 32
+
+[node name="PauseMenu" type="CanvasLayer" node_paths=PackedStringArray("Label")]
+process_mode = 3
+visible = false
+script = ExtResource("1_2m6pe")
+Label = NodePath("Label")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_wr7du")
+
+[node name="ButtonContinue" type="TextureButton" parent="." node_paths=PackedStringArray("Menu")]
+process_mode = 3
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.2
+anchor_right = 0.7
+anchor_bottom = 0.3
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_ttdyr")
+texture_pressed = ExtResource("4_rdjca")
+texture_hover = ExtResource("5_3lk1g")
+stretch_mode = 5
+script = ExtResource("6_3hs0p")
+Menu = NodePath("..")
+Text = "Продолжить"
+
+[node name="ButtonSave" type="TextureButton" parent="." node_paths=PackedStringArray("Label")]
+process_mode = 3
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.35
+anchor_right = 0.7
+anchor_bottom = 0.45
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_ttdyr")
+texture_pressed = ExtResource("4_rdjca")
+texture_hover = ExtResource("5_3lk1g")
+stretch_mode = 5
+script = ExtResource("7_ftm8r")
+Label = NodePath("../Label")
+Text = "Сохранить"
+
+[node name="ButtonClose" type="TextureButton" parent="." node_paths=PackedStringArray("Label", "Menu")]
+process_mode = 3
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.5
+anchor_right = 0.7
+anchor_bottom = 0.6
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_ttdyr")
+texture_pressed = ExtResource("4_rdjca")
+texture_hover = ExtResource("5_3lk1g")
+stretch_mode = 5
+script = ExtResource("8_xmok3")
+Label = NodePath("../Label")
+Menu = NodePath("..")
+Text = "Выйти и сохранить"
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.65
+anchor_right = 0.7
+anchor_bottom = 0.7
+label_settings = SubResource("LabelSettings_r41kh")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="ButtonContinue" to="ButtonContinue" method="OnPressed"]
+[connection signal="pressed" from="ButtonSave" to="ButtonSave" method="OnPressed"]
+[connection signal="pressed" from="ButtonClose" to="ButtonClose" method="OnPressed"]

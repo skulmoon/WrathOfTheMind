@@ -9,9 +9,9 @@ public static class ItemTypeExtension
     {
         return type switch
         {
-            ItemType.Item => Global.SceneObjects.Player.Inventory.Items,
-            ItemType.Armor => Global.SceneObjects.Player.Inventory.Armors,
-            ItemType.Shard => Global.SceneObjects.Player.Inventory.Shards,
+            ItemType.Item => Global.Inventory.Items,
+            ItemType.Armor => Global.Inventory.Armors,
+            ItemType.Shard => Global.Inventory.Shards,
             _ => null,
         };
     }

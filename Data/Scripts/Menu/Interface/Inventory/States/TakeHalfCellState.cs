@@ -49,7 +49,7 @@ public partial class TakeHalfCellState : Node, ICellState
             }
             else if (Cell.EnteredMouseCell?.Item == null)
             {
-                Global.SceneObjects.Player.Inventory.MovingItem(ItemType.Item, cell.ItemNumber, Cell.EnteredMouseCell.ItemNumber);
+                Global.Inventory.MovingItem(ItemType.Item, cell.ItemNumber, Cell.EnteredMouseCell.ItemNumber);
                 cell.UpdateItem();
                 Cell.EnteredMouseCell.UpdateItem();
                 (cell.Position, Cell.EnteredMouseCell.Position) = (Cell.EnteredMouseCell.Position, cell.Position);

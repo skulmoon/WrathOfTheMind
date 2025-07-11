@@ -1,0 +1,300 @@
+[gd_scene load_steps=28 format=3 uid="uid://bgv8ohrkcjg8f"]
+
+[ext_resource type="Texture2D" uid="uid://g8e0qtubnhy8" path="res://Data/Textures/Entities/Enemys/Charapter1/MeleSkeleton.png" id="1_mamol"]
+[ext_resource type="Script" path="res://Data/Scripts/Entities/Enemy/EnemyAnimator.cs" id="2_7ka3u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxyev"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 960, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov4cj"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 1008, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp6yn"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 1056, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dn1j"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 1104, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n61j"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 768, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tew7k"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 816, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta1pj"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 864, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70f3c"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 912, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb20u"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 192, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w12m"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 240, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkwyh"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 288, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2akm"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 336, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mi8d"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 384, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yerm8"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 432, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipyed"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 480, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gtw8"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 528, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ii4g"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c65r"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6kwk"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ybcj"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 144, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njlbt"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 576, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve0w6"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 624, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0bob"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 672, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnp34"]
+atlas = ExtResource("1_mamol")
+region = Rect2(0, 720, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1a1f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxyev")
+}],
+"loop": true,
+"name": &"fist_attack_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov4cj")
+}],
+"loop": true,
+"name": &"fist_attack_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp6yn")
+}],
+"loop": true,
+"name": &"fist_attack_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dn1j")
+}],
+"loop": true,
+"name": &"fist_attack_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n61j")
+}],
+"loop": true,
+"name": &"fist_movement_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tew7k")
+}],
+"loop": true,
+"name": &"fist_movement_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta1pj")
+}],
+"loop": true,
+"name": &"fist_movement_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70f3c")
+}],
+"loop": true,
+"name": &"fist_movement_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb20u")
+}],
+"loop": true,
+"name": &"running_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w12m")
+}],
+"loop": true,
+"name": &"running_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkwyh")
+}],
+"loop": true,
+"name": &"running_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2akm")
+}],
+"loop": true,
+"name": &"running_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mi8d")
+}],
+"loop": true,
+"name": &"shovel_attack_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yerm8")
+}],
+"loop": true,
+"name": &"shovel_attack_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipyed")
+}],
+"loop": true,
+"name": &"shovel_attack_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gtw8")
+}],
+"loop": true,
+"name": &"shovel_attack_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ii4g")
+}],
+"loop": true,
+"name": &"shovel_movement_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c65r")
+}],
+"loop": true,
+"name": &"shovel_movement_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6kwk")
+}],
+"loop": true,
+"name": &"shovel_movement_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ybcj")
+}],
+"loop": true,
+"name": &"shovel_movement_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njlbt")
+}],
+"loop": true,
+"name": &"shovel_throw_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve0w6")
+}],
+"loop": true,
+"name": &"shovel_throw_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0bob")
+}],
+"loop": true,
+"name": &"shovel_throw_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnp34")
+}],
+"loop": true,
+"name": &"shovel_throw_up",
+"speed": 5.0
+}]
+
+[node name="MeleSkeleton" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_f1a1f")
+animation = &"shovel_attack_down"
+script = ExtResource("2_7ka3u")

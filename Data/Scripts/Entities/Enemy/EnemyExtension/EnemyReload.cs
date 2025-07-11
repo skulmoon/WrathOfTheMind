@@ -20,7 +20,7 @@ public abstract partial class EnemyReload : Enemy
     {
         if (IsLoad())
         {
-            GetTree().CurrentScene.AddChild(attack);
+            base.Attack(attack);
             Reload();
         }
     }

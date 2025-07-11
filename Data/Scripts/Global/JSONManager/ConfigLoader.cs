@@ -8,6 +8,7 @@ public partial class ConfigLoader : Node
 {
     private bool _isNew;
     private JsonSerializerSettings _settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+    private Directory _directory = new Directory();
 
     public ConfigInfo ConfigInfo { get; set; }
 
@@ -31,10 +32,10 @@ public partial class ConfigLoader : Node
         }
     }
 
-    public void SaveConfig(ConfigInfo config, Directory directory)
+    public void SaveConfig(ConfigInfo config)
     {
         string configJson = JsonConvert.SerializeObject(config, Formatting.Indented, _settings);
-        directory.SaveConfig(configJson);
+        _directory.SaveConfig(configJson);
     }
 
     public ConfigInfo GetConfig()

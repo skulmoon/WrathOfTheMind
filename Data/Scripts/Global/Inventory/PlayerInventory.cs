@@ -15,15 +15,6 @@ public partial class PlayerInventory : Node
     public event Action ShardChanged = () => { };
     public event Action ArmorChanged = () => { };
 
-    public PlayerInventory()
-    {
-        for (int i = 0; i < Items.Count; i++)
-            Items[i] = Global.ItemFabric.CreateItem(0, 12);
-        for (int i = 16; i < 20; i++)
-            Shards[i] = Global.ItemFabric.CreateItem(0, ItemType.Shard);
-        Armors[0] = Global.ItemFabric.CreateItem(0, ItemType.Armor);
-    }
-
     public bool TakeItem(Item item)
 	{
         List<Item> list = null;
@@ -59,7 +50,7 @@ public partial class PlayerInventory : Node
         int? freeNumber = null;
         for (int i = 0; i < ItemsCount; i++)
         {
-            if (Items[i].ID == item.ID) 
+            if (Items[i]?.ID == item.ID) 
             {
                 item.Count = Items[i].Staked(item.Count);
                 if (item.Count == 0)
@@ -83,18 +74,7 @@ public partial class PlayerInventory : Node
     public void MovingItem(ItemType type, int startPosition, int endPosition)
     {
         List<Item> list = null;
-        switch (type)
-        {
-            case ItemType.Item:
-                list = Items;
-                break;
-            case ItemType.Armor:
-                list = Armors;
-                break;
-            case ItemType.Shard:
-                list = Shards;
-                break;
-        }
+        list = type.GetList();
         (list[endPosition], list[startPosition]) = (list[startPosition], list[endPosition]);
         if (type == ItemType.Shard && ((startPosition > 15 && startPosition != 20) || (endPosition > 15 && endPosition != 20)))
             ShardChanged.Invoke();

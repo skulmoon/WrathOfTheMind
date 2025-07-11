@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxj1rcbm4s2bx"]
+[gd_scene load_steps=6 format=3 uid="uid://dxj1rcbm4s2bx"]
 
 [ext_resource type="Script" path="res://Data/Scripts/Menu/GameLoader/GameLoader.cs" id="1_g8m6y"]
 [ext_resource type="Texture2D" uid="uid://cfcvl1783y1hq" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton.png" id="2_mg6fj"]
 [ext_resource type="Texture2D" uid="uid://cpfyh311u8hox" path="res://Data/Textures/Menu/Buttons/ShortButton/PressedShortButton.png" id="3_fwkp0"]
-[ext_resource type="Texture2D" uid="uid://ccre8h5weexcn" path="res://Data/Textures/Menu/Buttons/ShortButton/FocusedShortButton.png" id="4_30w5v"]
+[ext_resource type="Texture2D" uid="uid://bsfvajdgp0e3l" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton.png" id="4_b8eo1"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/Buttons/CustomButton.cs" id="5_6ny0x"]
 
 [node name="GameLoader" type="Control"]
 layout_mode = 3
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.00303, 0.997091)
 script = ExtResource("1_g8m6y")
 
 [node name="Options" type="Control" parent="."]
@@ -31,8 +33,10 @@ anchor_bottom = 1.0
 grow_vertical = 2
 texture_normal = ExtResource("2_mg6fj")
 texture_pressed = ExtResource("3_fwkp0")
-texture_hover = ExtResource("4_30w5v")
+texture_hover = ExtResource("4_b8eo1")
 stretch_mode = 5
+script = ExtResource("5_6ny0x")
+Text = "Назад"
 
 [node name="Load" type="TextureButton" parent="Options"]
 layout_mode = 1
@@ -44,8 +48,10 @@ grow_horizontal = 0
 grow_vertical = 2
 texture_normal = ExtResource("2_mg6fj")
 texture_pressed = ExtResource("3_fwkp0")
-texture_hover = ExtResource("4_30w5v")
+texture_hover = ExtResource("4_b8eo1")
 stretch_mode = 5
+script = ExtResource("5_6ny0x")
+Text = "Загрузить"
 
 [node name="Delete" type="TextureButton" parent="Options"]
 layout_mode = 1
@@ -53,13 +59,18 @@ anchors_preset = -1
 anchor_left = 0.7
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -8.0
+offset_left = -8.57336
+offset_top = -0.19827
+offset_right = -0.573364
+offset_bottom = -0.198273
 grow_horizontal = 0
 grow_vertical = 2
 texture_normal = ExtResource("2_mg6fj")
 texture_pressed = ExtResource("3_fwkp0")
-texture_hover = ExtResource("4_30w5v")
+texture_hover = ExtResource("4_b8eo1")
 stretch_mode = 5
+script = ExtResource("5_6ny0x")
+Text = "Удалить"
 
 [node name="Saves" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(200, 0)

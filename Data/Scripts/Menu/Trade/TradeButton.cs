@@ -25,7 +25,7 @@ public partial class TradeButton : Button
     }
 
     public void TakePlayer(Node player) =>
-        _inventory = ((Player)player).Inventory;
+        _inventory = Global.Inventory;
 
     public void OnPressed()
     {

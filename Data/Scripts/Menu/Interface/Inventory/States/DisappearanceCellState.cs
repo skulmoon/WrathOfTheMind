@@ -21,7 +21,7 @@ public partial class DisappearanceCellState : Node, ICellState
         else
         {
             Cell.TakeCell = null;
-            Global.SceneObjects.Player.Inventory.Items[_cell.ItemNumber] = null;
+            Global.Inventory.Items[_cell.ItemNumber] = null;
             _cell.State = null;
             _cell.ItemInventory.RemoveChild(_cell);
             _cell = null;
