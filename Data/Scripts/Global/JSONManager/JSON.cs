@@ -12,20 +12,21 @@ public class JSON
     private const string PATH_SAVES = "user://Saves/";
 
     private ConfigLoader _config = new ConfigLoader();
+    private JsonSerializerSettings _settingsAllSave = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Objects };
 
     public ConfigInfo ConfigInfo { get => _config.ConfigInfo; }
      
-    private T GetJsonData<T>(string path)
+    private T GetJsonData<T>(string path, bool readAll = false)
     {
         FileAccess file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
         string json = file?.GetAsText() ?? "";
         file?.Close();
-        return JsonConvert.DeserializeObject<T>(json);
+        return readAll ? JsonConvert.DeserializeObject<T>(json, _settingsAllSave) : JsonConvert.DeserializeObject<T>(json);
     }
 
-    private void SetJsonData<T>(T data, string path)
+    private void SetJsonData<T>(T data, string path, bool saveAll = false)
     {
-        string jsonTask = JsonConvert.SerializeObject(data, Formatting.Indented);
+        string jsonTask = saveAll ? JsonConvert.SerializeObject(data, Formatting.Indented, _settingsAllSave) : JsonConvert.SerializeObject(data, Formatting.Indented);
         FileAccess file = FileAccess.Open(path, FileAccess.ModeFlags.Write);
         file?.StoreString(jsonTask);
         file?.Close();
@@ -44,7 +45,7 @@ public class JSON
         GetJsonData<List<(int ID, object Value)>>($"{PATH_SAVES}{Global.Settings?.CurrentSave}/LocationsData/{Global.Settings?.SaveData?.CurrentLocation}.json");
 
     public SaveData GetSaveData(string save) =>
-        GetJsonData<SaveData>($"{PATH_SAVES}{save}/SaveData.json");
+        GetJsonData<SaveData>($"{PATH_SAVES}{save}/SaveData.json", true);
 
     public void SetPlayerChoices(List<PlayerChoice> playerChoices) =>
         SetJsonData(playerChoices, $"{PATH_SAVES}{Global.Settings.CurrentSave}/Choices/{Global.Settings.SaveData.CurrentLocation}.json");
@@ -53,7 +54,7 @@ public class JSON
         SetJsonData(locationData, $"{PATH_SAVES}{Global.Settings.CurrentSave}/LocationsData/{Global.Settings.SaveData.CurrentLocation}.json");
 
     public void SetSaveData(SaveData settings) =>
-        SetJsonData(settings, $"{PATH_SAVES}{Global.Settings.CurrentSave}/SaveData.json");
+        SetJsonData(settings, $"{PATH_SAVES}{Global.Settings.CurrentSave}/SaveData.json", true);
 
     public void SaveConfig(ConfigInfo config) =>
         _config.SaveConfig(config);

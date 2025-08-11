@@ -12,7 +12,7 @@ public partial class AttackExplosionSkeletonState : Node2D, IExplosionSkeletonSt
 
     public override void _PhysicsProcess(double delta)
     {
-        _enemy.Attack(new ExplosionSkeletonAttack(_enemy, GlobalPosition, Global.SceneObjects.Player.GlobalPosition));
+        _enemy.Attack(new ExplosionSkeletonAttack(_enemy, GlobalPosition, Global.SceneObjects.Player?.GlobalPosition ?? Vector2.Zero));
     }
 
     public void Chase()

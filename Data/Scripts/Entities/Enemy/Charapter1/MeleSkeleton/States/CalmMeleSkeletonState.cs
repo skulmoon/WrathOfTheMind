@@ -13,7 +13,11 @@ public partial class CalmMeleSkeletonState : Node2D, IMeleSkeletonState
     public void Attack()
     {
         _enemy.State = new RunningMeleSkeletonState(_enemy);
+        _enemy.NoticePlayer();
     }
+
+    public void NoticePlayer() =>
+        _enemy.State = new RunningMeleSkeletonState(_enemy);
 
     public string GetAnimation() =>
         "shovel_movement";

@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://ds7edorou0j7f"]
+[gd_scene load_steps=11 format=3 uid="uid://ds7edorou0j7f"]
 
+[ext_resource type="Script" path="res://Data/Scripts/Menu/MainMenu/MainMenu.cs" id="1_ayleb"]
 [ext_resource type="Texture2D" uid="uid://dskvjfqv62a6l" path="res://Data/Textures/Menu/Buttons/BaseButton/NormalButton.png" id="1_ov374"]
+[ext_resource type="Texture2D" uid="uid://dkq8alaft5s5n" path="res://Data/Textures/Menu/BackgroundMenu.png" id="1_pj8jl"]
 [ext_resource type="Script" path="res://Data/Scripts/Menu/MainMenu/ButtonLoad.cs" id="1_ysdp8"]
+[ext_resource type="Texture2D" uid="uid://b6wh2xwedeyi5" path="res://Data/Textures/Menu/GolemEye.png" id="2_6g1a8"]
 [ext_resource type="Texture2D" uid="uid://b5b4gpm6laj48" path="res://Data/Textures/Menu/Buttons/BaseButton/PressedButton.png" id="2_yfd55"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/MainMenu/MenuGolem.cs" id="3_jjxsc"]
 [ext_resource type="Texture2D" uid="uid://cy156e7jn617i" path="res://Data/Textures/Menu/Buttons/BaseButton/HoverButton.png" id="3_vfoqc"]
+[ext_resource type="Script" path="res://Data/Scripts/Menu/MainMenu/MenuGolemEye.cs" id="3_xxd2w"]
 [ext_resource type="Script" path="res://Data/Scripts/Menu/MainMenu/ButtonExit.cs" id="5_4l1fd"]
 
 [node name="MainMenu" type="Control"]
@@ -13,6 +18,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ayleb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pj8jl")
+stretch_mode = 5
+script = ExtResource("3_jjxsc")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6g1a8")
+script = ExtResource("3_xxd2w")
 
 [node name="MainButtons" type="Control" parent="."]
 layout_mode = 1

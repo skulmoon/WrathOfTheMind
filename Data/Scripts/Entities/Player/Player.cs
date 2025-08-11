@@ -15,7 +15,6 @@ public partial class Player : CharacterBody2D
         Shard = new ShardManager(this);
         AddChild(Shard);
         Global.SceneObjects.Player = this;
-        Global.SceneObjects.TakePlayerSettings(this);
     }
 
     public override void _PhysicsProcess(double delta)

@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://8loinyndwbb4"]
+
+[ext_resource type="Script" path="res://Data/Scripts/Entities/Enemy/EnemyCore/EnemyPositionsControl.cs" id="1_owfjf"]
+[ext_resource type="Texture2D" uid="uid://po03cr5rvpyk" path="res://icon.svg" id="2_7rka3"]
+
+[node name="EnemyPositionsControl" type="Node2D" node_paths=PackedStringArray("Positions")]
+script = ExtResource("1_owfjf")
+Positions = [NodePath("Point1"), NodePath("Point2"), NodePath("Point3"), NodePath("Point4"), NodePath("Point5"), NodePath("Point6")]
+
+[node name="Point1" type="Node2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="Icon" type="Sprite2D" parent="Point1"]
+visible = false
+scale = Vector2(0.115234, 0.115234)
+texture = ExtResource("2_7rka3")
+
+[node name="Point2" type="Node2D" parent="."]
+
+[node name="Icon2" type="Sprite2D" parent="Point2"]
+visible = false
+scale = Vector2(0.115234, 0.115234)
+texture = ExtResource("2_7rka3")
+
+[node name="Point3" type="Node2D" parent="."]
+
+[node name="Icon3" type="Sprite2D" parent="Point3"]
+visible = false
+scale = Vector2(0.115234, 0.115234)
+texture = ExtResource("2_7rka3")
+
+[node name="Point4" type="Node2D" parent="."]
+
+[node name="Icon4" type="Sprite2D" parent="Point4"]
+visible = false
+scale = Vector2(0.115234, 0.115234)
+texture = ExtResource("2_7rka3")
+
+[node name="Point5" type="Node2D" parent="."]
+
+[node name="Icon5" type="Sprite2D" parent="Point5"]
+visible = false
+scale = Vector2(0.115234, 0.115234)
+texture = ExtResource("2_7rka3")
+
+[node name="Point6" type="Node2D" parent="."]
+
+[node name="Icon6" type="Sprite2D" parent="Point6"]
+visible = false
+scale = Vector2(0.115234, 0.115234)
+texture = ExtResource("2_7rka3")

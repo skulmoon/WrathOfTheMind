@@ -11,7 +11,7 @@ public partial class FistAttackMeleSkeletonState : Node, IMeleSkeletonState
     }
     public override void _PhysicsProcess(double delta)
     {
-        _enemy.Attack(new FistAttackMeleSkeleton(_enemy.Damage, _enemy.GlobalPosition, Global.SceneObjects.Player.GlobalPosition));
+        _enemy.Attack(new FistAttackMeleSkeleton(_enemy.Damage, _enemy.GlobalPosition, Global.SceneObjects.Player?.GlobalPosition ?? Vector2.Zero));
     }
 
     public void Chase()

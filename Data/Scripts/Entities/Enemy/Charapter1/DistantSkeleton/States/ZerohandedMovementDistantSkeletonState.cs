@@ -9,13 +9,13 @@ public partial class ZerohandedMovementDistantSkeletonState : Node2D, IDistantSk
     {
         _enemy = enemy;
         ((CircleShape2D)_enemy.Trigger.Shape).Radius = 45;
-        if (((CircleShape2D)_enemy.Trigger.Shape).Radius + 16 > _enemy.GlobalPosition.DistanceTo(Global.SceneObjects.Player.GlobalPosition))
+        if (((CircleShape2D)_enemy.Trigger.Shape).Radius + 16 > _enemy.GlobalPosition.DistanceTo(Global.SceneObjects.Player?.GlobalPosition ?? Vector2.Zero))
             _enemy.State = new ZerohandedAttackDistanceSkeletonState(_enemy);
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        _enemy.Move(Global.SceneObjects.Player.GlobalPosition, delta);
+        _enemy.Move(_enemy.PositionControl?.GetPosition() ?? Vector2.Zero, delta);
     }
 
     public void Attack()

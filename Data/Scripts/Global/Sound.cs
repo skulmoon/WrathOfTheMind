@@ -44,4 +44,7 @@ public class Sound
         _music.Stream = ResourceLoader.Load<AudioStream>(_musicPath + music);
         _music.Play();
     }
+
+    public bool CheckMusic(string music) =>
+        _music.Stream == ResourceLoader.Load<AudioStream>(_musicPath + music);
 }

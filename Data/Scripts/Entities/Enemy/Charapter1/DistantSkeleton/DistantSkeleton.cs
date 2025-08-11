@@ -12,7 +12,6 @@ public partial class DistantSkeleton : Enemy
         get => _state;
         set
         {
-            GD.Print(value.GetAnimation());
             SetState((Node)value, (Node)_state);
             _state = value;
         }

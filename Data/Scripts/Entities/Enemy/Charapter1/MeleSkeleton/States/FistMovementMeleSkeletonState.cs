@@ -12,7 +12,7 @@ public partial class FistMovementMeleSkeletonState : Node, IMeleSkeletonState
 
     public override void _PhysicsProcess(double delta)
     {
-        _enemy.Move(Global.SceneObjects.Player.GlobalPosition, delta);
+        _enemy.Move(_enemy.PositionControl?.GetPosition() ?? Vector2.Zero, delta);
     }
 
     public void Attack()

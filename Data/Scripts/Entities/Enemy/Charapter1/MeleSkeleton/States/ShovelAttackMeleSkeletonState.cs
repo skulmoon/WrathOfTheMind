@@ -12,7 +12,7 @@ public partial class ShovelAttackMeleSkeletonState : Node2D, IMeleSkeletonState
 
     public override void _PhysicsProcess(double delta)
     {
-        _enemy.Attack(new ShovelAttackMeleSkeleton(_enemy.Damage, _enemy.GlobalPosition, Global.SceneObjects.Player.GlobalPosition));
+        _enemy.Attack(new ShovelAttackMeleSkeleton(_enemy.Damage, _enemy.GlobalPosition, Global.SceneObjects.Player?.GlobalPosition ?? Vector2.Zero));
     }
 
     public void Chase()

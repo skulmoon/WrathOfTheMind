@@ -26,7 +26,7 @@ public partial class HitBox : Area2D
             }
             if (value < 0)
             {
-                GetTree().CallDeferred("change_scene_to_file", "res://Data/Scenes/Menu/MainMenu.tscn");
+                Global.SceneObjects.ChangeScene("res://Data/Scenes/Menu/MainMenu.tscn");
             }
         }
     }

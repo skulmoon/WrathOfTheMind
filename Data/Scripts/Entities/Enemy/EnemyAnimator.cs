@@ -9,8 +9,8 @@ public partial class EnemyAnimator : AnimatedSprite2D
     public override void _Ready()
     {
         Enemy enemy = GetParent<Enemy>();
-        enemy.ChangeDirection += OnChangeDirection;
-        enemy.ChangeState += OnChangeState;
+        enemy.ChangedDirection += OnChangeDirection;
+        enemy.ChangedState += OnChangeState;
     }
 
     public void OnChangeDirection(Vector2 direction)

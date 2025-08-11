@@ -18,9 +18,20 @@ public partial class SaveManager : Node
         Global.Settings.CurrentSave = save;
         Global.Settings.SaveData = Global.JSON.GetSaveData(save);
         Global.CutSceneData.LoadCutSceneData();
+        Global.SceneObjects.PlayerChanged += SetPlayerSettings;
     }
 
-	public void SaveGame()
+    public void SetPlayerSettings(Node player)
+    {
+        ((Player)player).GlobalPosition = Global.Settings.SaveData.CurrentPosition;
+        Global.Inventory.Items = Global.Settings.SaveData.Items;
+        Global.Inventory.Shards = Global.Settings.SaveData.Shards;
+        Global.Inventory.Armors = Global.Settings.SaveData.Armors;
+        ((Player)player).Shard.UpdateShard();
+        Global.SceneObjects.PlayerChanged -= SetPlayerSettings;
+    }
+
+    public void SaveGame()
 	{
         Global.Settings.SaveData.CurrentPosition = Global.SceneObjects.Player?.GlobalPosition ?? new Vector2(160, 400);
         Global.Settings.SaveData.Items = Global.Inventory?.Items ?? Global.Settings.SaveData.Items;

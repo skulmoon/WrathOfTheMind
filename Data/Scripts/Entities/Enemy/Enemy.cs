@@ -1,15 +1,36 @@
 using Godot;
 using System;
+using System.Text;
 
 public abstract partial class Enemy : CharacterBody2D
 {
     private float _health = 1200;
+    private float _speed = 200;
+    private float _speedMultiplier = 1;
 
-    public NavigationAgent2D NavigationAgent { get; set; } = new NavigationAgent2D();
+    public int MyProperty { get; set; }
+    public EnemyPositionsControlNode PositionControl { get; set; }
     public AnimatedSprite2D Animation { get; private set; }
+    public NavigationAgent2D NavigationAgent { get; private set; } = new NavigationAgent2D() { MaxNeighbors = 0 };
     public CollisionShape2D Collision { get; set; }
-    public float SpeedMultiplier { get; set; } = 1; 
-    public float Speed { get; private set; } = 200;
+    public float SpeedMultiplier 
+    { 
+        get => _speedMultiplier;
+        set
+        {
+            _speedMultiplier = value;
+            NavigationAgent.MaxSpeed = _speed * _speedMultiplier;
+        }
+    } 
+    public float Speed 
+    { 
+        get => _speed; 
+        private set
+        {
+            _speed = value;
+            NavigationAgent.MaxSpeed = _speed * _speedMultiplier;
+        }
+    }
     public int Damage { get; private set; } = 12;
     public float Health
     {
@@ -23,8 +44,9 @@ public abstract partial class Enemy : CharacterBody2D
         }
     }
 
-    public event Action<Vector2> ChangeDirection;
-    public event Action<IEnemyState> ChangeState;
+    public event Action<Enemy> NoticedPlayer;
+    public event Action<Vector2> ChangedDirection;
+    public event Action<IEnemyState> ChangedState;
 
     public Enemy(float speed, int damage, int health, string animation)
     {
@@ -61,6 +83,8 @@ public abstract partial class Enemy : CharacterBody2D
         AddChild(NavigationAgent);
         FloorBlockOnWall = false;
         FloorStopOnSlope = false;
+        Global.SceneObjects.Enemies.Add(this);
+        GD.Print(1);
     }
 
     public virtual void Attack(EnemyAttack attack) =>
@@ -68,9 +92,9 @@ public abstract partial class Enemy : CharacterBody2D
 
     public virtual void Move(Vector2 point, double delta)
     {
-        Vector2 direction = GlobalPosition.DirectionTo(point);
-        ChangeDirection?.Invoke(direction);
-        Velocity = direction * (float)delta * Speed * SpeedMultiplier * 100;
+        NavigationAgent.TargetPosition = point;
+        Velocity = (NavigationAgent.GetNextPathPosition() - GlobalPosition).Normalized() * _speed * _speedMultiplier * (float)delta * 100;
+        ChangedDirection?.Invoke(Velocity.Normalized());
         MoveAndSlide();
     }
 
@@ -93,7 +117,10 @@ public abstract partial class Enemy : CharacterBody2D
         if (NewState != null)
         {
             CallDeferred("add_child", NewState);
-            ChangeState?.Invoke((IEnemyState)NewState);
+            ChangedState?.Invoke((IEnemyState)NewState);
         }
     }
+
+    public void NoticePlayer() =>
+        NoticedPlayer?.Invoke(this);
 }

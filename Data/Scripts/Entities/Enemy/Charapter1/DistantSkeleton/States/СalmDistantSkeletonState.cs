@@ -13,7 +13,11 @@ public partial class СalmDistantSkeletonState : Node, IDistantSkeletonState
     public void Attack()
     {
         _enemy.State = new TwohandedMovementDistanceSkeletonState(_enemy);
+        _enemy.NoticePlayer();
     }
+
+    public void NoticePlayer() =>
+        Attack();
 
     public string GetAnimation() =>
         "twohanded_movement";

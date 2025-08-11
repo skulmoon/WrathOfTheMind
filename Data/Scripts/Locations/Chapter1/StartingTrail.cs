@@ -1,4 +1,4 @@
-public partial class StartingTrail : Location
+public partial class StartingTrail : Chapter1Location
 {
 
 }

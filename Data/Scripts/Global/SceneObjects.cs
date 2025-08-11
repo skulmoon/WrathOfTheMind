@@ -30,17 +30,10 @@ public class SceneObjects
     public event Action<Node> StorageReady { add => Subscribe(ref _storageReady, value, _storage); remove => _storageReady -= value; }
     public event Action<Node> LocationChanged { add => Subscribe(ref _locationChanged, value, Location); remove => _locationChanged -= value; }
 
-    public void TakePlayerSettings(Player player)
-    {
-        player.SetDeferred("global_position", Global.Settings.SaveData.CurrentPosition);
-        //player.Inventory.Items = Global.Settings.PlayerSettings.Items;
-        //player.Inventory.Armors = Global.Settings.PlayerSettings.Armors;
-        //player.Inventory.Shards = Global.Settings.PlayerSettings.Shards;
-    }
-
     private Node SetObject(Node value, ref Action<Node> handler)
     {
-        handler?.Invoke(value);
+        if (value != null)
+            handler?.Invoke(value);
         return value;
     }
 
@@ -49,5 +42,14 @@ public class SceneObjects
         handler += subscriber;
         if (node != null)
             subscriber.Invoke(node);
+    }
+
+    public void ChangeScene(string path)
+    {
+        Global.SceneObjects.Enemies.Clear();
+        Global.SceneObjects.Npcs.Clear();
+        Global.SceneObjects.Player = null;
+        Global.SceneObjects.Location = null;
+        Storage.GetTree().CallDeferred("change_scene_to_file", path);
     }
 }
