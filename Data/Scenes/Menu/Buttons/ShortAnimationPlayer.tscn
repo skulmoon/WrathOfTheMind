@@ -1,0 +1,81 @@
+[gd_scene load_steps=15 format=3 uid="uid://cnq77hy8oun7j"]
+
+[ext_resource type="Texture2D" uid="uid://b140e35jerlsk" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton1.png" id="1_uh1od"]
+[ext_resource type="Texture2D" uid="uid://okvtbhew1jvq" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton2.png" id="2_phuu5"]
+[ext_resource type="Texture2D" uid="uid://dusnfp2u3wntt" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton3.png" id="3_qx6vj"]
+[ext_resource type="Texture2D" uid="uid://dwuif0y1sgj4w" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton4.png" id="4_wvddt"]
+[ext_resource type="Texture2D" uid="uid://be1f4kc7dtb50" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton1.png" id="5_2fuve"]
+[ext_resource type="Texture2D" uid="uid://c0jo8i8w6njhe" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton2.png" id="6_yy6qe"]
+[ext_resource type="Texture2D" uid="uid://df5yc42ylef5x" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton3.png" id="7_rm65g"]
+[ext_resource type="Texture2D" uid="uid://bil5kel288xhm" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton4.png" id="8_5x3ch"]
+[ext_resource type="Texture2D" uid="uid://cfcvl1783y1hq" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton.png" id="9_t3iwx"]
+[ext_resource type="Texture2D" uid="uid://bsfvajdgp0e3l" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton.png" id="10_fra8w"]
+[ext_resource type="Script" uid="uid://d2kg6yaa5pha1" path="res://Data/Scripts/Menu/Buttons/ButtonAnimationPlayer.cs" id="11_br1f1"]
+
+[sub_resource type="Animation" id="Animation_giro1"]
+resource_name = "NormalButton"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_uh1od"), ExtResource("2_phuu5"), ExtResource("3_qx6vj"), ExtResource("4_wvddt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture_hover")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_2fuve"), ExtResource("6_yy6qe"), ExtResource("7_rm65g"), ExtResource("8_5x3ch")]
+}
+
+[sub_resource type="Animation" id="Animation_am2la"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_t3iwx")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture_hover")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_fra8w")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6uyie"]
+_data = {
+&"NormalButton": SubResource("Animation_giro1"),
+&"RESET": SubResource("Animation_am2la")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_6uyie")
+}
+script = ExtResource("11_br1f1")

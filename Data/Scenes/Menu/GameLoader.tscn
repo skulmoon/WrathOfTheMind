@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxj1rcbm4s2bx"]
+[gd_scene load_steps=7 format=3 uid="uid://dxj1rcbm4s2bx"]
 
-[ext_resource type="Script" path="res://Data/Scripts/Menu/GameLoader/GameLoader.cs" id="1_g8m6y"]
-[ext_resource type="Texture2D" uid="uid://cfcvl1783y1hq" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton.png" id="2_mg6fj"]
+[ext_resource type="Script" uid="uid://bpxo6356q5n8m" path="res://Data/Scripts/Menu/GameLoader/GameLoader.cs" id="1_g8m6y"]
+[ext_resource type="Texture2D" uid="uid://cfcvl1783y1hq" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton.png" id="2_voydc"]
 [ext_resource type="Texture2D" uid="uid://cpfyh311u8hox" path="res://Data/Textures/Menu/Buttons/ShortButton/PressedShortButton.png" id="3_fwkp0"]
 [ext_resource type="Texture2D" uid="uid://bsfvajdgp0e3l" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton.png" id="4_b8eo1"]
-[ext_resource type="Script" path="res://Data/Scripts/Menu/Buttons/CustomButton.cs" id="5_6ny0x"]
+[ext_resource type="Script" uid="uid://bkjem8vwm4hml" path="res://Data/Scripts/Menu/Buttons/CustomButton.cs" id="5_6ny0x"]
+[ext_resource type="PackedScene" uid="uid://cnq77hy8oun7j" path="res://Data/Scenes/Menu/Buttons/ShortAnimationPlayer.tscn" id="6_bjkx5"]
 
 [node name="GameLoader" type="Control"]
 layout_mode = 3
@@ -31,12 +32,14 @@ anchors_preset = -1
 anchor_right = 0.3
 anchor_bottom = 1.0
 grow_vertical = 2
-texture_normal = ExtResource("2_mg6fj")
+texture_normal = ExtResource("2_voydc")
 texture_pressed = ExtResource("3_fwkp0")
 texture_hover = ExtResource("4_b8eo1")
 stretch_mode = 5
 script = ExtResource("5_6ny0x")
 Text = "Назад"
+
+[node name="AnimationPlayer" parent="Options/Exit" instance=ExtResource("6_bjkx5")]
 
 [node name="Load" type="TextureButton" parent="Options"]
 layout_mode = 1
@@ -46,12 +49,14 @@ anchor_right = 0.65
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
-texture_normal = ExtResource("2_mg6fj")
+texture_normal = ExtResource("2_voydc")
 texture_pressed = ExtResource("3_fwkp0")
 texture_hover = ExtResource("4_b8eo1")
 stretch_mode = 5
 script = ExtResource("5_6ny0x")
 Text = "Загрузить"
+
+[node name="AnimationPlayer" parent="Options/Load" instance=ExtResource("6_bjkx5")]
 
 [node name="Delete" type="TextureButton" parent="Options"]
 layout_mode = 1
@@ -65,12 +70,14 @@ offset_right = -0.573364
 offset_bottom = -0.198273
 grow_horizontal = 0
 grow_vertical = 2
-texture_normal = ExtResource("2_mg6fj")
+texture_normal = ExtResource("2_voydc")
 texture_pressed = ExtResource("3_fwkp0")
 texture_hover = ExtResource("4_b8eo1")
 stretch_mode = 5
 script = ExtResource("5_6ny0x")
 Text = "Удалить"
+
+[node name="AnimationPlayer" parent="Options/Delete" instance=ExtResource("6_bjkx5")]
 
 [node name="Saves" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(200, 0)

@@ -12,8 +12,6 @@ public partial class GameCreator : Control
 
     public override void _Ready()
     {
-        _buttonExit = GetNode<TextureButton>("ButtonExit");
-        _buttonExit.Pressed += ExitButtonPressed;
         _buttonNew = GetNode<TextureButton>("ButtonNew");
         _buttonNew.Pressed += NewButtonPressed;
         _textEdit = GetNode<LineEdit>("TextEdit");
@@ -32,7 +30,4 @@ public partial class GameCreator : Control
             GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.SaveData.CurrentLocation}.tscn");
         }
     }
-
-    public void ExitButtonPressed() =>
-        GetTree().ChangeSceneToFile("res://Data/Scenes/Menu/MainMenu.tscn");
 }

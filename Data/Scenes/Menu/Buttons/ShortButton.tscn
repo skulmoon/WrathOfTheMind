@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://dibdr43co7ut1"]
+
+[ext_resource type="Texture2D" uid="uid://cfcvl1783y1hq" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton.png" id="1_82moq"]
+[ext_resource type="Texture2D" uid="uid://cpfyh311u8hox" path="res://Data/Textures/Menu/Buttons/ShortButton/PressedShortButton.png" id="2_87dw4"]
+[ext_resource type="Texture2D" uid="uid://bsfvajdgp0e3l" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton.png" id="3_f3ivu"]
+[ext_resource type="Texture2D" uid="uid://ccre8h5weexcn" path="res://Data/Textures/Menu/Buttons/ShortButton/FocusedShortButton.png" id="4_pfk7t"]
+[ext_resource type="Script" uid="uid://g21wsggyj42f" path="res://Data/Scripts/Menu/Options/SwitchButton.cs" id="5_2n010"]
+[ext_resource type="PackedScene" uid="uid://cnq77hy8oun7j" path="res://Data/Scenes/Menu/Buttons/ShortAnimationPlayer.tscn" id="6_87dw4"]
+
+[node name="ControlButton" type="TextureButton" node_paths=PackedStringArray("Controls")]
+anchors_preset = -1
+anchor_top = 0.45
+anchor_right = 0.2
+anchor_bottom = 0.55
+texture_normal = ExtResource("1_82moq")
+texture_pressed = ExtResource("2_87dw4")
+texture_hover = ExtResource("3_f3ivu")
+texture_focused = ExtResource("4_pfk7t")
+stretch_mode = 5
+script = ExtResource("5_2n010")
+Controls = [null, null, null, null]
+Text = "Управление"
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("6_87dw4")]

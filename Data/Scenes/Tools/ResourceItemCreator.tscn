@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://sculsedppg1u"]
 
-[ext_resource type="Script" path="res://Data/Scripts/Tools/ResourcesItemCreator.cs" id="1_2lwwn"]
+[sub_resource type="Resource" id="Resource_6vndm"]
+metadata/__load_path__ = "res://Data/Scripts/Tools/ResourcesItemCreator.cs"
 
 [node name="ResourcesCreator" type="Node"]
-script = ExtResource("1_2lwwn")
+script = SubResource("Resource_6vndm")
 MaxCount = 50
 ItemName = "Test"
 Description = "Test"

@@ -1,13 +1,84 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfpu5icvlw782"]
+[gd_scene load_steps=22 format=3 uid="uid://cfpu5icvlw782"]
 
-[ext_resource type="Script" path="res://Data/Scripts/Menu/PauseMenu/PauseMenu.cs" id="1_2m6pe"]
-[ext_resource type="Texture2D" uid="uid://b3tbyichm1f1m" path="res://Data/Textures/Menu/Спрайт-0001.png" id="2_wr7du"]
+[ext_resource type="Script" uid="uid://dbvy56v5ceap" path="res://Data/Scripts/Menu/PauseMenu/PauseMenu.cs" id="1_2m6pe"]
+[ext_resource type="Texture2D" uid="uid://xcuoxv68avvg" path="res://Data/Textures/Black.png" id="2_c4gkb"]
 [ext_resource type="Texture2D" uid="uid://cfcvl1783y1hq" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton.png" id="3_ttdyr"]
 [ext_resource type="Texture2D" uid="uid://cpfyh311u8hox" path="res://Data/Textures/Menu/Buttons/ShortButton/PressedShortButton.png" id="4_rdjca"]
 [ext_resource type="Texture2D" uid="uid://bsfvajdgp0e3l" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton.png" id="5_3lk1g"]
-[ext_resource type="Script" path="res://Data/Scripts/Menu/PauseMenu/ButtonContinue.cs" id="6_3hs0p"]
-[ext_resource type="Script" path="res://Data/Scripts/Menu/PauseMenu/ButSave.cs" id="7_ftm8r"]
-[ext_resource type="Script" path="res://Data/Scripts/Menu/PauseMenu/CloseButton.cs" id="8_xmok3"]
+[ext_resource type="Script" uid="uid://mr73o4wdocfl" path="res://Data/Scripts/Menu/PauseMenu/ButtonContinue.cs" id="6_3hs0p"]
+[ext_resource type="Texture2D" uid="uid://b140e35jerlsk" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton1.png" id="7_c4gkb"]
+[ext_resource type="Script" uid="uid://brwpxmec8lxax" path="res://Data/Scripts/Menu/PauseMenu/ButSave.cs" id="7_ftm8r"]
+[ext_resource type="Texture2D" uid="uid://okvtbhew1jvq" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton2.png" id="8_6f632"]
+[ext_resource type="Script" uid="uid://cmxsoepocf5y2" path="res://Data/Scripts/Menu/PauseMenu/CloseButton.cs" id="8_xmok3"]
+[ext_resource type="Texture2D" uid="uid://dusnfp2u3wntt" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton3.png" id="9_7su6k"]
+[ext_resource type="Texture2D" uid="uid://dwuif0y1sgj4w" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton4.png" id="10_oaw21"]
+[ext_resource type="Script" uid="uid://d2kg6yaa5pha1" path="res://Data/Scripts/Menu/Buttons/ButtonAnimationPlayer.cs" id="11_qy5fn"]
+[ext_resource type="Texture2D" uid="uid://be1f4kc7dtb50" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton1.png" id="11_xmjg4"]
+[ext_resource type="Texture2D" uid="uid://c0jo8i8w6njhe" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton2.png" id="12_miyfj"]
+[ext_resource type="Texture2D" uid="uid://df5yc42ylef5x" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton3.png" id="13_drnov"]
+[ext_resource type="Texture2D" uid="uid://bil5kel288xhm" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton4.png" id="14_jkosn"]
+
+[sub_resource type="Animation" id="Animation_giro1"]
+resource_name = "NormalButton"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_c4gkb"), ExtResource("8_6f632"), ExtResource("9_7su6k"), ExtResource("10_oaw21")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture_hover")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_xmjg4"), ExtResource("12_miyfj"), ExtResource("13_drnov"), ExtResource("14_jkosn")]
+}
+
+[sub_resource type="Animation" id="Animation_am2la"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_ttdyr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture_hover")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_3lk1g")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6uyie"]
+_data = {
+&"NormalButton": SubResource("Animation_giro1"),
+&"RESET": SubResource("Animation_am2la")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_r41kh"]
 font_size = 32
@@ -19,13 +90,14 @@ script = ExtResource("1_2m6pe")
 Label = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_wr7du")
+texture = ExtResource("2_c4gkb")
 
 [node name="ButtonContinue" type="TextureButton" parent="." node_paths=PackedStringArray("Menu")]
 process_mode = 3
@@ -43,6 +115,12 @@ script = ExtResource("6_3hs0p")
 Menu = NodePath("..")
 Text = "Продолжить"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ButtonContinue"]
+libraries = {
+&"": SubResource("AnimationLibrary_6uyie")
+}
+script = ExtResource("11_qy5fn")
+
 [node name="ButtonSave" type="TextureButton" parent="." node_paths=PackedStringArray("Label")]
 process_mode = 3
 anchors_preset = -1
@@ -58,6 +136,12 @@ stretch_mode = 5
 script = ExtResource("7_ftm8r")
 Label = NodePath("../Label")
 Text = "Сохранить"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ButtonSave"]
+libraries = {
+&"": SubResource("AnimationLibrary_6uyie")
+}
+script = ExtResource("11_qy5fn")
 
 [node name="ButtonClose" type="TextureButton" parent="." node_paths=PackedStringArray("Label", "Menu")]
 process_mode = 3
@@ -75,6 +159,12 @@ script = ExtResource("8_xmok3")
 Label = NodePath("../Label")
 Menu = NodePath("..")
 Text = "Выйти и сохранить"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ButtonClose"]
+libraries = {
+&"": SubResource("AnimationLibrary_6uyie")
+}
+script = ExtResource("11_qy5fn")
 
 [node name="Label" type="Label" parent="."]
 self_modulate = Color(1, 0, 0, 1)

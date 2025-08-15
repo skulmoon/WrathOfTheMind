@@ -4,14 +4,19 @@ using System;
 public partial class MenuGolemEye : TextureRect
 {
 	private Vector2 _startPosition;
+    private Vector2 _windowSize;
 
-    public MenuGolemEye()
-    {
+    public MenuGolemEye() =>
         _startPosition = Position;
+
+    public override void _Ready()
+    {
     }
 
     public override void _Process(double delta)
 	{
-        Position = _startPosition + (GetLocalMousePosition() - GetWindow().Size / 2) * 0.01f;
+        Vector2 mousePosition = GetLocalMousePosition();
+        mousePosition.Y *= 1.05f;
+        Position = _startPosition + (mousePosition - GetWindow().Size / 2) * 0.01f;
     }
 }

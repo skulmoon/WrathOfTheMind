@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2o2iukr5pmrr"]
+[gd_scene load_steps=10 format=3 uid="uid://c2o2iukr5pmrr"]
 
-[ext_resource type="Script" path="res://Data/Scripts/Menu/GameCreator.cs" id="1_jg24n"]
+[ext_resource type="Script" uid="uid://burb6gaobmw7l" path="res://Data/Scripts/Menu/GameCreator.cs" id="1_jg24n"]
 [ext_resource type="Texture2D" uid="uid://cfcvl1783y1hq" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton.png" id="2_bn6q4"]
 [ext_resource type="PackedScene" uid="uid://cnkm8jqokjmek" path="res://Data/Scenes/Menu/Buttons/TextEdit.tscn" id="2_qmpw1"]
 [ext_resource type="Texture2D" uid="uid://vb6du6ecseul" path="res://Data/Textures/Menu/Buttons/TextEdit/LongTextEdit/LongTextEdit.png" id="3_1ujd2"]
 [ext_resource type="Texture2D" uid="uid://cpfyh311u8hox" path="res://Data/Textures/Menu/Buttons/ShortButton/PressedShortButton.png" id="3_7wcgx"]
 [ext_resource type="Texture2D" uid="uid://cgy3osvibs2hw" path="res://Data/Textures/Menu/Buttons/TextEdit/LongTextEdit/FocusLongTextEdit.png" id="4_rp03v"]
 [ext_resource type="Texture2D" uid="uid://bsfvajdgp0e3l" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton.png" id="7_1552k"]
-[ext_resource type="Script" path="res://Data/Scripts/Menu/Buttons/CustomButton.cs" id="8_3xpfv"]
+[ext_resource type="Script" uid="uid://bkjem8vwm4hml" path="res://Data/Scripts/Menu/Buttons/CustomButton.cs" id="8_3xpfv"]
+[ext_resource type="PackedScene" uid="uid://cnq77hy8oun7j" path="res://Data/Scenes/Menu/Buttons/ShortAnimationPlayer.tscn" id="9_lhil5"]
 
 [node name="GameCreator" type="Control"]
 layout_mode = 3
@@ -46,6 +47,8 @@ stretch_mode = 5
 script = ExtResource("8_3xpfv")
 Text = "В путь"
 
+[node name="AnimationPlayer" parent="ButtonNew" instance=ExtResource("9_lhil5")]
+
 [node name="ButtonExit" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -59,3 +62,5 @@ texture_hover = ExtResource("7_1552k")
 stretch_mode = 5
 script = ExtResource("8_3xpfv")
 Text = "Назад"
+
+[node name="AnimationPlayer" parent="ButtonExit" instance=ExtResource("9_lhil5")]
