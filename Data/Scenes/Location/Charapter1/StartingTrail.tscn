@@ -1,23 +1,25 @@
-[gd_scene load_steps=50 format=4 uid="uid://jo8of7mxf8hu"]
+[gd_scene load_steps=59 format=4 uid="uid://jo8of7mxf8hu"]
 
-[ext_resource type="Script" path="res://Data/Scripts/Locations/Chapter1/Chapter1Location.cs" id="1_ddrc6"]
+[ext_resource type="Script" uid="uid://brbaicg6brgsy" path="res://Data/Scripts/Locations/Chapter1/Chapter1Location.cs" id="1_ddrc6"]
 [ext_resource type="Texture2D" uid="uid://djc3krnjf1ow7" path="res://Data/Textures/Locations/Charapter1/Background.png" id="1_uj5lx"]
-[ext_resource type="Script" path="res://Data/Scripts/Entities/Interection/DroppedItem.cs" id="3_wbyfp"]
-[ext_resource type="Resource" uid="uid://buki5d6ad2v87" path="res://Data/Resources/Items/Shards/1.tres" id="4_mbhua"]
+[ext_resource type="Script" uid="uid://chnf60m6l8suc" path="res://Data/Scripts/Entities/Interection/DroppedItem.cs" id="3_wbyfp"]
+[ext_resource type="Resource" uid="uid://0tsnkwnga6sy" path="res://Data/Resources/Items/Shards/0.tres" id="4_ir5ux"]
 [ext_resource type="PackedScene" uid="uid://dhgr62sao2gjo" path="res://Data/Scenes/Entities/Player/Player.tscn" id="5_o07w2"]
 [ext_resource type="PackedScene" uid="uid://bf62x5p8yb5w" path="res://Data/Scenes/Location/border.tscn" id="6_55fgd"]
-[ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/DialogPanel.tscn" id="7_2k73m"]
-[ext_resource type="PackedScene" uid="uid://qejl5dn1sgf8" path="res://Data/Scenes/Menu/Interface/Inventory/InventoryMenu.tscn" id="8_vvpf4"]
-[ext_resource type="PackedScene" uid="uid://5p113gt2878n" path="res://Data/Scenes/Menu/Trade/TradeMenu.tscn" id="9_3u4ph"]
+[ext_resource type="PackedScene" uid="uid://wuwodxqjfr1s" path="res://Data/Scenes/Menu/Interface/interface.tscn" id="9_kpnr1"]
 [ext_resource type="PackedScene" uid="uid://cfpu5icvlw782" path="res://Data/Scenes/Menu/Interface/PauseMenu/PauseMenu.tscn" id="10_h8f7w"]
-[ext_resource type="Script" path="res://Data/Scripts/Locations/Chapter1/StartingTrail/LerningTakeItemTrigger.cs" id="11_t4ndu"]
-[ext_resource type="Shader" path="res://Data/Shaders/AlphaMask/AlphaObjectShader.gdshader" id="12_8th7p"]
+[ext_resource type="Script" uid="uid://3nqv7iw55r31" path="res://Data/Scripts/Locations/Chapter1/StartingTrail/LerningTakeItemTrigger.cs" id="11_t4ndu"]
+[ext_resource type="Shader" uid="uid://cbbjpqg65vmim" path="res://Data/Shaders/AlphaMask/AlphaObjectShader.gdshader" id="12_8th7p"]
 [ext_resource type="Texture2D" uid="uid://ckktjbc12i1fa" path="res://Data/Textures/Locations/Charapter1/LerningButton.png" id="12_lisgc"]
-[ext_resource type="Script" path="res://Data/Scripts/Locations/Chapter1/LernAnimetedButton.cs" id="13_4o0hu"]
 [ext_resource type="Texture2D" uid="uid://ir3goabrdenp" path="res://Data/Textures/Locations/DarkSideMask.png" id="14_8lvnn"]
-[ext_resource type="Shader" path="res://Data/Shaders/AlphaMask/AlphaTextShader.gdshader" id="16_7ydpr"]
+[ext_resource type="Script" uid="uid://rov0ard8s65g" path="res://Data/Scripts/Locations/Chapter1/LernTakeItemAnimetedButton.cs" id="15_t1chc"]
+[ext_resource type="Shader" uid="uid://cm1lwp3b5chfg" path="res://Data/Shaders/AlphaMask/AlphaTextShader.gdshader" id="16_7ydpr"]
 [ext_resource type="Texture2D" uid="uid://dwamxc0vytdf" path="res://Data/Textures/Locations/DarkSideMaskLeft.png" id="16_58rbe"]
-[ext_resource type="Script" path="res://Data/Scripts/Locations/ConductivePath.cs" id="18_8cvl0"]
+[ext_resource type="Script" uid="uid://b1mm4y8lqfmla" path="res://Data/Scripts/Locations/ConductivePath.cs" id="18_8cvl0"]
+[ext_resource type="Texture2D" uid="uid://lucqt4oqwhky" path="res://Data/Textures/Locations/DarkSideMaskUp.png" id="18_ir5ux"]
+[ext_resource type="Texture2D" uid="uid://bwq16wrcdj7fd" path="res://Data/Textures/Locations/DarkSideMaskRight.png" id="19_i7hey"]
+[ext_resource type="Texture2D" uid="uid://b046q6t8y5lrr" path="res://Data/Textures/Locations/Charapter1/MovementButtons.png" id="20_kpnr1"]
+[ext_resource type="Script" uid="uid://dp2ekv2q2v4ju" path="res://Data/Scripts/Locations/Chapter1/LernMovementAnimetedButton.cs" id="21_kpnr1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8dnfw"]
 texture = ExtResource("1_uj5lx")
@@ -576,15 +578,13 @@ terrain_set_0/terrain_1/name = "Обрыв"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_8dnfw")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_4gdkh"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxaut"]
-size = Vector2(30, 137)
+size = Vector2(30, 108)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_syt7m"]
 shader = ExtResource("12_8th7p")
-shader_parameter/mask_offset = Vector2(0, 0)
 shader_parameter/mask_texture = ExtResource("14_8lvnn")
+shader_parameter/mask_offset = Vector2(0, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqn2k"]
 atlas = ExtResource("12_lisgc")
@@ -736,20 +736,20 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_edhkc"]
 shader = ExtResource("16_7ydpr")
+shader_parameter/mask_texture = ExtResource("16_58rbe")
 shader_parameter/mask_offset = Vector2(-0.3, 0)
 shader_parameter/node_rect_size = Vector2(130, 60)
 shader_parameter/text_color = Color(1, 1, 1, 1)
-shader_parameter/mask_texture = ExtResource("16_58rbe")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e0bb4"]
 shader = ExtResource("16_7ydpr")
-shader_parameter/mask_offset = Vector2(0, 0)
+shader_parameter/mask_texture = ExtResource("18_ir5ux")
+shader_parameter/mask_offset = Vector2(-0.115, 0)
 shader_parameter/node_rect_size = Vector2(64, 54)
 shader_parameter/text_color = Color(0, 0, 0, 1)
-shader_parameter/mask_texture = ExtResource("14_8lvnn")
 
 [sub_resource type="LabelSettings" id="LabelSettings_72h3t"]
-font_size = 48
+font_size = 32
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
@@ -761,6 +761,55 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(160, 415, 319, 415, 319
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u61s3"]
 size = Vector2(48, 99)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ir5ux"]
+shader = ExtResource("12_8th7p")
+shader_parameter/mask_texture = ExtResource("19_i7hey")
+shader_parameter/mask_offset = Vector2(0.15, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vtysq"]
+shader = ExtResource("16_7ydpr")
+shader_parameter/mask_texture = ExtResource("19_i7hey")
+shader_parameter/mask_offset = Vector2(0.15, 0)
+shader_parameter/node_rect_size = Vector2(256, 100)
+shader_parameter/text_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kpnr1"]
+shader = ExtResource("16_7ydpr")
+shader_parameter/mask_texture = ExtResource("19_i7hey")
+shader_parameter/mask_offset = Vector2(1, 0)
+shader_parameter/node_rect_size = Vector2(100, 100)
+shader_parameter/text_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cfgc"]
+shader = ExtResource("16_7ydpr")
+shader_parameter/mask_texture = ExtResource("19_i7hey")
+shader_parameter/mask_offset = Vector2(1, 0)
+shader_parameter/node_rect_size = Vector2(100, 100)
+shader_parameter/text_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h7g27"]
+shader = ExtResource("16_7ydpr")
+shader_parameter/mask_texture = ExtResource("19_i7hey")
+shader_parameter/mask_offset = Vector2(1, 0)
+shader_parameter/node_rect_size = Vector2(100, 100)
+shader_parameter/text_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wpnad"]
+shader = ExtResource("16_7ydpr")
+shader_parameter/mask_texture = ExtResource("19_i7hey")
+shader_parameter/mask_offset = Vector2(1, 0)
+shader_parameter/node_rect_size = Vector2(100, 100)
+shader_parameter/text_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8u7ss"]
+shader = ExtResource("16_7ydpr")
+shader_parameter/mask_texture = ExtResource("19_i7hey")
+shader_parameter/mask_offset = Vector2(1, 0)
+shader_parameter/node_rect_size = Vector2(100, 100)
+shader_parameter/text_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4gdkh"]
+
 [node name="StartingTrail" type="Node2D"]
 script = ExtResource("1_ddrc6")
 
@@ -770,64 +819,38 @@ tile_set = SubResource("TileSet_15a3v")
 
 [node name="StartShard" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(412, 307)
+position = Vector2(764, 320)
 script = ExtResource("3_wbyfp")
-Item = ExtResource("4_mbhua")
+Item = ExtResource("4_ir5ux")
+Count = 1
+ID = 1000
 
 [node name="Player" parent="." instance=ExtResource("5_o07w2")]
-position = Vector2(235, 348)
+position = Vector2(205, 299)
 
 [node name="Border" parent="." instance=ExtResource("6_55fgd")]
 position = Vector2(16, 16)
 tile_map_data = PackedByteArray("AAABAAgAAAAAAAEAAAABAAcAAAAAAAEAAAABAAYAAAAAAAEAAAABAAUAAAAAAAAAAAAaAA8AAAAAAAMAAAABAA0AAAADAAIAAAAhAAgAAAADAAAAAAAhAAkAAAADAAEAAAAhAAoAAAADAAEAAAAhAAsAAAADAAEAAAAhAAwAAAADAAEAAAAhAA0AAAADAAEAAAAhAA4AAAADAAEAAAAhAA8AAAADAAIAAAA=")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Dark" type="TextureRect" parent="CanvasLayer"]
-unique_name_in_owner = true
-visible = false
-modulate = Color(0, 0, 0, 1)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("CanvasTexture_4gdkh")
-
-[node name="Interface" type="CanvasLayer" parent="."]
-
-[node name="DialogPanel" parent="Interface" instance=ExtResource("7_2k73m")]
-process_mode = 1
-process_priority = -6
-visible = false
-offset_top = -262.0
-region_rect = Rect2(2.1489, 0, 317.851, 320)
-
-[node name="InventoryMenu" parent="Interface" instance=ExtResource("8_vvpf4")]
-visible = false
-
-[node name="TradeMenu" parent="Interface" instance=ExtResource("9_3u4ph")]
-visible = false
-
-[node name="PauseMenu" parent="." instance=ExtResource("10_h8f7w")]
-
-[node name="LerningTakeItemTrigger" type="Area2D" parent="."]
-position = Vector2(352, 301)
+[node name="LerningTakeItemTrigger" type="Area2D" parent="." node_paths=PackedStringArray("LastMenu", "Button")]
+position = Vector2(477.805, 301)
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("11_t4ndu")
+LastMenu = NodePath("../Node2D")
+Button = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LerningTakeItemTrigger"]
-position = Vector2(-5, 5.5)
+position = Vector2(-5, 20)
 shape = SubResource("RectangleShape2D_hxaut")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_syt7m")
-position = Vector2(531, 210)
+position = Vector2(592.825, 210)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ywe4p")
 frame_progress = 0.615696
-script = ExtResource("13_4o0hu")
+script = ExtResource("15_t1chc")
 
 [node name="Text" type="RichTextLabel" parent="AnimatedSprite2D"]
 material = SubResource("ShaderMaterial_edhkc")
@@ -840,6 +863,8 @@ offset_bottom = 52.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 16
 text = "Для подбирания предметов нажмите "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Char" type="Label" parent="AnimatedSprite2D"]
 material = SubResource("ShaderMaterial_e0bb4")
@@ -870,5 +895,101 @@ EndPosition = Vector2(-10, 396)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_u61s3")
+
+[node name="Node2D" type="Sprite2D" parent="." node_paths=PackedStringArray("Labels")]
+material = SubResource("ShaderMaterial_ir5ux")
+position = Vector2(200, 212)
+texture = ExtResource("20_kpnr1")
+script = ExtResource("21_kpnr1")
+Labels = [NodePath("Label"), NodePath("Label2"), NodePath("Label3"), NodePath("Label4"), NodePath("Label5")]
+
+[node name="Text" type="RichTextLabel" parent="Node2D"]
+material = SubResource("ShaderMaterial_vtysq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = 33.325
+offset_right = -128.0
+offset_bottom = 135.765
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Дла передвижения используйте \"{0}\", \"{1}\", \"{2}\" и \"{3}\". Так же для спринта зажмите клавишу \"{4}\"."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Node2D"]
+material = SubResource("ShaderMaterial_kpnr1")
+offset_left = -84.0
+offset_top = -33.0
+offset_right = -52.0
+offset_bottom = -3.0
+text = "w"
+label_settings = SubResource("LabelSettings_72h3t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Node2D"]
+material = SubResource("ShaderMaterial_0cfgc")
+offset_left = -118.0
+offset_top = -10.0
+offset_right = -86.0
+offset_bottom = 20.0
+text = "a"
+label_settings = SubResource("LabelSettings_72h3t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Node2D"]
+material = SubResource("ShaderMaterial_h7g27")
+offset_left = -84.0
+offset_top = -10.0
+offset_right = -52.0
+offset_bottom = 20.0
+text = "s"
+label_settings = SubResource("LabelSettings_72h3t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Node2D"]
+material = SubResource("ShaderMaterial_wpnad")
+offset_left = -50.0
+offset_top = -10.0
+offset_right = -18.0
+offset_bottom = 20.0
+text = "d"
+label_settings = SubResource("LabelSettings_72h3t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Node2D"]
+material = SubResource("ShaderMaterial_8u7ss")
+offset_left = 32.0
+offset_top = -20.0
+offset_right = 96.0
+offset_bottom = 10.0
+text = "Shift"
+label_settings = SubResource("LabelSettings_72h3t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("10_h8f7w")]
+
+[node name="Interface" parent="." instance=ExtResource("9_kpnr1")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dark" type="TextureRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CanvasTexture_4gdkh")
 
 [connection signal="body_entered" from="LerningTakeItemTrigger" to="LerningTakeItemTrigger" method="OnBodyEntered"]

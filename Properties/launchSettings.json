@@ -2,7 +2,7 @@
   "profiles": {
 	"WrathOfTheMind": {
 	  "commandName": "Executable",
-	  "executablePath": "C:\\Godot_v4.3-stable_mono_win64\\Godot_v4.3-stable_mono_win64.exe",
+	  "executablePath": "C:\\Godot_v4.4.1-stable_mono_win64\\Godot_v4.4.1-stable_mono_win64.exe",
 	  "commandLineArgs": "--paht.--verbose",
 	  "workingDirectory": ".",
 	  "nativeDebugging": true

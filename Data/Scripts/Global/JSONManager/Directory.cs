@@ -48,6 +48,7 @@ public class Directory
         string path = Path.Combine(_directory, saveName);
         System.IO.Directory.Delete(path, true);
         Global.Settings.Saves.Remove(Global.Settings.Saves.Find((x) => x.Name == saveName));
+        Global.Inventory.Clear();
     }
 
     public void CreateLocationData(string location)

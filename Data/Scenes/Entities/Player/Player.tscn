@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dhgr62sao2gjo"]
 
-[ext_resource type="Script" path="res://Data/Scripts/Entities/Player/Player.cs" id="1_ounf2"]
+[ext_resource type="Script" uid="uid://db5a1hw7r2dqa" path="res://Data/Scripts/Entities/Player/Player.cs" id="1_ounf2"]
 [ext_resource type="Texture2D" uid="uid://d2sxqkigw7f2w" path="res://Data/Textures/Entities/skulmoon.png" id="2_df0jf"]
-[ext_resource type="Script" path="res://Data/Scripts/Entities/Player/PlayerInteractionArea.cs" id="3_bpate"]
-[ext_resource type="Script" path="res://Data/Scripts/Entities/Player/Armor2D/HitBox.cs" id="4_6vsg5"]
+[ext_resource type="Script" uid="uid://c3howdnij3d1u" path="res://Data/Scripts/Entities/Player/PlayerInteractionArea.cs" id="3_bpate"]
+[ext_resource type="Script" uid="uid://bvy2g118w8vy6" path="res://Data/Scripts/Entities/Player/Armor2D/HitBox.cs" id="4_6vsg5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qfa5h"]
 radius = 15.0

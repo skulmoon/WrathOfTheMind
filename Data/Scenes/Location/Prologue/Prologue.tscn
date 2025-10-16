@@ -1,18 +1,18 @@
 [gd_scene load_steps=35 format=4 uid="uid://c3ohs0o2mvmgp"]
 
 [ext_resource type="Texture2D" uid="uid://ojq8iwsbgtwb" path="res://Data/Textures/Locations/Prologue/Tiles.png" id="1_jynci"]
-[ext_resource type="Script" path="res://Data/Scripts/Locations/Prologue/Prologue.cs" id="1_sdxh8"]
+[ext_resource type="Script" uid="uid://dwm11m1m6n3aj" path="res://Data/Scripts/Locations/Prologue/Prologue.cs" id="1_sdxh8"]
 [ext_resource type="Texture2D" uid="uid://dph7cjcf2o324" path="res://Data/Textures/Locations/Border.png" id="2_rcnj2"]
 [ext_resource type="PackedScene" uid="uid://80b4l158ssx5" path="res://Data/Scenes/Entities/NPC/Bus2.tscn" id="3_agvgu"]
-[ext_resource type="Script" path="res://Data/Scripts/Entities/Player/Player.cs" id="5_lxf3b"]
+[ext_resource type="Script" uid="uid://db5a1hw7r2dqa" path="res://Data/Scripts/Entities/Player/Player.cs" id="5_lxf3b"]
 [ext_resource type="Texture2D" uid="uid://d2sxqkigw7f2w" path="res://Data/Textures/Entities/skulmoon.png" id="6_ehebc"]
-[ext_resource type="Script" path="res://Data/Scripts/Entities/NPC/CameraNPC.cs" id="7_447d2"]
-[ext_resource type="Script" path="res://Data/Scripts/Entities/Player/PlayerInteractionArea.cs" id="7_lvm2e"]
-[ext_resource type="Script" path="res://Data/Scripts/Locations/ConductivePath.cs" id="7_sphg8"]
-[ext_resource type="Script" path="res://Data/Scripts/Entities/Player/Armor2D/HitBox.cs" id="8_0qdwm"]
-[ext_resource type="Script" path="res://Data/Scripts/Entities/NPC/InteractionDefault.cs" id="8_p6wwr"]
-[ext_resource type="Script" path="res://Data/Scripts/Locations/Prologue/CarTriger.cs" id="11_jiakw"]
-[ext_resource type="Script" path="res://Data/Scripts/Entities/Enemy/Locations/Prologue/PrologueCar.cs" id="12_0gqne"]
+[ext_resource type="Script" uid="uid://dutcdm6ou018k" path="res://Data/Scripts/Entities/NPC/CameraNPC.cs" id="7_447d2"]
+[ext_resource type="Script" uid="uid://c3howdnij3d1u" path="res://Data/Scripts/Entities/Player/PlayerInteractionArea.cs" id="7_lvm2e"]
+[ext_resource type="Script" uid="uid://b1mm4y8lqfmla" path="res://Data/Scripts/Locations/ConductivePath.cs" id="7_sphg8"]
+[ext_resource type="Script" uid="uid://bvy2g118w8vy6" path="res://Data/Scripts/Entities/Player/Armor2D/HitBox.cs" id="8_0qdwm"]
+[ext_resource type="Script" uid="uid://p8xfjd804te8" path="res://Data/Scripts/Entities/NPC/InteractionDefault.cs" id="8_p6wwr"]
+[ext_resource type="Script" uid="uid://dpeqhmy6imae3" path="res://Data/Scripts/Locations/Prologue/CarTriger.cs" id="11_jiakw"]
+[ext_resource type="Script" uid="uid://c67nkr71ge5rt" path="res://Data/Scripts/Entities/Enemy/Locations/Prologue/PrologueCar.cs" id="12_0gqne"]
 [ext_resource type="Texture2D" uid="uid://bjp5apspnwv0k" path="res://Data/Textures/Locations/Prologue/RedCarUp.png" id="13_23rm3"]
 [ext_resource type="Texture2D" uid="uid://b6i7v83p7vjsw" path="res://Data/Textures/Locations/Prologue/RedCarRight.png" id="14_omus2"]
 [ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/DialogPanel.tscn" id="16_aq54q"]
@@ -295,8 +295,6 @@ size = Vector2(128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bqwt7"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_q04fb"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfy2y"]
 size = Vector2(162, 1150)
 
@@ -532,6 +530,8 @@ terrain_set_0/terrain_0/name = "Border"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_xgh8s")
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_q04fb"]
+
 [node name="Prologue" type="Node2D"]
 script = ExtResource("1_sdxh8")
 
@@ -623,19 +623,6 @@ sprite_frames = SubResource("SpriteFrames_bqwt7")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Dark" type="TextureRect" parent="CanvasLayer"]
-unique_name_in_owner = true
-visible = false
-modulate = Color(0, 0, 0, 1)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("CanvasTexture_q04fb")
-
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(-144, -22)
 collision_layer = 5
@@ -711,6 +698,20 @@ offset_top = -262.0
 region_rect = Rect2(2.1489, 0, 317.851, 320)
 
 [node name="PauseMenu" parent="." instance=ExtResource("17_ebgue")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dark" type="TextureRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CanvasTexture_q04fb")
 
 [connection signal="area_entered" from="Player/PlayerInteractionArea" to="Player/PlayerInteractionArea" method="OnAreaEntered"]
 [connection signal="area_exited" from="Player/PlayerInteractionArea" to="Player/PlayerInteractionArea" method="OnAreaExited"]

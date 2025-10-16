@@ -6,10 +6,20 @@ public partial class DroppedItem : Area2D, IInteractionArea
 {
     [Export] public Item Item { get; set; }
     [Export] public int Count { get; set; }
+    [Export] public int ID { get; set; }
     public event Action Take;
 
     public override void _Ready()
     {
+        Global.SceneObjects.LocationChanged += OnLocationChanged;
+    }
+
+    public void OnLocationChanged(Location location)
+    {
+        if ((bool?)location.LocationData?.Find(x => x.ID == ID).Value ?? false)
+        {
+            return;
+        }
         CollisionLayer = 8;
         CollisionMask = 8;
         CollisionShape2D collision = new CollisionShape2D()
@@ -26,6 +36,8 @@ public partial class DroppedItem : Area2D, IInteractionArea
 
     public void Interaction()
     {
+        Global.SceneObjects.Location.LocationData.Add((ID, true));
+        Global.JSON.SetLocationData(Global.SceneObjects.Location.LocationData);
         Take?.Invoke();
         Item item = (Item)Item.Duplicate();
         item.Count = Count;
@@ -39,5 +51,10 @@ public partial class DroppedItem : Area2D, IInteractionArea
             })
         }, null);
         QueueFree();
+    }
+
+    public override void _ExitTree()
+    {
+        Global.SceneObjects.LocationChanged -= OnLocationChanged;
     }
 }

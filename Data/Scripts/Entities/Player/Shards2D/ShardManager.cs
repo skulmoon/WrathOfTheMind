@@ -13,6 +13,18 @@ public partial class ShardManager : Node2D
     private Player _player;
     private int _destroyShards;
 
+    public Action<Shard2D> _changedShard;
+
+    public event Action<Shard2D> MainShard2DChanged
+    {
+        remove => _changedShard -= value;
+        add
+        {
+            _changedShard += value;
+            value.Invoke(_mainShard);
+        }
+    }
+
     private Shard2D MainShard
     {
         get => _mainShard;
@@ -43,8 +55,8 @@ public partial class ShardManager : Node2D
     public override void _Ready()
     {
         _reloadTimer.Timeout += CompleteReload;
-        Global.Inventory.ShardChanged += UpdateShard;
-        UpdateShard();
+        Global.Inventory.ShardsChanged += UpdateShard;
+        UpdateShard(Global.Inventory.GetActiveShardList());
     }
 
     public override void _PhysicsProcess(double delta)
@@ -112,7 +124,7 @@ public partial class ShardManager : Node2D
         }
     }
     
-    public void UpdateShard()
+    public void UpdateShard(List<Shard> shards)
     {
         for (int i = 0; i < _activeShards.Count; i++)
             if (this == _activeShards[i].GetParent())
@@ -130,13 +142,16 @@ public partial class ShardManager : Node2D
         }
         if (_activeShards.Count != 0)
         {
+            _changedShard?.Invoke(_activeShards[0]);
             _reloadTimer.WaitTime = _activeShards[0].TimeReload;
         }
+        else
+            _changedShard?.Invoke(null);
         StartReload();
     }
 
     public override void _ExitTree()
     {
-        Global.Inventory.ShardChanged -= UpdateShard;
+        Global.Inventory.ShardsChanged -= UpdateShard;
     }
 }

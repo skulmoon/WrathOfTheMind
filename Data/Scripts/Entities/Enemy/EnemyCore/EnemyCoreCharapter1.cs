@@ -11,14 +11,13 @@ public partial class EnemyCoreCharapter1 : EnemyCore
 
     public override void _Ready()
 	{
-		Global.SceneObjects.LocationChanged += OnLocationChanged;
-	}
+        Global.SceneObjects.PlayerChanged += OnPlayerChanged;
+    }
 
-	public void OnLocationChanged(Node location)
-	{
-        GD.Print(location.GetType());
+    public void OnPlayerChanged(Player player)
+    {
         _positionControl = GD.Load<PackedScene>("res://Data/Scenes/Entities/EnemyPositionsControl.tscn").Instantiate<EnemyPositionsControl>();
-        Global.SceneObjects.Player.AddChild(_positionControl);
+        player.AddChild(_positionControl);
         foreach (Enemy enemy in Global.SceneObjects.Enemies)
         {
             enemy.NoticedPlayer += OnNoticePlayer;
@@ -43,6 +42,6 @@ public partial class EnemyCoreCharapter1 : EnemyCore
 
     public override void _ExitTree()
     {
-        Global.SceneObjects.LocationChanged -= OnLocationChanged;
+        Global.SceneObjects.PlayerChanged -= OnPlayerChanged;
     }
 }

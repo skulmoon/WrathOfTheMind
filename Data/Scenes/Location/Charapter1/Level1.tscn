@@ -1,15 +1,13 @@
-[gd_scene load_steps=26 format=4 uid="uid://c20vtk3hpq7xd"]
+[gd_scene load_steps=24 format=4 uid="uid://c20vtk3hpq7xd"]
 
-[ext_resource type="Script" path="res://Data/Scripts/Locations/Chapter1/Chapter1Location.cs" id="1_dax2h"]
+[ext_resource type="Script" uid="uid://brbaicg6brgsy" path="res://Data/Scripts/Locations/Chapter1/Chapter1Location.cs" id="1_dax2h"]
 [ext_resource type="Texture2D" uid="uid://djc3krnjf1ow7" path="res://Data/Textures/Locations/Charapter1/Background.png" id="1_xtonv"]
 [ext_resource type="PackedScene" uid="uid://bf62x5p8yb5w" path="res://Data/Scenes/Location/border.tscn" id="2_vsr0d"]
-[ext_resource type="Script" path="res://Data/Scripts/Entities/Enemy/Charapter1/ExplosionSkeleton/ExplosionSkeleton.cs" id="4_irjjm"]
+[ext_resource type="Script" uid="uid://voq6wvsc677i" path="res://Data/Scripts/Entities/Enemy/Charapter1/ExplosionSkeleton/ExplosionSkeleton.cs" id="4_irjjm"]
+[ext_resource type="PackedScene" uid="uid://wuwodxqjfr1s" path="res://Data/Scenes/Menu/Interface/interface.tscn" id="6_ujljn"]
 [ext_resource type="PackedScene" uid="uid://dhgr62sao2gjo" path="res://Data/Scenes/Entities/Player/Player.tscn" id="6_xvw7s"]
-[ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/DialogPanel.tscn" id="7_jyvte"]
-[ext_resource type="PackedScene" uid="uid://qejl5dn1sgf8" path="res://Data/Scenes/Menu/Interface/Inventory/InventoryMenu.tscn" id="8_bdbky"]
-[ext_resource type="PackedScene" uid="uid://5p113gt2878n" path="res://Data/Scenes/Menu/Trade/TradeMenu.tscn" id="9_50tnb"]
 [ext_resource type="PackedScene" uid="uid://cfpu5icvlw782" path="res://Data/Scenes/Menu/Interface/PauseMenu/PauseMenu.tscn" id="10_v1ftr"]
-[ext_resource type="Script" path="res://Data/Scripts/Locations/ConductivePath.cs" id="11_63tqf"]
+[ext_resource type="Script" uid="uid://b1mm4y8lqfmla" path="res://Data/Scripts/Locations/ConductivePath.cs" id="11_63tqf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8d4jh"]
 vertices = PackedVector2Array(522, 54, 598, -22, 630, -22, 630, 10, 554, 86, 522, 86, 714, 10, 714, -22, 822, -22, 822, 42, 854, 42, 854, 246, 822, 246, 586, 202, 822, 310, 790, 310, 790, 342, 758, 342, 758, 374, 726, 374, 726, 406, 662, 406, 662, 438, 566, 438, 490, 234, 490, 202, 394, 266, 566, 470, 374, 470, 298, 298, 298, 266, 374, 502, 42, 502, 42, 470, 106, 362, 202, 330, 10, 470, 10, 438, -22, 438, -22, 362, 106, 330, 202, 298, 394, 234, 586, 118, 554, 118, 490, 54, 490, 22, 458, 22, 458, -22, 490, -22, 490, -54, 598, -54)
@@ -672,10 +670,10 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_su0sg")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_8wdae"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xq31"]
 size = Vector2(48, 99)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8wdae"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_dax2h")
@@ -698,6 +696,19 @@ script = ExtResource("4_irjjm")
 [node name="Player" parent="." instance=ExtResource("6_xvw7s")]
 position = Vector2(-10, 396)
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-12, 400)
+script = ExtResource("11_63tqf")
+Path = "Charapter1/StartingTrail"
+EndPosition = Vector2(1081, 334)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6xq31")
+
+[node name="Interface" parent="." instance=ExtResource("6_ujljn")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("10_v1ftr")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Dark" type="TextureRect" parent="CanvasLayer"]
@@ -709,30 +720,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("CanvasTexture_8wdae")
-
-[node name="Interface" type="CanvasLayer" parent="."]
-
-[node name="DialogPanel" parent="Interface" instance=ExtResource("7_jyvte")]
-process_mode = 1
-process_priority = -6
-visible = false
-offset_top = -262.0
-region_rect = Rect2(2.1489, 0, 317.851, 320)
-
-[node name="InventoryMenu" parent="Interface" instance=ExtResource("8_bdbky")]
-visible = false
-
-[node name="TradeMenu" parent="Interface" instance=ExtResource("9_50tnb")]
-visible = false
-
-[node name="PauseMenu" parent="." instance=ExtResource("10_v1ftr")]
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-12, 400)
-script = ExtResource("11_63tqf")
-Path = "Charapter1/Level1"
-EndPosition = Vector2(-10, 396)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_6xq31")

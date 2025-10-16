@@ -30,7 +30,6 @@ public partial class PlayerInteractionArea : Area2D
     public void OnAreaEntered(Area2D interactionArea)
     {
         _interactionArea = interactionArea as IInteractionArea;
-        GD.Print(_interactionArea);
     }
 
     public void OnAreaExited(Area2D interactionArea)

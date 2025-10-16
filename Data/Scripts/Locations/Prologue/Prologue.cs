@@ -50,7 +50,6 @@ public partial class Prologue : Location
         {
             Global.SceneObjects.Player.Visible = false;
             Global.SceneObjects.Player.GetNode<Camera2D>("Camera").Enabled = false;
-            GetTree().CurrentScene.GetNode<TextureRect>("%Dark").Visible = true;
             LocationData.Add((1, false));
             Global.JSON.SetLocationData(LocationData);
             Global.CutSceneManager.OutputCutScene(2, 1);

@@ -41,10 +41,15 @@ public class Sound
 
     public void PlayMusic(string music)
     {
-        _music.Stream = ResourceLoader.Load<AudioStream>(_musicPath + music);
-        _music.Play();
+        if (music != null)
+        {
+            _music.Stream = ResourceLoader.Load<AudioStream>(_musicPath + music);
+            _music.Play();
+        }
+        else
+            _music.Stop();
     }
 
     public bool CheckMusic(string music) =>
-        _music.Stream == ResourceLoader.Load<AudioStream>(_musicPath + music);
+        _music.Stream == ResourceLoader.Load<AudioStream>(_musicPath + music) && _music.Playing;
 }

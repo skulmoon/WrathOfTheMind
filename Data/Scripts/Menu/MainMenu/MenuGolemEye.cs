@@ -17,6 +17,9 @@ public partial class MenuGolemEye : TextureRect
 	{
         Vector2 mousePosition = GetLocalMousePosition();
         mousePosition.Y *= 1.05f;
-        Position = _startPosition + (mousePosition - GetWindow().Size / 2) * 0.01f;
+        Vector2 mouseVector = mousePosition - GetWindow().Size / 2;
+        if (mouseVector.DistanceTo(Vector2.Zero) > GetWindow().Size.X / 2)
+            mouseVector = mouseVector.Normalized() * GetWindow().Size.X / 2;
+        Position = _startPosition + mouseVector * 0.01f;
     }
 }

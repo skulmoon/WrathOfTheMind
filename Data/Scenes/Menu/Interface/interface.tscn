@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://wuwodxqjfr1s"]
+
+[ext_resource type="PackedScene" uid="uid://n27vr12tgglv" path="res://Data/Scenes/Menu/DialogPanel.tscn" id="1_ujoai"]
+[ext_resource type="PackedScene" uid="uid://qejl5dn1sgf8" path="res://Data/Scenes/Menu/Interface/Inventory/InventoryMenu.tscn" id="2_1v5r0"]
+[ext_resource type="PackedScene" uid="uid://5p113gt2878n" path="res://Data/Scenes/Menu/Trade/TradeMenu.tscn" id="3_ayiv2"]
+[ext_resource type="Script" uid="uid://ut3cllc1tsuu" path="res://Data/Scripts/Menu/Interface/ProgressBars/HealthProgressBar.cs" id="4_ayiv2"]
+[ext_resource type="Script" uid="uid://chhs0qx4rkapc" path="res://Data/Scripts/Menu/Interface/ProgressBars/PowerProgressBar.cs" id="5_vw5ff"]
+[ext_resource type="Script" uid="uid://bqhqf4m7lqv0j" path="res://Data/Scripts/Menu/Interface/ProgressBars/FirstShardAbilityBar.cs" id="6_vw5ff"]
+[ext_resource type="Script" uid="uid://bv47fvd7qj5jy" path="res://Data/Scripts/Menu/Interface/ProgressBars/SecondShardAbilityBar.cs" id="7_6u13w"]
+[ext_resource type="Script" uid="uid://bjr17i2e1fk62" path="res://Data/Scripts/Menu/Interface/ProgressBars/FirstArmorAbilityBar.cs" id="8_twuwf"]
+[ext_resource type="Script" uid="uid://rjayllecas6" path="res://Data/Scripts/Menu/Interface/ProgressBars/SecondArmorAbilityBar.cs" id="9_1f48q"]
+
+[node name="Interface" type="CanvasLayer"]
+
+[node name="DialogPanel" parent="." instance=ExtResource("1_ujoai")]
+process_mode = 1
+process_priority = -6
+visible = false
+offset_top = -262.0
+region_rect = Rect2(2.1489, 0, 317.851, 320)
+
+[node name="InventoryMenu" parent="." instance=ExtResource("2_1v5r0")]
+visible = false
+
+[node name="TradeMenu" parent="." instance=ExtResource("3_ayiv2")]
+visible = false
+
+[node name="HealthProgressBar" type="ProgressBar" parent="."]
+offset_right = 234.0
+offset_bottom = 40.0
+script = ExtResource("4_ayiv2")
+
+[node name="PowerProgressBar" type="ProgressBar" parent="."]
+offset_left = 1.0
+offset_top = 42.0
+offset_right = 235.0
+offset_bottom = 82.0
+script = ExtResource("5_vw5ff")
+
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -49.0
+offset_right = 127.0
+offset_bottom = -30.0
+grow_vertical = 0
+script = ExtResource("6_vw5ff")
+
+[node name="Label" type="Label" parent="FirstShardAbilityBar"]
+layout_mode = 0
+offset_top = -17.0
+offset_right = 125.0
+offset_bottom = -2.0
+
+[node name="SecondShardAbilityBar" type="ProgressBar" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -19.0
+offset_right = 129.0
+grow_vertical = 0
+script = ExtResource("7_6u13w")
+
+[node name="Label" type="Label" parent="SecondShardAbilityBar"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -16.0
+offset_right = 126.0
+offset_bottom = -1.0
+
+[node name="FirstArmorAbilityBar" type="ProgressBar" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -127.0
+offset_top = -49.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("8_twuwf")
+
+[node name="Label" type="Label" parent="FirstArmorAbilityBar"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -15.0
+offset_right = 124.0
+
+[node name="SecondArmorAbilityBar" type="ProgressBar" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("9_1f48q")
+
+[node name="Label" type="Label" parent="SecondArmorAbilityBar"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 127.0

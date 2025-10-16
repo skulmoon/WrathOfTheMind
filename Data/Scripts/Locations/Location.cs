@@ -12,7 +12,18 @@ public partial class Location : Node2D
 
     public override void _Ready()
     {
-        LocationData = Global.JSON.GetLocationData() ?? new List<(int ID, object Value)>();
+        LocationData = Global.JSON.GetLocationData();
+        if (LocationData == null)
+        {
+            LocationData = new List<(int ID, object Value)>();
+            Global.SaveManager.CreateLocationData();
+        }
         Global.SceneObjects.Location = this;
+        TextureRect dark = GetNode<TextureRect>("%Dark");
+        dark.Visible = true;
+        Tween tween = CreateTween();
+        tween.TweenProperty(dark, "modulate:a", 1, 0.2);
+        tween.Chain();
+        tween.TweenProperty(dark, "modulate:a", 0, 0.5);
     }
 }

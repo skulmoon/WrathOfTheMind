@@ -37,16 +37,25 @@ public partial class GameLoader : Control
     {
         if (_currentSave != null)
         {
-            Global.SaveManager.LoadSave(_currentSave);
-            GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.SaveData.CurrentLocation}.tscn");
-     
+            TextureRect dark = GetNode<TextureRect>("%Dark");
+            dark.Visible = true;
+            Tween tween = CreateTween();
+            tween.TweenProperty(dark, "modulate:a", 1, 0.5);
+            tween.TweenCallback(new Callable(this, "LoadSave"));
         }
     }
+
+    public void LoadSave()
+    {
+        Global.SaveManager.LoadSave(_currentSave);
+        GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.SaveData.CurrentLocation}.tscn");
+    }
+
     public void OnPressedDelete()
     {
         if (_currentSave != null)
         {
-            _container.RemoveChild(GetNode($"/root/GameLoader/Saves/VBoxContainer/{_currentSave}"));
+            _container.RemoveChild(GetNode($"/root/MainMenu/GameLoader/Saves/VBoxContainer/{_currentSave}"));
             Global.SaveManager.DeleteSave(_currentSave);
             _currentSave = null;
         }

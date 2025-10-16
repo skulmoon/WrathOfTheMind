@@ -12,8 +12,8 @@ public partial class PlayerInventory : Node
     public List<Item> Shards { get; set; } = new List<Item>(new Item[21]);
     public int ShardsCount { get; set; } = 8;
     public int Scruples { get; set; } = 180;
-    public event Action ShardChanged = () => { };
-    public event Action ArmorChanged = () => { };
+    public event Action<List<Shard>> ShardsChanged;
+    public event Action<Armor> ArmorChanged;
 
     public bool TakeItem(Item item)
 	{
@@ -77,8 +77,25 @@ public partial class PlayerInventory : Node
         list = type.GetList();
         (list[endPosition], list[startPosition]) = (list[startPosition], list[endPosition]);
         if (type == ItemType.Shard && ((startPosition > 15 && startPosition != 20) || (endPosition > 15 && endPosition != 20)))
-            ShardChanged.Invoke();
+            ShardsChanged?.Invoke([(Shard)list[16], (Shard)list[17], (Shard)list[18], (Shard)list[19]]);
         if (type == ItemType.Armor && (startPosition == 16 || endPosition == 16))
-            ArmorChanged.Invoke();
+            ArmorChanged?.Invoke((Armor)list[16]);
+    }
+
+    public List<Shard> GetActiveShardList() =>
+        [(Shard)Shards[16], (Shard)Shards[17], (Shard)Shards[18], (Shard)Shards[19]];
+
+    public Armor GetActiveArmor() =>
+        (Armor)Armors[16];
+
+    public void Clear()
+    {
+        for (int i = 0; i < Armors.Count; i++)
+            Armors[i] = null;
+        for (int i = 0; i < Shards.Count; i++)
+            Shards[i] = null;
+        for (int i = 0; i < Items.Count; i++)
+            Items[i] = null;
     }
 }
+

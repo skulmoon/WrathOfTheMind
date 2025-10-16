@@ -18,6 +18,7 @@ public partial class CloseButton : CustomButton
         Global.SaveManager.SaveGame();
         Menu.Visible = false;
         GetTree().Paused = false;
+        Global.Inventory.Clear();
         Global.SceneObjects.ChangeScene("res://Data/Scenes/Menu/MainMenu.tscn");
         Global.Settings.CutScene = false;
     }

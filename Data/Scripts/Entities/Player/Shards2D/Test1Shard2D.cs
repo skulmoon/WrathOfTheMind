@@ -17,6 +17,9 @@ public partial class Test1Shard2D : ShardAbility
         return result;
     }
 
+    public override string[] GetAbilityNames() =>
+        ["FirstAbility", "SecondAbility"];
+
     public override void Ability1()
     {
         GD.Print(1);

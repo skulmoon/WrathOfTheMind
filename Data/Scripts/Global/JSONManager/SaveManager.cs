@@ -27,7 +27,7 @@ public partial class SaveManager : Node
         Global.Inventory.Items = Global.Settings.SaveData.Items;
         Global.Inventory.Shards = Global.Settings.SaveData.Shards;
         Global.Inventory.Armors = Global.Settings.SaveData.Armors;
-        ((Player)player).Shard.UpdateShard();
+        ((Player)player).Shard.UpdateShard(null);
         Global.SceneObjects.PlayerChanged -= SetPlayerSettings;
     }
 
@@ -63,4 +63,7 @@ public partial class SaveManager : Node
 
     public void DeleteSave(string saveName) =>
         _directory.DeleteSave(saveName);
+
+    public void CreateLocationData() =>
+        _directory.CreateLocationData(Global.Settings.SaveData.CurrentLocation);
 }

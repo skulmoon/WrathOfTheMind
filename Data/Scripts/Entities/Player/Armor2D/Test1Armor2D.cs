@@ -3,7 +3,10 @@ using System;
 
 public partial class Test1Armor2D : ArmorAbility
 {
-    public Test1Armor2D(float protection, float additionalHealth) : base(protection, additionalHealth) { }
+    public Test1Armor2D(float protection, int additionalHealth) : base(protection, additionalHealth) { }
+
+    public override string[] GetAbilityNames() =>
+        ["FirstAbility", "SecondAbility"];
 
     public override void Ability1()
 	{
