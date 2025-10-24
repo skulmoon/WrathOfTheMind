@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnkwqmmbjjouf"]
+[gd_scene load_steps=5 format=3 uid="uid://dnkwqmmbjjouf"]
 
 [ext_resource type="PackedScene" uid="uid://de6b4b3d6tbg8" path="res://Data/Scenes/Entities/Player/Shard2D/CollisionShape2D.tscn" id="2_epsym"]
 [ext_resource type="PackedScene" uid="uid://c8nmy67r6ft0f" path="res://Data/Scenes/Entities/Player/Shard2D/Sprite2D.tscn" id="3_kqhnm"]
 [ext_resource type="PackedScene" uid="uid://bkbpn02254a22" path="res://Data/Scenes/Entities/Player/Shard2D/PointLight2D.tscn" id="4_hqj2f"]
+[ext_resource type="PackedScene" uid="uid://ddvfief75fuig" path="res://Data/Scenes/Entities/Player/Shard2D/Particle.tscn" id="4_n48ke"]
 
 [node name="Shard2D" type="Area2D"]
 collision_layer = 16
@@ -14,3 +15,5 @@ collision_mask = 16
 
 [node name="PointLight2D" parent="." instance=ExtResource("4_hqj2f")]
 color = Color(0, 0, 1, 1)
+
+[node name="ShardParticles" parent="." instance=ExtResource("4_n48ke")]

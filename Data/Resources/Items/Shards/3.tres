@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Shard" load_steps=2 format=3 uid="uid://mmqc82v7oyqj"]
+
+[ext_resource type="Script" uid="uid://cnk7cta7kke1n" path="res://Data/Scripts/Global/Inventory/Shard.cs" id="1_bmcyq"]
+
+[resource]
+script = ExtResource("1_bmcyq")
+ShardType = "BoneShard"
+Health = 35
+Damage = 5
+Speed = 150
+TimeReload = 3.0
+CritChance = 0.2
+MaxRange = 300.0
+ID = 3
+MaxCount = 1
+Name = "Barrier shard"
+Description = "It feels like it's part of a great coincidence."

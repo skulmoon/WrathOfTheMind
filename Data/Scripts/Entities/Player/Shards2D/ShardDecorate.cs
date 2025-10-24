@@ -20,9 +20,9 @@ public class ShardDecorate
         shard.Light.Energy = MathF.Sin(_delta) * 0.5f + 0.9f;
         Vector2 direction = manager.Position.DirectionTo(cursorPosition);
         if (manager.GlobalPosition.DistanceTo(cursorPosition) > (float)delta * shard.Speed)
-            shard.Rotation = Vector2.FromAngle(shard.Rotation).Lerp(Vector2.FromAngle(shard.GlobalPosition.AngleToPoint(cursorPosition) + (45 * MathF.PI / 180) + (MathF.Sin(_delta) / 10)), 20 * (float)delta).Angle();
+            shard.Sprite.Rotation = Vector2.FromAngle(shard.Sprite.Rotation).Lerp(Vector2.FromAngle(shard.GlobalPosition.AngleToPoint(cursorPosition) + (45 * MathF.PI / 180) + (MathF.Sin(_delta) / 10)), 20 * (float)delta).Angle();
         else
-            shard.Rotation = Vector2.FromAngle(shard.Rotation).Lerp(Vector2.FromAngle((-45 * MathF.PI / 180) + (MathF.Sin(_delta) / 10)), 10 * (float)delta).Angle();
+            shard.Sprite.Rotation = Vector2.FromAngle(shard.Sprite.Rotation).Lerp(Vector2.FromAngle((-45 * MathF.PI / 180) + (MathF.Sin(_delta) / 10)), 10 * (float)delta).Angle();
         if (cursorPosition.DistanceTo(_player?.GlobalPosition ?? Vector2.Zero) > shard.MaxRange)
             cursorPosition = (_player?.GlobalPosition ?? Vector2.Zero).DirectionTo(cursorPosition) * shard.MaxRange + _player?.GlobalPosition ?? Vector2.Zero;
         if (manager.GlobalPosition.DistanceTo(cursorPosition) > (float)delta * shard.Speed)
@@ -37,7 +37,7 @@ public class ShardDecorate
         for (int i = 0; i < shards.Count; i++)
         {
             Vector2 newPosition = new Vector2(Mathf.Cos(angelDistance * i + _delta), Mathf.Sin(angelDistance * i + _delta)) * 20;
-            shards[i].Rotation = shards[i].Position.AngleToPoint(newPosition) + (45 * MathF.PI / 180);
+            shards[i].Sprite.Rotation = shards[i].Position.AngleToPoint(newPosition) + (45 * MathF.PI / 180);
             shards[i].Position = newPosition;
         }
     }
@@ -46,7 +46,7 @@ public class ShardDecorate
     {
         manager.TopLevel = false;
         manager.Position = Vector2.Zero;
-        manager.Visible = false;
+        manager.ActiveShards.ForEach(x => x.Sprite.Visible = false);
         shard.Light.Energy = 0;
         shard.DisableMode = CollisionObject2D.DisableModeEnum.KeepActive;
     }
@@ -55,14 +55,13 @@ public class ShardDecorate
     {
         manager.TopLevel = true;
         manager.GlobalPosition = Global.SceneObjects.Player?.Position ?? Vector2.One;
-        manager.Visible = true;
         shard.Light.Energy = 1;
         for (int i = 0; i < shards.Count; i++)
         {
-            shards[i].Visible = true;
+            shards[i].Sprite.Visible = true;
             shards[i].DisableMode = CollisionObject2D.DisableModeEnum.KeepActive;
         }
-        shard.Visible = true;
+        shard.Sprite.Visible = true;
         shard.DisableMode = CollisionObject2D.DisableModeEnum.KeepActive;
     }
 }

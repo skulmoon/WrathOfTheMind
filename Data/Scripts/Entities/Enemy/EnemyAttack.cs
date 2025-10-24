@@ -25,7 +25,7 @@ public abstract partial class EnemyAttack : CharacterBody2D
 
         Area2D area = new Area2D();
 		area.AddChild(_collision);
-        area.AreaEntered += ShardOnEntered;
+        area.AreaEntered += OnPlayerAttackEntered;
 		AddChild(area);
         area.CollisionLayer = 16;
         area.CollisionMask = 16;
@@ -48,11 +48,11 @@ public abstract partial class EnemyAttack : CharacterBody2D
 		}
     }
 
-    public virtual void ShardOnEntered(Area2D area)
+    public virtual void OnPlayerAttackEntered(Area2D area)
 	{
-		if (area is Shard2D shard)
+		if (area is PlayerAttack playerAttack)
 		{
-			shard.TakeDamage(Damage);
+			playerAttack.TakeDamage(Damage);
 			Destroy();
 		}
 		else if (area is HitBox hitBox)

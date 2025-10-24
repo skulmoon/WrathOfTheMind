@@ -22,7 +22,7 @@ public partial class ExplosionSkeletonAttack : EnemyAttack
         Rotate(Mathf.DegToRad(-480) * (float)delta);
     }
 
-    public override void ShardOnEntered(Area2D area)
+    public override void OnPlayerAttackEntered(Area2D area)
     {
         if (area is HitBox or Shard2D)
         {

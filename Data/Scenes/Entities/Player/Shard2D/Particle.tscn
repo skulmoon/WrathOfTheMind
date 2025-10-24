@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddvfief75fuig"]
+
+[ext_resource type="Script" uid="uid://cqrl5c1rs1ya1" path="res://Data/Scripts/Entities/Player/Shards2D/ShardParticles/ShardParticles.cs" id="1_ua86x"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_f8bnj"]
+
+[sub_resource type="Curve" id="Curve_tbkg5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_eoc82"]
+curve = SubResource("Curve_tbkg5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ua86x"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 20, 0)
+radial_accel_min = -74.71
+radial_accel_max = 13.8
+tangential_accel_min = -10.0
+tangential_accel_max = 10.0
+scale_min = 2.0
+scale_max = 2.0
+alpha_curve = SubResource("CurveTexture_eoc82")
+
+[node name="ShardParticles" type="Node2D" node_paths=PackedStringArray("Particles")]
+z_index = -1
+script = ExtResource("1_ua86x")
+Particles = NodePath("GPUParticles2D")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 16
+texture = SubResource("CanvasTexture_f8bnj")
+randomness = 0.18
+process_material = SubResource("ParticleProcessMaterial_ua86x")

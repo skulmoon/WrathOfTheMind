@@ -69,7 +69,7 @@ public abstract partial class Enemy : CharacterBody2D
             CollisionMask = 16,
         };
         AddChild(hitbox);
-        hitbox.AreaEntered += ShardOnEntered;
+        hitbox.AreaEntered += OnPLayerAttackEntered;
         hitbox.AddChild(new CollisionShape2D()
         {
             Shape = new CircleShape2D()
@@ -84,7 +84,6 @@ public abstract partial class Enemy : CharacterBody2D
         FloorBlockOnWall = false;
         FloorStopOnSlope = false;
         Global.SceneObjects.Enemies.Add(this);
-        GD.Print(1);
     }
 
     public virtual void Attack(EnemyAttack attack) =>
@@ -101,10 +100,10 @@ public abstract partial class Enemy : CharacterBody2D
     public virtual void TakeDamage(float damage) =>
         Health -= damage;
 
-    public void ShardOnEntered(Area2D area)
+    public void OnPLayerAttackEntered(Area2D area)
     {
-        if (area is Shard2D shard)
-            TakeDamage(shard.Attack());
+        if (area is PlayerAttack playerAttack)
+            TakeDamage(playerAttack.Attack());
     }
 
     public void SetState(Node NewState, Node LastState)

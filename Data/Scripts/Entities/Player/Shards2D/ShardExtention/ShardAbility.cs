@@ -30,7 +30,7 @@ public abstract partial class ShardAbility : Shard2D
 
     public bool IsMain { get; set; } = false;
 
-    public ShardAbility(Action<Shard2D> zeroHealth, int health, float damage, int speed, float timeReload, float critChance, float maxRange) : base(zeroHealth, health, damage, speed, timeReload, critChance, maxRange)
+    public ShardAbility(Action<Shard2D> zeroHealth, int health, float damage, int speed, float timeReload, float critChance, int maxRange) : base(zeroHealth, health, damage, speed, timeReload, critChance, maxRange)
     {
         _timer1 = new Timer()
         {
@@ -52,13 +52,13 @@ public abstract partial class ShardAbility : Shard2D
 
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionJustPressed("shard_ability1") && IsMain && _timer1.TimeLeft == 0)
+        if (Input.IsActionPressed("shard_ability1") && IsMain && _timer1.TimeLeft == 0)
         {
             Ability1();
             _timer1.Start();
             _firstAbilityReloadStarted?.Invoke((float)_timer1.WaitTime);
         }
-        if (Input.IsActionJustPressed("shard_ability2") && IsMain && _timer2.TimeLeft == 0)
+        if (Input.IsActionPressed("shard_ability2") && IsMain && _timer2.TimeLeft == 0)
         {
             Ability2();
             _timer2.Start();

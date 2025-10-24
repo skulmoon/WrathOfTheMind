@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Shard" load_steps=2 format=3 uid="uid://wkw3vlj11v3m"]
+
+[ext_resource type="Script" uid="uid://cnk7cta7kke1n" path="res://Data/Scripts/Global/Inventory/Shard.cs" id="1_hsb3m"]
+
+[resource]
+script = ExtResource("1_hsb3m")
+ShardType = "BoneShard"
+Health = 35
+Damage = 0.0
+Speed = 30
+TimeReload = 3.0
+CritChance = 0.2
+MaxRange = 50
+ID = 2
+MaxCount = 1
+Name = "Bone shard"
+Description = "Bones are magnetized to a strange purple stone. Is this... unusual? Is this place... real?"

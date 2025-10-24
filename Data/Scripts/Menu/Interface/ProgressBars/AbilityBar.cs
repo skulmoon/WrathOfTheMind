@@ -42,7 +42,6 @@ public abstract partial class AbilityBar : ProgressBar
     {
         SetAbilityName(string.Empty);
         _currentTween?.Stop();
-        _currentTween?.Free();
         Value = 0;
     }
 

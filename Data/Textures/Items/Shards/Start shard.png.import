@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jk3eq5oa07s1"
-path="res://.godot/imported/Start shard.png-1ce56bb8b3507f4edc30c206398db40d.ctex"
+uid="uid://cuhgvvfux7r3y"
+path="res://.godot/imported/Start Shard.png-d7ea56967ce918951258442713800024.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Data/Textures/Items/Shards/Start shard.png"
-dest_files=["res://.godot/imported/Start shard.png-1ce56bb8b3507f4edc30c206398db40d.ctex"]
+source_file="res://Data/Textures/Items/Shards/Start Shard.png"
+dest_files=["res://.godot/imported/Start Shard.png-d7ea56967ce918951258442713800024.ctex"]
 
 [params]
 
