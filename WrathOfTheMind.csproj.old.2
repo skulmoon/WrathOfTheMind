@@ -1,0 +1,13 @@
+<Project Sdk="Godot.NET.Sdk/4.4.1">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Data\Scripts\Entities\Player\Shards2D\Shards2D\**" />
+    <EmbeddedResource Remove="Data\Scripts\Entities\Player\Shards2D\Shards2D\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+</Project>

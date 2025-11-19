@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://1j5ayut5yaal"]
+
+[ext_resource type="Shader" uid="uid://bbrj0hata7gby" path="res://Data/Shaders/MenuDark.gdshader" id="1_yig5m"]
+[ext_resource type="Script" uid="uid://dwj6pd3ruyisr" path="res://Data/Scripts/Menu/Interface/UIDark.cs" id="2_vifdd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7vrml"]
+shader = ExtResource("1_yig5m")
+shader_parameter/dark_power = 0.5
+shader_parameter/cursor_position = Vector2(0, 0)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8sai4"]
+
+[node name="Dark" type="TextureRect"]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_7vrml")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CanvasTexture_8sai4")
+script = ExtResource("2_vifdd")
+DurationTranslate = 1.0

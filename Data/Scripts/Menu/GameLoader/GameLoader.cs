@@ -37,11 +37,8 @@ public partial class GameLoader : Control
     {
         if (_currentSave != null)
         {
-            TextureRect dark = GetNode<TextureRect>("%Dark");
-            dark.Visible = true;
-            Tween tween = CreateTween();
-            tween.TweenProperty(dark, "modulate:a", 1, 0.5);
-            tween.TweenCallback(new Callable(this, "LoadSave"));
+            UIDark dark = GetNode<UIDark>("%Dark");
+            dark.ShowDark(LoadSave);
         }
     }
 

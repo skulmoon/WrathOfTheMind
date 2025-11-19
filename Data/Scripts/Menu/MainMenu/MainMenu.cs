@@ -7,12 +7,8 @@ public partial class MainMenu : Control
 	{
 		if (!Global.Music.CheckMusic("CrystalmaniaV3.mp3"))
 			Global.Music.PlayMusic("CrystalmaniaV3.mp3");
-        TextureRect dark = GetNode<TextureRect>("%Dark");
-        dark.Visible = true;
-        Tween tween = CreateTween();
-        tween.TweenProperty(dark, "modulate:a", 1, 0.2);
-        tween.Chain();
-        tween.TweenProperty(dark, "modulate:a", 0, 0.5);
+        UIDark dark = GetNode<UIDark>("%Dark");
+        dark.HideDark();
     }
 
     public override void _ExitTree()

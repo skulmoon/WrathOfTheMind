@@ -27,7 +27,8 @@ public partial class GameCreator : Control
         else
         {
             Global.SaveManager.NewGame(_textEdit.Text, Global.Settings.Saves.Count + 1);
-            GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.SaveData.CurrentLocation}.tscn");
+            GetNode<UIDark>("%Dark").ShowDark(() => 
+                GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.SaveData.CurrentLocation}.tscn"));
         }
     }
 }

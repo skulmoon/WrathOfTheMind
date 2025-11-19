@@ -3,7 +3,6 @@ using System;
 
 public abstract partial class Shard2D : PlayerAttack
 {
-    private int _health = 30;
     private int _maxHealth = 30;
 
     public event Action<Shard2D> ZeroHealth = (x) => { };
@@ -19,7 +18,7 @@ public abstract partial class Shard2D : PlayerAttack
         Sprite = (Sprite2D)GD.Load<PackedScene>("res://Data/Scenes/Entities/Player/Shard2D/Sprite2D.tscn").Instantiate();
         AddChild(Sprite);
         Light = (PointLight2D)GD.Load<PackedScene>("res://Data/Scenes/Entities/Player/Shard2D/PointLight2D.tscn").Instantiate();
-        AddChild(Light);
+        Sprite.AddChild(Light);
         _maxHealth = health;
         Health = health;
         Damage = damage;
@@ -32,9 +31,19 @@ public abstract partial class Shard2D : PlayerAttack
     public override void Destroy()
     {
         ZeroHealth.Invoke(this);
-        _health = 0;
+        ResetHeath();
+        base.Disable();
     }
 
-    public void RecoveryHealth() =>
-        _health = _maxHealth;
+    public void RecoveryHealth()
+    {
+        GD.Print("RecoveryHealth " + _maxHealth);
+        Health = _maxHealth;
+    }
+
+    public override void AddParticle(GpuParticles2D particle)
+    {
+        particle.Emitting = false;
+        base.AddParticle(particle);
+    }
 }

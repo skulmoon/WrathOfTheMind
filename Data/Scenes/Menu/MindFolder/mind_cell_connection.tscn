@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://btojstsnuhcvb"]
+
+[ext_resource type="Script" uid="uid://dilgmqfm6gij5" path="res://Data/Scripts/Menu/MindFolder/MindCellConnection.cs" id="1_70mve"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_70mve"]
+radius = 4.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0behy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5n8xb"]
+radius = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ltxoa"]
+radius = 51.0392
+
+[node name="MindCellConnection" type="Area2D"]
+z_index = -1
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_70mve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_70mve")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+texture = SubResource("CanvasTexture_0behy")
+
+[node name="Repulsion" type="CharacterBody2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Repulsion"]
+shape = SubResource("CircleShape2D_5n8xb")
+
+[node name="Resting" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Resting"]
+shape = SubResource("CircleShape2D_ltxoa")

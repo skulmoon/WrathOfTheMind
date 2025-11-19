@@ -55,14 +55,20 @@ public abstract partial class ShardAbility : Shard2D
         if (Input.IsActionPressed("shard_ability1") && IsMain && _timer1.TimeLeft == 0)
         {
             Ability1();
-            _timer1.Start();
-            _firstAbilityReloadStarted?.Invoke((float)_timer1.WaitTime);
+            if (_timer1.IsInsideTree())
+            {
+                _timer1.Start();
+                _firstAbilityReloadStarted?.Invoke((float)_timer1.WaitTime);
+            }
         }
         if (Input.IsActionPressed("shard_ability2") && IsMain && _timer2.TimeLeft == 0)
         {
             Ability2();
-            _timer2.Start();
-            _secondAbilityReloadStarted?.Invoke((float)_timer1.WaitTime);
+            if (_timer2.IsInsideTree())
+            {
+                _timer2.Start();
+                _secondAbilityReloadStarted?.Invoke((float)_timer1.WaitTime);
+            }
         }
     }
 

@@ -6,11 +6,11 @@
 script = ExtResource("1_hsb3m")
 ShardType = "BoneShard"
 Health = 35
-Damage = 0.0
-Speed = 30
+Damage = 2.0
+Speed = 100
 TimeReload = 3.0
 CritChance = 0.2
-MaxRange = 50
+MaxRange = 100
 ID = 2
 MaxCount = 1
 Name = "Bone shard"

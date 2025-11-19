@@ -31,6 +31,7 @@
 [ext_resource type="Script" uid="uid://cyd8mg54oms1g" path="res://Data/Scripts/Menu/Options/SoundSlider.cs" id="30_rwn0e"]
 [ext_resource type="Script" uid="uid://c8dsauyxi10ak" path="res://Data/Scripts/Menu/Options/ChangeControlElement.cs" id="31_fjhw7"]
 [ext_resource type="Script" uid="uid://brurwh0soyyoq" path="res://Data/Scripts/Menu/Options/ActiveDialogWindow/ActiveDialogWindow.cs" id="32_d7tal"]
+[ext_resource type="PackedScene" uid="uid://1j5ayut5yaal" path="res://Data/Scenes/Menu/Interface/dark.tscn" id="33_4gbv0"]
 [ext_resource type="Texture2D" uid="uid://b3tbyichm1f1m" path="res://Data/Textures/Menu/Спрайт-0001.png" id="33_cesh5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_almso"]
@@ -40,6 +41,7 @@ shader_parameter/color1 = Color(0.0413, 0.0460833, 0.07, 1)
 shader_parameter/color2 = Color(0.07734, 0.0738, 0.18, 1)
 shader_parameter/color3 = Color(0.1248, 0.18668, 0.39, 1)
 shader_parameter/color4 = Color(0.0987, 0.346233, 0.47, 1)
+shader_parameter/cursor_position = Vector4(0, 0, 0, 0)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_bdytl"]
 noise_type = 3
@@ -50,9 +52,9 @@ metadata/_preview_in_3d_space_ = true
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c462d"]
 width = 288
 height = 162
+noise = SubResource("FastNoiseLite_bdytl")
 in_3d_space = true
 seamless_blend_skirt = 1.0
-noise = SubResource("FastNoiseLite_bdytl")
 
 [sub_resource type="InputEventAction" id="InputEventAction_qtcbr"]
 action = &"open_pause_menu"
@@ -65,8 +67,6 @@ font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_qxh30"]
 font_size = 48
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_8sai4"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -1388,15 +1388,7 @@ stretch_mode = 5
 script = ExtResource("19_lw77n")
 Text = "Очистить"
 
-[node name="Dark" type="TextureRect" parent="."]
+[node name="Dark" parent="." instance=ExtResource("33_4gbv0")]
 unique_name_in_owner = true
-visible = false
-modulate = Color(0, 0, 0, 1)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = SubResource("CanvasTexture_8sai4")
+DarkVisible = false

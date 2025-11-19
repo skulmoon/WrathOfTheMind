@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://odlbfj2w7mw1"]
+[gd_scene load_steps=6 format=3 uid="uid://cbl21eekut2mi"]
 
 [ext_resource type="Script" uid="uid://be8gl31ht3t68" path="res://Data/Scripts/Entities/Particles/DefaultParticle.cs" id="1_eoc82"]
 
@@ -14,7 +14,7 @@ curve = SubResource("Curve_tbkg5")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ua86x"]
 particle_flag_disable_z = true
 emission_shape = 1
-emission_sphere_radius = 10.0
+emission_sphere_radius = 7.0
 direction = Vector3(0, 0, 0)
 gravity = Vector3(0, 10, 0)
 radial_accel_min = -200.0
@@ -28,6 +28,7 @@ alpha_curve = SubResource("CurveTexture_eoc82")
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
 texture = SubResource("CanvasTexture_f8bnj")
+lifetime = 0.4
 randomness = 0.18
 process_material = SubResource("ParticleProcessMaterial_ua86x")
 script = ExtResource("1_eoc82")

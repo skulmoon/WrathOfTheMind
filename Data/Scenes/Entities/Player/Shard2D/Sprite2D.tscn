@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8nmy67r6ft0f"]
+[gd_scene load_steps=3 format=3 uid="uid://c8nmy67r6ft0f"]
 
 [ext_resource type="Texture2D" uid="uid://civakrxx5qy4o" path="res://Data/Textures/Entities/Shards/TestShard1.png" id="1_wh15j"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_drrdm"]
+
 [node name="Sprite2D" type="Sprite2D"]
 light_mask = 0
+material = SubResource("ShaderMaterial_drrdm")
 texture = ExtResource("1_wh15j")

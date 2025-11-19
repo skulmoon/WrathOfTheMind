@@ -51,17 +51,23 @@ public abstract partial class EnemyAttack : CharacterBody2D
     public virtual void OnPlayerAttackEntered(Area2D area)
 	{
 		if (area is PlayerAttack playerAttack)
-		{
-			playerAttack.TakeDamage(Damage);
-			Destroy();
-		}
+			AttackPlayerAttack(playerAttack);
 		else if (area is HitBox hitBox)
-		{
-			hitBox.TakeDamage(Damage);
-			Destroy();
-        }
+			AttackPlayer(hitBox);
 	}
 
     public virtual void Destroy() =>
 		QueueFree();
+
+    public virtual void AttackPlayerAttack(PlayerAttack playerAttack)
+    {
+        playerAttack.TakeDamage(Damage, this);
+        Destroy();
+    }
+
+    public virtual void AttackPlayer(HitBox hitBox)
+	{
+        hitBox.TakeDamage(Damage);
+        Destroy();
+    }
 }

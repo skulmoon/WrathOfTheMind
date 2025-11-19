@@ -13,8 +13,8 @@ public partial class BoneShardProjectile1 : PlayerAttack
 
     public BoneShardProjectile1(int health, float damage, float critChance, float StartRotation, bool defaultCollision = true) : base(health, damage, critChance, defaultCollision)
     {
-        Particles.Add((GpuParticles2D)GD.Load<PackedScene>("res://Data/Scenes/Entities/Player/Shard2D/Particles/BoneShard/BoneShardProgectileParticles1.tscn").Instantiate());
-        AddChild(Particles[0]);
+        AddParticle((GpuParticles2D)GD.Load<PackedScene>("res://Data/Scenes/Entities/Player/Shard2D/Particles/BoneShard/BoneShardProgectileParticles1.tscn").Instantiate());
+        EndParticles.Add(GD.Load<PackedScene>("res://Data/Scenes/Entities/Player/Shard2D/Particles/BoneShard/BoneShardProgectileParticlesDestroyed.tscn").Instantiate<DirectedParticle>());
         Sprite = new Sprite2D();
         Sprite.Texture = GD.Load<Texture2D>($"res://Data/Textures/Entities/Shards/BoneShard/BoneShardProjectile{GD.Randi() % 3 + 1}.png");
         AddChild(Sprite);
@@ -47,7 +47,8 @@ public partial class BoneShardProjectile1 : PlayerAttack
 
     public override void Destroy()
     {
-        Sprite.Visible = false;
+        if (Sprite != null)
+            Sprite.Visible = false;
         base.Destroy(); 
     }
 }

@@ -80,7 +80,7 @@ public partial class LernMovementAnimetedButton : Sprite2D
         tween2.TweenProperty(this, "position", Position + new Vector2(0, -10), 5);
     }
 
-    public void Hide()
+    public new void Hide()
     {
         if ((bool?)_location?.LocationData?.Find(x => x.ID == 3).Value ?? false)
         {

@@ -5,6 +5,7 @@ uniform vec4 color1 : source_color;
 uniform vec4 color2 : source_color;
 uniform vec4 color3 : source_color;
 uniform vec4 color4 : source_color;
+uniform vec4 cursor_position;
 
 void fragment() {
 	if (COLOR.r < 0.5) {

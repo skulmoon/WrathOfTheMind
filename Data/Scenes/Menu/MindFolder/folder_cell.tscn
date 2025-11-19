@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://u8gorx7t2mlw"]
+
+[ext_resource type="Script" uid="uid://clcd7yy50i8ir" path="res://Data/Scripts/Menu/MindFolder/FolderCell.cs" id="1_2c5xc"]
+
+[node name="FolderCell" type="Node2D" node_paths=PackedStringArray("MindCells")]
+script = ExtResource("1_2c5xc")
+MindCells = []

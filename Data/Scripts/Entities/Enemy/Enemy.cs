@@ -103,7 +103,7 @@ public abstract partial class Enemy : CharacterBody2D
     public void OnPLayerAttackEntered(Area2D area)
     {
         if (area is PlayerAttack playerAttack)
-            TakeDamage(playerAttack.Attack());
+            TakeDamage(playerAttack.Attack(this));
     }
 
     public void SetState(Node NewState, Node LastState)

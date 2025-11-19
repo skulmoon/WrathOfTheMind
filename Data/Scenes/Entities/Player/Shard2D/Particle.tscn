@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ddvfief75fuig"]
 
-[ext_resource type="Script" uid="uid://cqrl5c1rs1ya1" path="res://Data/Scripts/Entities/Player/Shards2D/ShardParticles/ShardParticles.cs" id="1_ua86x"]
+[ext_resource type="Script" uid="uid://cqrl5c1rs1ya1" path="res://Data/Scripts/Entities/Particles/ShardParticles/ShardParticles.cs" id="1_ua86x"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_f8bnj"]
 

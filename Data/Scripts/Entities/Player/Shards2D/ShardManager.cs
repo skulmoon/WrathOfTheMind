@@ -94,7 +94,7 @@ public partial class ShardManager : Node2D
     {
         foreach (Shard2D shard in ActiveShards)
         {
-            AddChild(shard);
+            shard.Enable();
             shard.RecoveryHealth();
         }
         decorate.CompleteReload(this, MainShard, _shards);
@@ -116,7 +116,7 @@ public partial class ShardManager : Node2D
         {
             _shards.Remove(shard);
         }
-        RemoveChild(shard);
+        shard.Disable();
         _destroyShards++;
         if (_destroyShards >= ActiveShards.Count)
         {
@@ -145,6 +145,8 @@ public partial class ShardManager : Node2D
         {
             _changedShard?.Invoke(ActiveShards[0]);
             _reloadTimer.WaitTime = ActiveShards[0].TimeReload;
+            foreach (Shard2D shard in ActiveShards)
+                AddChild(shard);
         }
         else
             _changedShard?.Invoke(null);
