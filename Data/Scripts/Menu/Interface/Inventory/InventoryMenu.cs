@@ -37,11 +37,8 @@ public partial class InventoryMenu : Control
         Tween tween = CreateTween();
         tween.TweenProperty(dark, "CurrentDarkPower", 0f, 0.2);
         tween.TweenProperty(this, "modulate:a", 0, 0.2);
-        tween.TweenCallback(new Callable(this, "VisibleFalse"));
+        tween.TweenCallback(new Callable(this, "Hide"));
         Global.Settings.CutScene = false;
         GetTree().Paused = false;
     }
-
-    public void VisibleFalse() =>
-        Visible = false;
 }

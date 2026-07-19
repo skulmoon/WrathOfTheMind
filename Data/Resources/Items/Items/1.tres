@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://g1tegmai54te"]
+
+[ext_resource type="Script" uid="uid://cjyirnjgt36w7" path="res://Data/Scripts/Global/Inventory/Item.cs" id="1_86qsr"]
+
+[resource]
+script = ExtResource("1_86qsr")
+ID = 1
+Name = "Bone"
+Description = "This is bone."
+metadata/_custom_type_script = "uid://cjyirnjgt36w7"

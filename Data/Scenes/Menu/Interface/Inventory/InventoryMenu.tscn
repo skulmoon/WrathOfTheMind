@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://qejl5dn1sgf8"]
+[gd_scene load_steps=21 format=3 uid="uid://qejl5dn1sgf8"]
 
 [ext_resource type="Script" uid="uid://bliorlx32lwd3" path="res://Data/Scripts/Menu/Interface/Inventory/InventoryMenu.cs" id="1_uy33e"]
 [ext_resource type="Shader" uid="uid://qf5iis4sn158" path="res://Data/Shaders/InterfaseNoise.gdshader" id="2_2gdsw"]
@@ -7,10 +7,14 @@
 [ext_resource type="Script" uid="uid://bwhx001vyejok" path="res://Data/Scripts/Menu/PixelFormater.cs" id="4_kaaoj"]
 [ext_resource type="Script" uid="uid://bpptnefxuxx10" path="res://Data/Scripts/Tools/NoiseChanger.cs" id="5_3f3m0"]
 [ext_resource type="Texture2D" uid="uid://cpfyh311u8hox" path="res://Data/Textures/Menu/Buttons/ShortButton/PressedShortButton.png" id="6_656e8"]
+[ext_resource type="Texture2D" uid="uid://dbvdwy8rugsvm" path="res://Data/Textures/Menu/Interface/ItemInventory.png" id="6_pug46"]
 [ext_resource type="Texture2D" uid="uid://dusnfp2u3wntt" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton3.png" id="7_656e8"]
 [ext_resource type="Texture2D" uid="uid://ccre8h5weexcn" path="res://Data/Textures/Menu/Buttons/ShortButton/FocusedShortButton.png" id="8_800qu"]
+[ext_resource type="Texture2D" uid="uid://ctupo35ma770s" path="res://Data/Textures/Menu/Interface/SardInventory.png" id="8_ld1eg"]
 [ext_resource type="Script" uid="uid://g21wsggyj42f" path="res://Data/Scripts/Menu/Options/SwitchButton.cs" id="9_ld1eg"]
+[ext_resource type="Texture2D" uid="uid://bqbwpynkb1be1" path="res://Data/Textures/Menu/Interface/EquipmentInventory.png" id="9_pqcp8"]
 [ext_resource type="Texture2D" uid="uid://df5yc42ylef5x" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton3.png" id="9_pug46"]
+[ext_resource type="Texture2D" uid="uid://bn82jatdhio86" path="res://Data/Textures/Menu/Interface/SkillInventory.png" id="10_pqcp8"]
 [ext_resource type="Texture2D" uid="uid://b140e35jerlsk" path="res://Data/Textures/Menu/Buttons/ShortButton/NormalShortButton1.png" id="12_800qu"]
 [ext_resource type="Texture2D" uid="uid://be1f4kc7dtb50" path="res://Data/Textures/Menu/Buttons/ShortButton/HoverShortButton1.png" id="13_ld1eg"]
 
@@ -45,8 +49,6 @@ grow_vertical = 2
 script = ExtResource("1_uy33e")
 
 [node name="InventoryBorder" type="TextureRect" parent="."]
-process_priority = 2
-process_physics_priority = 2
 material = SubResource("ShaderMaterial_3f3m0")
 layout_mode = 1
 anchors_preset = -1
@@ -54,8 +56,8 @@ anchor_left = 0.5
 anchor_top = 0.109
 anchor_right = 0.5
 anchor_bottom = 0.891
-offset_left = -380.0
-offset_right = 380.0
+offset_left = -412.0
+offset_right = 412.0
 texture = ExtResource("2_r41r3")
 stretch_mode = 5
 script = ExtResource("4_kaaoj")
@@ -65,19 +67,28 @@ script = ExtResource("5_3f3m0")
 multiplier = 8.0
 NoiseTexture = SubResource("NoiseTexture2D_kaaoj")
 
-[node name="Items" type="Control" parent="InventoryBorder"]
+[node name="Items" type="TextureRect" parent="InventoryBorder"]
 layout_mode = 1
-anchor_left = 0.05
-anchor_top = 0.46
-anchor_right = 0.95
-anchor_bottom = 0.96
-offset_top = 1.5258789e-05
-offset_bottom = 3.0517578e-05
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.43
+anchor_right = 0.5
+anchor_bottom = 0.93
+offset_left = -373.0
+offset_right = 373.0
+texture = ExtResource("6_pug46")
+stretch_mode = 5
 script = ExtResource("2_ki7kg")
-SellInLine = 8
-PixelYSize = 100.0
+CellInLine = 9
+LineCount = 3
+BarriarOffset = 2
+AutoCorrectSize = true
+TheoreticalXSize = 300.0
+CustomYSize = true
+TheoreticalYSize = 102.0
 
 [node name="Equipment" type="Control" parent="InventoryBorder"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -85,27 +96,67 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Shards" type="Control" parent="InventoryBorder/Equipment"]
+[node name="Shards" type="TextureRect" parent="InventoryBorder/Equipment"]
 layout_mode = 1
-anchor_left = 0.04
-anchor_top = 0.62
-anchor_right = 0.49
-anchor_bottom = 0.96
+anchors_preset = -1
+anchor_left = 0.047000002
+anchor_top = 0.59300005
+anchor_right = 0.554
+anchor_bottom = 0.93000007
+offset_left = 0.8240013
+offset_top = -0.12646484
+texture = ExtResource("8_ld1eg")
+stretch_mode = 5
 script = ExtResource("2_ki7kg")
-SellInLine = 4
+CellInLine = 5
 Type = 2
-PixelYSize = 68.0
+BarriarOffset = 2
+TheoreticalXSize = 168.0
+TheoreticalYSize = 69.0
 
-[node name="Armors" type="Control" parent="InventoryBorder/Equipment"]
+[node name="Armors" type="TextureRect" parent="InventoryBorder/Equipment"]
 layout_mode = 1
-anchor_left = 0.51
-anchor_top = 0.62
-anchor_right = 0.96
-anchor_bottom = 0.96
+anchors_preset = -1
+anchor_left = 0.64400005
+anchor_top = 0.59300005
+anchor_right = 0.95100003
+anchor_bottom = 0.93
+offset_left = 0.3439331
+offset_top = -0.12646484
+offset_right = 0.37597656
+texture = ExtResource("9_pqcp8")
+stretch_mode = 5
 script = ExtResource("2_ki7kg")
-SellInLine = 4
+CellInLine = 3
 Type = 1
-PixelYSize = 68.0
+BarriarOffset = 2
+TheoreticalXSize = 102.0
+TheoreticalYSize = 69.0
+
+[node name="Skills" type="Control" parent="InventoryBorder"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Skills" type="TextureRect" parent="InventoryBorder/Skills"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.047000002
+anchor_top = 0.59300005
+anchor_right = 0.951
+anchor_bottom = 0.93000007
+texture = ExtResource("10_pqcp8")
+stretch_mode = 5
+script = ExtResource("2_ki7kg")
+CellInLine = 9
+Type = 3
+BarriarOffset = 2
+TheoreticalXSize = 168.0
+TheoreticalYSize = 69.0
 
 [node name="ItemButton" type="TextureButton" parent="InventoryBorder" node_paths=PackedStringArray("Controls", "MainControl")]
 layout_mode = 1
@@ -124,7 +175,7 @@ texture_hover = ExtResource("9_pug46")
 texture_focused = ExtResource("8_800qu")
 stretch_mode = 5
 script = ExtResource("9_ld1eg")
-Controls = [NodePath("../Items"), NodePath("../Equipment")]
+Controls = [NodePath("../Skills"), NodePath("../Equipment")]
 MainControl = NodePath("../Items")
 IsMain = true
 Text = "BUTTON_INVENTORY_ITEMS"
@@ -146,7 +197,7 @@ texture_hover = ExtResource("13_ld1eg")
 texture_focused = ExtResource("8_800qu")
 stretch_mode = 5
 script = ExtResource("9_ld1eg")
-Controls = [NodePath("../Items"), NodePath("../Equipment")]
+Controls = [NodePath("../Items"), NodePath("../Skills")]
 MainControl = NodePath("../Equipment")
 Text = "BUTTON_INVENTORY_EQUIPMENT"
 AutoCorrect = true
@@ -171,7 +222,7 @@ texture_focused = ExtResource("8_800qu")
 stretch_mode = 5
 script = ExtResource("9_ld1eg")
 Controls = [NodePath("../Items"), NodePath("../Equipment")]
-MainControl = NodePath("../Equipment")
+MainControl = NodePath("../Skills")
 Text = "?"
 AutoCorrect = true
 RatioX = 0.0

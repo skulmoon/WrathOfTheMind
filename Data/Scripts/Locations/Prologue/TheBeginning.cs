@@ -121,7 +121,6 @@ public partial class TheBeginning : Location
 		));
 		CutSceneCustomizes.Add((5, () =>
 		{
-			GD.Print(1);
 			Global.Settings.CutScene = false;
 			ConductivePath conductive = new ConductivePath()
 			{

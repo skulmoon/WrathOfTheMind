@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cy156e7jn617i" path="res://Data/Textures/Menu/Buttons/BaseButton/HoverButton.png" id="3_vfoqc"]
 [ext_resource type="Script" uid="uid://ck4uu6isqesiv" path="res://Data/Scripts/Menu/MainMenu/BackgroundMainMenuNoise.cs" id="3_votmb"]
 [ext_resource type="Script" uid="uid://dbm0bul8d0ya0" path="res://Data/Scripts/Menu/MainMenu/MenuGolemEye.cs" id="3_xxd2w"]
-[ext_resource type="Script" uid="uid://d0su8tqht71kr" path="res://Data/Scripts/Menu/MainMenu/ButtonExit.cs" id="5_4l1fd"]
+[ext_resource type="Script" uid="uid://cgec2xi17luaa" path="res://Data/Scripts/Menu/MainMenu/ButtonExit.cs" id="5_4l1fd"]
 [ext_resource type="Texture2D" uid="uid://dgkhci6vog6st" path="res://Data/Textures/Menu/Buttons/BaseButton/NormalButton1.png" id="6_mq0j5"]
 [ext_resource type="Script" uid="uid://bcq6rsyshu243" path="res://Data/Scripts/Menu/Buttons/ButtonMenuTransition.cs" id="7_4gbv0"]
 [ext_resource type="PackedScene" uid="uid://oa2dsnga2fbw" path="res://Data/Scenes/Menu/Buttons/DefaultAnimationPlayer.tscn" id="10_euxes"]

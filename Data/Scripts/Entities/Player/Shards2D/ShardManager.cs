@@ -1,22 +1,22 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 public partial class ShardManager : Node2D
 {
-    private ShardDecorate decorate = new ShardDecorate();
-    private List<Shard2D> _shards = new();
-    private Shard2D _mainShard;
+    private int _mainShardNumber = 0;
     private Timer _reloadTimer;
-    private Player _player;
     private int _destroyShards;
 
     public List<Shard2D> ActiveShards { get; set; } = new();
 
     public Action<List<Shard2D>> _changedShards;
 
-    public event Action<List<Shard2D>> MainShard2DChanged
+    public event Action<List<Shard2D>> ReloadStarted;
+    public event Action<List<Shard2D>> ReloadCompleted;
+    public event Action<List<Shard2D>> ShardsChanged
     {
         remove => _changedShards -= value;
         add
@@ -26,54 +26,45 @@ public partial class ShardManager : Node2D
         }
     }
 
-    private Shard2D MainShard
-    {
-        get => _mainShard;
-        set
-        {
-            if (_mainShard is ShardAbility shard1)
-                shard1.IsMain = false;
-            if (value is ShardAbility shard2)
-                shard2.IsMain = true;
-            _mainShard = value;
-        }
-    }
+    public double CurrentReload { get => _reloadTimer.TimeLeft; }
 
-    public ShardManager(Player player)
+    public Shard2D MainShard
     {
-        _reloadTimer = new Timer()
+        get => ActiveShards[_mainShardNumber];
+        private set
         {
-            WaitTime = MainShard?.TimeReload ?? 1,
-            OneShot = true,
-        };
-        AddChild(_reloadTimer);
-        _shards.Clear();
-        ActiveShards.Clear();
-        MainShard = null;
-        _player = player;
+            MainShard.IsMain = false;
+            if (value != null)
+            {
+                value.IsMain = true;
+                _mainShardNumber = ActiveShards.IndexOf(value);
+            }
+            _changedShards?.Invoke(ActiveShards);
+        }
     }
 
     public override void _Ready()
     {
+        AddChild(new ShardDecorate(this));
+        _reloadTimer = new Timer()
+        {
+            OneShot = true,
+        };
+        AddChild(_reloadTimer);
         _reloadTimer.Timeout += CompleteReload;
         Global.Inventory.ShardsChanged += UpdateShard;
         UpdateShard(Global.Inventory.GetActiveShardList());
     }
 
-    public override void _PhysicsProcess(double delta)
+    public override void _Process(double delta)
     {
-        if (!Global.Settings.CutScene && MainShard != null)
-        {
-            if (_reloadTimer.TimeLeft == 0)
-            {            
-                Vector2 cursorPosition = GetGlobalMousePosition();
-                if (MainShard != null)
-                    decorate.DecorateMainShard(this, MainShard, cursorPosition, (float)delta);
-                decorate.DecorateSubordinateShards(_shards);
+        for (int i = 0; i < 4; i++)
+            if (Input.IsActionJustPressed($"change_shard_{i + 1}"))
+            {
+                Shard2D shard = ActiveShards.Find(x => x.Number == i);
+                MainShard = shard?.IsEnabled ?? false ? shard : MainShard;
             }
-            else
-                MainShard.Light.Energy = (float)_reloadTimer.WaitTime - (float)_reloadTimer.TimeLeft / (float)_reloadTimer.WaitTime;
-        }
+        base._Process(delta);
     }
 
     public void StartReload()
@@ -81,77 +72,45 @@ public partial class ShardManager : Node2D
         if (ActiveShards.Count != 0)
         {
             MainShard = ActiveShards[0];
-            MainShard.IsMain = false;
-            _shards.Clear();
-            for (int i = 1; i < ActiveShards.Count; i++)
-                if (ActiveShards[i] != null)
-                    _shards.Add(ActiveShards[i]);
-            decorate.StartReload(this, MainShard);
             _reloadTimer.Start();
+            ReloadStarted?.Invoke(ActiveShards);
         }
     }
 
     private void CompleteReload()
     {
-        foreach (Shard2D shard1 in ActiveShards)
-        {
-            shard1.Enable();
-            shard1.RecoveryHealth();
-        }
+        foreach (Shard2D shard in ActiveShards)
+            shard.Enable();
         MainShard.IsMain = true;
-        decorate.CompleteReload(this, MainShard, _shards);
         _destroyShards = 0;
+        ReloadCompleted?.Invoke(ActiveShards);
     }
 
     private void DestroyShard(Shard2D shard)
     {
-        if (MainShard.Equals(shard))
-        {
-            if (_shards.Count > 0)
-            {
-                MainShard = _shards[0];
-                _shards.RemoveAt(0);
-                MainShard.Position = Vector2.Zero;
-            }
-        }
-        else
-        {
-            _shards.Remove(shard);
-        }
-        shard.Disable();
+        if (MainShard.Equals(shard) && ActiveShards.Count > 1)
+            MainShard = ActiveShards.Find(x => !x.IsMain && x.IsEnabled);
         _destroyShards++;
         if (_destroyShards >= ActiveShards.Count)
-        {
             StartReload();
-            _destroyShards = 0;
-        }
     }
     
     public void UpdateShard(List<Shard> shards)
     {
-        for (int i = 0; i < ActiveShards.Count; i++)
-            if (this == ActiveShards[i].GetParent())
-                RemoveChild(ActiveShards[i]);
+        foreach (Node node in GetChildren().Where(x => x is Shard2D))
+            RemoveChild(node);
         ActiveShards.Clear();
-        for (int i = 16; i < 20; i++)
+        for (int i = 0; i < shards.Count; i++)
         {
-            Shard item = Global.Inventory.Shards[i] as Shard; 
-            if (item != null)
-            {
-                Type shardType = Type.GetType($"{item.ShardType}, {Assembly.GetExecutingAssembly().FullName}");
-                Shard2D shard = (Shard2D)Activator.CreateInstance(shardType, (object)DestroyShard, item.Health, item.Damage, item.Speed, item.TimeReload, item.CritChance, item.MaxRange);
-                ActiveShards.Add(shard);
-            } 
+            if (shards[i] == null)
+                continue;
+            Type shardType = Type.GetType($"{shards[i].ShardType}, {Assembly.GetExecutingAssembly().FullName}");
+            Shard2D shard2D = (Shard2D)Activator.CreateInstance(shardType, (object)DestroyShard, shards[i], i);
+            ActiveShards.Add(shard2D);
+            AddChild(shard2D);
         }
-        if (ActiveShards.Count != 0)
-        {
-            _changedShards?.Invoke(ActiveShards);
-            _reloadTimer.WaitTime = ActiveShards[0].TimeReload;
-            foreach (Shard2D shard in ActiveShards)
-                AddChild(shard);
-        }
-        else
-            _changedShards?.Invoke(null);
+        float reloadSum = ActiveShards.Sum(x => x.TimeReload);
+        _reloadTimer.WaitTime = reloadSum <= 0 ? 1 : reloadSum;
         StartReload();
     }
 

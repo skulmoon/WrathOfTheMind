@@ -13,7 +13,7 @@ public partial class FirstArmorAbilityBar : AbilityBar
         if (armor is ArmorAbility armorAbility)
         {
             SetAbilityName(armorAbility.GetAbilityNames()[0]);
-            armorAbility.FirstAbilityReloadStarted += OnAbilityReloadStarted;
+            armorAbility.FirstAbilityUssed += OnAbilityUssed;
         }
         else
             Close();

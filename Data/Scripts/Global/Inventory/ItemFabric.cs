@@ -18,7 +18,7 @@ public class ItemFabric
         };
         if (count > item.MaxCount)
         {
-            GD.Print($"Program try create item with count {count}, item initialization with max count. ({item.MaxCount})");
+            GD.Print($"WARNING: Program try create item with count {count}, item initialization with max count. ({item.MaxCount})");
             item.Count = item.MaxCount;
         }
         else

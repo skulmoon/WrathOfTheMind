@@ -7,12 +7,13 @@ using System.ComponentModel.DataAnnotations;
 public abstract partial class PlayerAttack : CharacterBody2D
 {
     private int _health = 30;
-    private Location _location;
     private bool _isSecond = false;
 
     public List<GpuParticles2D> Particles = new List<GpuParticles2D>();
     public List<DirectedParticle> EndParticles = new List<DirectedParticle>();
     public List<DirectedParticle> EndParticles2;
+
+    public bool IsEnabled { get; set; } = true;
     public float Damage { get; set; } = 20;
     public float CritChance { get; set; } = 0.2f;
     public int Health
@@ -24,8 +25,11 @@ public abstract partial class PlayerAttack : CharacterBody2D
                 Destroy();
             else
                 _health = value;
+            HealthChanged?.Invoke(value);
         }
     }
+
+    public event Action<int> HealthChanged;
 
     public PlayerAttack(int health, float damage, float critChance, bool defaultCollision = true)
     {
@@ -36,7 +40,6 @@ public abstract partial class PlayerAttack : CharacterBody2D
         Health = health;
         Damage = damage;
         CritChance = critChance;
-        Global.SceneObjects.LocationChanged += OnLocationChaged;
     }
 
     public override void _Ready()
@@ -44,9 +47,6 @@ public abstract partial class PlayerAttack : CharacterBody2D
         EndParticles2 = EndParticles.Duplicate();
         base._Ready();
     }
-
-    public void OnLocationChaged(Location location) =>
-        _location = location;
 
     public abstract float Attack();
 
@@ -73,6 +73,7 @@ public abstract partial class PlayerAttack : CharacterBody2D
         CollisionLayer = 0;
         CollisionMask = 0;
         double maxLifetime = 0;
+        IsEnabled = false;
         foreach (var particle in Particles)
         {
             if (particle.Lifetime > maxLifetime)
@@ -86,6 +87,7 @@ public abstract partial class PlayerAttack : CharacterBody2D
     {
         CollisionLayer = 16;
         CollisionMask = 8 + 16;
+        IsEnabled = true;
         foreach (var particle in Particles)
             particle.Emitting = true;
     }
@@ -118,13 +120,10 @@ public abstract partial class PlayerAttack : CharacterBody2D
         foreach (DirectedParticle particle in endParticles)
         {
             if (particle.GetParent() == null)
-                _location.AddChild(particle);
+                Global.SceneObjects.Location.AddChild(particle);
             particle.GlobalPosition = GlobalPosition - (direction * 8);
             particle.Direction = direction;
             particle.Emitting = true;
         }
     }
-
-    public override void _ExitTree() =>
-        Global.SceneObjects.LocationChanged -= OnLocationChaged;
 }

@@ -22,13 +22,13 @@ public partial class Player : NPC, IWalker
             ChangedPower?.Invoke(_stamina);
         }
     }
-    [Export] public float MaxStamina { get; set; } = 100;
+    [Export] public float MaxStamina { get; set; } = 50;
     [Export] public int PlayerSpeed { get; set; } = 7000;
     [Export] public float Acceleration { get; set; } = 2;
 
     public event Action<float> ChangedPower;
     public event Action<Vector2> ChangedDirection;
-    public event Action<float> ChangedSpeedMultiper;
+    public event Action<float> SpeedMultiperChanged;
 
     public override void _Ready()
     {
@@ -37,12 +37,16 @@ public partial class Player : NPC, IWalker
         _interactionArea = GetNode<PlayerInteractionArea>("PlayerInteractionArea");
         HitBox = GetNode<HitBox>("HitBox");
         Camera = GetNode<Camera2D>("Camera");
-        Shard = new ShardManager(this);
-        AddChild(Shard);
+        Shard = new ShardManager();
+        Global.SceneObjects.LocationChanged += OnLocationChanged;
         Stamina = Global.Settings.SaveData.Stamina;
         HitBox.Health = Global.Settings.SaveData.Health;
         Global.SceneObjects.Player = this;
     }
+
+    public void OnLocationChanged(Location location) =>
+        location.AddChild(Shard);
+
 
     public override void _PhysicsProcess(double delta)
     {
@@ -57,10 +61,10 @@ public partial class Player : NPC, IWalker
         if (Input.IsActionPressed("acceleration") && Stamina - (float)delta > 0 && direction != Vector2.Zero)
         {
             speedMultiper *= Acceleration;
-            Stamina -= (float)delta * 40;
+            Stamina -= (float)delta * 10;
         }
         else if (!Input.IsActionPressed("acceleration") && Stamina < MaxStamina)
-            Stamina += (float)delta * 60;
+            Stamina += (float)delta * 20;
         Velocity = direction * PlayerSpeed * speedMultiper * (float)delta;
         MoveAndSlide();
         if (_currentDirection != direction)
@@ -70,7 +74,7 @@ public partial class Player : NPC, IWalker
         }
         if (_currentSpeedMultiper != speedMultiper)
         {
-            ChangedSpeedMultiper?.Invoke(speedMultiper);
+            SpeedMultiperChanged?.Invoke(speedMultiper);
             _currentSpeedMultiper = speedMultiper;
         }
     }  
@@ -81,6 +85,7 @@ public partial class Player : NPC, IWalker
     public override void _ExitTree()
     {
         Global.CutSceneManager.StartedCutScene -= OnStartedCutScene;
+        Global.SceneObjects.LocationChanged -= OnLocationChanged;
         base._ExitTree();
     }
 }

@@ -1,34 +1,27 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public abstract partial class ShardAbility : Shard2D
 {
     private Timer _timer1;
     private Timer _timer2;
+    private Timer _delayTimer;
 
-    private Action<float> _firstAbilityReloadStarted;
-    private Action<float> _secondAbilityReloadStarted;
-
-    public event Action<float> FirstAbilityReloadStarted
-    {
-        add
+    public override bool IsMain 
+    { 
+        get => base.IsMain; 
+        set
         {
-            _firstAbilityReloadStarted += value;
-            value.Invoke((float)_timer1.WaitTime);
+            StartAbilityDelay();
+            base.IsMain = value;
         }
-        remove => _firstAbilityReloadStarted -= value;
-    }
-    public event Action<float> SecondAbilityReloadStarted
-    {
-        add
-        {
-            _secondAbilityReloadStarted += value;
-            value.Invoke((float)_timer2.WaitTime);
-        }
-        remove => _secondAbilityReloadStarted -= value;
     }
 
-    public ShardAbility(Action<Shard2D> zeroHealth, int health, float damage, int speed, float timeReload, float critChance, int maxRange) : base(zeroHealth, health, damage, speed, timeReload, critChance, maxRange)
+    public event Action<ShardAbility, float, List<PlayerAttack>> FirstAbilityUssed;
+    public event Action<ShardAbility, float, List<PlayerAttack>> SecondAbilityUssed;
+
+    public ShardAbility(Action<Shard2D> zeroHealth, Shard shard, int number) : base(zeroHealth, shard, number)
     {
         _timer1 = new Timer()
         {
@@ -44,33 +37,35 @@ public abstract partial class ShardAbility : Shard2D
             OneShot = true,
         };
         AddChild(_timer2);
-        _firstAbilityReloadStarted?.Invoke((float)_timer1.WaitTime);
-        _secondAbilityReloadStarted?.Invoke((float)_timer2.WaitTime);
+        _delayTimer = new Timer()
+        {
+            WaitTime = 1,
+            Autostart = true,
+            OneShot = true,
+        };
+        AddChild(_delayTimer);
     }
 
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionPressed("shard_ability1") && IsMain && _timer1.TimeLeft == 0)
+        if (Input.IsActionPressed("shard_ability1") && IsMain && _timer1.TimeLeft == 0 && _delayTimer.TimeLeft == 0)
         {
-            Ability1();
+            FirstAbilityUssed?.Invoke(this, (float)_timer1.WaitTime, Ability1());
             if (_timer1.IsInsideTree())
-            {
                 _timer1.Start();
-                _firstAbilityReloadStarted?.Invoke((float)_timer1.WaitTime);
-            }
         }
-        if (Input.IsActionPressed("shard_ability2") && IsMain && _timer2.TimeLeft == 0)
+        if (Input.IsActionPressed("shard_ability2") && IsMain && _timer2.TimeLeft == 0 && _delayTimer.TimeLeft == 0)
         {
-            Ability2();
+            SecondAbilityUssed?.Invoke(this, (float)_timer2.WaitTime, Ability2());
             if (_timer2.IsInsideTree())
-            {
                 _timer2.Start();
-                _secondAbilityReloadStarted?.Invoke((float)_timer1.WaitTime);
-            }
         }
     }
 
+    public void StartAbilityDelay(float delay = 0.3f) =>
+        _delayTimer.Start(delay);
+
     public abstract string[] GetAbilityNames();
-    public abstract void Ability1();
-    public abstract void Ability2();
+    public abstract List<PlayerAttack> Ability1();
+    public abstract List<PlayerAttack> Ability2();
 }

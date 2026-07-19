@@ -13,7 +13,7 @@ public partial class SecondArmorAbilityBar : AbilityBar
         if (shard is ArmorAbility shardAbility)
         {
             SetAbilityName(shardAbility.GetAbilityNames()[1]);
-            shardAbility.SecondAbilityReloadStarted += OnAbilityReloadStarted;
+            shardAbility.SecondAbilityUsseded += OnAbilityUssed;
         }
         else
             Close();

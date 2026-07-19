@@ -37,7 +37,7 @@ public partial class SoundWalkPlayer : Node2D
         if (GetParent() is IWalker walker)
         {
             walker.ChangedDirection += OnChangedDirection;
-            walker.ChangedSpeedMultiper += OnChangedSpeedMultiper;
+            walker.SpeedMultiperChanged += OnChangedSpeedMultiper;
         }
     }
 
@@ -52,7 +52,6 @@ public partial class SoundWalkPlayer : Node2D
                 else
                     Global.Music.PlaySound(Sound, Diffusion);
                 _walkTimer.Start();
-                GD.Print("Goida");
             }
         }
         else

@@ -10,7 +10,7 @@ public partial class PlayerSprite : AnimatedSprite2D
     public override void _Ready()
     {
         GetParent<Player>().ChangedDirection += OnChangeDirection;
-        GetParent<Player>().ChangedSpeedMultiper += OnChangedSpeedMultiper;
+        GetParent<Player>().SpeedMultiperChanged += OnChangedSpeedMultiper;
         Play($"{_state}_{_direction}");
     }
 

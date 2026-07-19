@@ -8,8 +8,8 @@ public partial class NoiseChanger : Node
     [Export] public NoiseTexture2D NoiseTexture { get; set; }
 
     public override void _Ready()
-	{
-		if (NoiseTexture != null)
+    {
+        if (NoiseTexture != null)
 		{
 			Tween tween = CreateTween();
 			tween.TweenProperty(NoiseTexture.Noise, "offset:z", (long)TIME * multiplier, TIME);

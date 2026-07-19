@@ -12,7 +12,7 @@ public static class ItemTypeExtension
             ItemType.Item => Global.Inventory.Items,
             ItemType.Armor => Global.Inventory.Armors,
             ItemType.Shard => Global.Inventory.Shards,
-            _ => null,
+            ItemType.Skill => Global.Inventory.Skills,
         };
     }
 
@@ -23,6 +23,7 @@ public static class ItemTypeExtension
             ItemType.Item => typeof(Item),
             ItemType.Armor => typeof(Armor),
             ItemType.Shard => typeof(Shard),
+            ItemType.Skill => typeof(Skill),
             _ => null,
         };
     }

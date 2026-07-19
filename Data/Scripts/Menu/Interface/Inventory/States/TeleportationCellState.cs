@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-internal partial class TeleportationCellState : Node, ICellState
+internal partial class TeleportationCellState : CellState
 {
     private Cell _cell;
     private Vector2 _targetPosition;

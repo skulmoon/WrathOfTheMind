@@ -1,7 +1,7 @@
 using Godot;
 using static Godot.Control;
 
-public partial class TakeCellState : Node, ICellState
+public partial class TakeCellState : CellState
 {
     private Cell _cell;
     private Vector2 CursorPosition { get => _cell.GetViewport().GetMousePosition() - (_cell.Size / 2); }
@@ -9,7 +9,7 @@ public partial class TakeCellState : Node, ICellState
     public TakeCellState(Cell cell)
     {
         Cell.TakeCell = cell;
-        cell.TopLevel = true;
+        cell.ZIndex = 1;
         cell.MouseFilter = MouseFilterEnum.Ignore;        
         _cell = cell;
         _cell.GlobalPosition = CursorPosition;
@@ -18,10 +18,10 @@ public partial class TakeCellState : Node, ICellState
     public override void _Process(double delta) =>
         _cell.GlobalPosition = _cell.GlobalPosition.Lerp(CursorPosition, 10 * (float)delta);
 
-    public void Release(Cell cell)
+    public override void Release(Cell cell)
     {
         Vector2 buffer = cell.GlobalPosition;
-        cell.TopLevel = false;
+        cell.ZIndex = 0;
         cell.GlobalPosition = buffer;
         cell.Disabled = true;
         if (Cell.EnteredMouseCell == null || cell.ItemType != Cell.EnteredMouseCell.ItemType)
@@ -55,9 +55,9 @@ public partial class TakeCellState : Node, ICellState
         }
     }
 
-    public void ReleaseOne(Cell cell)
+    public override void ReleaseOne(Cell cell)
     {
-        if (cell.Item.Count > 1)
+        if ((cell.Item?.Count ?? 0) > 1)
             StateCellMethods.ReleaseOne(cell);
         else
             Release(cell);

@@ -2,7 +2,7 @@ using Godot;
 using System;
 using static Godot.Control;
 
-public partial class TakeHalfCellState : Node, ICellState
+public partial class TakeHalfCellState : CellState
 {
     private Cell _parentCell;
     private Cell _childCell;
@@ -14,7 +14,7 @@ public partial class TakeHalfCellState : Node, ICellState
         _parentCell = parentCell;
         childCell.ItemInventory.AddChild(childCell);
         Cell.TakeCell = childCell;
-        childCell.TopLevel = true;
+        childCell.ZIndex = 1;
         _childCell.GlobalPosition = CursorPosition;
         childCell.MouseFilter = MouseFilterEnum.Ignore;
     }
@@ -22,10 +22,10 @@ public partial class TakeHalfCellState : Node, ICellState
     public override void _Process(double delta) =>
         _childCell.GlobalPosition = _childCell.GlobalPosition.Lerp(CursorPosition, 10 * (float)delta);
 
-    public void Release(Cell cell)
+    public override void Release(Cell cell)
     {
         Vector2 buffer = cell.GlobalPosition;
-        cell.TopLevel = false;
+        cell.ZIndex = 0;
         cell.GlobalPosition = buffer;
         cell.Disabled = true;
         if (Cell.EnteredMouseCell == null || cell.ItemType != Cell.EnteredMouseCell.ItemType)
@@ -60,7 +60,7 @@ public partial class TakeHalfCellState : Node, ICellState
         }
     }
 
-    public void ReleaseOne(Cell cell)
+    public override void ReleaseOne(Cell cell)
     {
         StateCellMethods.ReleaseOne(cell);
         if (cell.Item == null)

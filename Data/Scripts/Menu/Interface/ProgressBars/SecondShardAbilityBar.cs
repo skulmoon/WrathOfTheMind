@@ -8,7 +8,9 @@ public partial class SecondShardAbilityBar : AbilityBar
 
     public override void OnPlayerChanged(Player player)
     {
-        player.Shard.MainShard2DChanged += OnShardChanged;
+        player.Shard.ShardsChanged += OnShardChanged;
+        player.Shard.ReloadCompleted += OnShardChanged;
+        OnShardChanged(player.Shard.ActiveShards);
     }
 
     public void OnShardChanged(List<Shard2D> shards)
@@ -17,7 +19,7 @@ public partial class SecondShardAbilityBar : AbilityBar
             if (shards[ShardNumber] is ShardAbility shardAbility)
             {
                 SetAbilityName(shardAbility.GetAbilityNames()[1]);
-                shardAbility.SecondAbilityReloadStarted += OnAbilityReloadStarted;
+                shardAbility.SecondAbilityUssed += OnAbilityUssed;
             }
             else
                 Close();

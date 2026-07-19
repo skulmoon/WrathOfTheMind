@@ -3,25 +3,32 @@
   "WorkspaceRootPath": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\global\\cutscene\\cutscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\cutscene\\cutscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\interface\\progressbars\\abilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\progressbars\\abilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\interface\\dialogue\\dialogpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\dialogue\\dialogpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\interface\\progressbars\\secondshardabilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\progressbars\\secondshardabilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\interface\\dialogue\\dialogtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF992537-5737-4FE9-BAD0-4761A26C9594}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\dialogue\\dialogtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\interface\\progressbars\\firstshardabilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\progressbars\\firstshardabilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\72daeeba3895b040361dccd641100d3117b767ed07bc9e955f91237294f2a08c\\GodotObject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\interface\\shardcell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\shardcell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\e76b62133cb8afddd4197d4136c2c11dc599e540a08177aeb051f9e144f56907\\CSharpInstanceBridge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\entities\\player\\shards2d\\shardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\entities\\player\\shards2d\\shardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\0bc4a9cf620f0d8e8bf3218743a8de23a385e440fa74fa98c6dc5e190f1488bc\\Node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\entities\\player\\shards2d\\boneshard\\boneshard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\entities\\player\\shards2d\\boneshard\\boneshard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\global\\inventory\\playerinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\inventory\\playerinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,34 +38,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 124,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DialogPanel.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\Dialogue\\DialogPanel.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\Dialogue\\DialogPanel.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\Dialogue\\DialogPanel.cs",
-              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\Dialogue\\DialogPanel.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAIwBAAAAAzAAAAAAAAAA==",
+              "Title": "SecondShardAbilityBar.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\SecondShardAbilityBar.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\SecondShardAbilityBar.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\SecondShardAbilityBar.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\SecondShardAbilityBar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T21:11:41.977Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DialogText.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\Dialogue\\DialogText.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\Dialogue\\DialogText.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\Dialogue\\DialogText.cs",
-              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\Dialogue\\DialogText.cs",
-              "ViewState": "AgIAAJEAAAAAAAAAAAApwLAAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T16:25:19.425Z",
-              "IsPinned": true,
+              "WhenOpened": "2026-07-19T20:37:49.496Z",
               "EditorCaption": ""
             },
             {
@@ -67,55 +59,81 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GodotObject.cs",
-              "DocumentMoniker": "C:\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\72daeeba3895b040361dccd641100d3117b767ed07bc9e955f91237294f2a08c\\GodotObject.cs",
-              "RelativeDocumentMoniker": "..\\..\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\72daeeba3895b040361dccd641100d3117b767ed07bc9e955f91237294f2a08c\\GodotObject.cs",
-              "ToolTip": "C:\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\72daeeba3895b040361dccd641100d3117b767ed07bc9e955f91237294f2a08c\\GodotObject.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
-              "RelativeToolTip": "..\\..\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\72daeeba3895b040361dccd641100d3117b767ed07bc9e955f91237294f2a08c\\GodotObject.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
-              "ViewState": "AgIAADQCAAAAAAAAAAAUwEgCAAACAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T11:58:35.43Z",
-              "EditorCaption": " [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Node.cs",
-              "DocumentMoniker": "C:\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\0bc4a9cf620f0d8e8bf3218743a8de23a385e440fa74fa98c6dc5e190f1488bc\\Node.cs",
-              "RelativeDocumentMoniker": "..\\..\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\0bc4a9cf620f0d8e8bf3218743a8de23a385e440fa74fa98c6dc5e190f1488bc\\Node.cs",
-              "ToolTip": "C:\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\0bc4a9cf620f0d8e8bf3218743a8de23a385e440fa74fa98c6dc5e190f1488bc\\Node.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
-              "RelativeToolTip": "..\\..\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\0bc4a9cf620f0d8e8bf3218743a8de23a385e440fa74fa98c6dc5e190f1488bc\\Node.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
-              "ViewState": "AgIAANsEAAAAAAAAAAAUwOoEAAACAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T11:54:47.364Z",
-              "EditorCaption": " [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CutSceneManager.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\CutScene\\CutSceneManager.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\CutScene\\CutSceneManager.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\CutScene\\CutSceneManager.cs",
-              "RelativeToolTip": "Data\\Scripts\\Global\\CutScene\\CutSceneManager.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAA/wDoAAAAzAAAAAAAAAA==",
+              "Title": "AbilityBar.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\AbilityBar.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\AbilityBar.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\AbilityBar.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\AbilityBar.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAkwBEAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T11:37:18.23Z",
+              "WhenOpened": "2026-07-19T20:40:30.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FirstShardAbilityBar.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\FirstShardAbilityBar.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\FirstShardAbilityBar.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\FirstShardAbilityBar.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\FirstShardAbilityBar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-19T20:37:27.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ShardCell.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ShardCell.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\ShardCell.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ShardCell.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\ShardCell.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwBgAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-19T20:36:50.378Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "CSharpInstanceBridge.cs",
-              "DocumentMoniker": "C:\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\e76b62133cb8afddd4197d4136c2c11dc599e540a08177aeb051f9e144f56907\\CSharpInstanceBridge.cs",
-              "RelativeDocumentMoniker": "..\\..\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\e76b62133cb8afddd4197d4136c2c11dc599e540a08177aeb051f9e144f56907\\CSharpInstanceBridge.cs",
-              "ToolTip": "C:\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\e76b62133cb8afddd4197d4136c2c11dc599e540a08177aeb051f9e144f56907\\CSharpInstanceBridge.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
-              "RelativeToolTip": "..\\..\\Users\\skulm\\AppData\\Local\\Temp\\.vsdbgsrc\\e76b62133cb8afddd4197d4136c2c11dc599e540a08177aeb051f9e144f56907\\CSharpInstanceBridge.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAkwBQAAAADAAAAAQAAAA==",
+              "Title": "ShardManager.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Shards2D\\ShardManager.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Entities\\Player\\Shards2D\\ShardManager.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Shards2D\\ShardManager.cs",
+              "RelativeToolTip": "Data\\Scripts\\Entities\\Player\\Shards2D\\ShardManager.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAswFIAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T11:57:34.759Z",
-              "EditorCaption": " [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]"
+              "WhenOpened": "2026-07-19T20:36:24.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BoneShard.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Shards2D\\BoneShard\\BoneShard.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Entities\\Player\\Shards2D\\BoneShard\\BoneShard.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Shards2D\\BoneShard\\BoneShard.cs",
+              "RelativeToolTip": "Data\\Scripts\\Entities\\Player\\Shards2D\\BoneShard\\BoneShard.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-19T20:34:24.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PlayerInventory.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\Inventory\\PlayerInventory.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\Inventory\\PlayerInventory.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\Inventory\\PlayerInventory.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\Inventory\\PlayerInventory.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA/wBgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-19T20:32:22.507Z",
+              "EditorCaption": ""
             }
           ]
         },

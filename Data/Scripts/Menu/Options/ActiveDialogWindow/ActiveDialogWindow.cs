@@ -74,7 +74,6 @@ public partial class ActiveDialogWindow : Control
 
     public void CloseWindow()
     {
-        GD.Print(0);
         _currentAction = string.Empty;
         Visible = false;
         _element?.UpdateVision();

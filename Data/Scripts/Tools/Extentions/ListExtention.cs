@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public static class ListExtention
 {
@@ -21,4 +22,7 @@ public static class ListExtention
                 newList.Add((T)Convert.ChangeType(node.Duplicate(), typeof(T)));
         return newList;
     }
+
+    public static List<Shard2D> GetSlaveShards(this List<Shard2D> list) =>
+        list.Where(x => !x.IsMain).ToList();
 }

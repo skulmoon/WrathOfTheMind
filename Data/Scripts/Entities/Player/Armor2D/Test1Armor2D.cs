@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Test1Armor2D : ArmorAbility
 {
@@ -8,13 +9,15 @@ public partial class Test1Armor2D : ArmorAbility
     public override string[] GetAbilityNames() =>
         ["FirstAbility", "SecondAbility"];
 
-    public override void Ability1()
+    public override List<PlayerAttack> Ability1()
 	{
 		GD.Print("ArmorAbility1");
+        return new List<PlayerAttack>();
 	}
 
-	public override void Ability2()
+	public override List<PlayerAttack> Ability2()
 	{
         GD.Print("ArmorAbility2");
+        return new List<PlayerAttack>();
     }
 }

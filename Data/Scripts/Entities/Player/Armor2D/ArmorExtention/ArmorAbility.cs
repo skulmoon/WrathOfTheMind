@@ -1,32 +1,14 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public abstract partial class ArmorAbility : Armor2D
 {
     private Timer _timer1;
     private Timer _timer2;
 
-    private Action<float> _firstAbilityReloadStarted;
-    private Action<float> _secondAbilityReloadStarted;
-
-    public event Action<float> FirstAbilityReloadStarted 
-    { 
-        add 
-        {
-            _firstAbilityReloadStarted += value;
-            value.Invoke((float)_timer1.WaitTime);
-        } 
-        remove => _firstAbilityReloadStarted -= value;
-    }
-    public event Action<float> SecondAbilityReloadStarted
-    {
-        add
-        {
-            _secondAbilityReloadStarted += value;
-            value.Invoke((float)_timer2.WaitTime);
-        }
-        remove => _secondAbilityReloadStarted -= value;
-    }
+    public event Action<ArmorAbility, float, List<PlayerAttack>> FirstAbilityUssed;
+    public event Action<ArmorAbility, float, List<PlayerAttack>> SecondAbilityUsseded;
 
     public ArmorAbility(float protection, int additionalHealth) : base(protection, additionalHealth)
     {
@@ -44,27 +26,25 @@ public abstract partial class ArmorAbility : Armor2D
             OneShot = true,
         };
         AddChild(_timer2);
-        _firstAbilityReloadStarted?.Invoke((float)_timer1.WaitTime);
-        _secondAbilityReloadStarted?.Invoke((float)_timer2.WaitTime);
     }
 
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionJustPressed("armor_ability1") && _timer1.TimeLeft == 0)
+        if (Input.IsActionPressed("armor_ability1") && _timer1.TimeLeft == 0)
         {
-            Ability1();
-            _timer1.Start();
-            _firstAbilityReloadStarted?.Invoke((float)_timer1.WaitTime);
+            FirstAbilityUssed?.Invoke(this, (float)_timer1.WaitTime, Ability1());
+            if (_timer1.IsInsideTree())
+                _timer1.Start();
         }
-        if (Input.IsActionJustPressed("armor_ability2") && _timer2.TimeLeft == 0)
+        if (Input.IsActionPressed("armor_ability2") && _timer2.TimeLeft == 0)
         {
-            Ability2();
-            _timer2.Start();
-            _secondAbilityReloadStarted?.Invoke((float)_timer1.WaitTime);
+            SecondAbilityUsseded?.Invoke(this, (float)_timer2.WaitTime, Ability2());
+            if (_timer2.IsInsideTree())
+                _timer2.Start();
         }
     }
 
     public abstract string[] GetAbilityNames();
-    public abstract void Ability1();
-    public abstract void Ability2();
+    public abstract List<PlayerAttack> Ability1();
+    public abstract List<PlayerAttack> Ability2();
 }

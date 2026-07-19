@@ -15,9 +15,9 @@ public partial class PowerProgressBar : ProgressBar
         MaxValue = player.MaxStamina;
     }
 
-    public void OnChangedPower(float health)
+    public void OnChangedPower(float power)
     {
-        Value = health;
+        Value = power;
     }
 
     public override void _ExitTree()

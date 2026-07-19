@@ -5,8 +5,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_drrdm"]
 
 [node name="Sprite2D" type="Sprite2D"]
-light_mask = 0
-z_index = -90
+z_index = -50
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_drrdm")
 texture = ExtResource("1_wh15j")

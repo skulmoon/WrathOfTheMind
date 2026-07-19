@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public abstract partial class AbilityBar : ProgressBar
 {
@@ -16,12 +17,12 @@ public abstract partial class AbilityBar : ProgressBar
 
     public abstract void OnPlayerChanged(Player player);
 
-    public void OnAbilityReloadStarted(float time)
+    public void OnAbilityUssed(Node2D node, float reloadTime, List<PlayerAttack> attacks)
     {
-        Value = time;
-        MaxValue = time;
+        Value = reloadTime;
+        MaxValue = reloadTime;
         _currentTween = CreateTween();
-        _currentTween.TweenProperty(this, "value", 0, time);
+        _currentTween.TweenProperty(this, "value", 0, reloadTime);
     }
 
     public void SetAbilityName(string name)

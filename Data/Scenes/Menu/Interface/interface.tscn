@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://wuwodxqjfr1s"]
+[gd_scene load_steps=48 format=3 uid="uid://wuwodxqjfr1s"]
 
 [ext_resource type="Script" uid="uid://bow4lif362fs3" path="res://Data/Scripts/Menu/Interface/Interface.cs" id="1_3fjpj"]
 [ext_resource type="PackedScene" uid="uid://cfpu5icvlw782" path="res://Data/Scenes/Menu/Interface/PauseMenu/PauseMenu.tscn" id="1_btvnv"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dlmvagk55uwq0" path="res://Data/Textures/Menu/Interface/HealthAndStaminaBar.png" id="10_rxstx"]
 [ext_resource type="Script" uid="uid://ivrj55cuvd4m" path="res://Data/Scripts/Menu/Interface/ProgressBars/HealthAndStaminaBar.cs" id="11_8b8mw"]
 [ext_resource type="Script" uid="uid://baekalbgvb077" path="res://Data/Scripts/Menu/Interface/ShardCells.cs" id="14_g8owh"]
+[ext_resource type="Script" uid="uid://coax6um7dr5wg" path="res://Data/Scripts/Menu/Interface/ShardCell.cs" id="15_8i0xj"]
 [ext_resource type="Texture2D" uid="uid://hygyxvk3ddel" path="res://Data/Textures/Menu/Interface/ItemBar.png" id="15_jobou"]
 [ext_resource type="Shader" uid="uid://bbrj0hata7gby" path="res://Data/Shaders/MenuDark.gdshader" id="16_8i0xj"]
 [ext_resource type="Script" uid="uid://dwj6pd3ruyisr" path="res://Data/Scripts/Menu/Interface/UIDark.cs" id="16_g6n5s"]
@@ -203,7 +204,6 @@ texture = SubResource("CanvasTexture_btvnv")
 script = ExtResource("16_g6n5s")
 
 [node name="DialogPanel" parent="." instance=ExtResource("1_ujoai")]
-visible = false
 
 [node name="HealthAndStaminaBar" type="TextureRect" parent="."]
 z_index = 1
@@ -286,7 +286,8 @@ offset_right = 334.0
 grow_vertical = 2
 script = ExtResource("14_g8owh")
 
-[node name="ShardCell" type="TextureRect" parent="Shards"]
+[node name="ShardCell" type="TextureRect" parent="Shards" node_paths=PackedStringArray("AbilityTexture", "ShardTexture", "HealthBar")]
+z_index = 1
 material = SubResource("ShaderMaterial_gel4w")
 layout_mode = 1
 anchors_preset = -1
@@ -294,6 +295,10 @@ anchor_right = 0.244
 anchor_bottom = 1.0
 texture = ExtResource("15_jobou")
 stretch_mode = 5
+script = ExtResource("15_8i0xj")
+AbilityTexture = NodePath("Ability")
+ShardTexture = NodePath("Shard")
+HealthBar = NodePath("HealthBar")
 
 [node name="Node" type="Node" parent="Shards/ShardCell"]
 script = ExtResource("10_8i0xj")
@@ -319,13 +324,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FirstShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell" node_paths=PackedStringArray("AbilityTexture", "Texture")]
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell"]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.313
+anchor_left = 0.219
 anchor_top = 0.078
-anchor_right = 0.688
+anchor_right = 0.594
 anchor_bottom = 0.266
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
@@ -334,16 +339,14 @@ value = 100.0
 fill_mode = 3
 show_percentage = false
 script = ExtResource("6_vw5ff")
-AbilityTexture = NodePath("../Ability")
-Texture = NodePath("../Shard")
 
 [node name="SecondShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell"]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.313
+anchor_left = 0.219
 anchor_top = 0.297
-anchor_right = 0.688
+anchor_right = 0.594
 anchor_bottom = 0.484
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
@@ -353,7 +356,22 @@ fill_mode = 3
 show_percentage = false
 script = ExtResource("7_6u13w")
 
-[node name="ShardCell2" type="TextureRect" parent="Shards"]
+[node name="HealthBar" type="ProgressBar" parent="Shards/ShardCell"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74700004
+anchor_top = 0.113000005
+anchor_right = 0.90700006
+anchor_bottom = 0.57100004
+offset_right = -0.7334595
+theme_override_styles/fill = SubResource("StyleBoxFlat_8b8mw")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="ShardCell2" type="TextureRect" parent="Shards" node_paths=PackedStringArray("AbilityTexture", "ShardTexture", "HealthBar")]
+z_index = 1
 material = SubResource("ShaderMaterial_52p4q")
 layout_mode = 1
 anchors_preset = -1
@@ -362,6 +380,11 @@ anchor_right = 0.496
 anchor_bottom = 1.0
 texture = ExtResource("15_jobou")
 stretch_mode = 5
+script = ExtResource("15_8i0xj")
+ShardNumber = 1
+AbilityTexture = NodePath("Ability")
+ShardTexture = NodePath("Shard")
+HealthBar = NodePath("HealthBar")
 
 [node name="Node" type="Node" parent="Shards/ShardCell2"]
 script = ExtResource("10_8i0xj")
@@ -388,13 +411,13 @@ offset_bottom = -1.5258789e-05
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FirstShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell2" node_paths=PackedStringArray("AbilityTexture", "Texture")]
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell2"]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.313
+anchor_left = 0.219
 anchor_top = 0.078
-anchor_right = 0.688
+anchor_right = 0.594
 anchor_bottom = 0.266
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
@@ -404,16 +427,14 @@ fill_mode = 3
 show_percentage = false
 script = ExtResource("6_vw5ff")
 ShardNumber = 1
-AbilityTexture = NodePath("../Ability")
-Texture = NodePath("../Shard")
 
 [node name="SecondShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell2"]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.313
+anchor_left = 0.219
 anchor_top = 0.297
-anchor_right = 0.688
+anchor_right = 0.594
 anchor_bottom = 0.484
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
@@ -424,7 +445,23 @@ show_percentage = false
 script = ExtResource("7_6u13w")
 ShardNumber = 1
 
-[node name="ShardCell3" type="TextureRect" parent="Shards"]
+[node name="HealthBar" type="ProgressBar" parent="Shards/ShardCell2"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74700004
+anchor_top = 0.113000005
+anchor_right = 0.90700006
+anchor_bottom = 0.57100004
+offset_left = 1.5258789e-05
+offset_right = -0.7334442
+theme_override_styles/fill = SubResource("StyleBoxFlat_8b8mw")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="ShardCell3" type="TextureRect" parent="Shards" node_paths=PackedStringArray("AbilityTexture", "ShardTexture", "HealthBar")]
+z_index = 1
 material = SubResource("ShaderMaterial_6a6d1")
 layout_mode = 1
 anchors_preset = -1
@@ -433,6 +470,11 @@ anchor_right = 0.748
 anchor_bottom = 1.0
 texture = ExtResource("15_jobou")
 stretch_mode = 5
+script = ExtResource("15_8i0xj")
+ShardNumber = 2
+AbilityTexture = NodePath("Ability")
+ShardTexture = NodePath("Shard")
+HealthBar = NodePath("HealthBar")
 
 [node name="Node" type="Node" parent="Shards/ShardCell3"]
 script = ExtResource("10_8i0xj")
@@ -459,13 +501,13 @@ offset_bottom = -1.5258789e-05
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FirstShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell3" node_paths=PackedStringArray("AbilityTexture", "Texture")]
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell3"]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.313
+anchor_left = 0.219
 anchor_top = 0.078
-anchor_right = 0.688
+anchor_right = 0.594
 anchor_bottom = 0.266
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
@@ -475,16 +517,14 @@ fill_mode = 3
 show_percentage = false
 script = ExtResource("6_vw5ff")
 ShardNumber = 2
-AbilityTexture = NodePath("../Ability")
-Texture = NodePath("../Shard")
 
 [node name="SecondShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell3"]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.313
+anchor_left = 0.219
 anchor_top = 0.297
-anchor_right = 0.688
+anchor_right = 0.594
 anchor_bottom = 0.484
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
@@ -495,7 +535,23 @@ show_percentage = false
 script = ExtResource("7_6u13w")
 ShardNumber = 2
 
-[node name="ShardCell4" type="TextureRect" parent="Shards"]
+[node name="HealthBar" type="ProgressBar" parent="Shards/ShardCell3"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74700004
+anchor_top = 0.113000005
+anchor_right = 0.90700006
+anchor_bottom = 0.57100004
+offset_left = 1.5258789e-05
+offset_right = -0.7334442
+theme_override_styles/fill = SubResource("StyleBoxFlat_8b8mw")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="ShardCell4" type="TextureRect" parent="Shards" node_paths=PackedStringArray("AbilityTexture", "ShardTexture", "HealthBar")]
+z_index = 1
 material = SubResource("ShaderMaterial_kfyv8")
 layout_mode = 1
 anchors_preset = -1
@@ -504,6 +560,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource("15_jobou")
 stretch_mode = 5
+script = ExtResource("15_8i0xj")
+ShardNumber = 3
+AbilityTexture = NodePath("Ability")
+ShardTexture = NodePath("Shard")
+HealthBar = NodePath("HealthBar")
 
 [node name="Node" type="Node" parent="Shards/ShardCell4"]
 script = ExtResource("10_8i0xj")
@@ -530,13 +591,13 @@ offset_bottom = -1.5258789e-05
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FirstShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell4" node_paths=PackedStringArray("AbilityTexture", "Texture")]
+[node name="FirstShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell4"]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.313
+anchor_left = 0.219
 anchor_top = 0.078
-anchor_right = 0.688
+anchor_right = 0.594
 anchor_bottom = 0.266
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
@@ -546,16 +607,14 @@ fill_mode = 3
 show_percentage = false
 script = ExtResource("6_vw5ff")
 ShardNumber = 3
-AbilityTexture = NodePath("../Ability")
-Texture = NodePath("../Shard")
 
 [node name="SecondShardAbilityBar" type="ProgressBar" parent="Shards/ShardCell4"]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.313
+anchor_left = 0.219
 anchor_top = 0.297
-anchor_right = 0.688
+anchor_right = 0.594
 anchor_bottom = 0.484
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_x61gi")
@@ -565,6 +624,21 @@ fill_mode = 3
 show_percentage = false
 script = ExtResource("7_6u13w")
 ShardNumber = 3
+
+[node name="HealthBar" type="ProgressBar" parent="Shards/ShardCell4"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74700004
+anchor_top = 0.113000005
+anchor_right = 0.90700006
+anchor_bottom = 0.57100004
+offset_left = 1.5258789e-05
+offset_right = -0.7334442
+theme_override_styles/fill = SubResource("StyleBoxFlat_8b8mw")
+value = 50.0
+fill_mode = 3
+show_percentage = false
 
 [node name="MenuDark" type="TextureRect" parent="."]
 unique_name_in_owner = true

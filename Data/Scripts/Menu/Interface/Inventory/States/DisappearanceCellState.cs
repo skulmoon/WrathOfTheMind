@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class DisappearanceCellState : Node, ICellState
+public partial class DisappearanceCellState : CellState
 {
 	private Cell _cell;
     private int _speed = 10;

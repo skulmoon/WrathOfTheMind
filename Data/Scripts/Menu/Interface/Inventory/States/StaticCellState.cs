@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using static Godot.Control;
 
-public partial class StaticCellState : Node, ICellState
+public partial class StaticCellState : CellState
 {
     public StaticCellState(Cell cell)
     {
@@ -13,12 +13,12 @@ public partial class StaticCellState : Node, ICellState
         cell.MouseFilter = MouseFilterEnum.Stop;
     }
 
-    public void Take(Cell cell)
+    public override void Take(Cell cell)
     {
         cell.State = new TakeCellState(cell);
     }
 
-    public void TakeHalf(Cell cell)
+    public override void TakeHalf(Cell cell)
     {
         if ((cell.Item?.Count ?? 0) > 1)
         {

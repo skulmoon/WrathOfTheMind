@@ -6,7 +6,7 @@ using System.Drawing;
 
 public partial class Cell : CustomButton
 {
-    private ICellState _state;
+    private CellState _state;
     private Item _item;
     private TextureRect _sprite;
     private Label _label;
@@ -40,15 +40,15 @@ public partial class Cell : CustomButton
         }
     }
 
-    public ICellState State {
+    public CellState State {
         get => _state;
         set 
         {
             if (_state != null)
-                RemoveChild((Node)_state);
+                RemoveChild(_state);
             _state = value;
             if (value != null)
-                AddChild((Node)_state);
+                AddChild(_state);
         }
     }
 
@@ -73,27 +73,28 @@ public partial class Cell : CustomButton
     public override void _Ready()
     {
         Node state = new StaticCellState(this); 
-        State = (ICellState)state;
+        State = (CellState)state;
         MouseEntered += OnEntered;
         MouseExited += OnExited;
     }
 
-    public override void _Input(InputEvent @event)
+    public override void _Process(double delta)
     {
-        if (Input.IsActionPressed("take_or_release_item"))
+        if (Input.IsActionJustPressed("take_or_release_item"))
         {
             if (TakeCell == this)
                 State.Release(this);
             else if (_state is StaticCellState && EnteredMouseCell == this && TakeCell == null)
                 State.Take(this);
         }
-        else if (Input.IsActionPressed("manipulation_with_item"))
+        else if (Input.IsActionJustPressed("manipulation_with_item"))
         {
             if (TakeCell == this)
                 State.ReleaseOne(this);
             else if (_state is StaticCellState && EnteredMouseCell == this && TakeCell == null)
                 State.TakeHalf(this);
         }
+        base._Process(delta);
     }
 
     public void OnEntered()
@@ -106,9 +107,11 @@ public partial class Cell : CustomButton
     {
         EnteredMouseCell = null;
     }
-
-    public void UpdateItem() =>
+ 
+    public void UpdateItem()
+    {
         Item = ItemType.GetList()[ItemNumber];
+    }
 
     public void Initialized(Vector2 startPosition, Vector2 size, InventoryItems itemInventoryPresenter, int itemNumber)
     {

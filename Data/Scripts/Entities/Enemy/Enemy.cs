@@ -51,7 +51,7 @@ public abstract partial class Enemy : CharacterBody2D, IWalker
     public event Action<Enemy> NoticedPlayer;
     public event Action<Enemy> EnemyDeaded;
     public event Action<Vector2> ChangedDirection;
-    public event Action<float> ChangedSpeedMultiper;
+    public event Action<float> SpeedMultiperChanged;
     public event Action<IEnemyState> ChangedState;
 
     public Enemy(float speed, int damage, int health, string animation)
@@ -104,7 +104,6 @@ public abstract partial class Enemy : CharacterBody2D, IWalker
         NavigationAgent.TargetPosition = point;
         Velocity = (NavigationAgent.GetNextPathPosition() - GlobalPosition).Normalized() * _speed * _speedMultiplier * (float)delta * 100;
         ChangedDirection?.Invoke(Velocity.Normalized());
-        GD.Print(Velocity);
         MoveAndSlide();
     }
 

@@ -1,23 +1,26 @@
 using Godot;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-public partial class InventoryItems : Control
+public partial class InventoryItems : CustomTextureRect
 {
     const int FIRST_ACTIVE_ITEM = 16;
-	private PlayerInventory _playerInventory;
-	private int lineCount = 0;
+    const int ACTIVE_SHARDS_COUNT = 4;
+    private PlayerInventory _playerInventory;
     private float CellYSize;
 
     public List<Cell> Cells { get; private set; } = new List<Cell>();
-    [Export] public int SellInLine { get; set; } = 6;
+    [Export] public int CellInLine { get; set; } = 6;
+    [Export] public int LineCount { get; set; } = 2;
     [Export] public ItemType Type { get; set; } = ItemType.Item;
-    [Export] public float PixelYSize { get; set; }
+    [Export] public int CellSize { get; set; } = 32;
+    [Export] public int CellOffset { get; set; } = 1;
+    [Export] public int BarriarOffset { get; set; } = 1;
 
     public override void _Ready()
     {
+        base._Ready();
         Global.SceneObjects.PlayerChanged += TakePlayer;
     }
 
@@ -32,59 +35,62 @@ public partial class InventoryItems : Control
 
     public void ShowInventory()
     {
-        AddCells();
-        float cellSize = AddCells();
-        float bufferSize = cellSize / 16;
+        float pixelSize = Size.Y / TheoreticalYSize;
+        float cellSize = pixelSize * CellSize;
+        float cellOffset = pixelSize * CellOffset;
+        float barriarOffset = pixelSize * BarriarOffset;
+        float lineLenght = barriarOffset + (cellSize + cellOffset) * CellInLine;
+        AddCells(pixelSize, cellSize, cellOffset, barriarOffset);
         if (Type == ItemType.Shard)
         {
-            float angelDistance = 2 * MathF.PI / 3;
-            Cell mainCell = Cell.CreateCell(new Vector2(((cellSize + bufferSize) * SellInLine - cellSize) / 2, -Size.Y * 0.8f), new Vector2(cellSize, cellSize), this, FIRST_ACTIVE_ITEM);
-            Label label = new Label
+
+            for (int i = 0; i < ACTIVE_SHARDS_COUNT; i++)
             {
-                Text = 0.ToString()
-            };
-            mainCell.AddChild(label);
-            AddChild(mainCell);
-            for (int i = 0; i < 3; i++)
-            {
-                Cell cell = Cell.CreateCell(mainCell.Position + new Vector2(MathF.Cos(i * angelDistance - MathF.PI / 2), MathF.Sin(i * angelDistance - MathF.PI / 2)) * cellSize * 1.2f, new Vector2(cellSize, cellSize), this, FIRST_ACTIVE_ITEM + i + 1);
-                label = new Label
-                {
-                    Text = i.ToString()
-                };
-                cell.AddChild(label);
+                Cell cell = Cell.CreateCell(
+                    new Vector2(i * ((lineLenght - (cellSize + cellOffset)) / (ACTIVE_SHARDS_COUNT - 1)), -(cellSize + barriarOffset) * 2),
+                    new Vector2(cellSize, cellSize), this, FIRST_ACTIVE_ITEM + i
+                );
+                AddTexture(cell, barriarOffset);
                 AddChild(cell);
             }
             StateCellMethods.CheckActiveShards();
         }
         else if (Type == ItemType.Armor)
         {
-            Cell mainCell = Cell.CreateCell(new Vector2(((cellSize + bufferSize) * SellInLine - cellSize) / 2, -Size.Y * 0.8f), new Vector2(cellSize, cellSize), this, FIRST_ACTIVE_ITEM);
-            Label label = new Label
-            {
-                Text = 0.ToString()
-            };
-            mainCell.AddChild(label);
+            Cell mainCell = Cell.CreateCell(
+                new Vector2((lineLenght - cellSize) / 2, -Size.Y * 0.8f),
+                new Vector2(cellSize, cellSize), this, FIRST_ACTIVE_ITEM
+            );
+            AddTexture(mainCell, barriarOffset);
             AddChild(mainCell);
         }
     }
 
-    public float AddCells()
+    public float AddCells(float pixelSize, float cellSize, float cellOffset, float barriarOffset)
     {
-        float cellSize = Size.Y * 32f/PixelYSize;
-        for (int i = 0; i < SellInLine; i++)
+        for (int j = 0; j < LineCount; j++)
         {
-            float sizeBuffer = 2f/PixelYSize;
-            Cell cell = Cell.CreateCell(new Vector2(i * (cellSize + Size.Y * sizeBuffer), lineCount * (cellSize + Size.Y * sizeBuffer)), new Vector2(cellSize, cellSize), this, i + (lineCount * SellInLine));
-            Label label = new Label
+            for (int i = 0; i < CellInLine; i++)
             {
-                Text = (i + lineCount * SellInLine).ToString()
-            };
-            cell.AddChild(label);
-            AddChild(cell);
-            Cells.Add(cell);
+                Cell cell = Cell.CreateCell(
+                    new Vector2(barriarOffset + (cellSize + cellOffset) * i, barriarOffset + (cellSize + cellOffset) * j), 
+                    new Vector2(cellSize, cellSize), this, i + (j * CellInLine)
+                );
+                AddChild(cell);
+                Cells.Add(cell);
+            }
         }
-        lineCount++;
         return cellSize;
+    }
+
+    public void AddTexture(Cell cell, float bufferSize)
+    {
+        TextureRect texture = new TextureRect()
+        {
+            Size = cell.Size + new Vector2(bufferSize * 2, bufferSize * 2),
+            Position = cell.Position + new Vector2(-bufferSize, -bufferSize)
+        };
+        texture.Texture = GD.Load<Texture2D>("res://Data/Textures/Menu/Buttons/InventoryCell/CellSelected.png");
+        AddChild(texture);
     }
 }

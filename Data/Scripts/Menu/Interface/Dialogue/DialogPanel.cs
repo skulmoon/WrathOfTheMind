@@ -11,7 +11,6 @@ public partial class DialogPanel : TextureRect
     private AudioStreamPlayer _player;
     private Timer _delayTimer = new Timer { OneShot = true };
     private bool _startDialog = false;
-    private List<int> _numberOptions = new List<int>();
 
     public bool IsSelected { get => (_dialogText?.Control?.Visible ?? false) || _delayTimer.TimeLeft != 0; }
     public bool IsPrinting { get => _dialogText?.IsPrinting ?? false; }
@@ -44,7 +43,7 @@ public partial class DialogPanel : TextureRect
                 _delayTimer.Start(0.1);
                 int option = _dialogText.CurrentPosition;
                 _dialogText.EndOptions();
-                Global.CutSceneManager.OutputCutScene(_numberOptions[option]);
+                Global.CutSceneManager.OutputCutScene(_dialogue.Options[option].NextDialogue);
             }
         }
     }
@@ -76,15 +75,7 @@ public partial class DialogPanel : TextureRect
     public void ShowOptions()
     {
         if (_dialogue.Options != null)
-        {
-            List<string> options = new List<string>();
-            foreach (Option option in _dialogue.Options)
-            {
-                _numberOptions.Add(option.NextDialogue);
-                options.Add(option.OptionText);
-            }
-            _dialogText.StartOptions(options);
-        }
+            _dialogText.StartOptions(_dialogue.Options);
     }
 
     public void PanelShow()

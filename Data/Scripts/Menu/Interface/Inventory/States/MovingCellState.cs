@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-internal partial class MovingCellState : Node, ICellState
+internal partial class MovingCellState : CellState
 {
     private Cell _cell;
     private int _speed = 600;

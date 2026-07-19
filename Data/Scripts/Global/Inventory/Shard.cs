@@ -12,6 +12,9 @@ public partial class Shard : Item
     [Export] public float TimeReload { get; set; }
     [Export] public float CritChance { get; set; }
     [Export] public int MaxRange { get; set; }
+    [Export] public int SkillCount { get; set; }
+    [Export] public int FirstAbilitySkillCount { get; set; }
+    [Export] public int SecondAbilitySkillCount { get; set; }
 
     public Shard() : base() { }
 

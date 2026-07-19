@@ -9,7 +9,6 @@ public partial class Mask : Sprite2D
 
     public override void _Ready()
     {
-        GD.Print("Mask.");
         if (TextureMask != null)
         {
             
