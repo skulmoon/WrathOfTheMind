@@ -54,6 +54,6 @@ public partial class SkeletonBase : Chapter1Location
         Global.SaveManager.SaveGame();
         Global.Inventory.Clear();
         Global.SceneObjects.ChangeScene("res://Data/Scenes/Menu/MainMenu.tscn");
-        Global.Settings.CutScene = false;
+        Global.Variables.CutScene = false;
     }
 }

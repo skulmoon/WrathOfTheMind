@@ -8,7 +8,7 @@ public partial class InventoryMenu : Control
 
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionJustPressed("open_inventory") && (!Global.Settings.CutScene || Visible))
+        if (Input.IsActionJustPressed("open_inventory") && (!Global.Variables.CutScene || Visible))
         {
             if (!Visible)
                 ShowInventory();
@@ -26,7 +26,7 @@ public partial class InventoryMenu : Control
         Tween tween = CreateTween();
         tween.TweenProperty(dark, "CurrentDarkPower", 0.5f, 0.2);
         tween.TweenProperty(this, "modulate:a", 1, 0.2);
-        Global.Settings.CutScene = true;
+        Global.Variables.CutScene = true;
         GetTree().Paused = true;
     }
 
@@ -38,7 +38,7 @@ public partial class InventoryMenu : Control
         tween.TweenProperty(dark, "CurrentDarkPower", 0f, 0.2);
         tween.TweenProperty(this, "modulate:a", 0, 0.2);
         tween.TweenCallback(new Callable(this, "Hide"));
-        Global.Settings.CutScene = false;
+        Global.Variables.CutScene = false;
         GetTree().Paused = false;
     }
 }

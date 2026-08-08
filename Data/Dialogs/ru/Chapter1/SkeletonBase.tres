@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="NPCDialogues" load_steps=8 format=3 uid="uid://rpk2oh7bemij"]
+
+[ext_resource type="Script" uid="uid://dmmr00601lgas" path="res://Data/Scripts/Global/JSONManager/JSONClasses/IDAndText.cs" id="1_8357e"]
+[ext_resource type="Script" uid="uid://bfg0hk7nf46dd" path="res://Data/Scripts/Global/JSONManager/JSONClasses/NPCDialogues.cs" id="1_egupt"]
+[ext_resource type="Script" uid="uid://b7j1bveidtngd" path="res://Data/Scripts/Global/JSONManager/JSONClasses/Option.cs" id="1_gr8g2"]
+[ext_resource type="Script" uid="uid://bjqvyssfbi7pc" path="res://Data/Scripts/Global/JSONManager/JSONClasses/NPCDialogue.cs" id="2_gr8g2"]
+
+[sub_resource type="Resource" id="Resource_yhate"]
+script = ExtResource("1_gr8g2")
+metadata/_custom_type_script = "uid://b7j1bveidtngd"
+
+[sub_resource type="Resource" id="Resource_ejlf7"]
+script = ExtResource("1_8357e")
+metadata/_custom_type_script = "uid://dmmr00601lgas"
+
+[sub_resource type="Resource" id="Resource_a2afn"]
+script = ExtResource("2_gr8g2")
+NPCID = 5
+DialogueNumber = 1
+Speech = Array[Object]([SubResource("Resource_ejlf7")])
+Options = Array[Object]([SubResource("Resource_yhate")])
+metadata/_custom_type_script = "uid://bjqvyssfbi7pc"
+
+[resource]
+script = ExtResource("1_egupt")
+nPCDialogues = Array[Object]([SubResource("Resource_a2afn")])
+metadata/_custom_type_script = "uid://bfg0hk7nf46dd"

@@ -39,8 +39,8 @@ public partial class Player : NPC, IWalker
         Camera = GetNode<Camera2D>("Camera");
         Shard = new ShardManager();
         Global.SceneObjects.LocationChanged += OnLocationChanged;
-        Stamina = Global.Settings.SaveData.Stamina;
-        HitBox.Health = Global.Settings.SaveData.Health;
+        Stamina = Global.Variables.SaveData.Stamina;
+        HitBox.Health = Global.Variables.SaveData.Health;
         Global.SceneObjects.Player = this;
     }
 
@@ -50,7 +50,7 @@ public partial class Player : NPC, IWalker
 
     public override void _PhysicsProcess(double delta)
     {
-        if (!Global.Settings.CutScene)
+        if (!Global.Variables.CutScene)
             Move(delta);
     }
 

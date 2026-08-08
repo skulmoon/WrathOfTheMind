@@ -40,7 +40,7 @@ public partial class HitBox : Area2D
             ChangeHealth?.Invoke(Health);
             if (value <= 0)
             {
-                Global.Settings.CutScene = true;
+                Global.Variables.CutScene = true;
                 Global.Music.PlaySound("DeathSound.ogg");
                 _player.ZIndex = 1;
                 _player.Sprite.Play("death");

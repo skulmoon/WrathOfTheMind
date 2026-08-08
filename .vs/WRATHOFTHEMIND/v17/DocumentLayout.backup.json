@@ -1,90 +1,118 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\",
+  "WorkspaceRootPath": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\entities\\player\\shards2d\\playerattacks\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\entities\\player\\shards2d\\playerattacks\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\interface\\shardcell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\shardcell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\interface\\progressbars\\firstshardabilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\progressbars\\firstshardabilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\entities\\player\\playersprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\entities\\player\\playersprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\entities\\player\\shards2d\\shard2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\entities\\player\\shards2d\\shard2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\interface\\shardcells.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\shardcells.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\interface\\progressbars\\secondshardabilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\progressbars\\secondshardabilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\tools\\noisechanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\tools\\noisechanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\entities\\player\\shards2d\\shardextention\\shardability.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\entities\\player\\shards2d\\shardextention\\shardability.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\locations\\chapter1\\chapter1location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\locations\\chapter1\\chapter1location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\entities\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\entities\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\global\\sceneobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\sceneobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\entities\\player\\shards2d\\startshard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\entities\\player\\shards2d\\startshard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\entities\\player\\shards2d\\boneshard\\boneshard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\entities\\player\\shards2d\\boneshard\\boneshard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\tools\\extentions\\listextention.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\tools\\extentions\\listextention.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\global\\inventory\\playerinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\inventory\\playerinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\entities\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\entities\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\global\\inventory\\itemtypeextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\inventory\\itemtypeextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\inventory\\itemtypeextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\gameloader\\gameloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\gameloader\\gameloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\jsonmanager\\json.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\jsonmanager\\json.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\global\\jsonmanager\\jsonclasses\\padata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\menu\\interface\\interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\menu\\interface\\dialogue\\dialogtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\dialogue\\dialogtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\menu\\interface\\uidark.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\uidark.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\jsonmanager\\jsonclasses\\pams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\jsonmanager\\jsonclasses\\pams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\jsonmanager\\jsonclasses\\padata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\jsonmanager\\jsonclasses\\padata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\wrathofthemind\\data\\scripts\\menu\\interface\\inventory\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\inventory\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\jsonmanager\\jsonclasses\\option.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\jsonmanager\\jsonclasses\\option.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\jsonmanager\\jsonclasses\\npcpams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\jsonmanager\\jsonclasses\\npcpams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\jsonmanager\\jsonclasses\\npcdialogues.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\jsonmanager\\jsonclasses\\npcdialogues.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\jsonmanager\\jsonclasses\\npcdialogueparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\jsonmanager\\jsonclasses\\npcdialogueparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\jsonmanager\\jsonclasses\\idandtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\jsonmanager\\jsonclasses\\idandtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\jsonmanager\\jsonclasses\\npcdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\jsonmanager\\jsonclasses\\npcdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\cutscene\\pamscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\cutscene\\pamscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\variables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\variables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\cutscene\\cutscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\cutscene\\cutscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\entities\\interection\\droppeditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\entities\\interection\\droppeditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\inventory\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\inventory\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\entities\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\entities\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\menu\\interface\\shardcell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\shardcell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\jsonmanager\\jsonclasses\\savedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\jsonmanager\\jsonclasses\\savedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\menu\\interface\\progressbars\\abilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\progressbars\\abilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\menu\\interface\\progressbars\\secondshardabilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\progressbars\\secondshardabilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\menu\\interface\\progressbars\\firstshardabilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\menu\\interface\\progressbars\\firstshardabilitybar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\entities\\player\\shards2d\\shardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\entities\\player\\shards2d\\shardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\entities\\player\\shards2d\\boneshard\\boneshard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\entities\\player\\shards2d\\boneshard\\boneshard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|c:\\\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\thewillofcrystal\\data\\scripts\\global\\inventory\\playerinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{786FF7AC-F43C-42AB-88A5-F956C94F36B2}|WrathOfTheMind.csproj|solutionrelative:data\\scripts\\global\\inventory\\playerinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -94,7 +122,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 124,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 19,
           "Children": [
             {
               "$type": "Bookmark",
@@ -102,263 +130,342 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PlayerAttack.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Shards2D\\PlayerAttacks\\PlayerAttack.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Entities\\Player\\Shards2D\\PlayerAttacks\\PlayerAttack.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Shards2D\\PlayerAttacks\\PlayerAttack.cs",
-              "RelativeToolTip": "Data\\Scripts\\Entities\\Player\\Shards2D\\PlayerAttacks\\PlayerAttack.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwBsAAAAaAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "JSON.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSON.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\JSONManager\\JSON.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSON.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\JSONManager\\JSON.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAgwCUAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-18T20:06:54.067Z",
+              "WhenOpened": "2026-07-28T14:53:10.216Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "PlayerSprite.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\PlayerSprite.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Entities\\Player\\PlayerSprite.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\PlayerSprite.cs",
-              "RelativeToolTip": "Data\\Scripts\\Entities\\Player\\PlayerSprite.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "DialogText.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Menu\\Interface\\Dialogue\\DialogText.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\Dialogue\\DialogText.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Menu\\Interface\\Dialogue\\DialogText.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\Dialogue\\DialogText.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-18T20:06:51.153Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ShardCell.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ShardCell.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\ShardCell.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ShardCell.cs",
-              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\ShardCell.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwEIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-18T20:05:03.273Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SecondShardAbilityBar.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\SecondShardAbilityBar.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\SecondShardAbilityBar.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\SecondShardAbilityBar.cs",
-              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\SecondShardAbilityBar.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-18T11:29:52.239Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FirstShardAbilityBar.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\FirstShardAbilityBar.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\FirstShardAbilityBar.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\FirstShardAbilityBar.cs",
-              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\FirstShardAbilityBar.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-18T11:18:10.357Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ShardCells.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ShardCells.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\ShardCells.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\ShardCells.cs",
-              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\ShardCells.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-18T11:17:54.517Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ShardAbility.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Shards2D\\ShardExtention\\ShardAbility.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Entities\\Player\\Shards2D\\ShardExtention\\ShardAbility.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Shards2D\\ShardExtention\\ShardAbility.cs",
-              "RelativeToolTip": "Data\\Scripts\\Entities\\Player\\Shards2D\\ShardExtention\\ShardAbility.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-18T10:50:48.655Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Shard2D.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Shards2D\\Shard2D.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Entities\\Player\\Shards2D\\Shard2D.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Shards2D\\Shard2D.cs",
-              "RelativeToolTip": "Data\\Scripts\\Entities\\Player\\Shards2D\\Shard2D.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAuwAcAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-17T19:47:49.395Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "NoiseChanger.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Tools\\NoiseChanger.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Tools\\NoiseChanger.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Tools\\NoiseChanger.cs",
-              "RelativeToolTip": "Data\\Scripts\\Tools\\NoiseChanger.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-18T19:35:56.791Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Player.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Entities\\Player\\Player.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Player.cs",
-              "RelativeToolTip": "Data\\Scripts\\Entities\\Player\\Player.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-17T20:20:38.641Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "StartShard.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Shards2D\\StartShard.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Entities\\Player\\Shards2D\\StartShard.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Shards2D\\StartShard.cs",
-              "RelativeToolTip": "Data\\Scripts\\Entities\\Player\\Shards2D\\StartShard.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-17T19:48:15.582Z"
+              "WhenOpened": "2026-07-25T17:55:34.859Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "Chapter1Location.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Locations\\Chapter1\\Chapter1Location.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Locations\\Chapter1\\Chapter1Location.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Locations\\Chapter1\\Chapter1Location.cs",
-              "RelativeToolTip": "Data\\Scripts\\Locations\\Chapter1\\Chapter1Location.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Title": "NPCDialogues.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCDialogues.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCDialogues.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCDialogues.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCDialogues.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-17T19:42:20.143Z"
+              "WhenOpened": "2026-07-24T19:14:08.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "NPCPAMS.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCPAMS.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCPAMS.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCPAMS.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCPAMS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T18:09:23.738Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "SceneObjects.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\SceneObjects.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\SceneObjects.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\SceneObjects.cs",
-              "RelativeToolTip": "Data\\Scripts\\Global\\SceneObjects.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAywCAAAABCAAAAAAAAAA==",
+              "Title": "IDAndText.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\IDAndText.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\IDAndText.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\IDAndText.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\IDAndText.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-17T19:40:01.584Z"
+              "WhenOpened": "2026-07-22T18:08:43.201Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ListExtention.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Tools\\Extentions\\ListExtention.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Tools\\Extentions\\ListExtention.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Tools\\Extentions\\ListExtention.cs",
-              "RelativeToolTip": "Data\\Scripts\\Tools\\Extentions\\ListExtention.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "NPCDialogueParams.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCDialogueParams.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCDialogueParams.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCDialogueParams.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCDialogueParams.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-17T19:07:10.982Z"
+              "WhenOpened": "2026-07-20T21:44:59.667Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Enemy.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Enemy\\Enemy.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Entities\\Enemy\\Enemy.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Enemy\\Enemy.cs",
-              "RelativeToolTip": "Data\\Scripts\\Entities\\Enemy\\Enemy.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAADwvyoAAAAqAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Option.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\Option.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\Option.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\Option.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\Option.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-17T18:49:03.831Z"
+              "WhenOpened": "2026-07-22T18:09:07.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PAData.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\PAData.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\PAData.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\PAData.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\PAData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T18:09:29.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PAMS.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\PAMS.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\PAMS.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\PAMS.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\PAMS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T18:09:37.985Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UIDark.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Menu\\Interface\\UIDark.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\UIDark.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Menu\\Interface\\UIDark.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\UIDark.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-23T14:16:54.045Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "NPCDialogue.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCDialogue.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCDialogue.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCDialogue.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\NPCDialogue.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T18:07:55.243Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "BoneShard.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Shards2D\\BoneShard\\BoneShard.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Entities\\Player\\Shards2D\\BoneShard\\BoneShard.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Entities\\Player\\Shards2D\\BoneShard\\BoneShard.cs",
-              "RelativeToolTip": "Data\\Scripts\\Entities\\Player\\Shards2D\\BoneShard\\BoneShard.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAQwBkAAAAUAAAAAAAAAA==",
+              "Title": "PAMSController.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\CutScene\\PAMSController.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\CutScene\\PAMSController.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\CutScene\\PAMSController.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\CutScene\\PAMSController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-17T18:42:14.982Z"
+              "WhenOpened": "2026-07-23T14:37:18.301Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Global.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\Global.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\Global.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\Global.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\Global.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-24T18:55:50.503Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "PlayerInventory.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\Inventory\\PlayerInventory.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\Inventory\\PlayerInventory.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\Inventory\\PlayerInventory.cs",
-              "RelativeToolTip": "Data\\Scripts\\Global\\Inventory\\PlayerInventory.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAMwA4AAAAtAAAAAAAAAA==",
+              "Title": "Variables.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\Variables.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\Variables.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\Variables.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\Variables.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-13T19:50:02.242Z"
+              "WhenOpened": "2026-07-24T18:59:10.079Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "ItemTypeExtension.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\Inventory\\ItemTypeExtension.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\Inventory\\ItemTypeExtension.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\Inventory\\ItemTypeExtension.cs",
-              "RelativeToolTip": "Data\\Scripts\\Global\\Inventory\\ItemTypeExtension.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Title": "DroppedItem.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Entities\\Interection\\DroppedItem.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Entities\\Interection\\DroppedItem.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Entities\\Interection\\DroppedItem.cs",
+              "RelativeToolTip": "Data\\Scripts\\Entities\\Interection\\DroppedItem.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowDQAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-17T18:48:20.565Z"
+              "WhenOpened": "2026-07-23T14:33:15.665Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CutSceneManager.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\CutScene\\CutSceneManager.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\CutScene\\CutSceneManager.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\CutScene\\CutSceneManager.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\CutScene\\CutSceneManager.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAjwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-23T14:33:41.912Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Interface.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Menu\\Interface\\Interface.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\Interface.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Menu\\Interface\\Interface.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\Interface.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-20T20:00:13.919Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "GameLoader.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\GameLoader\\GameLoader.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\GameLoader\\GameLoader.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\GameLoader\\GameLoader.cs",
-              "RelativeToolTip": "Data\\Scripts\\Menu\\GameLoader\\GameLoader.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAhwDAAAAAyAAAAAAAAAA==",
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\Inventory\\Item.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\Inventory\\Item.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\Inventory\\Item.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\Inventory\\Item.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-13T19:53:18.629Z"
+              "WhenOpened": "2026-07-22T18:00:09.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ItemTypeExtension.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\Inventory\\ItemTypeExtension.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\Inventory\\ItemTypeExtension.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\Inventory\\ItemTypeExtension.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\Inventory\\ItemTypeExtension.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T18:14:53.433Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "PAData.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\PAData.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\PAData.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\PAData.cs",
-              "RelativeToolTip": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\PAData.cs",
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Entities\\Enemy\\Enemy.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Entities\\Enemy\\Enemy.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Entities\\Enemy\\Enemy.cs",
+              "RelativeToolTip": "Data\\Scripts\\Entities\\Enemy\\Enemy.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAArwBYAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T18:15:09.319Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SaveData.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\SaveData.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\SaveData.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\JSONManager\\JSONClasses\\SaveData.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\JSONManager\\JSONClasses\\SaveData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-17T18:44:39.518Z"
+              "WhenOpened": "2026-07-22T17:59:37.822Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 20,
-              "Title": "Cell.cs",
-              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\Inventory\\Cell.cs",
-              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\Inventory\\Cell.cs",
-              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\WrathOfTheMind\\Data\\Scripts\\Menu\\Interface\\Inventory\\Cell.cs",
-              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\Inventory\\Cell.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAwwG4AAAAcAAAAAAAAAA==",
+              "Title": "ShardCell.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Menu\\Interface\\ShardCell.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\ShardCell.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Menu\\Interface\\ShardCell.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\ShardCell.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-13T19:38:46.007Z"
+              "WhenOpened": "2026-07-19T20:36:50.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "SecondShardAbilityBar.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\SecondShardAbilityBar.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\SecondShardAbilityBar.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\SecondShardAbilityBar.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\SecondShardAbilityBar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-19T20:37:49.496Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AbilityBar.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\AbilityBar.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\AbilityBar.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\AbilityBar.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\AbilityBar.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAkwAwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-19T20:40:30.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "FirstShardAbilityBar.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\FirstShardAbilityBar.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\FirstShardAbilityBar.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Menu\\Interface\\ProgressBars\\FirstShardAbilityBar.cs",
+              "RelativeToolTip": "Data\\Scripts\\Menu\\Interface\\ProgressBars\\FirstShardAbilityBar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-19T20:37:27.771Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ShardManager.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Entities\\Player\\Shards2D\\ShardManager.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Entities\\Player\\Shards2D\\ShardManager.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Entities\\Player\\Shards2D\\ShardManager.cs",
+              "RelativeToolTip": "Data\\Scripts\\Entities\\Player\\Shards2D\\ShardManager.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAswFIAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-19T20:36:24.225Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "BoneShard.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Entities\\Player\\Shards2D\\BoneShard\\BoneShard.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Entities\\Player\\Shards2D\\BoneShard\\BoneShard.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Entities\\Player\\Shards2D\\BoneShard\\BoneShard.cs",
+              "RelativeToolTip": "Data\\Scripts\\Entities\\Player\\Shards2D\\BoneShard\\BoneShard.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-19T20:34:24.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "PlayerInventory.cs",
+              "DocumentMoniker": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\Inventory\\PlayerInventory.cs",
+              "RelativeDocumentMoniker": "Data\\Scripts\\Global\\Inventory\\PlayerInventory.cs",
+              "ToolTip": "C:\\\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B \u0434\u043B\u044F \u0438\u0433\u0440\\TheWillofCrystal\\Data\\Scripts\\Global\\Inventory\\PlayerInventory.cs",
+              "RelativeToolTip": "Data\\Scripts\\Global\\Inventory\\PlayerInventory.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA/wBgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-19T20:32:22.507Z"
             }
           ]
         },

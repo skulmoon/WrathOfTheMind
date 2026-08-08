@@ -13,6 +13,7 @@ public static class ItemTypeExtension
             ItemType.Armor => Global.Inventory.Armors,
             ItemType.Shard => Global.Inventory.Shards,
             ItemType.Skill => Global.Inventory.Skills,
+            _ => null,
         };
     }
 

@@ -19,16 +19,16 @@ public partial class GameCreator : Control
 
     public void NewButtonPressed()
     {
-        if (Global.Settings.Saves.Find(x => x.Name == _textEdit.Text) != null)
+        if (Global.Variables.Saves.Find(x => x.Name == _textEdit.Text) != null)
         {
             //I will add logic later
             //more later...
         }
         else
         {
-            Global.SaveManager.NewGame(_textEdit.Text, Global.Settings.Saves.Count + 1);
+            Global.SaveManager.NewGame(_textEdit.Text, Global.Variables.Saves.Count + 1);
             GetNode<UIDark>("%Dark").ShowDark(() => 
-                GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.SaveData.CurrentLocation}.tscn"));
+                GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Variables.SaveData.CurrentLocation}.tscn"));
         }
     }
 }

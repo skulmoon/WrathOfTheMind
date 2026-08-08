@@ -20,6 +20,7 @@ public abstract partial class Enemy : CharacterBody2D, IWalker
         set
         {
             _speedMultiplier = value;
+            SpeedMultiperChanged?.Invoke(value);
             NavigationAgent.MaxSpeed = _speed * _speedMultiplier;
         }
     } 

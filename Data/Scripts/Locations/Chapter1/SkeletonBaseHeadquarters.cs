@@ -161,7 +161,7 @@ public partial class SkeletonBaseHeadquarters : Chapter1Location
         };
         AddChild(conductive);
         ((CameraNPC)Global.SceneObjects.Npcs.Find(x => x.ID == 3)).ChangeEnabled(false);
-        Global.Settings.CutScene = false;
+        Global.Variables.CutScene = false;
         conductive.Interaction();
     }
 }

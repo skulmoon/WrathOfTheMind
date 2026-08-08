@@ -121,7 +121,7 @@ public partial class TheBeginning : Location
 		));
 		CutSceneCustomizes.Add((5, () =>
 		{
-			Global.Settings.CutScene = false;
+			Global.Variables.CutScene = false;
 			ConductivePath conductive = new ConductivePath()
 			{
 				Path = "Chapter1/StartingTrail",

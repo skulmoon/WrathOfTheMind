@@ -14,7 +14,7 @@ public partial class PlayerInteractionArea : Area2D
             if (_playerDirection != value && value != Vector2.Zero)
             {
                 _playerDirection = value;
-                Position = value * (Global.Settings.GridSize / 2); 
+                Position = value * (Global.Variables.GridSize / 2); 
             }
         }
     }

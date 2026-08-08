@@ -33,28 +33,28 @@ public class JSON
     }
 
     public List<NPCPAMS> GetNpcpams() =>
-        GetJsonData<List<NPCPAMS>>($"{PATH_PAMS}{Global.Settings.SaveData.CurrentLocation}.json");
+        GetJsonData<List<NPCPAMS>>($"{PATH_PAMS}{Global.Variables.SaveData.CurrentLocation}.json");
 
     public List<NPCDialogue> GetDialogues() =>
-        GetJsonData<List<NPCDialogue>>($"{PATH_DIALOGUES}{TranslationServer.GetLocale()}/{Global.Settings.SaveData.CurrentLocation}.json");
+        GetJsonData<List<NPCDialogue>>($"{PATH_DIALOGUES}{TranslationServer.GetLocale()}/{Global.Variables.SaveData.CurrentLocation}.json");
 
     public List<PlayerChoice> GetPlayerChoices() =>
-        GetJsonData<List<PlayerChoice>>($"{PATH_SAVES}{Global.Settings.CurrentSave}/Choices/{Global.Settings.SaveData.CurrentLocation}.json");
+        GetJsonData<List<PlayerChoice>>($"{PATH_SAVES}{Global.Variables.CurrentSave}/Choices/{Global.Variables.SaveData.CurrentLocation}.json");
 
     public List<(int ID, object Value)> GetLocationData() =>
-        GetJsonData<List<(int ID, object Value)>>($"{PATH_SAVES}{Global.Settings?.CurrentSave}/LocationsData/{Global.Settings?.SaveData?.CurrentLocation}.json");
+        GetJsonData<List<(int ID, object Value)>>($"{PATH_SAVES}{Global.Variables?.CurrentSave}/LocationsData/{Global.Variables?.SaveData?.CurrentLocation}.json");
 
     public SaveData GetSaveData(string save) =>
         GetJsonData<SaveData>($"{PATH_SAVES}{save}/SaveData.json", true);
 
     public void SetPlayerChoices(List<PlayerChoice> playerChoices) =>
-        SetJsonData(playerChoices, $"{PATH_SAVES}{Global.Settings.CurrentSave}/Choices/{Global.Settings.SaveData.CurrentLocation}.json");
+        SetJsonData(playerChoices, $"{PATH_SAVES}{Global.Variables.CurrentSave}/Choices/{Global.Variables.SaveData.CurrentLocation}.json");
 
     public void SetLocationData(List<(int ID, object Value)> locationData) =>
-        SetJsonData(locationData, $"{PATH_SAVES}{Global.Settings.CurrentSave}/LocationsData/{Global.Settings.SaveData.CurrentLocation}.json");
+        SetJsonData(locationData, $"{PATH_SAVES}{Global.Variables.CurrentSave}/LocationsData/{Global.Variables.SaveData.CurrentLocation}.json");
 
     public void SetSaveData(SaveData settings) =>
-        SetJsonData(settings, $"{PATH_SAVES}{Global.Settings.CurrentSave}/SaveData.json", true);
+        SetJsonData(settings, $"{PATH_SAVES}{Global.Variables.CurrentSave}/SaveData.json", true);
 
     public void SaveConfig() =>
         _config.SaveConfig();

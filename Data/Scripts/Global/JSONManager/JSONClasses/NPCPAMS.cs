@@ -1,10 +1,11 @@
 using Godot;
 using System;
-using System.Collections.Generic;
+using Godot.Collections;
 
-public class NPCPAMS
+[GlobalClass]
+public partial class NPCPAMS : Resource
 {
-    public int NPCID { get; set; }
-    public List<int> DialogueNumber { get; set; }
-    public List<PAMS> PAMSs { get; set; }
+    [Export] public int NPCID { get; set; }
+    [Export] public Array<int> DialogueNumber { get; set; }
+    [Export] public Array<PAMS> PAMSs { get; set; }
 }

@@ -1,8 +1,6 @@
 using Godot;
 using System;
-using System.Xml.Linq;
-using System.Collections.Generic;
-
+using Godot.Collections;
 public partial class CutSceneManager : Node
 {
     private Timer _chargeTimer = new Timer { OneShot = true };
@@ -18,7 +16,7 @@ public partial class CutSceneManager : Node
     public bool IsChargeComplete { get => _chargeTimer.TimeLeft == 0; }
     public bool IsPanelActive { get => _panel.Visible; }
 
-    public event Action StartedCutScene { add { _startedCutScene += value; if (Global.Settings.CutScene) value.Invoke(); } remove => _startedCutScene -= value; }
+    public event Action StartedCutScene { add { _startedCutScene += value; if (Global.Variables.CutScene) value.Invoke(); } remove => _startedCutScene -= value; }
     public event Action EndedCutScene;
 
     public CutSceneManager()
@@ -49,7 +47,7 @@ public partial class CutSceneManager : Node
 
     public override void _Process(double delta)
     {
-        if (Global.Settings.CutScene && Input.IsActionJustPressed("interact") && !(Global.SceneObjects.InventoryMenu?.Visible ?? false) && !(_panel?.IsSelected ?? false))
+        if (Global.Variables.CutScene && Input.IsActionJustPressed("interact") && !(Global.SceneObjects.InventoryMenu?.Visible ?? false) && !(_panel?.IsSelected ?? false))
         {
             bool isNext = true;
             if (!(_PAMSController?.IsDone ?? true))
@@ -97,16 +95,16 @@ public partial class CutSceneManager : Node
                 _currentCutScene = 0;
                 if (_dialogue != null)
                     _panel.EndDialogue();
-                Global.Settings.CutScene = false;
+                Global.Variables.CutScene = false;
                 EndedCutScene?.Invoke();
             }
         }
     }
 
-    public void StartCutScene(NPCDialogue npcDialogue, List<PAMS> pamses)
+    public void StartCutScene(NPCDialogue npcDialogue, Array<PAMS> pamses)
     {
         _startedCutScene?.Invoke();
-        Global.Settings.CutScene = true;
+        Global.Variables.CutScene = true;
         _dialogue = npcDialogue;
         _CutSceneCount = (_npcPams?.PAMSs?.Count ?? 0) > (_dialogue?.Speech?.Count ?? 0) ? (_npcPams?.PAMSs?.Count ?? 0) : (_dialogue?.Speech?.Count ?? 0);
         if (npcDialogue != null)

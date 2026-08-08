@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using static Godot.OpenXRHand;
 
 public partial class ShardCell : TextureRect
 {

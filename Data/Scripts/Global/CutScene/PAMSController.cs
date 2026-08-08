@@ -1,7 +1,7 @@
 ﻿using Godot;
 using System;
 using System.Collections.Generic;
-using System.Xml.Linq;
+using Godot.Collections;
 
 public partial class PAMSController : Node
 {
@@ -20,7 +20,7 @@ public partial class PAMSController : Node
         _cutSceneManager = cutSceneManager;
     }
 
-    public void SetPAMS(List<PAMS> pamses)
+    public void SetPAMS(Array<PAMS> pamses)
     {
         if (pamses != null)
             _pamses = new LinkedList<PAMS>(pamses).First;

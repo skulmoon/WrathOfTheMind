@@ -16,7 +16,7 @@ public partial class EnemyPositionsControl : Node2D
             _positions = value;
             for (int i = 0; i <_positions.Length; i++)
             {
-                _positions[i].Position = Vector2.FromAngle(Mathf.DegToRad(360 / Positions.Length * i)) * Global.Settings.GridSize;
+                _positions[i].Position = Vector2.FromAngle(Mathf.DegToRad(360 / Positions.Length * i)) * Global.Variables.GridSize;
             }
         } 
     }

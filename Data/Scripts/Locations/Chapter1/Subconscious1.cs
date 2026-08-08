@@ -32,7 +32,7 @@ public partial class Subconscious1 : Location
         ));
         CutSceneCustomizes.Add((4, () =>
         {
-            Global.Settings.CutScene = false;
+            Global.Variables.CutScene = false;
             GetNode<ConductivePath>("ConductivePath").Interaction();
         }
         ));

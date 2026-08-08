@@ -1,10 +1,9 @@
 using Godot;
 using System;
-using System.Collections.Generic;
-using System.Security.AccessControl;
+using Godot.Collections;
 
-public partial class PAData : Node
+public partial class PAData
 {
     public int? NPCID { get; set; }
-    public List<NpcCSData> Data { get; set; }
+    public Array<NpcCSData> Data { get; set; }
 }

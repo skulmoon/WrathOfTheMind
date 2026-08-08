@@ -1,9 +1,10 @@
 using Godot;
 using System;
 
-public class IDAndText
+[GlobalClass]
+public partial class IDAndText : Resource
 {
-    public string Name { get; set; }
-    public string Text { get; set; }
-    public string Image { get; set; }
+    [Export] public string Name { get; set; }
+    [Export] public string Text { get; set; }
+    [Export] public string Image { get; set; }
 }

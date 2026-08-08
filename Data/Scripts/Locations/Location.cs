@@ -16,7 +16,7 @@ public partial class Location : Node2D
             LocationData = new List<(int ID, object Value)>();
             Global.SaveManager.CreateLocationData();
         }
-        Global.Settings.CutScene = false;
+        Global.Variables.CutScene = false;
         Global.SceneObjects.Location = this;
         StarAnimation();
     }

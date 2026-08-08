@@ -6,10 +6,10 @@ public partial class SkipLabel : CustomLabel
 	public override void _Ready()
 	{
 		base._Ready();
-		if (!Global.Settings.FistCutSceneActivated)
+		if (!Global.Variables.FistCutSceneActivated)
 		{
 			Visible = false;
-            Global.Settings.FistCutSceneActivated = true;
+            Global.Variables.FistCutSceneActivated = true;
 			Global.JSON.SaveConfig();
         }
 		else

@@ -2,7 +2,8 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class PAMS
+[GlobalClass]
+public partial class PAMS : Resource
 {
     public List<PAData> PAData { get; set; }
     public List<FinalValues> FinalValues { get; set; }

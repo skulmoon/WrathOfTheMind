@@ -1,11 +1,12 @@
 using Godot;
 using System;
-using System.Collections.Generic;
+using Godot.Collections;
 
-public class NPCDialogue
+[GlobalClass]
+public partial class NPCDialogue : Resource
 {
-    public int NPCID { get; set; }
-    public int DialogueNumber { get; set; }
-    public List<IDAndText> Speech { get; set; }
-    public List<Option> Options { get; set; }
+    [Export] public int NPCID { get; set; }
+    [Export] public int DialogueNumber { get; set; }
+    [Export] public Array<IDAndText> Speech { get; set; }
+    [Export] public Array<Option> Options { get; set; }
 }

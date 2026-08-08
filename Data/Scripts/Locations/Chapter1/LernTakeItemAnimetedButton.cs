@@ -25,7 +25,7 @@ public partial class LernTakeItemAnimetedButton : AnimatedSprite2D
             return;
         }
         Global.SceneObjects.Location.SetData(2, true);
-        string str = Global.Settings.SaveData.CurrentLocation;
+        string str = Global.Variables.SaveData.CurrentLocation;
         Play();
         Tween tween1 = CreateTween();
         tween1.SetTrans(Tween.TransitionType.Sine);

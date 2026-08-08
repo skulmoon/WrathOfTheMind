@@ -39,7 +39,7 @@ public partial class ConfigManager : Node
             Base = new ConfigBase
             {
                 Language = TranslationServer.GetLocale() ?? "ru",
-                FistCutSceneActivated = Global.Settings.FistCutSceneActivated,
+                FistCutSceneActivated = Global.Variables.FistCutSceneActivated,
             },
             Graphics = new ConfigGraphics
             {
@@ -72,7 +72,7 @@ public partial class ConfigManager : Node
     public void LoadConfig()
     {
         TranslationServer.SetLocale(ConfigInfo.Base.Language); //Base
-        Global.Settings.FistCutSceneActivated = ConfigInfo.Base.FistCutSceneActivated;
+        Global.Variables.FistCutSceneActivated = ConfigInfo.Base.FistCutSceneActivated;
         AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), ConfigInfo.Sound.Base); //Sound
         AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Sound"), ConfigInfo.Sound.Environment);
         AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), ConfigInfo.Sound.Music);

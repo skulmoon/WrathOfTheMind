@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Settings
+public class Variables
 {
     public int GridSize { get; private set; } = 32;
     public bool CutScene { get; set; } = false;

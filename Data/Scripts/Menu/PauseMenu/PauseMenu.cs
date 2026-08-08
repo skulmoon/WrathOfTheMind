@@ -10,7 +10,7 @@ public partial class PauseMenu : Control
 		if (Input.IsActionJustPressed("open_pause_menu"))
 		{
 			Visible = !Visible;
-			Global.Settings.CutScene = Visible;
+			Global.Variables.CutScene = Visible;
 			GetTree().Paused = Visible;
 			if (GetNode<InventoryMenu>("%InventoryMenu").Visible)
                 GetTree().Paused = true;

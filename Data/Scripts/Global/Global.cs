@@ -3,7 +3,7 @@ using System;
 
 public partial class Global : Node
 {
-    public static Settings Settings { get; private set; }
+    public static Variables Variables { get; private set; }
     public static JSON JSON { get; private set; }
     public static SceneObjects SceneObjects { get; private set; }
     public static SaveManager SaveManager { get; private set; }
@@ -16,7 +16,7 @@ public partial class Global : Node
     public Global()
     {
         ProcessPriority = 10;
-        Settings = new Settings();
+        Variables = new Variables();
         SceneObjects = new SceneObjects();
         JSON = new JSON();
         SaveManager = new SaveManager();

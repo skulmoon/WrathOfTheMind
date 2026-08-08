@@ -1,6 +1,6 @@
 ﻿using Godot;
 using System;
-using System.Collections.Generic;
+using Godot.Collections;
 
 public partial class DroppedItem : Area2D, IInteractionArea
 {
@@ -46,7 +46,7 @@ public partial class DroppedItem : Area2D, IInteractionArea
         {
             DialogueNumber = 1,
             NPCID = 1,
-            Speech = new List<IDAndText>(new IDAndText[] {
+            Speech = new Array<IDAndText>(new IDAndText[] {
                 new IDAndText { Text = $"Вы получили предмет \"{Item.Name}\"" + (Count > 1 ? $" ({Count})." : ".") }
             })
         }, null);

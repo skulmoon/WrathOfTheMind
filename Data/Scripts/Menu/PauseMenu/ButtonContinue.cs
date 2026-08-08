@@ -13,6 +13,6 @@ public partial class ButtonContinue : CustomButton
     public void OnPressed()
 	{
         Menu.Visible = false;
-        Global.Settings.CutScene = false;
+        Global.Variables.CutScene = false;
     }
 }

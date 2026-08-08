@@ -17,16 +17,16 @@ public partial class GameLoader : Control
         saves.OffsetRight = pixelSize * 104;
         saves.OffsetLeft = -saves.OffsetRight;
         _container = GetNode<VBoxContainer>("/root/MainMenu/GameLoader/Saves/VBoxContainer");
-        for (int i = 0; i < Global.Settings.Saves.Count; i++)
+        for (int i = 0; i < Global.Variables.Saves.Count; i++)
         {
             var button = new NameSaveButton();
             button.CustomMinimumSize = new Vector2(0, pixelSize * 26);
-            button.Text = Global.Settings.Saves[i].Name;
-            button.Name = Global.Settings.Saves[i].Name;
+            button.Text = Global.Variables.Saves[i].Name;
+            button.Name = Global.Variables.Saves[i].Name;
             button.CurrentSaveName += ChangeCurrentButton;
             _container.AddChild(button);
         }
-        _buttonCount = Global.Settings.Saves.Count;
+        _buttonCount = Global.Variables.Saves.Count;
         _loadButton = GetNode<TextureButton>("Options/Load");
         _loadButton.Pressed += OnPressedLoad;
         _deleteButton = GetNode<TextureButton>("Options/Delete"); 
@@ -47,7 +47,7 @@ public partial class GameLoader : Control
     public void LoadSave()
     {
         Global.SaveManager.LoadSave(_currentSave);
-        Global.SceneObjects.Storage.GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Settings.SaveData.CurrentLocation}.tscn");
+        Global.SceneObjects.Storage.GetTree().ChangeSceneToFile($"res://Data/Scenes/Location/{Global.Variables.SaveData.CurrentLocation}.tscn");
     }
 
     public void OnPressedDelete()

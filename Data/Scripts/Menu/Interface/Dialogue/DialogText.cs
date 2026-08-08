@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using Godot.Collections;
 
 public partial class DialogText : RichTextLabel
 {
@@ -13,7 +14,7 @@ public partial class DialogText : RichTextLabel
     public int CurrentPosition { get; set; } = 0;
     public bool IsPrinting { get; private set; } = false;
     public bool IsAnimate { get; private set; } = false; 
-    public List<Option> Options { get; private set; }
+    public Array<Option> Options { get; private set; }
     [Export] public CustomLabel[] OptionsText { get; set; }
     [Export] public double PrintingSpeed { get; set; } = 0.02;
     [Export] public TextureRect CharapterName { get; set; }
@@ -48,7 +49,7 @@ public partial class DialogText : RichTextLabel
         }
     }
 
-    public void StartOptions(List<Option> options)
+    public void StartOptions(Array<Option> options)
     {
         Text = "";
         Control.Visible = true;

@@ -36,10 +36,10 @@ public class Directory
         };
         for (int i = 0; i < 24; i++)
             saveData.Items[i] = Global.ItemFabric.CreateItem(0, 12);
-        Global.Settings.SaveData = saveData;
-        Global.Settings.CurrentSave = saveName;
-        Global.Settings.Saves.Add(new Save() { Name = saveName, Number = saveNumber });
-        Global.Settings.Saves.Sort();
+        Global.Variables.SaveData = saveData;
+        Global.Variables.CurrentSave = saveName;
+        Global.Variables.Saves.Add(new Save() { Name = saveName, Number = saveNumber });
+        Global.Variables.Saves.Sort();
         CreateLocationData("Prologue/TheBeginning");
     }
 
@@ -47,20 +47,20 @@ public class Directory
     {
         string path = Path.Combine(_directory, saveName);
         System.IO.Directory.Delete(path, true);
-        Global.Settings.Saves.Remove(Global.Settings.Saves.Find((x) => x.Name == saveName));
+        Global.Variables.Saves.Remove(Global.Variables.Saves.Find((x) => x.Name == saveName));
         Global.Inventory.Clear();
     }
 
     public void CreateLocationData(string location)
     {
-        string path = Path.Combine(_directory, Global.Settings.CurrentSave, "Choices", location + ".json");
+        string path = Path.Combine(_directory, Global.Variables.CurrentSave, "Choices", location + ".json");
         if (File.Exists(path))
         {
             return;
         }
         System.IO.Directory.CreateDirectory(Path.GetDirectoryName(path));
         File.WriteAllText(path, "");
-        path = Path.Combine(_directory, Global.Settings.CurrentSave, "LocationsData", location + ".json");
+        path = Path.Combine(_directory, Global.Variables.CurrentSave, "LocationsData", location + ".json");
         if (File.Exists(path))
         {
             return;

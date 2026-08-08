@@ -6,6 +6,6 @@ public partial class StartingTrail : Chapter1Location
 	public override void _Ready()
 	{
 		base._Ready();
-		Global.Settings.CutScene = false;
+		Global.Variables.CutScene = false;
 	}
 }
